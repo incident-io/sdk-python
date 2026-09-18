@@ -1,0 +1,193 @@
+name: sync
+
+# Runs hourly once enabled. When the schema hasn't changed the job exits in
+# seconds, which is what makes that affordable.
+#
+# Do not rename this file. PyPI's trusted-publishing binding is registered
+# against the repo and this filename, so a rename breaks publishing silently.
+on:
+  # Disabled until PyPI trusted publishing is set up: without it the first
+  # schema change would tag and release, then fail at the publish step.
+  # Uncomment to start the hourly loop. Avoid minute 0, which is GitHub's most
+  # contended scheduling slot.
+  # schedule:
+  #   - cron: "17 * * * *" # hourly
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Which part of the version to bump"
+        type: choice
+        options: [minor, major]
+        default: minor
+      acknowledge_breaking:
+        description: "Publish even though oasdiff reports a breaking change"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write # commit + tag + create release
+  issues: write # open an issue when a breaking change is detected
+  id-token: write # PyPI trusted publishing (job-scoped, hence one job)
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+env:
+  # Pinned deliberately: oasdiff decides whether we publish at all.
+  OASDIFF_VERSION: "1.32.1"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # need full history + tags to read the last version
+
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+
+      # Goes to a scratch path because oasdiff needs both versions to compare;
+      # writing straight over openapi.json would lose the old one.
+      - name: Fetch latest public schema
+        run: curl -sfS https://api.incident.io/v1/openapiV3.json -o openapi.json.new
+
+      - name: Exit early if schema unchanged
+        id: changed
+        run: |
+          if diff -q openapi.json openapi.json.new >/dev/null 2>&1; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Schema unchanged; nothing to do."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check for breaking changes
+        if: steps.changed.outputs.changed == 'true'
+        id: breaking
+        run: |
+          set -euo pipefail
+          curl -sfSL "https://github.com/oasdiff/oasdiff/releases/download/v${OASDIFF_VERSION}/oasdiff_${OASDIFF_VERSION}_linux_amd64.tar.gz" \
+            | tar -xz -C /tmp oasdiff
+
+          # First release: nothing to compare against.
+          if [ ! -f openapi.json ]; then
+            echo "breaking=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          report="$(/tmp/oasdiff breaking openapi.json openapi.json.new --fail-on ERR 2>&1)" && rc=0 || rc=$?
+          echo "$report"
+
+          if [ "$rc" -ne 0 ]; then
+            echo "breaking=true" >> "$GITHUB_OUTPUT"
+            { echo "report<<OASDIFF_EOF"; echo "$report"; echo "OASDIFF_EOF"; } >> "$GITHUB_OUTPUT"
+          else
+            echo "breaking=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A human dispatch with acknowledge_breaking skips this, and that is the
+      # only way to ship a major — nothing can publish outside this workflow.
+      - name: Halt on breaking change
+        if: steps.changed.outputs.changed == 'true' && steps.breaking.outputs.breaking == 'true' && !inputs.acknowledge_breaking
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT: ${{ steps.breaking.outputs.report }}
+        run: |
+          set -euo pipefail
+          body="$(cat <<EOF
+          The upstream OpenAPI schema changed in a way that is **not backwards-compatible**, so the automated release was halted rather than publishing a breaking change as a minor bump.
+
+          A human needs to decide how to proceed — most likely a new major version.
+
+          <details><summary>oasdiff report</summary>
+
+          \`\`\`
+          $REPORT
+          \`\`\`
+
+          </details>
+
+          Triggered by run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          EOF
+          )"
+          # We stop without committing the new schema, so every later run sees
+          # the same diff and lands here again. Only file one issue.
+          existing="$(gh issue list --label breaking-change --state open --limit 1 --json number --jq '.[0].number // empty' 2>/dev/null || true)"
+          if [ -n "$existing" ]; then
+            echo "::error::Breaking change detected; issue #$existing is already open."
+            exit 1
+          fi
+
+          gh issue create \
+            --title "Breaking API change detected — manual release required" \
+            --body "$body" \
+            --label "breaking-change" || \
+          gh issue create \
+            --title "Breaking API change detected — manual release required" \
+            --body "$body"
+          echo "::error::Breaking change detected; opened an issue and stopped."
+          exit 1
+
+      - name: Regenerate and verify
+        if: steps.changed.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          mv openapi.json.new openapi.json
+          make generate
+          make verify
+
+      # Scheduled runs only ever bump minor, since anything breaking has already
+      # stopped the run. Patch is for hand-fixes, major for a human dispatch.
+      - name: Decide next version
+        if: steps.changed.outputs.changed == 'true'
+        id: version
+        run: |
+          set -euo pipefail
+          BUMP="${{ inputs.bump || 'minor' }}"
+          BASE="$(git describe --tags --abbrev=0 2>/dev/null || true)"
+
+          if [ -z "$BASE" ]; then
+            NEXT="v1.0.0"
+          elif [ "$BUMP" = "major" ]; then
+            NEXT="$(echo "${BASE#v}" | awk -F. '{printf "v%d.0.0", $1+1}')"
+          else
+            NEXT="$(echo "${BASE#v}" | awk -F. '{printf "v%s.%d.0", $1, $2+1}')"
+          fi
+
+          echo "Next version: $NEXT (base: ${BASE:-none}, bump: $BUMP)"
+          echo "next=$NEXT" >> "$GITHUB_OUTPUT"
+
+      - name: Build the release
+        if: steps.changed.outputs.changed == 'true'
+        env:
+          NEXT: ${{ steps.version.outputs.next }}
+        run: |
+          set -euo pipefail
+          rm -rf dist
+          sed -i -E "0,/^version = /s/^version = .*/version = \"${NEXT#v}\"/" pyproject.toml
+          grep -m1 '^version = ' pyproject.toml
+          uv build
+
+      - name: Commit, tag and release
+        if: steps.changed.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEXT: ${{ steps.version.outputs.next }}
+        run: |
+          set -euo pipefail
+          git config user.name "incident-io-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add openapi.json pyproject.toml incident_io
+          git commit -m "Update to schema as of $(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+          Regenerated from https://api.incident.io/v1/openapiV3.json"
+          git tag "$NEXT"
+          git push origin HEAD --tags
+          gh release create "$NEXT" --generate-notes --title "$NEXT"
+
+      # Has to live in this job: id-token is job-scoped, and a tag pushed with
+      # GITHUB_TOKEN won't trigger a separate workflow.
+      - name: Publish to PyPI
+        if: steps.changed.outputs.changed == 'true'
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2

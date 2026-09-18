@@ -1,0 +1,7 @@
+# https://github.com/openapi-generators/openapi-python-client#configuration
+#
+# ruff needs to be on PATH. Without it the generator skips these, warns, and
+# still exits 0.
+post_hooks:
+  - "ruff check . --fix-only"
+  - "ruff format ."

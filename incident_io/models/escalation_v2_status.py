@@ -1,0 +1,16 @@
+from enum import StrEnum
+
+
+class EscalationV2Status(StrEnum):
+    ACKED = "acked"
+    CANCELLED = "cancelled"
+    DELAYED = "delayed"
+    EXPIRED = "expired"
+    PENDING = "pending"
+    PENDING_REPEAT = "pending_repeat"
+    RESOLVED = "resolved"
+    SNOOZED = "snoozed"
+    TRIGGERED = "triggered"
+
+    def __str__(self) -> str:
+        return str(self.value)
