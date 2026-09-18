@@ -36,10 +36,11 @@ for incident in result.incidents:
     print(incident.reference, incident.name)
 ```
 
-Every endpoint is a module with four functions. `sync` returns the parsed body,
-or `None` if the API returned an error status. `sync_detailed` returns a
-`Response` carrying `status_code`, `headers` and `parsed`, so you can handle
-statuses yourself:
+Every endpoint is a module with four functions. `sync` returns the parsed body
+— but note that our error responses are typed too, so a failed request returns
+an `ErrorResponse` rather than raising. `sync_detailed` returns a `Response`
+carrying `status_code`, `headers` and `parsed`, which is the straightforward way
+to tell the two apart:
 
 ```python
 response = incidents_v2_list.sync_detailed(client=client)
@@ -71,9 +72,9 @@ client = AuthenticatedClient(
 )
 ```
 
-By default an unexpected status returns `None` from `sync` rather than raising.
-Pass `raise_on_unexpected_status=True` to get an `UnexpectedStatus` exception
-instead.
+Pass `raise_on_unexpected_status=True` to raise `UnexpectedStatus` on a status
+the schema doesn't document, instead of returning `None`. Documented errors
+still come back as an `ErrorResponse`; check `status_code` for those.
 
 To reuse a connection pool or bring your own transport, pass
 `httpx_args`, or hand the client a configured instance with

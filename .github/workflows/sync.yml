@@ -23,6 +23,10 @@ on:
         description: "Publish even though oasdiff reports a breaking change"
         type: boolean
         default: false
+      dry_run:
+        description: "Regenerate and build, but don't tag, release or publish"
+        type: boolean
+        default: false
 
 permissions:
   contents: write # commit + tag + create release
@@ -169,8 +173,24 @@ jobs:
           grep -m1 '^version = ' pyproject.toml
           uv build
 
+      - name: Report what a dry run would have done
+        if: steps.changed.outputs.changed == 'true' && inputs.dry_run
+        env:
+          NEXT: ${{ steps.version.outputs.next }}
+        run: |
+          {
+            echo "### Dry run — nothing was tagged or published"
+            echo
+            echo "Would have released **$NEXT**."
+            echo
+            echo "Built artefacts:"
+            echo '```'
+            ls -1 dist
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Commit, tag and release
-        if: steps.changed.outputs.changed == 'true'
+        if: steps.changed.outputs.changed == 'true' && !inputs.dry_run
         env:
           GH_TOKEN: ${{ github.token }}
           NEXT: ${{ steps.version.outputs.next }}
@@ -189,5 +209,5 @@ jobs:
       # Has to live in this job: id-token is job-scoped, and a tag pushed with
       # GITHUB_TOKEN won't trigger a separate workflow.
       - name: Publish to PyPI
-        if: steps.changed.outputs.changed == 'true'
+        if: steps.changed.outputs.changed == 'true' && !inputs.dry_run
         uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
