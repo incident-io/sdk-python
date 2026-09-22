@@ -208,6 +208,38 @@ jobs:
           # behaviour needs checking. make verify only proves it imports.
           uv run --group dev pytest tests/ -q
 
+      # make verify fails when something left the public surface. That is a
+      # breaking change oasdiff cannot see, so it gets oasdiff's treatment:
+      # an issue, and no publish.
+      - name: Report a breaking change to the generated API
+        if: failure() && steps.changed.outputs.changed == 'true' && steps.breaking.outputs.breaking != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git diff --quiet -- api-surface.txt && exit 0 || true
+
+          gh label create breaking-change \
+            --description "Schema changed incompatibly; release halted" \
+            --color B60205 2>/dev/null || true
+
+          if gh issue list --label breaking-change --state open --limit 1 \
+              --json number --jq '.[0].number // empty' | grep -q .; then
+            echo "::error::Already reported."
+            exit 1
+          fi
+
+          gh issue create --title "Generated API changed incompatibly — manual release required" \
+            --label breaking-change --body "$(cat <<EOF
+          Something left the SDK's public surface. The wire contract may be unchanged — oasdiff passed — but consumers import these names, so this breaks them at import or call time.
+
+          Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+
+          Release with \`bump: major\` once you have decided, then run \`make surface\` to accept the new baseline.
+          EOF
+          )"
+          exit 1
+
       # Every step above this point fails without committing anything, so the
       # next run sees the same schema diff and fails identically. Left alone
       # that is a red cron every hour and no other signal.
@@ -262,7 +294,7 @@ jobs:
           set -euo pipefail
           git config user.name "incident-io-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add openapi.json pyproject.toml incident_io
+          git add openapi.json pyproject.toml incident_io api-surface.txt
           git commit -m "Update to schema as of $(date -u +%Y-%m-%dT%H:%M:%SZ)
 
           Regenerated from https://api.incident.io/v1/openapiV3.json"

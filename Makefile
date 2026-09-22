@@ -11,7 +11,7 @@ RUFF_VERSION := 0.16.8
 PACKAGE    := incident_io
 SCHEMA_URL := https://api.incident.io/v1/openapiV3.json
 
-.PHONY: fetch generate verify clean
+.PHONY: fetch generate verify surface clean
 
 # -L because without it a redirect is a silent success writing zero bytes,
 # which parses as an empty schema.
@@ -53,6 +53,15 @@ verify:
 	# mypy resolves the generated `Response` to httpx's and reports thousands of
 	# errors that no consumer ever sees.
 	.venv-verify/bin/mypy -p incident_io
+	# oasdiff compares the schema; this compares what consumers import. A
+	# renamed schema, a changed operationId or a renamed path parameter is
+	# `info` to oasdiff and an ImportError or TypeError to a caller.
+	.venv-verify/bin/python scripts/api_surface.py check $(PACKAGE) api-surface.txt
+
+# Accept the current surface as the new baseline. Run after a deliberate
+# breaking change, alongside the major version bump.
+surface: verify
+	.venv-verify/bin/python scripts/api_surface.py write $(PACKAGE) api-surface.txt
 
 clean:
-	rm -rf $(PACKAGE) dist build .venv-verify .ruff_cache
+	rm -rf $(PACKAGE) dist build .venv-verify .ruff_cache .mypy_cache
