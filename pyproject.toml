@@ -38,3 +38,12 @@ packages = ["incident_io"]
 
 [tool.hatch.build.targets.sdist]
 include = ["incident_io", "openapi.json", "LICENSE", "README.md"]
+
+[dependency-groups]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=0.24",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

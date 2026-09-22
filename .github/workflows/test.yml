@@ -14,6 +14,9 @@ jobs:
       # Builds the wheel, installs it, byte-compiles the tree and imports every
       # module. See scripts/verify_import.py.
       - run: make verify
+      # Behavioural checks against a stub transport, so they need no API key.
+      # scripts/smoke_test.py covers the live API and is run by hand.
+      - run: uv run --group dev pytest tests/ -q
 
   # Fail if the committed client is out of date with the committed schema — i.e.
   # someone changed openapi.json without re-running the generator. Regenerates
@@ -26,7 +29,10 @@ jobs:
       - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
       # The generator's post_hooks shell out to ruff. Without it on PATH they
       # are skipped with a warning, and --fail-on-warning then fails the build.
-      - run: uv tool install ruff
+      # uv installs tools into ~/.local/bin, which isn't on a runner's PATH.
+      - run: |
+          uv tool install ruff
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - run: make generate
       - name: Check for drift
         run: |

@@ -7,8 +7,13 @@ internal/postgen.
 
 We find each module by the method and URL it calls, rather than guessing at the
 generator's file naming, and append a wrapper rather than editing generated code
-in place. One wrapper covers both the sync and async entry points, since
-awaiting its return value awaits the coroutine underneath.
+in place.
+
+The async entry points need their own wrapper. Wrapping `async def` in a plain
+`def` that returns the coroutine still awaits correctly, but the result is no
+longer a coroutine function: `inspect.iscoroutinefunction` returns False, and
+anything that branches on that — test frameworks, task runners, DI containers —
+takes the wrong path.
 """
 
 from __future__ import annotations
@@ -18,26 +23,37 @@ import re
 import sys
 from pathlib import Path
 
-ENTRY_POINTS = ("sync_detailed", "sync", "asyncio_detailed", "asyncio")
+SYNC_ENTRY_POINTS = ("sync_detailed", "sync")
+ASYNC_ENTRY_POINTS = ("asyncio_detailed", "asyncio")
+ENTRY_POINTS = SYNC_ENTRY_POINTS + ASYNC_ENTRY_POINTS
 METHODS = ("get", "post", "put", "patch", "delete")
 MARKER = "# --- deprecation markers added by scripts/mark_deprecated.py ---"
 
 TEMPLATE = '''
 
 {marker}
-import functools as _functools
-import warnings as _warnings
+import functools as _functools  # noqa: E402
+import warnings as _warnings  # noqa: E402
+
+_DEPRECATION_MESSAGE = "{message}"
 
 
 def _deprecated(_fn):
     @_functools.wraps(_fn)
     def _wrapper(*args, **kwargs):
-        _warnings.warn(
-            "{message}",
-            DeprecationWarning,
-            stacklevel=2,
-        )
+        _warnings.warn(_DEPRECATION_MESSAGE, DeprecationWarning, stacklevel=2)
         return _fn(*args, **kwargs)
+
+    return _wrapper
+
+
+def _deprecated_async(_fn):
+    # `async def`, so the result stays a coroutine function under
+    # inspect.iscoroutinefunction. See this module's docstring.
+    @_functools.wraps(_fn)
+    async def _wrapper(*args, **kwargs):
+        _warnings.warn(_DEPRECATION_MESSAGE, DeprecationWarning, stacklevel=2)
+        return await _fn(*args, **kwargs)
 
     return _wrapper
 
@@ -79,7 +95,10 @@ def mark(file: Path, method: str, path: str) -> bool:
         f"{method.upper()} {path} is deprecated and will be removed. "
         "See https://api-docs.incident.io/ for the replacement."
     )
-    rebinds = "\n".join(f"{name} = _deprecated({name})" for name in present)
+    rebinds = "\n".join(
+        f"{name} = {'_deprecated_async' if name in ASYNC_ENTRY_POINTS else '_deprecated'}({name})"
+        for name in present
+    )
     file.write_text(source.rstrip("\n") + TEMPLATE.format(marker=MARKER, message=message, rebinds=rebinds))
     return True
 

@@ -246,23 +246,32 @@ async def asyncio(
     ).parsed
 
 # --- deprecation markers added by scripts/mark_deprecated.py ---
-import functools as _functools
-import warnings as _warnings
+import functools as _functools  # noqa: E402
+import warnings as _warnings  # noqa: E402
+
+_DEPRECATION_MESSAGE = "POST /v1/incident_roles is deprecated and will be removed. See https://api-docs.incident.io/ for the replacement."
 
 
 def _deprecated(_fn):
     @_functools.wraps(_fn)
     def _wrapper(*args, **kwargs):
-        _warnings.warn(
-            "POST /v1/incident_roles is deprecated and will be removed. See https://api-docs.incident.io/ for the replacement.",
-            DeprecationWarning,
-            stacklevel=2,
-        )
+        _warnings.warn(_DEPRECATION_MESSAGE, DeprecationWarning, stacklevel=2)
         return _fn(*args, **kwargs)
+
+    return _wrapper
+
+
+def _deprecated_async(_fn):
+    # `async def`, so the result stays a coroutine function under
+    # inspect.iscoroutinefunction. See this module's docstring.
+    @_functools.wraps(_fn)
+    async def _wrapper(*args, **kwargs):
+        _warnings.warn(_DEPRECATION_MESSAGE, DeprecationWarning, stacklevel=2)
+        return await _fn(*args, **kwargs)
 
     return _wrapper
 
 sync_detailed = _deprecated(sync_detailed)
 sync = _deprecated(sync)
-asyncio_detailed = _deprecated(asyncio_detailed)
-asyncio = _deprecated(asyncio)
+asyncio_detailed = _deprecated_async(asyncio_detailed)
+asyncio = _deprecated_async(asyncio)
