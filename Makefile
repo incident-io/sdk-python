@@ -22,14 +22,17 @@ generate: openapi.json
 		--overwrite \
 		--fail-on-warning
 	python3 scripts/mark_deprecated.py openapi.json $(PACKAGE)
+	# Committed too, but recreated here because generate removes the package
+	# first. Without it type checkers ignore every annotation in the SDK.
+	touch $(PACKAGE)/py.typed
 
-# Python has no compile step, so we install the wheel and import it. That at
-# least runs every generated module once.
+# Python has no compile step, so we install the wheel and exercise it. See
+# scripts/verify_import.py for why importing the package alone isn't enough.
 verify:
 	uv build
 	uv venv --clear .venv-verify
 	uv pip install --quiet --python .venv-verify dist/*.whl
-	.venv-verify/bin/python -c "import incident_io; from incident_io.api.incidents_v2 import incidents_v2_list; print('import ok')"
+	.venv-verify/bin/python scripts/verify_import.py
 
 clean:
 	rm -rf $(PACKAGE) dist build .venv-verify .ruff_cache

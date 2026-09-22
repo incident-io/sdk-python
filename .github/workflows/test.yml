@@ -1,0 +1,37 @@
+name: test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+      # Builds the wheel, installs it, byte-compiles the tree and imports every
+      # module. See scripts/verify_import.py.
+      - run: make verify
+
+  # Fail if the committed client is out of date with the committed schema — i.e.
+  # someone changed openapi.json without re-running the generator. Regenerates
+  # from the committed schema, not the live one, so this stays a check on the
+  # commit rather than a second copy of the sync job.
+  generate-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+      # The generator's post_hooks shell out to ruff. Without it on PATH they
+      # are skipped with a warning, and --fail-on-warning then fails the build.
+      - run: uv tool install ruff
+      - run: make generate
+      - name: Check for drift
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Generated client is out of date. Run 'make generate' and commit the result."
+            git diff --stat
+            exit 1
+          fi
