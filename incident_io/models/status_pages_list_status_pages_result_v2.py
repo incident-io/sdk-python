@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="StatusPagesListStatusPagesResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class StatusPagesListStatusPagesResultV2:
     """
     Example:

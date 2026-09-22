@@ -14,7 +14,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="CallRouteTargetV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CallRouteTargetV2:
     """Someone a call route pages when a call comes in.
 

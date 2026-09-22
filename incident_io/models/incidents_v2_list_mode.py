@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="IncidentsV2ListMode")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentsV2ListMode:
     """Filter on incident mode. The accepted operator is 'one_of'.  If this is not provided, this value defaults to
     `{"one_of": ["standard", "retrospective"] }`, meaning that test and tutorial incidents are not included.

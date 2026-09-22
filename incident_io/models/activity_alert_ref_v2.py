@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ActivityAlertRefV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ActivityAlertRefV2:
     """
     Example:

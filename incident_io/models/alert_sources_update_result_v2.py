@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AlertSourcesUpdateResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertSourcesUpdateResultV2:
     """
     Example:

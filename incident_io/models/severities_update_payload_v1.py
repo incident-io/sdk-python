@@ -11,7 +11,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="SeveritiesUpdatePayloadV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class SeveritiesUpdatePayloadV1:
     """
     Example:

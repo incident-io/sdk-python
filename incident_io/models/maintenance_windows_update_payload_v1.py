@@ -23,7 +23,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="MaintenanceWindowsUpdatePayloadV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class MaintenanceWindowsUpdatePayloadV1:
     """
     Example:

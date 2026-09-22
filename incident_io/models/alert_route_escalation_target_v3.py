@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AlertRouteEscalationTargetV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertRouteEscalationTargetV3:
     """
     Example:

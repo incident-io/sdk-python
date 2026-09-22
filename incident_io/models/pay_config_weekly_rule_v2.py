@@ -13,7 +13,7 @@ from ..models.pay_config_weekly_rule_v2_weekdays_item import (
 T = TypeVar("T", bound="PayConfigWeeklyRuleV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayConfigWeeklyRuleV2:
     """A rule that applies every week, over the same days and hours.
 

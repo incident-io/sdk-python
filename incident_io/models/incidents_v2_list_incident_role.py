@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="IncidentsV2ListIncidentRole")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentsV2ListIncidentRole:
     """Filter on an incident role. Role ID should be sent, along with backlink attribute ID (if needed) followed by the
     operator and values. The accepted operators are 'one_of', 'is_blank'.

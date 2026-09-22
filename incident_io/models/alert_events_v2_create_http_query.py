@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="AlertEventsV2CreateHttpQuery")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertEventsV2CreateHttpQuery:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

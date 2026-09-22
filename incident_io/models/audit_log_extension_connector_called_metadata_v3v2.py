@@ -11,7 +11,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="AuditLogExtensionConnectorCalledMetadataV3V2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogExtensionConnectorCalledMetadataV3V2:
     """
     Example:

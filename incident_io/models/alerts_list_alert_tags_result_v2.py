@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AlertsListAlertTagsResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertsListAlertTagsResultV2:
     """
     Example:

@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PolicyDebriefV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyDebriefV2:
     """Set when policy_type is debrief.
 

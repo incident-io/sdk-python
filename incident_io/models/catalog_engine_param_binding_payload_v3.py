@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CatalogEngineParamBindingPayloadV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CatalogEngineParamBindingPayloadV3:
     """
     Example:

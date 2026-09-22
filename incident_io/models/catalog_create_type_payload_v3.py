@@ -24,7 +24,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CatalogCreateTypePayloadV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CatalogCreateTypePayloadV3:
     """
     Example:

@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="EscalationPriorityV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationPriorityV2:
     """The priority associated with this escalation.
 

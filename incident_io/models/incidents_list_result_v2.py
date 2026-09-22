@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="IncidentsListResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentsListResultV2:
     """
     Example:

@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PolicyOnCallReadinessV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyOnCallReadinessV2:
     """Set when policy_type is on_call_readiness. The assignee is always the user the finding is about and cannot be
     configured.

@@ -25,6 +25,7 @@ then:
 ```python
 from incident_io import AuthenticatedClient
 from incident_io.api.incidents_v2 import incidents_v2_list
+from incident_io.models import IncidentsListResultV2
 
 client = AuthenticatedClient(
     base_url="https://api.incident.io",
@@ -32,9 +33,14 @@ client = AuthenticatedClient(
 )
 
 result = incidents_v2_list.sync(client=client, page_size=25)
-for incident in result.incidents:
-    print(incident.reference, incident.name)
+if isinstance(result, IncidentsListResultV2):
+    for incident in result.incidents:
+        print(incident.reference, incident.name)
 ```
+
+The `isinstance` check isn't ceremony: a failed request comes back as an
+`ErrorResponse` rather than raising, so `result` is one of the two. The SDK
+ships type annotations, so a type checker will tell you if you skip it.
 
 Every endpoint is a module with four functions. `sync` returns the parsed body
 — but note that our error responses are typed too, so a failed request returns
@@ -45,7 +51,7 @@ to tell the two apart:
 ```python
 response = incidents_v2_list.sync_detailed(client=client)
 if response.status_code != 200:
-    raise RuntimeError(f"unexpected status {response.status_code}: {response.content}")
+    raise RuntimeError(f"unexpected status {response.status_code}: {response.content!r}")
 ```
 
 ## Async
@@ -72,7 +78,8 @@ client = AuthenticatedClient(
 )
 ```
 
-Pass `raise_on_unexpected_status=True` to raise `UnexpectedStatus` on a status
+Pass `raise_on_unexpected_status=True` to raise
+`incident_io.errors.UnexpectedStatus` on a status
 the schema doesn't document, instead of returning `None`. Documented errors
 still come back as an `ErrorResponse`; check `status_code` for those.
 
@@ -86,15 +93,20 @@ List endpoints are cursor-paginated. Read the next cursor from
 `pagination_meta.after` and pass it back as `after`:
 
 ```python
-from incident_io.types import UNSET
+from incident_io.types import UNSET, Unset
 
-after = UNSET
+after: str | Unset = UNSET
 while True:
     page = incidents_v2_list.sync(client=client, page_size=100, after=after)
+    if not isinstance(page, IncidentsListResultV2):
+        raise RuntimeError(f"request failed: {page}")
+
     for incident in page.incidents:
         print(incident.reference, incident.name)
 
-    if not page.pagination_meta or page.pagination_meta.after is UNSET:
+    # Both the metadata and the cursor within it are optional: the last page
+    # has no cursor to follow.
+    if isinstance(page.pagination_meta, Unset) or isinstance(page.pagination_meta.after, Unset):
         break
     after = page.pagination_meta.after
 ```
@@ -103,16 +115,15 @@ while True:
 
 Endpoints that incident.io has deprecated (for example the `v1` incidents and
 custom fields endpoints, superseded by `v2`) remain available, but calling one
-raises a `DeprecationWarning` naming the endpoint. Python hides these by
+issues a `DeprecationWarning` naming the endpoint. Python hides these by
 default, so run with `-W default::DeprecationWarning` to see them.
 
 ## Versioning
 
 Releases are cut automatically whenever the API schema changes. We use
-[SemVer](https://semver.org/): additive API changes bump the minor version and
-backwards-compatible fixes bump the patch version. Changes that would break
-existing code are never released automatically - they require a deliberate
-major version.
+[SemVer](https://semver.org/): additive API changes bump the minor version.
+Changes that would break existing code are never released automatically - they
+require a deliberate major version.
 
 ## Support
 

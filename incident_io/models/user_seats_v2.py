@@ -12,7 +12,7 @@ from ..models.user_seats_v2_response import UserSeatsV2Response
 T = TypeVar("T", bound="UserSeatsV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class UserSeatsV2:
     """
     Example:

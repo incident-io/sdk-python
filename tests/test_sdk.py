@@ -20,6 +20,7 @@ import pytest
 import incident_io
 from incident_io import AuthenticatedClient
 from incident_io.api.actions_v1 import actions_v1_list
+from incident_io.api.pay_reports_v2 import pay_reports_v2_download
 from incident_io.api.severities_v1 import severities_v1_list
 
 SEVERITIES_BODY = {
@@ -115,6 +116,23 @@ def test_a_deprecated_endpoint_warns():
     assert "GET /v1/actions" in messages[0]
 
 
+def test_a_deprecated_endpoint_warns_once_not_twice():
+    """sync() calls sync_detailed(), and both carry the wrapper. Without
+    suppression the second warning points inside the SDK, which under
+    -W error blames us for the caller's mistake."""
+    client = client_returning(200, {"actions": []})
+
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always")
+        actions_v1_list.sync(client=client)
+
+    deprecations = [w for w in caught if w.category is DeprecationWarning]
+    assert len(deprecations) == 1, f"expected one warning, got {len(deprecations)}"
+    assert "incident_io" not in deprecations[0].filename, (
+        "the warning points inside the SDK rather than at the caller"
+    )
+
+
 def test_a_deprecated_async_endpoint_stays_a_coroutine_function():
     """Wrapping `async def` in a plain `def` would break anything that branches
     on inspect.iscoroutinefunction, even though `await` still works."""
@@ -142,6 +160,28 @@ def test_an_undeprecated_endpoint_does_not_warn():
         severities_v1_list.sync_detailed(client=client)
 
     assert not [w for w in caught if w.category is DeprecationWarning]
+
+
+def test_a_binary_download_returns_bytes():
+    """The generator decodes binary responses with response.text and hands the
+    str to BytesIO, which raises. scripts/fix_generated.py patches that, and
+    an import-only check would never catch it coming back."""
+    # client_returning serialises its body as JSON; a download returns raw bytes.
+    csv = b"member,hours\nalice,12\n"
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, content=csv)
+
+    client = AuthenticatedClient(
+        base_url="https://api.incident.io",
+        token="test-key",
+        httpx_args={"transport": httpx.MockTransport(handler)},
+    )
+
+    response = pay_reports_v2_download.sync_detailed(client=client, id="abc")
+
+    assert response.status_code == 200
+    assert response.parsed.payload.read() == csv
 
 
 def test_the_package_ships_a_py_typed_marker():

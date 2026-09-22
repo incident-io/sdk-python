@@ -11,7 +11,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="CallRouteAllowedCallerV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CallRouteAllowedCallerV2:
     """A phone number allowed to reach a call route.
 

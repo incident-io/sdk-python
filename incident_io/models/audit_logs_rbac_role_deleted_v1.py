@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AuditLogsRbacRoleDeletedV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogsRbacRoleDeletedV1:
     """
     Example:

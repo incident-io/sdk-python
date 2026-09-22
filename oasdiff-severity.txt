@@ -1,0 +1,2 @@
+response-property-enum-value-added WARN
+request-parameter-min-set WARN

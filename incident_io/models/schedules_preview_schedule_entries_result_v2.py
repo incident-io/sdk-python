@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="SchedulesPreviewScheduleEntriesResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class SchedulesPreviewScheduleEntriesResultV2:
     """
     Example:

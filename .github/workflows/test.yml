@@ -27,17 +27,16 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
-      # The generator's post_hooks shell out to ruff. Without it on PATH they
-      # are skipped with a warning, and --fail-on-warning then fails the build.
-      # uv installs tools into ~/.local/bin, which isn't on a runner's PATH.
-      - run: |
-          uv tool install ruff
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      # No ruff step: openapi-python-client depends on ruff and uvx puts the
+      # tool environment's bin first, so the generator's post_hooks always find
+      # its own copy rather than anything installed here.
       - run: make generate
       - name: Check for drift
         run: |
-          if ! git diff --quiet; then
+          # --porcelain, not `git diff --quiet`: the latter ignores untracked
+          # files, so a new endpoint module would pass unnoticed.
+          if [ -n "$(git status --porcelain)" ]; then
             echo "::error::Generated client is out of date. Run 'make generate' and commit the result."
-            git diff --stat
+            git status --porcelain
             exit 1
           fi

@@ -37,12 +37,26 @@ import warnings as _warnings  # noqa: E402
 
 _DEPRECATION_MESSAGE = "{message}"
 
+# sync() calls sync_detailed(), and both are wrapped, so a single user call
+# would warn twice — the second time with a stacklevel pointing inside the SDK,
+# which under -W error blames us for the user's call. This suppresses the inner
+# warning. Module-level rather than thread-local because it is only ever set
+# for the duration of one synchronous call frame.
+_warning_in_progress = False
+
 
 def _deprecated(_fn):
     @_functools.wraps(_fn)
     def _wrapper(*args, **kwargs):
+        global _warning_in_progress
+        if _warning_in_progress:
+            return _fn(*args, **kwargs)
         _warnings.warn(_DEPRECATION_MESSAGE, DeprecationWarning, stacklevel=2)
-        return _fn(*args, **kwargs)
+        _warning_in_progress = True
+        try:
+            return _fn(*args, **kwargs)
+        finally:
+            _warning_in_progress = False
 
     return _wrapper
 
@@ -52,8 +66,15 @@ def _deprecated_async(_fn):
     # inspect.iscoroutinefunction. See this module's docstring.
     @_functools.wraps(_fn)
     async def _wrapper(*args, **kwargs):
+        global _warning_in_progress
+        if _warning_in_progress:
+            return await _fn(*args, **kwargs)
         _warnings.warn(_DEPRECATION_MESSAGE, DeprecationWarning, stacklevel=2)
-        return await _fn(*args, **kwargs)
+        _warning_in_progress = True
+        try:
+            return await _fn(*args, **kwargs)
+        finally:
+            _warning_in_progress = False
 
     return _wrapper
 
@@ -69,8 +90,27 @@ def deprecated_operations(spec: dict) -> set[tuple[str, str]]:
             if method not in METHODS or not isinstance(operation, dict):
                 continue
             if operation.get("deprecated"):
-                found.add((method, path))
+                found.add((method, normalise_path(path)))
     return found
+
+
+def normalise_path(path: str) -> str:
+    """Snake_case the parameter names in a path, the way the generator does.
+
+    The schema is free to name a path parameter `followUpId` or `action-id`;
+    the generated URL always says `follow_up_id`. Comparing the raw spec path
+    against the generated one therefore misses those, and a miss fails the
+    release. Only the parameter names are touched — the literal segments are
+    already whatever the API serves.
+    """
+
+    def snake(match: re.Match[str]) -> str:
+        name = match.group(1)
+        name = re.sub(r"[-\s]+", "_", name)
+        name = re.sub(r"(?<=[a-z0-9])([A-Z])", r"_\1", name)
+        return "{" + name.lower() + "}"
+
+    return re.sub(r"\{([^}]+)\}", snake, path)
 
 
 def operation_of(source: str) -> tuple[str, str] | None:
@@ -83,9 +123,12 @@ def operation_of(source: str) -> tuple[str, str] | None:
 
 
 def mark(file: Path, method: str, path: str) -> bool:
+    """Append the wrappers. True if the module ends up marked, including when
+    it already was — otherwise a second run reports every operation as missing
+    and blames the generator for it."""
     source = file.read_text()
     if MARKER in source:
-        return False
+        return True
 
     present = [name for name in ENTRY_POINTS if re.search(rf"^(?:async )?def {name}\(", source, re.M)]
     if not present:

@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AuditLogsAlertChatMessageTemplateDeletedV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogsAlertChatMessageTemplateDeletedV1:
     """
     Example:

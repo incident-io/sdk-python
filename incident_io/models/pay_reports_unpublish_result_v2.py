@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PayReportsUnpublishResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayReportsUnpublishResultV2:
     """
     Example:

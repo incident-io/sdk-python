@@ -13,7 +13,7 @@ from ..models.schedule_rotation_handover_v2_interval_type import (
 T = TypeVar("T", bound="ScheduleRotationHandoverV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ScheduleRotationHandoverV2:
     """
     Example:

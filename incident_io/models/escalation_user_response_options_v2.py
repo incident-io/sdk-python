@@ -13,7 +13,7 @@ from ..models.escalation_user_response_options_v2_available_actions_item import 
 T = TypeVar("T", bound="EscalationUserResponseOptionsV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationUserResponseOptionsV2:
     """
     Example:

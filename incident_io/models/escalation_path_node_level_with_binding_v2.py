@@ -27,7 +27,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="EscalationPathNodeLevelWithBindingV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationPathNodeLevelWithBindingV2:
     """
     Example:

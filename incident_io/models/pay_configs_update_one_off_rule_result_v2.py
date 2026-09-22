@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PayConfigsUpdateOneOffRuleResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayConfigsUpdateOneOffRuleResultV2:
     """
     Example:

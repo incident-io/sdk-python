@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="AlertsV2ListTags")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertsV2ListTags:
     """Filter on the tags applied to an alert, by tag name. The accepted operators are 'one_of', 'all_of' and 'not_in'.
 

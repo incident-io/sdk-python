@@ -12,7 +12,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="PayConfigOneOffRulePayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayConfigOneOffRulePayloadV2:
     """A one-off rule to write. Send an existing rule's ID to keep it stable, and omit it for a rule you are adding.
 

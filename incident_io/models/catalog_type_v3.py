@@ -20,7 +20,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CatalogTypeV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CatalogTypeV3:
     """
     Example:

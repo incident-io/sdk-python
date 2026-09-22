@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="EscalationsCheckEscalationPermissionsResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationsCheckEscalationPermissionsResultV2:
     """
     Example:

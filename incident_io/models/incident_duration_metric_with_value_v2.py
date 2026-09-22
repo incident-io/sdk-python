@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="IncidentDurationMetricWithValueV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentDurationMetricWithValueV2:
     """
     Example:

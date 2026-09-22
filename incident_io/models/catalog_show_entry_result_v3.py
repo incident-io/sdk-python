@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CatalogShowEntryResultV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CatalogShowEntryResultV3:
     """
     Example:

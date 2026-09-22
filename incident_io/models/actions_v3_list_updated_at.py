@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="ActionsV3ListUpdatedAt")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ActionsV3ListUpdatedAt:
     """Filter on action updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
 

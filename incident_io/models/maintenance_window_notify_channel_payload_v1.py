@@ -11,7 +11,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="MaintenanceWindowNotifyChannelPayloadV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class MaintenanceWindowNotifyChannelPayloadV1:
     """A channel to receive notifications about this maintenance window
 

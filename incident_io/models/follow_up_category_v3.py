@@ -11,7 +11,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="FollowUpCategoryV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class FollowUpCategoryV3:
     """
     Example:

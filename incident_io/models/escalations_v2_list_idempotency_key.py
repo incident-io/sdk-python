@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="EscalationsV2ListIdempotencyKey")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationsV2ListIdempotencyKey:
     """Filter on the idempotency key of the escalation. This is the key set when creating escalations via the API, and is
     distinct from alert deduplication keys. Accepted operators are 'is' for exact matches and 'starts_with' for prefix

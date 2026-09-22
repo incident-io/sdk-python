@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="MaintenanceWindowsUpdateResultV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class MaintenanceWindowsUpdateResultV1:
     """
     Example:

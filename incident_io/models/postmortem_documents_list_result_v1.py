@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PostmortemDocumentsListResultV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PostmortemDocumentsListResultV1:
     """
     Example:

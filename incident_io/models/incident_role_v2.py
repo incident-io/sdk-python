@@ -12,7 +12,7 @@ from ..models.incident_role_v2_role_type import IncidentRoleV2RoleType
 T = TypeVar("T", bound="IncidentRoleV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentRoleV2:
     """
     Example:

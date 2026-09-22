@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="WorkflowRunV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class WorkflowRunV2:
     """
     Example:

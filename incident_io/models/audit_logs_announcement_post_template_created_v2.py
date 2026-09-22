@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AuditLogsAnnouncementPostTemplateCreatedV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogsAnnouncementPostTemplateCreatedV2:
     """
     Example:

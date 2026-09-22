@@ -12,7 +12,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="ActionsUpdatePayloadV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ActionsUpdatePayloadV3:
     """
     Example:

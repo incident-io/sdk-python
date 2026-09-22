@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ScheduleEntryV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ScheduleEntryV2:
     """A single shift on a schedule, representing who is on-call between a start
     and end time. When present, `rotation_id` and `layer_id` tell you which

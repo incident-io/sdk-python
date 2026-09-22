@@ -12,7 +12,7 @@ from ..models.incident_status_v1_category import IncidentStatusV1Category
 T = TypeVar("T", bound="IncidentStatusV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentStatusV1:
     """
     Example:

@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="ScheduleUpdatePayloadV2Annotations")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ScheduleUpdatePayloadV2Annotations:
     """Annotations that can track metadata about the schedule
 

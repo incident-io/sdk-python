@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ExpressionElseBranchV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ExpressionElseBranchV2:
     """
     Example:

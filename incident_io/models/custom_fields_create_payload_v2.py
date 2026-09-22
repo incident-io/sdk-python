@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CustomFieldsCreatePayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CustomFieldsCreatePayloadV2:
     """
     Example:

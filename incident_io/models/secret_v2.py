@@ -12,7 +12,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="SecretV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class SecretV2:
     """A secret is a named credential that workflows can reference, for example
     an auth token for an outgoing webhook.

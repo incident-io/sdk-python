@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="PayReportRotationFilterV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayReportRotationFilterV2:
     """Narrows one of a report's schedules to some of its rotations.
 

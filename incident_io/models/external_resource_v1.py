@@ -11,7 +11,7 @@ from ..models.external_resource_v1_resource_type import ExternalResourceV1Resour
 T = TypeVar("T", bound="ExternalResourceV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ExternalResourceV1:
     """
     Example:

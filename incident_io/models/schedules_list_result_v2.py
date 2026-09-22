@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="SchedulesListResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class SchedulesListResultV2:
     """
     Example:

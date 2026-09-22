@@ -22,7 +22,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ActivityActionUpdatedV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ActivityActionUpdatedV2:
     """
     Example:

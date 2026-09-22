@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="StatusPageRetrospectiveIncidentUpdateV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class StatusPageRetrospectiveIncidentUpdateV2:
     """A single update in the reconstructed timeline of a retrospective status page incident.
 

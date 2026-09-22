@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="IncidentsV2ListCustomField")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentsV2ListCustomField:
     """Filter on an incident custom field. Custom field ID should be sent, followed by the operator and values. Accepted
     operator will depend on the custom field type.

@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PayConfigsShowResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayConfigsShowResultV2:
     """
     Example:

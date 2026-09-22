@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="APIKeysUpdateResultV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class APIKeysUpdateResultV1:
     """
     Example:

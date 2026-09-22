@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="WebhookDeliveryRequestV2Headers")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class WebhookDeliveryRequestV2Headers:
     """Headers sent with the request, including those added automatically. Values interpolated from a secret are replaced
     with [secret], and the signature header is always redacted

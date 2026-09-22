@@ -12,7 +12,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="CallSessionV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CallSessionV2:
     """A call session is a single occurrence of a call that Scribe attended,
     for example one Zoom or Google Meet meeting. Several call sessions can exist for

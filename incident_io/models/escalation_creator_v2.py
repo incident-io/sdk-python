@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="EscalationCreatorV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationCreatorV2:
     """The creator of this escalation. Can be a user, a workflow, or an alert. If the escalation came from a call route,
     this will be empty.

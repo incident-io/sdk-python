@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PolicyPostMortemV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyPostMortemV2:
     """Set when policy_type is post_mortem.
 

@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="IncidentTemplateSeverityBindingV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentTemplateSeverityBindingV1:
     """
     Example:

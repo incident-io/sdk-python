@@ -13,7 +13,7 @@ from ..models.follow_ups_connect_external_issue_payload_v3_provider import (
 T = TypeVar("T", bound="FollowUpsConnectExternalIssuePayloadV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class FollowUpsConnectExternalIssuePayloadV3:
     """
     Example:

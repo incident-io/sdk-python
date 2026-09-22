@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ScheduleEntriesListPayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ScheduleEntriesListPayloadV2:
     """The schedule entries for a window of time, grouped by where they come from.
 

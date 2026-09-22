@@ -11,7 +11,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="TelemetryDatadogUpdateConfigV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class TelemetryDatadogUpdateConfigV2:
     """Datadog-specific credential updates
 

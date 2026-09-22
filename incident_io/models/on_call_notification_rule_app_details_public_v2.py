@@ -13,7 +13,7 @@ from ..models.on_call_notification_rule_app_details_public_v2_push_notification_
 T = TypeVar("T", bound="OnCallNotificationRuleAppDetailsPublicV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class OnCallNotificationRuleAppDetailsPublicV2:
     """
     Example:

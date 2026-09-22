@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CallRoutePathNodeV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CallRoutePathNodeV2:
     """A single step in a call route's path.
 

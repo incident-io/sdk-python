@@ -13,7 +13,7 @@ from ..models.on_call_notification_rule_phone_details_public_v2_channel import (
 T = TypeVar("T", bound="OnCallNotificationRulePhoneDetailsPublicV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class OnCallNotificationRulePhoneDetailsPublicV2:
     """
     Example:

@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CatalogUpdateEntryPayloadV3AttributeValues")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CatalogUpdateEntryPayloadV3AttributeValues:
     """Values of this entry
 

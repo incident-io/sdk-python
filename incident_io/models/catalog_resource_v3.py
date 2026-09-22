@@ -11,7 +11,7 @@ from ..models.catalog_resource_v3_category import CatalogResourceV3Category
 T = TypeVar("T", bound="CatalogResourceV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CatalogResourceV3:
     """
     Example:

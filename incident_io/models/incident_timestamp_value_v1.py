@@ -12,7 +12,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="IncidentTimestampValueV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentTimestampValueV1:
     """
     Example:

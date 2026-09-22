@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="IncidentsV2ListStatusCategory")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentsV2ListStatusCategory:
     """Filter on the category of the incidents status. The accepted operators are 'one_of', or 'not_in'.
 

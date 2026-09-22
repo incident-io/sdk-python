@@ -13,7 +13,7 @@ from ..models.pay_configs_update_weekly_rule_payload_v2_weekdays_item import (
 T = TypeVar("T", bound="PayConfigsUpdateWeeklyRulePayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayConfigsUpdateWeeklyRulePayloadV2:
     """
     Example:

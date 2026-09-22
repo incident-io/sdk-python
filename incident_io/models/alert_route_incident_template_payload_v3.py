@@ -26,7 +26,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AlertRouteIncidentTemplatePayloadV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertRouteIncidentTemplatePayloadV3:
     """The template this alert route applies to the incidents it creates. It must be unset when incident creation is
     disabled. Disabling incident creation clears a template the route already has.

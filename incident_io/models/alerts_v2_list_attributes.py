@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AlertsV2ListAttributes")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertsV2ListAttributes:
     """Filter on an alerts attributes. Alert attribute ID should be sent, followed by the operator and values. Accepted
     operator will depend on the attribute type.

@@ -11,7 +11,7 @@ from ..models.api_key_team_role_v1_name import APIKeyTeamRoleV1Name
 T = TypeVar("T", bound="APIKeyTeamRoleV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class APIKeyTeamRoleV1:
     """
     Example:

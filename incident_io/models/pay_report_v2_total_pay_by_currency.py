@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="PayReportV2TotalPayByCurrency")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayReportV2TotalPayByCurrency:
     """Total owed for this report, keyed by ISO 4217 currency code, in the lowest denomination of that currency. Reports
     spanning pay configs with different currencies have an entry per currency, and those totals must not be summed.

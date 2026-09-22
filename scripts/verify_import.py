@@ -14,6 +14,7 @@ import compileall
 import importlib
 import pkgutil
 import sys
+from pathlib import Path
 
 import incident_io
 
@@ -35,5 +36,20 @@ count = 0
 for module in pkgutil.walk_packages(incident_io.__path__, "incident_io.", onerror=_raise):
     importlib.import_module(module.name)
     count += 1
+
+# A floor, because the count on its own proves nothing: a schema that generated
+# five modules, or a generator that silently dropped every endpoint, imports
+# perfectly. The real figure is ~1900; this only catches collapse.
+MINIMUM_MODULES = 1000
+if count < MINIMUM_MODULES:
+    sys.exit(
+        f"verify: only {count} modules, expected at least {MINIMUM_MODULES}. "
+        f"The generator produced far less than it should have."
+    )
+
+# Checked here rather than only in the tests, because the release path runs
+# this and `make generate` recreates the marker on every run.
+if not (Path(package_root) / "py.typed").exists():
+    sys.exit("verify: py.typed is missing, so type checkers will ignore the SDK")
 
 print(f"verify: imported {count} modules")

@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AuditLogsMicrosoftEntraTenantLinkedV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogsMicrosoftEntraTenantLinkedV1:
     """
     Example:

@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="SecretVersionV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class SecretVersionV2:
     """A single version of a secret's value. Only metadata is exposed; the value itself is never returned.
 

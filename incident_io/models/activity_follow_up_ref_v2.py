@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ActivityFollowUpRefV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ActivityFollowUpRefV2:
     """
     Example:
