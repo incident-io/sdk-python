@@ -6,3 +6,7 @@ __pycache__/
 *.py[cod]
 .venv/
 .venv-verify/
+
+# Dev-only lock. This is a library, so we resolve dependencies fresh rather
+# than pinning what consumers get.
+uv.lock
