@@ -22,7 +22,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PayReportsCreatePayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayReportsCreatePayloadV2:
     """
     Example:

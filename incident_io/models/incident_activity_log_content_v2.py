@@ -40,7 +40,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="IncidentActivityLogContentV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentActivityLogContentV2:
     """Details of an activity log entry.
 

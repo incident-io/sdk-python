@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="EscalationPathV2ParamBindings")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationPathV2ParamBindings:
     """For a templated path, the values bound to the template's declared parameters, keyed by parameter name.
 

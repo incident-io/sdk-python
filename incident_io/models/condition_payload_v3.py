@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ConditionPayloadV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ConditionPayloadV3:
     """
     Example:

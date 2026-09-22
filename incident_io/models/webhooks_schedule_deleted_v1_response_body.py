@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="WebhooksScheduleDeletedV1ResponseBody")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class WebhooksScheduleDeletedV1ResponseBody:
     """
     Example:

@@ -4,6 +4,7 @@ from typing import Any
 import httpx
 
 from ... import errors
+from ..._query import flatten_deep_object
 from ...client import AuthenticatedClient, Client
 from ...models.alerts_list_result_v2 import AlertsListResultV2
 from ...models.alerts_v2_list_alert_group_id import AlertsV2ListAlertGroupId
@@ -48,61 +49,65 @@ def _get_kwargs(
     if not isinstance(deduplication_key, Unset):
         json_deduplication_key = deduplication_key.to_dict()
     if not isinstance(json_deduplication_key, Unset):
-        params.update(json_deduplication_key)
+        params.update(flatten_deep_object("deduplication_key", json_deduplication_key))
 
     json_status: dict[str, Any] | Unset = UNSET
     if not isinstance(status, Unset):
         json_status = status.to_dict()
     if not isinstance(json_status, Unset):
-        params.update(json_status)
+        params.update(flatten_deep_object("status", json_status))
 
     json_alert_source: dict[str, Any] | Unset = UNSET
     if not isinstance(alert_source, Unset):
         json_alert_source = alert_source.to_dict()
     if not isinstance(json_alert_source, Unset):
-        params.update(json_alert_source)
+        params.update(flatten_deep_object("alert_source", json_alert_source))
 
     json_alert_group_id: dict[str, Any] | Unset = UNSET
     if not isinstance(alert_group_id, Unset):
         json_alert_group_id = alert_group_id.to_dict()
     if not isinstance(json_alert_group_id, Unset):
-        params.update(json_alert_group_id)
+        params.update(flatten_deep_object("alert_group_id", json_alert_group_id))
 
     json_created_at: dict[str, Any] | Unset = UNSET
     if not isinstance(created_at, Unset):
         json_created_at = created_at.to_dict()
     if not isinstance(json_created_at, Unset):
-        params.update(json_created_at)
+        params.update(flatten_deep_object("created_at", json_created_at))
 
     json_updated_at: dict[str, Any] | Unset = UNSET
     if not isinstance(updated_at, Unset):
         json_updated_at = updated_at.to_dict()
     if not isinstance(json_updated_at, Unset):
-        params.update(json_updated_at)
+        params.update(flatten_deep_object("updated_at", json_updated_at))
 
     json_attributes: dict[str, Any] | Unset = UNSET
     if not isinstance(attributes, Unset):
         json_attributes = attributes.to_dict()
     if not isinstance(json_attributes, Unset):
-        params.update(json_attributes)
+        params.update(flatten_deep_object("attributes", json_attributes))
 
     json_has_notes: dict[str, Any] | Unset = UNSET
     if not isinstance(has_notes, Unset):
         json_has_notes = has_notes.to_dict()
     if not isinstance(json_has_notes, Unset):
-        params.update(json_has_notes)
+        params.update(flatten_deep_object("has_notes", json_has_notes))
 
     json_tags: dict[str, Any] | Unset = UNSET
     if not isinstance(tags, Unset):
         json_tags = tags.to_dict()
     if not isinstance(json_tags, Unset):
-        params.update(json_tags)
+        params.update(flatten_deep_object("tags", json_tags))
 
     json_include_maintenance_window: dict[str, Any] | Unset = UNSET
     if not isinstance(include_maintenance_window, Unset):
         json_include_maintenance_window = include_maintenance_window.to_dict()
     if not isinstance(json_include_maintenance_window, Unset):
-        params.update(json_include_maintenance_window)
+        params.update(
+            flatten_deep_object(
+                "include_maintenance_window", json_include_maintenance_window
+            )
+        )
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 

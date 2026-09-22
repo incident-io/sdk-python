@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ScheduleSyncTargetResourceV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ScheduleSyncTargetResourceV2:
     """A sync target is the link between incident.io and a single Slack user group,
     used to keep that group's membership in step with who is currently on call.

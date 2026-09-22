@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ExpressionBranchesOptsV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ExpressionBranchesOptsV2:
     """
     Example:

@@ -13,7 +13,7 @@ from ..models.pay_reports_publish_payload_v2_send_user_breakdowns import (
 T = TypeVar("T", bound="PayReportsPublishPayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayReportsPublishPayloadV2:
     """
     Example:

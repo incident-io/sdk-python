@@ -13,7 +13,7 @@ from ..models.schedule_rotation_working_interval_v2_weekday import (
 T = TypeVar("T", bound="ScheduleRotationWorkingIntervalV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ScheduleRotationWorkingIntervalV2:
     """
     Example:

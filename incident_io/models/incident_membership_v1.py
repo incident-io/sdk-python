@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="IncidentMembershipV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentMembershipV1:
     """
     Example:

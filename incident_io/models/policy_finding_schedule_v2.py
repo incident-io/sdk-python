@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PolicyFindingScheduleV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyFindingScheduleV2:
     """Set when policy_type is schedule. Describes a gap in on-call cover.
 

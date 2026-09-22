@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="StatusPageIncidentV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class StatusPageIncidentV2:
     """
     Example:

@@ -4,6 +4,7 @@ from typing import Any
 import httpx
 
 from ... import errors
+from ..._query import flatten_deep_object
 from ...client import AuthenticatedClient, Client
 from ...models.actions_list_result_v3 import ActionsListResultV3
 from ...models.actions_v3_list_created_at import ActionsV3ListCreatedAt
@@ -41,13 +42,13 @@ def _get_kwargs(
     if not isinstance(created_at, Unset):
         json_created_at = created_at.to_dict()
     if not isinstance(json_created_at, Unset):
-        params.update(json_created_at)
+        params.update(flatten_deep_object("created_at", json_created_at))
 
     json_updated_at: dict[str, Any] | Unset = UNSET
     if not isinstance(updated_at, Unset):
         json_updated_at = updated_at.to_dict()
     if not isinstance(json_updated_at, Unset):
-        params.update(json_updated_at)
+        params.update(flatten_deep_object("updated_at", json_updated_at))
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 

@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="StatusPagesCreateStatusPageIncidentUpdateResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class StatusPagesCreateStatusPageIncidentUpdateResultV2:
     """
     Example:

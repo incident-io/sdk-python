@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="AlertsV2ListIncludeMaintenanceWindow")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertsV2ListIncludeMaintenanceWindow:
     """Filter on whether to include maintenance window alerts. The accepted operator is 'is'.
 

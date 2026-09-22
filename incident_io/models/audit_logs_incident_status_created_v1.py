@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AuditLogsIncidentStatusCreatedV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogsIncidentStatusCreatedV1:
     """
     Example:

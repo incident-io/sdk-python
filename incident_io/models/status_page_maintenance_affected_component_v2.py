@@ -13,7 +13,7 @@ from ..models.status_page_maintenance_affected_component_v2_component_status imp
 T = TypeVar("T", bound="StatusPageMaintenanceAffectedComponentV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class StatusPageMaintenanceAffectedComponentV2:
     """
     Example:

@@ -16,7 +16,7 @@ from ..models.audit_log_private_incident_access_attempted_metadata_v2v2_outcome 
 T = TypeVar("T", bound="AuditLogPrivateIncidentAccessAttemptedMetadataV2V2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogPrivateIncidentAccessAttemptedMetadataV2V2:
     """
     Example:

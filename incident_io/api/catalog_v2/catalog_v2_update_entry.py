@@ -265,18 +265,33 @@ async def asyncio(
         )
     ).parsed
 
+
 # --- deprecation markers added by scripts/mark_deprecated.py ---
 import functools as _functools  # noqa: E402
 import warnings as _warnings  # noqa: E402
 
-_DEPRECATION_MESSAGE = "PUT /v2/catalog_entries/{id} is deprecated and will be removed. See https://api-docs.incident.io/ for the replacement."
+_DEPRECATION_MESSAGE = "PUT /v2/catalog_entries/{} is deprecated and will be removed. See https://api-docs.incident.io/ for the replacement."
+
+# sync() calls sync_detailed(), and both are wrapped, so a single user call
+# would warn twice — the second time with a stacklevel pointing inside the SDK,
+# which under -W error blames us for the user's call. This suppresses the inner
+# warning. Module-level rather than thread-local because it is only ever set
+# for the duration of one synchronous call frame.
+_warning_in_progress = False
 
 
 def _deprecated(_fn):
     @_functools.wraps(_fn)
     def _wrapper(*args, **kwargs):
+        global _warning_in_progress
+        if _warning_in_progress:
+            return _fn(*args, **kwargs)
         _warnings.warn(_DEPRECATION_MESSAGE, DeprecationWarning, stacklevel=2)
-        return _fn(*args, **kwargs)
+        _warning_in_progress = True
+        try:
+            return _fn(*args, **kwargs)
+        finally:
+            _warning_in_progress = False
 
     return _wrapper
 
@@ -286,10 +301,18 @@ def _deprecated_async(_fn):
     # inspect.iscoroutinefunction. See this module's docstring.
     @_functools.wraps(_fn)
     async def _wrapper(*args, **kwargs):
+        global _warning_in_progress
+        if _warning_in_progress:
+            return await _fn(*args, **kwargs)
         _warnings.warn(_DEPRECATION_MESSAGE, DeprecationWarning, stacklevel=2)
-        return await _fn(*args, **kwargs)
+        _warning_in_progress = True
+        try:
+            return await _fn(*args, **kwargs)
+        finally:
+            _warning_in_progress = False
 
     return _wrapper
+
 
 sync_detailed = _deprecated(sync_detailed)
 sync = _deprecated(sync)

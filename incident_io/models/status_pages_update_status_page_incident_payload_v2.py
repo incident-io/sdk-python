@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="StatusPagesUpdateStatusPageIncidentPayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class StatusPagesUpdateStatusPageIncidentPayloadV2:
     """
     Example:

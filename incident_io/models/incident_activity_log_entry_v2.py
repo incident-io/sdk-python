@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="IncidentActivityLogEntryV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentActivityLogEntryV2:
     """One thing that happened on an incident.
 

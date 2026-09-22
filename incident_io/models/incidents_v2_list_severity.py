@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="IncidentsV2ListSeverity")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentsV2ListSeverity:
     """Filter on incident severity. The accepted operators are 'one_of', 'not_in', 'gte', 'lte'.
 

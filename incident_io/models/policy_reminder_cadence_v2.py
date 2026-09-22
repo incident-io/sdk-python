@@ -11,7 +11,7 @@ from ..models.policy_reminder_cadence_v2_interval import PolicyReminderCadenceV2
 T = TypeVar("T", bound="PolicyReminderCadenceV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyReminderCadenceV2:
     """A recurring reminder, which repeats once per interval until the finding is resolved.
 

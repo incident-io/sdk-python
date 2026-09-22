@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ScheduleSyncTargetCreatePayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ScheduleSyncTargetCreatePayloadV2:
     """
     Example:

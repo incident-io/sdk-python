@@ -26,7 +26,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AlertRouteIncidentTemplatePayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertRouteIncidentTemplatePayloadV2:
     """
     Example:

@@ -11,7 +11,7 @@ from ..models.weekday_interval_v2_weekday import WeekdayIntervalV2Weekday
 T = TypeVar("T", bound="WeekdayIntervalV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class WeekdayIntervalV2:
     """
     Example:

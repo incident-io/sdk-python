@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AlertTemplateAttributeV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertTemplateAttributeV2:
     """
     Example:

@@ -4,6 +4,7 @@ from typing import Any
 import httpx
 
 from ... import errors
+from ..._query import flatten_deep_object
 from ...client import AuthenticatedClient, Client
 from ...models.error_response import ErrorResponse
 from ...models.workflow_runs_list_result_v2 import WorkflowRunsListResultV2
@@ -30,7 +31,7 @@ def _get_kwargs(
     if not isinstance(created_at, Unset):
         json_created_at = created_at.to_dict()
     if not isinstance(json_created_at, Unset):
-        params.update(json_created_at)
+        params.update(flatten_deep_object("created_at", json_created_at))
 
     params["page_size"] = page_size
 

@@ -13,7 +13,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="IncidentSlimV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentSlimV2:
     """Incident slim is a subset of the full incident object, listing key fields.
 

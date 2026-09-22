@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AuditLogsPostmortemTemplateCreatedV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogsPostmortemTemplateCreatedV2:
     """
     Example:

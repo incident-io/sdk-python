@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PayConfigV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayConfigV2:
     """A pay config sets what someone is paid for being on call: a base rate,
     plus rules that override it at particular times. An on-call pay report prices

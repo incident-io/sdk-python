@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="WebhooksPrivateEscalationStatusUpdatedV1ResponseBody")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class WebhooksPrivateEscalationStatusUpdatedV1ResponseBody:
     """
     Example:

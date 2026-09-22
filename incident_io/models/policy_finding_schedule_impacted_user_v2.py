@@ -13,7 +13,7 @@ from ..models.policy_finding_schedule_impacted_user_v2_cause import (
 T = TypeVar("T", bound="PolicyFindingScheduleImpactedUserV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyFindingScheduleImpactedUserV2:
     """
     Example:

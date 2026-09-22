@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="OnCallNotificationRuleMethodTargetAllPublicV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class OnCallNotificationRuleMethodTargetAllPublicV2:
     """
     Example:

@@ -13,7 +13,7 @@ from ..models.pay_configs_update_payload_v2_rate_time_unit import (
 T = TypeVar("T", bound="PayConfigsUpdatePayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayConfigsUpdatePayloadV2:
     """
     Example:

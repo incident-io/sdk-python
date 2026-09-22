@@ -19,7 +19,7 @@ T = TypeVar(
 )
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class WebhooksPrivateIncidentPostmortemDocumentStatusUpdatedV1ResponseBody:
     """
     Example:

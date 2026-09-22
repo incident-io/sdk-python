@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AuditLogsOnCallNotificationMethodDestroyedV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogsOnCallNotificationMethodDestroyedV2:
     """
     Example:

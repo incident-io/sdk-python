@@ -14,7 +14,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="IncidentAttachmentsCreatePayloadV1Resource")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentAttachmentsCreatePayloadV1Resource:
     """
     Example:

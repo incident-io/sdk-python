@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="TelemetryUpdateDataSourceResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class TelemetryUpdateDataSourceResultV2:
     """
     Example:

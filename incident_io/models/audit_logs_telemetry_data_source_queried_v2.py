@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AuditLogsTelemetryDataSourceQueriedV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogsTelemetryDataSourceQueriedV2:
     """
     Example:

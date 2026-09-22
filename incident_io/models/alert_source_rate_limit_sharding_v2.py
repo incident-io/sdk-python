@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="AlertSourceRateLimitShardingV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertSourceRateLimitShardingV2:
     """Controls how this source's ingest rate limit is split into buckets.
 

@@ -14,7 +14,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="PayConfigWeeklyRulePayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayConfigWeeklyRulePayloadV2:
     """A weekly rule to write. Send an existing rule's ID to keep it stable, and omit it for a rule you are adding.
 

@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ErrorResponse")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ErrorResponse:
     """
     Example:

@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="IncidentTimelineItemV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentTimelineItemV2:
     """An item on an incident's curated timeline.
 

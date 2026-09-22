@@ -13,7 +13,7 @@ from ..models.users_update_paging_provider_payload_v2_preferred_escalation_provi
 T = TypeVar("T", bound="UsersUpdatePagingProviderPayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class UsersUpdatePagingProviderPayloadV2:
     """
     Example:

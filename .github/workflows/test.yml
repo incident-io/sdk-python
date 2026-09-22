@@ -11,12 +11,22 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
-      # Builds the wheel, installs it, byte-compiles the tree and imports every
-      # module. See scripts/verify_import.py.
-      - run: make verify
-      # Behavioural checks against a stub transport, so they need no API key.
-      # scripts/smoke_test.py covers the live API and is run by hand.
-      - run: uv run --group dev pytest tests/ -q
+        with:
+          # The default key hashes pyproject.toml, which every release rewrites
+          # with a new version, so it would miss every time. The pins that
+          # actually decide what gets downloaded live in the Makefile.
+          cache-dependency-glob: Makefile
+      # mypy over 1895 files is the slowest part of verify: ~6s cold against
+      # ~0.2s warm. make generate rewrites every file, but mypy falls back to
+      # the source hash, and most models are untouched between releases.
+      - uses: actions/cache@v4
+        with:
+          path: .mypy_cache
+          key: mypy-${{ hashFiles('Makefile') }}-${{ github.sha }}
+          restore-keys: mypy-${{ hashFiles('Makefile') }}-
+      # `test` depends on `verify`, so this builds the wheel, imports every
+      # module, type-checks, checks the API surface and runs the tests.
+      - run: make test
 
   # Fail if the committed client is out of date with the committed schema — i.e.
   # someone changed openapi.json without re-running the generator. Regenerates
@@ -27,17 +37,18 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
-      # The generator's post_hooks shell out to ruff. Without it on PATH they
-      # are skipped with a warning, and --fail-on-warning then fails the build.
-      # uv installs tools into ~/.local/bin, which isn't on a runner's PATH.
-      - run: |
-          uv tool install ruff
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+        with:
+          cache-dependency-glob: Makefile
+      # No ruff step: openapi-python-client depends on ruff and uvx puts the
+      # tool environment's bin first, so the generator's post_hooks always find
+      # its own copy rather than anything installed here.
       - run: make generate
       - name: Check for drift
         run: |
-          if ! git diff --quiet; then
+          # --porcelain, not `git diff --quiet`: the latter ignores untracked
+          # files, so a new endpoint module would pass unnoticed.
+          if [ -n "$(git status --porcelain)" ]; then
             echo "::error::Generated client is out of date. Run 'make generate' and commit the result."
-            git diff --stat
+            git status --porcelain
             exit 1
           fi

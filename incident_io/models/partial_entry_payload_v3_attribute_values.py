@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PartialEntryPayloadV3AttributeValues")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PartialEntryPayloadV3AttributeValues:
     """The attribute values to apply to this entry
 

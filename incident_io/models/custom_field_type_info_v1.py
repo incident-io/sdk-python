@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CustomFieldTypeInfoV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CustomFieldTypeInfoV1:
     """
     Example:

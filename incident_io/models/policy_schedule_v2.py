@@ -13,7 +13,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="PolicyScheduleV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyScheduleV2:
     """Detects gaps in on-call coverage. Set when policy_type is schedule.
 

@@ -5,6 +5,7 @@ from urllib.parse import quote
 import httpx
 
 from ... import errors
+from ..._query import flatten_deep_object
 from ...client import AuthenticatedClient, Client
 from ...models.alert_events_create_http_payload_v2 import AlertEventsCreateHTTPPayloadV2
 from ...models.alert_events_create_http_result_v2 import AlertEventsCreateHTTPResultV2
@@ -33,7 +34,7 @@ def _get_kwargs(
     if not isinstance(query, Unset):
         json_query = query.to_dict()
     if not isinstance(json_query, Unset):
-        params.update(json_query)
+        params.update(flatten_deep_object("query", json_query))
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 

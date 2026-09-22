@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="EscalationsV2ListAlert")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationsV2ListAlert:
     """Filter on the alert that created an escalation. Accepted operators are 'one_of' and 'not_in'.
 

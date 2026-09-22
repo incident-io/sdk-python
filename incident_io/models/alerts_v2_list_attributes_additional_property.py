@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="AlertsV2ListAttributesAdditionalProperty")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertsV2ListAttributesAdditionalProperty:
     """
     Example:

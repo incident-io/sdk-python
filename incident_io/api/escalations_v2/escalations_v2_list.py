@@ -4,6 +4,7 @@ from typing import Any
 import httpx
 
 from ... import errors
+from ..._query import flatten_deep_object
 from ...client import AuthenticatedClient, Client
 from ...models.error_response import ErrorResponse
 from ...models.escalations_list_result_v2 import EscalationsListResultV2
@@ -44,43 +45,43 @@ def _get_kwargs(
     if not isinstance(escalation_path, Unset):
         json_escalation_path = escalation_path.to_dict()
     if not isinstance(json_escalation_path, Unset):
-        params.update(json_escalation_path)
+        params.update(flatten_deep_object("escalation_path", json_escalation_path))
 
     json_status: dict[str, Any] | Unset = UNSET
     if not isinstance(status, Unset):
         json_status = status.to_dict()
     if not isinstance(json_status, Unset):
-        params.update(json_status)
+        params.update(flatten_deep_object("status", json_status))
 
     json_alert: dict[str, Any] | Unset = UNSET
     if not isinstance(alert, Unset):
         json_alert = alert.to_dict()
     if not isinstance(json_alert, Unset):
-        params.update(json_alert)
+        params.update(flatten_deep_object("alert", json_alert))
 
     json_incident: dict[str, Any] | Unset = UNSET
     if not isinstance(incident, Unset):
         json_incident = incident.to_dict()
     if not isinstance(json_incident, Unset):
-        params.update(json_incident)
+        params.update(flatten_deep_object("incident", json_incident))
 
     json_created_at: dict[str, Any] | Unset = UNSET
     if not isinstance(created_at, Unset):
         json_created_at = created_at.to_dict()
     if not isinstance(json_created_at, Unset):
-        params.update(json_created_at)
+        params.update(flatten_deep_object("created_at", json_created_at))
 
     json_updated_at: dict[str, Any] | Unset = UNSET
     if not isinstance(updated_at, Unset):
         json_updated_at = updated_at.to_dict()
     if not isinstance(json_updated_at, Unset):
-        params.update(json_updated_at)
+        params.update(flatten_deep_object("updated_at", json_updated_at))
 
     json_idempotency_key: dict[str, Any] | Unset = UNSET
     if not isinstance(idempotency_key, Unset):
         json_idempotency_key = idempotency_key.to_dict()
     if not isinstance(json_idempotency_key, Unset):
-        params.update(json_idempotency_key)
+        params.update(flatten_deep_object("idempotency_key", json_idempotency_key))
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 

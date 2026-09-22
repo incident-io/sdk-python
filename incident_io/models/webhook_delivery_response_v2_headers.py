@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="WebhookDeliveryResponseV2Headers")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class WebhookDeliveryResponseV2Headers:
     """Headers returned by the endpoint, excluding any whose name resembles a credential
 

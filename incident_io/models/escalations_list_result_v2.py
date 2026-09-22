@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="EscalationsListResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationsListResultV2:
     """
     Example:

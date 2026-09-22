@@ -14,7 +14,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="AlertSourceEmailOptionsPayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertSourceEmailOptionsPayloadV2:
     """
     Example:

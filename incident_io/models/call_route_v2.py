@@ -22,7 +22,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CallRouteV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CallRouteV2:
     """A call route is a phone number your customers can call to reach whoever is
     on call, for an urgent support line or a regulator hotline.

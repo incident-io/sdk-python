@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PolicyFindingOnCallReadinessV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyFindingOnCallReadinessV2:
     """Set when policy_type is on_call_readiness. The user is always the one the finding is about.
 

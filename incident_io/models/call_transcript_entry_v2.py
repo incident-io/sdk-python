@@ -12,7 +12,7 @@ from ..models.call_transcript_entry_v2_medium import CallTranscriptEntryV2Medium
 T = TypeVar("T", bound="CallTranscriptEntryV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CallTranscriptEntryV2:
     """A single entry of a Scribe call transcript: one contiguous run of
     speech, or one in-call chat message, from one participant.

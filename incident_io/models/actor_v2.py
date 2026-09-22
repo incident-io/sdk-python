@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ActorV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ActorV2:
     """
     Example:

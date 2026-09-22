@@ -13,7 +13,7 @@ from ..models.external_issue_reference_v2_provider import (
 T = TypeVar("T", bound="ExternalIssueReferenceV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ExternalIssueReferenceV2:
     """
     Example:

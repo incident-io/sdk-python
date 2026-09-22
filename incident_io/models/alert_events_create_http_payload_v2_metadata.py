@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="AlertEventsCreateHTTPPayloadV2Metadata")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertEventsCreateHTTPPayloadV2Metadata:
     """Any additional metadata that you've configured your alert source to parse
 

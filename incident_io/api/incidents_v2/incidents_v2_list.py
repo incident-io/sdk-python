@@ -4,6 +4,7 @@ from typing import Any
 import httpx
 
 from ... import errors
+from ..._query import flatten_deep_object
 from ...client import AuthenticatedClient, Client
 from ...models.error_response import ErrorResponse
 from ...models.incidents_list_result_v2 import IncidentsListResultV2
@@ -61,55 +62,55 @@ def _get_kwargs(
     if not isinstance(status, Unset):
         json_status = status.to_dict()
     if not isinstance(json_status, Unset):
-        params.update(json_status)
+        params.update(flatten_deep_object("status", json_status))
 
     json_status_category: dict[str, Any] | Unset = UNSET
     if not isinstance(status_category, Unset):
         json_status_category = status_category.to_dict()
     if not isinstance(json_status_category, Unset):
-        params.update(json_status_category)
+        params.update(flatten_deep_object("status_category", json_status_category))
 
     json_created_at: dict[str, Any] | Unset = UNSET
     if not isinstance(created_at, Unset):
         json_created_at = created_at.to_dict()
     if not isinstance(json_created_at, Unset):
-        params.update(json_created_at)
+        params.update(flatten_deep_object("created_at", json_created_at))
 
     json_updated_at: dict[str, Any] | Unset = UNSET
     if not isinstance(updated_at, Unset):
         json_updated_at = updated_at.to_dict()
     if not isinstance(json_updated_at, Unset):
-        params.update(json_updated_at)
+        params.update(flatten_deep_object("updated_at", json_updated_at))
 
     json_severity: dict[str, Any] | Unset = UNSET
     if not isinstance(severity, Unset):
         json_severity = severity.to_dict()
     if not isinstance(json_severity, Unset):
-        params.update(json_severity)
+        params.update(flatten_deep_object("severity", json_severity))
 
     json_incident_type: dict[str, Any] | Unset = UNSET
     if not isinstance(incident_type, Unset):
         json_incident_type = incident_type.to_dict()
     if not isinstance(json_incident_type, Unset):
-        params.update(json_incident_type)
+        params.update(flatten_deep_object("incident_type", json_incident_type))
 
     json_incident_role: dict[str, Any] | Unset = UNSET
     if not isinstance(incident_role, Unset):
         json_incident_role = incident_role.to_dict()
     if not isinstance(json_incident_role, Unset):
-        params.update(json_incident_role)
+        params.update(flatten_deep_object("incident_role", json_incident_role))
 
     json_custom_field: dict[str, Any] | Unset = UNSET
     if not isinstance(custom_field, Unset):
         json_custom_field = custom_field.to_dict()
     if not isinstance(json_custom_field, Unset):
-        params.update(json_custom_field)
+        params.update(flatten_deep_object("custom_field", json_custom_field))
 
     json_mode: dict[str, Any] | Unset = UNSET
     if not isinstance(mode, Unset):
         json_mode = mode.to_dict()
     if not isinstance(json_mode, Unset):
-        params.update(json_mode)
+        params.update(flatten_deep_object("mode", json_mode))
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 

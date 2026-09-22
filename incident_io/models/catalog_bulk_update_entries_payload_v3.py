@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CatalogBulkUpdateEntriesPayloadV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CatalogBulkUpdateEntriesPayloadV3:
     """
     Example:

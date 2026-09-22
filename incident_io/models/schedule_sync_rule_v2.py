@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ScheduleSyncRuleV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ScheduleSyncRuleV2:
     """A sync rule links a schedule to a sync target, telling us which of the
     schedule's members should flow into the target's Slack user group.

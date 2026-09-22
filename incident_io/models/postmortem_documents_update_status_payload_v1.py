@@ -13,7 +13,7 @@ from ..models.postmortem_documents_update_status_payload_v1_status import (
 T = TypeVar("T", bound="PostmortemDocumentsUpdateStatusPayloadV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PostmortemDocumentsUpdateStatusPayloadV1:
     """
     Example:

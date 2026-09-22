@@ -23,7 +23,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PayReportV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayReportV2:
     """A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
 

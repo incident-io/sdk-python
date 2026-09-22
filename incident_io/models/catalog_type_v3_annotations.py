@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="CatalogTypeV3Annotations")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CatalogTypeV3Annotations:
     """Annotations that can track metadata about this type
 

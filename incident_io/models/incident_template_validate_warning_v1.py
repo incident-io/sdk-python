@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="IncidentTemplateValidateWarningV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentTemplateValidateWarningV1:
     """Something suspect about a template config that isn't severe enough to reject it.
 

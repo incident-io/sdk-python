@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AuditLogsPrivateInsightsUnderlyingDataQueriedV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AuditLogsPrivateInsightsUnderlyingDataQueriedV1:
     """
     Example:

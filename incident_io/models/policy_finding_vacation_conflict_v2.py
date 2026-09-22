@@ -12,7 +12,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="PolicyFindingVacationConflictV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyFindingVacationConflictV2:
     """Set when policy_type is vacation_conflict. Someone is on call while on holiday.
 

@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PolicyFollowUpV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyFollowUpV2:
     """Set when policy_type is follow_up.
 

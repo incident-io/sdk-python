@@ -10,7 +10,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="PayConfigOneOffRuleV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PayConfigOneOffRuleV2:
     """A rule that applies over a single window of time, such as a public holiday. One-off rules take precedence over
     weekly rules, and may not overlap each other.

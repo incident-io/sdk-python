@@ -12,7 +12,7 @@ from ..models.incident_type_v2_create_in_triage import IncidentTypeV2CreateInTri
 T = TypeVar("T", bound="IncidentTypeV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentTypeV2:
     """
     Example:

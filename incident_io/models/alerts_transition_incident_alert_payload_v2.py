@@ -13,7 +13,7 @@ from ..models.alerts_transition_incident_alert_payload_v2_state import (
 T = TypeVar("T", bound="AlertsTransitionIncidentAlertPayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertsTransitionIncidentAlertPayloadV2:
     """
     Example:

@@ -20,7 +20,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="EscalationPathV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationPathV2:
     """
     Example:

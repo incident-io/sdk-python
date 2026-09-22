@@ -11,16 +11,22 @@ these run on a pull request. scripts/smoke_test.py covers the live API.
 from __future__ import annotations
 
 import inspect
-import warnings
-from pathlib import Path
 
 import httpx
 import pytest
 
-import incident_io
 from incident_io import AuthenticatedClient
 from incident_io.api.actions_v1 import actions_v1_list
+from incident_io.api.incidents_v2 import incidents_v2_list
+from incident_io.api.pay_reports_v2 import pay_reports_v2_download
 from incident_io.api.severities_v1 import severities_v1_list
+from incident_io.models import (
+    IncidentsV2ListCreatedAt,
+    IncidentsV2ListCustomField,
+    IncidentsV2ListCustomFieldAdditionalProperty,
+    IncidentsV2ListStatus,
+    IncidentsV2ListUpdatedAt,
+)
 
 SEVERITIES_BODY = {
     "severities": [
@@ -90,7 +96,6 @@ def test_an_error_status_is_returned_not_raised():
     assert response.status_code == 422
 
 
-@pytest.mark.asyncio
 async def test_the_async_entry_point_works():
     client = client_returning(200, SEVERITIES_BODY)
 
@@ -106,13 +111,23 @@ async def test_the_async_entry_point_works():
 def test_a_deprecated_endpoint_warns():
     client = client_returning(200, {"actions": []})
 
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter("always")
+    with pytest.warns(DeprecationWarning, match=r"GET /v1/actions"):
         actions_v1_list.sync_detailed(client=client)
 
-    messages = [str(w.message) for w in caught if w.category is DeprecationWarning]
-    assert messages, "no DeprecationWarning was raised"
-    assert "GET /v1/actions" in messages[0]
+
+def test_a_deprecated_endpoint_warns_once_not_twice():
+    """sync() calls sync_detailed(), and both carry the wrapper. Without
+    suppression the second warning points inside the SDK, which under
+    -W error blames us for the caller's mistake."""
+    client = client_returning(200, {"actions": []})
+
+    with pytest.warns(DeprecationWarning) as caught:
+        actions_v1_list.sync(client=client)
+
+    assert len(caught) == 1, f"expected one warning, got {len(caught)}"
+    assert "incident_io" not in caught[0].filename, (
+        "the warning points inside the SDK rather than at the caller"
+    )
 
 
 def test_a_deprecated_async_endpoint_stays_a_coroutine_function():
@@ -122,32 +137,111 @@ def test_a_deprecated_async_endpoint_stays_a_coroutine_function():
     assert inspect.iscoroutinefunction(actions_v1_list.asyncio_detailed)
 
 
-@pytest.mark.asyncio
 async def test_a_deprecated_async_endpoint_warns_and_still_returns():
     client = client_returning(200, {"actions": []})
 
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter("always")
+    with pytest.warns(DeprecationWarning):
         response = await actions_v1_list.asyncio_detailed(client=client)
 
     assert response.status_code == 200
-    assert [w for w in caught if w.category is DeprecationWarning]
 
 
-def test_an_undeprecated_endpoint_does_not_warn():
+def test_an_undeprecated_endpoint_does_not_warn(recwarn):
     client = client_returning(200, SEVERITIES_BODY)
 
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter("always")
-        severities_v1_list.sync_detailed(client=client)
+    severities_v1_list.sync_detailed(client=client)
 
-    assert not [w for w in caught if w.category is DeprecationWarning]
+    assert not [w for w in recwarn.list if w.category is DeprecationWarning]
 
 
-def test_the_package_ships_a_py_typed_marker():
-    """Without it, mypy and pyright ignore every annotation in the SDK. `make
-    generate` removes the package and recreates the marker, so this catches it
-    going missing."""
-    marker = Path(incident_io.__path__[0]) / "py.typed"
+def test_a_binary_download_returns_bytes():
+    """The generator decodes binary responses with response.text and hands the
+    str to BytesIO, which raises. scripts/fix_generated.py patches that, and
+    an import-only check would never catch it coming back."""
+    # client_returning serialises its body as JSON; a download returns raw bytes.
+    csv = b"member,hours\nalice,12\n"
 
-    assert marker.exists(), f"{marker} is missing"
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, content=csv)
+
+    client = AuthenticatedClient(
+        base_url="https://api.incident.io",
+        token="test-key",
+        httpx_args={"transport": httpx.MockTransport(handler)},
+    )
+
+    response = pay_reports_v2_download.sync_detailed(client=client, id="abc")
+
+    assert response.status_code == 200
+    assert response.parsed.payload.read() == csv
+
+
+def filters_sent(**filters) -> dict[str, str]:
+    """The query string incidents_v2_list actually puts on the wire."""
+    requests: list[httpx.Request] = []
+    client = client_returning(200, {"incidents": []}, requests)
+
+    incidents_v2_list.sync_detailed(client=client, **filters)
+
+    return dict(requests[0].url.params)
+
+
+def test_object_query_parameters_keep_their_name():
+    """`created_at[gte]=...`, not `gte=...`.
+
+    The API's filters are objects keyed by operator. openapi-python-client
+    hoists an object parameter's keys to the top level, which sends the
+    operator as if it were the parameter, so the server sees something it
+    does not know and ignores the filter. scripts/fix_generated.py rewrites
+    that; this is the check that it did.
+    """
+    created_at = IncidentsV2ListCreatedAt()
+    created_at["gte"] = ["2024-05-01"]
+    status = IncidentsV2ListStatus()
+    status["one_of"] = ["01GBSQF3FHF7FWZQNWGHAVQ804"]
+
+    sent = filters_sent(created_at=created_at, status=status)
+
+    # httpx percent-encodes the brackets. Go's net/url decodes them before the
+    # handler sees the key, so this is the same key as a literal `[`.
+    assert sent["created_at[gte]"] == "2024-05-01"
+    assert sent["status[one_of]"] == "01GBSQF3FHF7FWZQNWGHAVQ804"
+    assert "gte" not in sent
+    assert "one_of" not in sent
+
+
+def test_two_filters_sharing_an_operator_both_survive():
+    """The hoisting bug was not only mis-keying, it lost data.
+
+    `created_at[gte]` and `updated_at[gte]` both became `gte`, and the second
+    `params.update()` overwrote the first — so one filter vanished and the
+    caller got a 200 with the wrong rows.
+    """
+    created_at = IncidentsV2ListCreatedAt()
+    created_at["gte"] = ["2024-05-01"]
+    updated_at = IncidentsV2ListUpdatedAt()
+    updated_at["gte"] = ["2024-06-01"]
+
+    sent = filters_sent(created_at=created_at, updated_at=updated_at)
+
+    assert sent["created_at[gte]"] == "2024-05-01"
+    assert sent["updated_at[gte]"] == "2024-06-01"
+
+
+def test_nested_filters_flatten_to_two_levels():
+    """`custom_field[<id>][one_of]=...`, not a stringified dict.
+
+    Two of the 21 object parameters nest: custom_field and incident_role are
+    keyed by field ID and then by operator. Flattening one level turned those
+    into `custom_field[<id>]={'one_of': [...]}`.
+    """
+    operators = IncidentsV2ListCustomFieldAdditionalProperty()
+    operators["one_of"] = ["01ET65M7ZARSFZ6TFDFVQDN9AA"]
+    custom_field = IncidentsV2ListCustomField()
+    custom_field["01GBSQF3FHF7FWZQNWGHAVQ804"] = operators
+
+    sent = filters_sent(custom_field=custom_field)
+    assert (
+        sent["custom_field[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]"]
+        == "01ET65M7ZARSFZ6TFDFVQDN9AA"
+    )

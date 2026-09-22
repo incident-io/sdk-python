@@ -13,7 +13,7 @@ from ..models.status_page_incident_affected_component_v2_component_status import
 T = TypeVar("T", bound="StatusPageIncidentAffectedComponentV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class StatusPageIncidentAffectedComponentV2:
     """
     Example:

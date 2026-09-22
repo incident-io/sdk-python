@@ -49,12 +49,11 @@ jobs:
         with:
           fetch-depth: 0 # need full history + tags to read the last version
 
-      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
 
       # Goes to a scratch path because oasdiff needs both versions to compare;
       # writing straight over openapi.json would lose the old one.
       - name: Fetch latest public schema
-        run: curl -sfS https://api.incident.io/v1/openapiV3.json -o openapi.json.new
+        run: make fetch OUT=openapi.json.new
 
       - name: Exit early if schema unchanged
         id: changed
@@ -65,6 +64,23 @@ jobs:
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - if: steps.changed.outputs.changed == 'true'
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          # The default key hashes pyproject.toml, which every release rewrites
+          # with a new version, so it would miss every time. The pins that
+          # actually decide what gets downloaded live in the Makefile.
+          cache-dependency-glob: Makefile
+      # mypy over 1895 files is the slowest part of verify: ~6s cold against
+      # ~0.2s warm. make generate rewrites every file, but mypy falls back to
+      # the source hash, and most models are untouched between releases.
+      - if: steps.changed.outputs.changed == 'true'
+        uses: actions/cache@v4
+        with:
+          path: .mypy_cache
+          key: mypy-${{ hashFiles('Makefile') }}-${{ github.sha }}
+          restore-keys: mypy-${{ hashFiles('Makefile') }}-
 
       - name: Check for breaking changes
         if: steps.changed.outputs.changed == 'true'
@@ -80,8 +96,30 @@ jobs:
             exit 0
           fi
 
-          report="$(/tmp/oasdiff breaking openapi.json openapi.json.new --fail-on ERR 2>&1)" && rc=0 || rc=$?
+          # oasdiff-severity.txt adjusts four rules in both directions; it
+          # takes no comments of its own.
+          #
+          # Down to WARN: an added response enum value, because our generated
+          # enums accept unknown values (templates/str_enum.py.jinja), and a
+          # tightened request minimum, because the generator emits no range
+          # validation so the client cannot behave differently. Left at ERR
+          # these halt about a quarter of real schema changes — over 49
+          # consecutive changes from sdk-go's history, 12 would have stopped.
+          #
+          # Up to ERR: a removed operationId or component schema. Neither
+          # changes the wire contract, so oasdiff rates them info, but both
+          # rename something consumers import.
+          report="$(/tmp/oasdiff breaking openapi.json openapi.json.new \
+            --severity-levels oasdiff-severity.txt --fail-on ERR 2>&1)" && rc=0 || rc=$?
           echo "$report"
+
+          # 1 means it found breaking changes. Anything else means it couldn't
+          # do the comparison at all — a truncated fetch, an HTML error page —
+          # which is not a breaking change and mustn't be filed as one.
+          if [ "$rc" -ne 0 ] && [ "$rc" -ne 1 ]; then
+            echo "::error::oasdiff exited $rc without comparing the schemas."
+            exit 1
+          fi
 
           if [ "$rc" -ne 0 ]; then
             echo "breaking=true" >> "$GITHUB_OUTPUT"
@@ -123,23 +161,19 @@ jobs:
             exit 1
           fi
 
+          # Created here rather than assumed: gh issue create fails outright on
+          # a label that doesn't exist, and an unlabelled fallback would be
+          # invisible to the dedup above, filing one issue an hour forever.
+          gh label create breaking-change \
+            --description "Schema changed incompatibly; release halted" \
+            --color B60205 2>/dev/null || true
+
           gh issue create \
             --title "Breaking API change detected — manual release required" \
             --body "$body" \
-            --label "breaking-change" || \
-          gh issue create \
-            --title "Breaking API change detected — manual release required" \
-            --body "$body"
+            --label "breaking-change"
           echo "::error::Breaking change detected; opened an issue and stopped."
           exit 1
-
-      - name: Regenerate and verify
-        if: steps.changed.outputs.changed == 'true'
-        run: |
-          set -euo pipefail
-          mv openapi.json.new openapi.json
-          make generate
-          make verify
 
       # Scheduled runs only ever bump minor, since anything breaking has already
       # stopped the run. Patch is for hand-fixes, major for a human dispatch.
@@ -149,29 +183,79 @@ jobs:
         run: |
           set -euo pipefail
           BUMP="${{ inputs.bump || 'minor' }}"
-          BASE="$(git describe --tags --abbrev=0 2>/dev/null || true)"
+          # Highest version, not `git describe`'s nearest-by-commit-distance:
+          # a hand-cut patch tag would otherwise make us recompute a version
+          # that already exists. The pattern also skips any non-semver tag,
+          # which awk would silently turn into v1.0.0.
+          BASE="$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -1)"
 
           if [ -z "$BASE" ]; then
             NEXT="v1.0.0"
           elif [ "$BUMP" = "major" ]; then
             NEXT="$(echo "${BASE#v}" | awk -F. '{printf "v%d.0.0", $1+1}')"
           else
-            NEXT="$(echo "${BASE#v}" | awk -F. '{printf "v%s.%d.0", $1, $2+1}')"
+            NEXT="$(echo "${BASE#v}" | awk -F. '{printf "v%d.%d.0", $1, $2+1}')"
+          fi
+
+          if git rev-parse -q --verify "refs/tags/$NEXT" >/dev/null; then
+            echo "::error::$NEXT already exists. A previous run tagged without"
+            echo "::error::publishing, or a tag was cut by hand. Resolve before releasing."
+            exit 1
           fi
 
           echo "Next version: $NEXT (base: ${BASE:-none}, bump: $BUMP)"
           echo "next=$NEXT" >> "$GITHUB_OUTPUT"
 
-      - name: Build the release
+      # Before make verify, so the wheel we check is the wheel we publish.
+      - name: Set the release version
         if: steps.changed.outputs.changed == 'true'
         env:
           NEXT: ${{ steps.version.outputs.next }}
         run: |
           set -euo pipefail
-          rm -rf dist
           sed -i -E "0,/^version = /s/^version = .*/version = \"${NEXT#v}\"/" pyproject.toml
           grep -m1 '^version = ' pyproject.toml
-          uv build
+
+      - name: Regenerate and check
+        if: steps.changed.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          mv openapi.json.new openapi.json
+          make generate
+          # make test depends on make verify: builds the wheel, imports every
+          # module, type-checks, checks the API surface, then runs the tests.
+          # The generated code changes on every release, which is exactly when
+          # behaviour needs checking.
+          make test
+
+      # Every step above this point fails without committing anything, so the
+      # next run sees the same schema diff and fails identically. Left alone
+      # that is a red cron every hour and no other signal.
+      - name: Report a stuck release
+        if: failure() && steps.changed.outputs.changed == 'true' && steps.breaking.outputs.breaking != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          title="Release is stuck — regeneration or verification is failing"
+          gh label create release-stuck \
+            --description "The hourly sync cannot complete and will retry forever" \
+            --color B60205 2>/dev/null || true
+
+          if gh issue list --label release-stuck --state open --limit 1 \
+              --json number --jq '.[0].number // empty' | grep -q .; then
+            echo "Already reported."
+            exit 0
+          fi
+
+          gh issue create --title "$title" --label release-stuck --body "$(cat <<EOF
+          The hourly sync failed after detecting a schema change, before committing anything. The next run will see the same diff and fail the same way, so this repeats hourly until someone looks.
+
+          Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+
+          Likely causes: the generator rejected the new schema, a post-generation fix in \`scripts/\` stopped matching, or verification failed.
+          EOF
+          )"
 
       - name: Report what a dry run would have done
         if: steps.changed.outputs.changed == 'true' && inputs.dry_run
@@ -198,12 +282,15 @@ jobs:
           set -euo pipefail
           git config user.name "incident-io-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add openapi.json pyproject.toml incident_io
+          git add openapi.json pyproject.toml incident_io api-surface.txt
           git commit -m "Update to schema as of $(date -u +%Y-%m-%dT%H:%M:%SZ)
 
           Regenerated from https://api.incident.io/v1/openapiV3.json"
           git tag "$NEXT"
-          git push origin HEAD --tags
+          # --atomic: otherwise the tag can land while the branch push is
+          # refused, and every later run recomputes this version and dies on
+          # "tag already exists".
+          git push --atomic origin HEAD "refs/tags/$NEXT"
           gh release create "$NEXT" --generate-notes --title "$NEXT"
 
       # Has to live in this job: id-token is job-scoped, and a tag pushed with

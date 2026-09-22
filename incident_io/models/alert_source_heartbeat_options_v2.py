@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="AlertSourceHeartbeatOptionsV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertSourceHeartbeatOptionsV2:
     """
     Example:

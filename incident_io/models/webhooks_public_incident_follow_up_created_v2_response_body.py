@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="WebhooksPublicIncidentFollowUpCreatedV2ResponseBody")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class WebhooksPublicIncidentFollowUpCreatedV2ResponseBody:
     """
     Example:

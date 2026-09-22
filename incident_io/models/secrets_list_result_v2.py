@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="SecretsListResultV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class SecretsListResultV2:
     """
     Example:

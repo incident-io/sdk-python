@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="EscalationsV2ListEscalationPath")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class EscalationsV2ListEscalationPath:
     """Filter on the escalation path for which the escalation was triggered. Accepted operators are 'one_of' and 'not_in'.
 

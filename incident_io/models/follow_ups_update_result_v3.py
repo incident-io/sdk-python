@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="FollowUpsUpdateResultV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class FollowUpsUpdateResultV3:
     """
     Example:

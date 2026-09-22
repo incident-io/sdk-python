@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ActivityIncidentVisibilityChangedV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ActivityIncidentVisibilityChangedV2:
     """
     Example:

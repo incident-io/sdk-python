@@ -29,7 +29,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="OnCallNotificationRulePublicV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class OnCallNotificationRulePublicV2:
     """
     Example:

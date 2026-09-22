@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PartialEntryPayloadV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PartialEntryPayloadV3:
     """Represents a partial entry update, allowing selective field updates
 

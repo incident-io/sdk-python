@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="ScheduleSyncTargetCreatePayloadV2Annotations")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ScheduleSyncTargetCreatePayloadV2Annotations:
     """Annotations that track metadata about this resource
 

@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="CallRoutePathNodeVoicemailV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CallRoutePathNodeVoicemailV2:
     """Records a message from the caller, and enriches the resulting alert with the transcript.
 

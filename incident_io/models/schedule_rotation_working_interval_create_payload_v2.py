@@ -13,7 +13,7 @@ from ..models.schedule_rotation_working_interval_create_payload_v2_weekday impor
 T = TypeVar("T", bound="ScheduleRotationWorkingIntervalCreatePayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ScheduleRotationWorkingIntervalCreatePayloadV2:
     """
     Example:

@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="IncidentTemplateV1")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentTemplateV1:
     """A reusable set of values applied to incidents created from alerts.
 

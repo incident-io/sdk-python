@@ -33,7 +33,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AlertRoutesCreatePayloadV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertRoutesCreatePayloadV2:
     """
     Example:

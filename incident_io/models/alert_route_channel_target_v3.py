@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AlertRouteChannelTargetV3")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertRouteChannelTargetV3:
     """
     Example:

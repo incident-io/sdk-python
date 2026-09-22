@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="WorkflowRunsV2ListCreatedAt")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class WorkflowRunsV2ListCreatedAt:
     """Filter on workflow run created at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.
 

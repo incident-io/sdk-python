@@ -24,7 +24,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ExpressionOperationV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class ExpressionOperationV2:
     """
     Example:

@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="AlertsV2ListAlertGroupId")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class AlertsV2ListAlertGroupId:
     """Filter on alert group ID. Returns alerts that belong to any of the specified groups. The accepted operator is
     'one_of'.

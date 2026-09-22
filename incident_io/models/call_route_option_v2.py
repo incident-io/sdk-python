@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CallRouteOptionV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class CallRouteOptionV2:
     """One entry in a call route's phone-tree menu: the digit a caller presses, the
     prompt we read out to offer it, and who we page when they choose it.

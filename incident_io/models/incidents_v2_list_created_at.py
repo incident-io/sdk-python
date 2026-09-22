@@ -9,7 +9,7 @@ from attrs import field as _attrs_field
 T = TypeVar("T", bound="IncidentsV2ListCreatedAt")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class IncidentsV2ListCreatedAt:
     """Filter on incident created at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.
 

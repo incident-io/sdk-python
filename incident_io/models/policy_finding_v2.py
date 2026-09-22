@@ -29,7 +29,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PolicyFindingV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyFindingV2:
     """
     Example:

@@ -14,7 +14,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="PolicyFindingReadinessRuleV2")
 
 
-@_attrs_define
+@_attrs_define(kw_only=True)
 class PolicyFindingReadinessRuleV2:
     """
     Example:
