@@ -11,12 +11,15 @@ RUFF_VERSION := 0.16.8
 PACKAGE    := incident_io
 SCHEMA_URL := https://api.incident.io/v1/openapiV3.json
 
-.PHONY: fetch generate verify surface clean
+.PHONY: fetch generate verify test surface clean
 
 # -L because without it a redirect is a silent success writing zero bytes,
-# which parses as an empty schema.
+# which parses as an empty schema. OUT lets the release workflow fetch to a
+# scratch path so it still has the previous schema to diff against.
+OUT ?= openapi.json
+
 fetch:
-	curl -sfSL $(SCHEMA_URL) -o openapi.json
+	curl -sfSL $(SCHEMA_URL) -o $(OUT)
 
 # --meta none keeps the generator to the package itself. Any other value has it
 # write pyproject.toml and README.md too, overwriting ours.
@@ -28,6 +31,7 @@ generate: openapi.json
 		--output-path $(PACKAGE) \
 		--meta none \
 		--config config.yml \
+		--custom-template-path templates \
 		--overwrite \
 		--fail-on-warning
 	python3 scripts/fix_generated.py $(PACKAGE)
@@ -46,17 +50,18 @@ verify:
 	rm -rf dist
 	uv build
 	uv venv --clear .venv-verify
-	uv pip install --quiet --python .venv-verify dist/*.whl mypy==$(MYPY_VERSION)
-	.venv-verify/bin/python scripts/verify_import.py
+	uv pip install --quiet --python .venv-verify dist/*.whl mypy==$(MYPY_VERSION) pytest pytest-asyncio
+	.venv-verify/bin/python scripts/verify_import.py api-surface.txt
 	# We ship py.typed, so consumers' type checkers read these annotations. Run
 	# against the installed package rather than the source tree: on the tree,
 	# mypy resolves the generated `Response` to httpx's and reports thousands of
 	# errors that no consumer ever sees.
 	.venv-verify/bin/mypy -p incident_io
-	# oasdiff compares the schema; this compares what consumers import. A
-	# renamed schema, a changed operationId or a renamed path parameter is
-	# `info` to oasdiff and an ImportError or TypeError to a caller.
-	.venv-verify/bin/python scripts/api_surface.py check $(PACKAGE) api-surface.txt
+
+# Depends on verify so the tests run against the installed wheel rather than
+# the source tree, in the environment verify already built.
+test: verify
+	.venv-verify/bin/python -m pytest tests/ -q
 
 # Accept the current surface as the new baseline. Run after a deliberate
 # breaking change, alongside the major version bump.

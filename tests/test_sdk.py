@@ -11,13 +11,10 @@ these run on a pull request. scripts/smoke_test.py covers the live API.
 from __future__ import annotations
 
 import inspect
-import warnings
-from pathlib import Path
 
 import httpx
 import pytest
 
-import incident_io
 from incident_io import AuthenticatedClient
 from incident_io.api.actions_v1 import actions_v1_list
 from incident_io.api.pay_reports_v2 import pay_reports_v2_download
@@ -91,7 +88,6 @@ def test_an_error_status_is_returned_not_raised():
     assert response.status_code == 422
 
 
-@pytest.mark.asyncio
 async def test_the_async_entry_point_works():
     client = client_returning(200, SEVERITIES_BODY)
 
@@ -107,13 +103,8 @@ async def test_the_async_entry_point_works():
 def test_a_deprecated_endpoint_warns():
     client = client_returning(200, {"actions": []})
 
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter("always")
+    with pytest.warns(DeprecationWarning, match=r"GET /v1/actions"):
         actions_v1_list.sync_detailed(client=client)
-
-    messages = [str(w.message) for w in caught if w.category is DeprecationWarning]
-    assert messages, "no DeprecationWarning was raised"
-    assert "GET /v1/actions" in messages[0]
 
 
 def test_a_deprecated_endpoint_warns_once_not_twice():
@@ -122,13 +113,11 @@ def test_a_deprecated_endpoint_warns_once_not_twice():
     -W error blames us for the caller's mistake."""
     client = client_returning(200, {"actions": []})
 
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter("always")
+    with pytest.warns(DeprecationWarning) as caught:
         actions_v1_list.sync(client=client)
 
-    deprecations = [w for w in caught if w.category is DeprecationWarning]
-    assert len(deprecations) == 1, f"expected one warning, got {len(deprecations)}"
-    assert "incident_io" not in deprecations[0].filename, (
+    assert len(caught) == 1, f"expected one warning, got {len(caught)}"
+    assert "incident_io" not in caught[0].filename, (
         "the warning points inside the SDK rather than at the caller"
     )
 
@@ -140,26 +129,21 @@ def test_a_deprecated_async_endpoint_stays_a_coroutine_function():
     assert inspect.iscoroutinefunction(actions_v1_list.asyncio_detailed)
 
 
-@pytest.mark.asyncio
 async def test_a_deprecated_async_endpoint_warns_and_still_returns():
     client = client_returning(200, {"actions": []})
 
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter("always")
+    with pytest.warns(DeprecationWarning):
         response = await actions_v1_list.asyncio_detailed(client=client)
 
     assert response.status_code == 200
-    assert [w for w in caught if w.category is DeprecationWarning]
 
 
-def test_an_undeprecated_endpoint_does_not_warn():
+def test_an_undeprecated_endpoint_does_not_warn(recwarn):
     client = client_returning(200, SEVERITIES_BODY)
 
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter("always")
-        severities_v1_list.sync_detailed(client=client)
+    severities_v1_list.sync_detailed(client=client)
 
-    assert not [w for w in caught if w.category is DeprecationWarning]
+    assert not [w for w in recwarn.list if w.category is DeprecationWarning]
 
 
 def test_a_binary_download_returns_bytes():
@@ -183,11 +167,3 @@ def test_a_binary_download_returns_bytes():
     assert response.status_code == 200
     assert response.parsed.payload.read() == csv
 
-
-def test_the_package_ships_a_py_typed_marker():
-    """Without it, mypy and pyright ignore every annotation in the SDK. `make
-    generate` removes the package and recreates the marker, so this catches it
-    going missing."""
-    marker = Path(incident_io.__path__[0]) / "py.typed"
-
-    assert marker.exists(), f"{marker} is missing"

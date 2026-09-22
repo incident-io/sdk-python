@@ -232,7 +232,7 @@ async def asyncio(
 import functools as _functools  # noqa: E402
 import warnings as _warnings  # noqa: E402
 
-_DEPRECATION_MESSAGE = "GET /v1/custom_fields/{id} is deprecated and will be removed. See https://api-docs.incident.io/ for the replacement."
+_DEPRECATION_MESSAGE = "GET /v1/custom_fields/{} is deprecated and will be removed. See https://api-docs.incident.io/ for the replacement."
 
 # sync() calls sync_detailed(), and both are wrapped, so a single user call
 # would warn twice — the second time with a stacklevel pointing inside the SDK,

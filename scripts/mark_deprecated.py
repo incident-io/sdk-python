@@ -23,9 +23,8 @@ import re
 import sys
 from pathlib import Path
 
-SYNC_ENTRY_POINTS = ("sync_detailed", "sync")
 ASYNC_ENTRY_POINTS = ("asyncio_detailed", "asyncio")
-ENTRY_POINTS = SYNC_ENTRY_POINTS + ASYNC_ENTRY_POINTS
+ENTRY_POINTS = ("sync_detailed", "sync", *ASYNC_ENTRY_POINTS)
 METHODS = ("get", "post", "put", "patch", "delete")
 MARKER = "# --- deprecation markers added by scripts/mark_deprecated.py ---"
 
@@ -90,27 +89,20 @@ def deprecated_operations(spec: dict) -> set[tuple[str, str]]:
             if method not in METHODS or not isinstance(operation, dict):
                 continue
             if operation.get("deprecated"):
-                found.add((method, normalise_path(path)))
+                found.add((method, path_shape(path)))
     return found
 
 
-def normalise_path(path: str) -> str:
-    """Snake_case the parameter names in a path, the way the generator does.
+def path_shape(path: str) -> str:
+    """A path with its parameter names erased.
 
-    The schema is free to name a path parameter `followUpId` or `action-id`;
-    the generated URL always says `follow_up_id`. Comparing the raw spec path
-    against the generated one therefore misses those, and a miss fails the
-    release. Only the parameter names are touched — the literal segments are
-    already whatever the API serves.
+    The schema may call a parameter `followUpId`; the generated URL says
+    `follow_up_id`, via the generator's own identifier rules. Re-implementing
+    those rules here would duplicate something upstream owns and drift from it,
+    so compare only the shape. Two operations cannot differ by parameter name
+    alone — OpenAPI treats those as the same path — so nothing is lost.
     """
-
-    def snake(match: re.Match[str]) -> str:
-        name = match.group(1)
-        name = re.sub(r"[-\s]+", "_", name)
-        name = re.sub(r"(?<=[a-z0-9])([A-Z])", r"_\1", name)
-        return "{" + name.lower() + "}"
-
-    return re.sub(r"\{([^}]+)\}", snake, path)
+    return re.sub(r"\{[^}]+\}", "{}", path)
 
 
 def operation_of(source: str) -> tuple[str, str] | None:
@@ -119,7 +111,7 @@ def operation_of(source: str) -> tuple[str, str] | None:
     url = re.search(r'"url":\s*"([^"]+)"', source)
     if not method or not url:
         return None
-    return method.group(1), url.group(1)
+    return method.group(1), path_shape(url.group(1))
 
 
 def mark(file: Path, method: str, path: str) -> bool:

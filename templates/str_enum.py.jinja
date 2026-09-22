@@ -1,0 +1,33 @@
+{#-
+  Overrides the generator's str_enum template to add _missing_.
+
+  The generator emits closed enums, so `StrEnum("a_new_value")` raises
+  ValueError inside from_dict. Our API adds enum values as a backwards-
+  compatible change and the server starts sending one the moment it ships, so
+  without this every already-installed copy of the SDK breaks on the next
+  response carrying it — and the release that knows the value is one those
+  callers have not installed. Unknown values become members instead.
+
+  Keep the emitted docstring to one line: it is repeated in 325 generated
+  files, and the reasoning belongs here rather than in the published wheel.
+-#}
+from enum import StrEnum
+from typing import Any
+
+class {{ enum.class_info.name }}(StrEnum):
+    {% for key, value in enum.values|dictsort(true) %}
+    {{ key }} = "{{ value }}"
+    {% endfor %}
+
+    def __str__(self) -> str:
+        return str(self.value)
+
+    @classmethod
+    def _missing_(cls, value: object) -> "{{ enum.class_info.name }}":
+        """Accept a value added to the API after this SDK was built."""
+        if not isinstance(value, str):
+            return super()._missing_(value)  # type: ignore[return-value]
+        unknown = str.__new__(cls, value)
+        unknown._name_ = value
+        unknown._value_ = value
+        return unknown

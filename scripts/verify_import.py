@@ -1,7 +1,8 @@
 """Import every generated module, and byte-compile the ones that can't be imported.
 
 Run against the installed wheel, not the working tree, so this checks what we would
-actually publish.
+actually publish. Given a path, it also checks the recorded API surface (see
+api_surface.py), reusing the imports this walk has already done.
 
 `import incident_io` only pulls in the client and, transitively, the model graph — about
 four fifths of the package. Every module under `incident_io.api` is left out, because
@@ -53,3 +54,12 @@ if not (Path(package_root) / "py.typed").exists():
     sys.exit("verify: py.typed is missing, so type checkers will ignore the SDK")
 
 print(f"verify: imported {count} modules")
+
+# Folded in here rather than run as its own command: every module is already
+# in sys.modules, so recording the surface costs nothing, where a second
+# process would import the whole package again.
+if len(sys.argv) > 1:
+    sys.path.insert(0, str(Path(__file__).parent))
+    from api_surface import check, surface
+
+    raise SystemExit(check(surface("incident_io"), Path(sys.argv[1])))

@@ -1,7 +1,13 @@
 # https://github.com/openapi-generators/openapi-python-client#configuration
-#
-# ruff needs to be on PATH. Without it the generator skips these, warns, and
-# still exits 0.
+
+# The pay-report download declares text/csv, and the generator reads any
+# `text/*` response as a string, then wraps it in BytesIO — which wants bytes,
+# so every successful download raised TypeError. Declaring it as a binary
+# content type makes the generator emit `response.content` itself. text/csv
+# appears once in the whole schema, so this affects nothing else.
+content_type_overrides:
+  text/csv: application/octet-stream
+
 post_hooks:
   - "ruff check . --fix-only"
   - "ruff format ."

@@ -7,17 +7,12 @@ skipped patch. Report these upstream; delete a fix here when it lands there.
 
 Fixes:
 
-1. Binary responses are decoded as text. The generator emits
-   `BytesIO(response.text)` for a `format: binary` response, and BytesIO wants
-   bytes, so every successful call to such an endpoint raises TypeError. Ours is
-   `GET /v2/pay_reports/{id}/download`.
-
-2. The context-manager signatures don't type-check. `__exit__` and `__aexit__`
+1. The context-manager signatures don't type-check. `__exit__` and `__aexit__`
    take `*args: object` and splat that into httpx's, which is typed for the
    three specific arguments. Harmless at runtime, but the package ships
    `py.typed`, so it has to check cleanly.
 
-3. Models accept positional arguments. attrs orders fields required-then-
+2. Models accept positional arguments. attrs orders fields required-then-
    optional in schema order, and our schema emits properties alphabetically, so
    adding one optional field moves every positional argument after it. A caller
    writing `Payload(Status.FIRING, "disk full", "dedup-123")` silently sends
@@ -44,9 +39,6 @@ class Fix:
     glob: str
     old: str
     new: str
-    # Some fixes apply to one known file, others to any matching endpoint. A
-    # fix that matches nothing is a bug, so both are checked against this.
-    expect_at_least: int = 1
 
 
 FIXES = (
@@ -55,12 +47,6 @@ FIXES = (
         glob="models/*.py",
         old="@_attrs_define\n",
         new="@_attrs_define(kw_only=True)\n",
-    ),
-    Fix(
-        name="binary responses are read as bytes",
-        glob="api/*/*.py",
-        old="BytesIO(response.text)",
-        new="BytesIO(response.content)",
     ),
     Fix(
         name="__exit__ passes httpx the types it declares",
@@ -100,10 +86,8 @@ FIXES = (
             "        await self.get_async_httpx_client().__aexit__(exc_type, exc_value, traceback)"
         ),
     ),
-    # The two above reference TracebackType, which the generated client doesn't
-    # import. If they stop matching, this adds an unused import — which ruff
-    # removes on the next run and which fails the release anyway, so it can't
-    # reach a published wheel.
+    # The two above reference TracebackType, which the generated client
+    # doesn't import.
     Fix(
         name="client.py imports TracebackType",
         glob="client.py",
@@ -116,9 +100,7 @@ FIXES = (
 
 
 def apply(fix: Fix, package: Path) -> int:
-    """Replace every occurrence, returning how many. Counts replacements rather
-    than files so a fix that stops matching one of several endpoints still
-    trips expect_at_least."""
+    """Replace every occurrence, returning how many."""
     applied = 0
     for file in sorted(package.glob(fix.glob)):
         source = file.read_text()
@@ -136,7 +118,7 @@ def main(package_path: str) -> int:
 
     for fix in FIXES:
         applied = apply(fix, package)
-        if applied < fix.expect_at_least:
+        if not applied:
             unmatched.append(fix.name)
             print(f"  no match: {fix.name}", file=sys.stderr)
         else:

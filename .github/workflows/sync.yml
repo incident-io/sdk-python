@@ -49,15 +49,11 @@ jobs:
         with:
           fetch-depth: 0 # need full history + tags to read the last version
 
-      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
 
       # Goes to a scratch path because oasdiff needs both versions to compare;
       # writing straight over openapi.json would lose the old one.
       - name: Fetch latest public schema
-        # -L because without it a redirect succeeds and writes zero bytes,
-        # which oasdiff reads as an empty schema and reports as every endpoint
-        # having been removed.
-        run: curl -sfSL https://api.incident.io/v1/openapiV3.json -o openapi.json.new
+        run: make fetch OUT=openapi.json.new
 
       - name: Exit early if schema unchanged
         id: changed
@@ -68,6 +64,23 @@ jobs:
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - if: steps.changed.outputs.changed == 'true'
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          # The default key hashes pyproject.toml, which every release rewrites
+          # with a new version, so it would miss every time. The pins that
+          # actually decide what gets downloaded live in the Makefile.
+          cache-dependency-glob: Makefile
+      # mypy over 1895 files is the slowest part of verify: ~6s cold against
+      # ~0.2s warm. make generate rewrites every file, but mypy falls back to
+      # the source hash, and most models are untouched between releases.
+      - if: steps.changed.outputs.changed == 'true'
+        uses: actions/cache@v4
+        with:
+          path: .mypy_cache
+          key: mypy-${{ hashFiles('Makefile') }}-${{ github.sha }}
+          restore-keys: mypy-${{ hashFiles('Makefile') }}-
 
       - name: Check for breaking changes
         if: steps.changed.outputs.changed == 'true'
@@ -83,13 +96,19 @@ jobs:
             exit 0
           fi
 
-          # oasdiff-severity.txt downgrades two rules from ERR. oasdiff judges
-          # the schema; what we ship is a client generated from it, and an
-          # added response enum value is breaking only for someone pinned to an
-          # older client — which is what the version bump is for. Left at ERR
-          # they halt about a quarter of real schema changes: over 49
-          # consecutive changes from sdk-go's history, 12 would have stopped,
-          # 11 of them for an added enum value. The file takes no comments.
+          # oasdiff-severity.txt adjusts four rules in both directions; it
+          # takes no comments of its own.
+          #
+          # Down to WARN: an added response enum value, because our generated
+          # enums accept unknown values (templates/str_enum.py.jinja), and a
+          # tightened request minimum, because the generator emits no range
+          # validation so the client cannot behave differently. Left at ERR
+          # these halt about a quarter of real schema changes — over 49
+          # consecutive changes from sdk-go's history, 12 would have stopped.
+          #
+          # Up to ERR: a removed operationId or component schema. Neither
+          # changes the wire contract, so oasdiff rates them info, but both
+          # rename something consumers import.
           report="$(/tmp/oasdiff breaking openapi.json openapi.json.new \
             --severity-levels oasdiff-severity.txt --fail-on ERR 2>&1)" && rc=0 || rc=$?
           echo "$report"
@@ -197,48 +216,17 @@ jobs:
           sed -i -E "0,/^version = /s/^version = .*/version = \"${NEXT#v}\"/" pyproject.toml
           grep -m1 '^version = ' pyproject.toml
 
-      - name: Regenerate and verify
+      - name: Regenerate and check
         if: steps.changed.outputs.changed == 'true'
         run: |
           set -euo pipefail
           mv openapi.json.new openapi.json
           make generate
-          make verify
+          # make test depends on make verify: builds the wheel, imports every
+          # module, type-checks, checks the API surface, then runs the tests.
           # The generated code changes on every release, which is exactly when
-          # behaviour needs checking. make verify only proves it imports.
-          uv run --group dev pytest tests/ -q
-
-      # make verify fails when something left the public surface. That is a
-      # breaking change oasdiff cannot see, so it gets oasdiff's treatment:
-      # an issue, and no publish.
-      - name: Report a breaking change to the generated API
-        if: failure() && steps.changed.outputs.changed == 'true' && steps.breaking.outputs.breaking != 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          git diff --quiet -- api-surface.txt && exit 0 || true
-
-          gh label create breaking-change \
-            --description "Schema changed incompatibly; release halted" \
-            --color B60205 2>/dev/null || true
-
-          if gh issue list --label breaking-change --state open --limit 1 \
-              --json number --jq '.[0].number // empty' | grep -q .; then
-            echo "::error::Already reported."
-            exit 1
-          fi
-
-          gh issue create --title "Generated API changed incompatibly — manual release required" \
-            --label breaking-change --body "$(cat <<EOF
-          Something left the SDK's public surface. The wire contract may be unchanged — oasdiff passed — but consumers import these names, so this breaks them at import or call time.
-
-          Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-
-          Release with \`bump: major\` once you have decided, then run \`make surface\` to accept the new baseline.
-          EOF
-          )"
-          exit 1
+          # behaviour needs checking.
+          make test
 
       # Every step above this point fails without committing anything, so the
       # next run sees the same schema diff and fails identically. Left alone

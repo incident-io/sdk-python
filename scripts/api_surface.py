@@ -15,6 +15,10 @@ So this reads the generated package instead of the schema, writes the surface to
 a file we commit, and on the next release fails if any line disappeared.
 Additions are fine; removals are not.
 
+One line per name, not per class: a composite line would be rewritten whenever
+anything on it changed, so adding a field would read as a removal and halt an
+entirely additive release.
+
     python scripts/api_surface.py write incident_io api-surface.txt
     python scripts/api_surface.py check incident_io api-surface.txt
 
@@ -32,15 +36,22 @@ from pathlib import Path
 ENTRY_POINTS = ("sync_detailed", "sync", "asyncio_detailed", "asyncio")
 
 
-def endpoint_lines(package) -> list[str]:
-    """One line per endpoint entry point, naming its keyword parameters.
+def _raise(name: str) -> None:
+    """walk_packages swallows import errors while discovering subpackages
+    unless given an onerror. A swallowed one would silently shrink the recorded
+    surface, so the next real removal would go unnoticed."""
+    raise ImportError(f"failed to import {name}")
 
-    Catches an operation being renamed or retagged (the module path moves) and a
-    path or query parameter being renamed (the parameter list changes).
+
+def endpoint_lines(package) -> list[str]:
+    """One line per endpoint parameter.
+
+    Catches an operation being renamed or retagged (the module path moves) and
+    a path or query parameter being renamed (the parameter line disappears).
     """
     lines = []
     api = importlib.import_module(f"{package.__name__}.api")
-    for module in pkgutil.walk_packages(api.__path__, f"{api.__name__}."):
+    for module in pkgutil.walk_packages(api.__path__, f"{api.__name__}.", onerror=_raise):
         if module.ispkg:
             continue
         imported = importlib.import_module(module.name)
@@ -48,39 +59,34 @@ def endpoint_lines(package) -> list[str]:
             function = getattr(imported, name, None)
             if function is None:
                 continue
-            parameters = sorted(inspect.signature(function).parameters)
-            lines.append(f"endpoint {module.name}.{name}({', '.join(parameters)})")
+            for parameter in inspect.signature(function).parameters:
+                lines.append(f"endpoint {module.name}.{name} {parameter}")
     return lines
 
 
 def model_lines(package) -> list[str]:
-    """One line per exported model, naming its fields or enum members.
+    """One line per model field and per enum member.
 
-    Catches a schema being renamed or inlined (the class leaves `__all__`), a
-    response property being removed, a required property being added, and an
-    enum value being removed — none of which oasdiff rates as breaking.
+    Catches a schema being renamed or inlined (its lines disappear), a response
+    property being removed, and an enum value being removed — none of which
+    oasdiff rates as breaking.
     """
     lines = []
     models = importlib.import_module(f"{package.__name__}.models")
     for name in sorted(getattr(models, "__all__", [])):
-        obj = getattr(models, name, None)
-        if obj is None:
-            lines.append(f"model {name} MISSING")
-            continue
+        obj = getattr(models, name)
 
         members = getattr(obj, "__members__", None)
         if members is not None:  # an enum
-            lines.append(f"enum {name}({', '.join(sorted(members))})")
+            lines.extend(f"enum {name}.{member}" for member in members)
             continue
 
         fields = getattr(obj, "__attrs_attrs__", None)
-        if fields is not None:
-            required = sorted(f.name for f in fields if f.default is inspect.Parameter.empty)
-            optional = sorted(f.name for f in fields if f.default is not inspect.Parameter.empty)
-            lines.append(f"model {name}(required: {', '.join(required)} | optional: {', '.join(optional)})")
+        if fields is None:
+            lines.append(f"model {name}")
             continue
 
-        lines.append(f"model {name}")
+        lines.extend(f"model {name}.{field.name}" for field in fields)
     return lines
 
 
