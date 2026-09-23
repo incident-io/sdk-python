@@ -6,12 +6,9 @@ name: sync
 # Do not rename this file. PyPI's trusted-publishing binding is registered
 # against the repo and this filename, so a rename breaks publishing silently.
 on:
-  # Disabled until PyPI trusted publishing is set up: without it the first
-  # schema change would tag and release, then fail at the publish step.
-  # Uncomment to start the hourly loop. Avoid minute 0, which is GitHub's most
-  # contended scheduling slot.
-  # schedule:
-  #   - cron: "17 * * * *" # hourly
+  # Avoid minute 0, which is GitHub's most contended scheduling slot.
+  schedule:
+    - cron: "17 * * * *" # hourly
   workflow_dispatch:
     inputs:
       bump:
