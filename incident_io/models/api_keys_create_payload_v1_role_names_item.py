@@ -40,6 +40,7 @@ class APIKeysCreatePayloadV1RoleNamesItem(StrEnum):
     SECRETS_USE = "secrets_use"
     SECURITY_SETTINGS_EDITOR = "security_settings_editor"
     STATUS_PAGE_PUBLISHER = "status_page_publisher"
+    STATUS_PAGE_VIEWER = "status_page_viewer"
     TEAM_MEMBERSHIPS_MANAGE = "team_memberships_manage"
     TELEMETRY_DATA_SOURCE_UPDATE = "telemetry_data_source_update"
     TELEMETRY_QUERY_RESTRICTED = "telemetry_query_restricted"

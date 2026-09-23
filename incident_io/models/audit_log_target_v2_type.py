@@ -43,6 +43,7 @@ class AuditLogTargetV2Type(StrEnum):
     MAINTENANCE_WINDOW = "maintenance_window"
     NUDGE = "nudge"
     ON_CALL_NOTIFICATION_METHOD = "on_call_notification_method"
+    ON_CALL_NOTIFICATION_PAUSE = "on_call_notification_pause"
     ON_CALL_UPSELL_REQUEST = "on_call_upsell_request"
     ORGANISATION = "organisation"
     ORGANISATION_SETTINGS = "organisation_settings"
@@ -67,6 +68,7 @@ class AuditLogTargetV2Type(StrEnum):
     TEAM_SETTINGS = "team_settings"
     TELEMETRY_DATA_SOURCE = "telemetry_data_source"
     TIMELINE_ITEM = "timeline_item"
+    TWILIO_CONNECTION = "twilio_connection"
     USER = "user"
     WORKFLOW = "workflow"
 

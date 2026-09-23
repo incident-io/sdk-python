@@ -14,7 +14,7 @@ class IncidentsV2ListCreatedAt:
     """Filter on incident created at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.
 
     Example:
-        {'created_at[gte]': ['2024-05-01']}
+        {'gte': ['2024-05-01']}
 
     """
 

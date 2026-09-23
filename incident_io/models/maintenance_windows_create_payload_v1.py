@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import datetime
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, Self, TypeVar
+from typing import TYPE_CHECKING, Any, Self, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -37,8 +37,9 @@ class MaintenanceWindowsCreatePayloadV1:
             'bob@example.com', 'id': '01G0J1EXE7AXZ2C93K61WBPYEH', 'slack_user_id': 'USER123'}, 'name': 'Planned database
             migration', 'notification_message': 'Scheduled downtime for database migration', 'notify_channels':
             [{'channel_id': 'C0ACTHQMHS8', 'channel_name': 'general', 'channel_type': 'public'}],
-            'notify_end_minutes_before': 5, 'notify_start_minutes_before': 15, 'reroute_on_end': False, 'resolve_on_end':
-            False, 'show_in_sidebar': True, 'start_at': '2021-08-17T13:28:57.801578Z'}
+            'notify_end_minutes_before': 5, 'notify_start_minutes_before': 15, 'owning_team_ids':
+            ['01G0J1EXE7AXZ2C93K61WBPYEH'], 'reroute_on_end': False, 'resolve_on_end': False, 'show_in_sidebar': True,
+            'start_at': '2021-08-17T13:28:57.801578Z'}
 
     Attributes:
         alert_condition_groups (list[ConditionGroupPayloadV2]): Condition groups that determine which alerts this
@@ -68,6 +69,8 @@ class MaintenanceWindowsCreatePayloadV1:
             channels Example: 5.
         notify_start_minutes_before (int | Unset): Minutes before the start to send a notification to the configured
             channels Example: 15.
+        owning_team_ids (list[str] | Unset): IDs of teams that own this maintenance window. Omit to leave ownership
+            unchanged, or pass an empty list to clear it. Example: ['01G0J1EXE7AXZ2C93K61WBPYEH'].
         reroute_on_end (bool | Unset): Whether to retrigger firing alerts through alert routing when the window ends
             Example: False.
         resolve_on_end (bool | Unset): Whether to automatically resolve all firing alerts that matched this window when
@@ -86,6 +89,7 @@ class MaintenanceWindowsCreatePayloadV1:
     notify_channels: list[MaintenanceWindowNotifyChannelPayloadV1] | Unset = UNSET
     notify_end_minutes_before: int | Unset = UNSET
     notify_start_minutes_before: int | Unset = UNSET
+    owning_team_ids: list[str] | Unset = UNSET
     reroute_on_end: bool | Unset = UNSET
     resolve_on_end: bool | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -128,6 +132,10 @@ class MaintenanceWindowsCreatePayloadV1:
 
         notify_start_minutes_before = self.notify_start_minutes_before
 
+        owning_team_ids: list[str] | Unset = UNSET
+        if not isinstance(self.owning_team_ids, Unset):
+            owning_team_ids = self.owning_team_ids
+
         reroute_on_end = self.reroute_on_end
 
         resolve_on_end = self.resolve_on_end
@@ -156,6 +164,8 @@ class MaintenanceWindowsCreatePayloadV1:
             field_dict["notify_end_minutes_before"] = notify_end_minutes_before
         if notify_start_minutes_before is not UNSET:
             field_dict["notify_start_minutes_before"] = notify_start_minutes_before
+        if owning_team_ids is not UNSET:
+            field_dict["owning_team_ids"] = owning_team_ids
         if reroute_on_end is not UNSET:
             field_dict["reroute_on_end"] = reroute_on_end
         if resolve_on_end is not UNSET:
@@ -234,6 +244,8 @@ class MaintenanceWindowsCreatePayloadV1:
 
         notify_start_minutes_before = d.pop("notify_start_minutes_before", UNSET)
 
+        owning_team_ids = cast(list[str], d.pop("owning_team_ids", UNSET))
+
         reroute_on_end = d.pop("reroute_on_end", UNSET)
 
         resolve_on_end = d.pop("resolve_on_end", UNSET)
@@ -251,6 +263,7 @@ class MaintenanceWindowsCreatePayloadV1:
             notify_channels=notify_channels,
             notify_end_minutes_before=notify_end_minutes_before,
             notify_start_minutes_before=notify_start_minutes_before,
+            owning_team_ids=owning_team_ids,
             reroute_on_end=reroute_on_end,
             resolve_on_end=resolve_on_end,
         )

@@ -36,9 +36,9 @@ class MaintenanceWindowsListResultV1:
             workflow'}}, 'name': 'Planned database migration', 'notification_message': 'Scheduled downtime for database
             migration', 'notify_channels': [{'channel_id': 'C0ACTHQMHS8', 'channel_name': 'general', 'channel_type':
             'public', 'is_private': False}], 'notify_end_minutes_before': 5, 'notify_start_minutes_before': 15,
-            'reroute_on_end': False, 'resolve_on_end': False, 'show_in_sidebar': True, 'start_at':
-            '2021-08-17T13:28:57.801578Z', 'updated_at': '2021-08-17T13:28:57.801578Z'}], 'pagination_meta': {'after':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'page_size': 25}}
+            'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'], 'reroute_on_end': False, 'resolve_on_end': False,
+            'show_in_sidebar': True, 'start_at': '2021-08-17T13:28:57.801578Z', 'updated_at':
+            '2021-08-17T13:28:57.801578Z'}], 'pagination_meta': {'after': '01FCNDV6P870EA6S7TK1DSYDG0', 'page_size': 25}}
 
     Attributes:
         maintenance_windows (list[MaintenanceWindowV1]):  Example: [{'alert_condition_groups': [{'conditions':
@@ -59,8 +59,9 @@ class MaintenanceWindowsListResultV1:
             workflow'}}, 'name': 'Planned database migration', 'notification_message': 'Scheduled downtime for database
             migration', 'notify_channels': [{'channel_id': 'C0ACTHQMHS8', 'channel_name': 'general', 'channel_type':
             'public', 'is_private': False}], 'notify_end_minutes_before': 5, 'notify_start_minutes_before': 15,
-            'reroute_on_end': False, 'resolve_on_end': False, 'show_in_sidebar': True, 'start_at':
-            '2021-08-17T13:28:57.801578Z', 'updated_at': '2021-08-17T13:28:57.801578Z'}].
+            'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'], 'reroute_on_end': False, 'resolve_on_end': False,
+            'show_in_sidebar': True, 'start_at': '2021-08-17T13:28:57.801578Z', 'updated_at':
+            '2021-08-17T13:28:57.801578Z'}].
         pagination_meta (PaginationMetaResultV1):  Example: {'after': '01FCNDV6P870EA6S7TK1DSYDG0', 'page_size': 25}.
     """
 

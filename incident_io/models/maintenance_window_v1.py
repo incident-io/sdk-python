@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import datetime
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, Self, TypeVar
+from typing import TYPE_CHECKING, Any, Self, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -45,8 +45,8 @@ class MaintenanceWindowV1:
             workflow'}}, 'name': 'Planned database migration', 'notification_message': 'Scheduled downtime for database
             migration', 'notify_channels': [{'channel_id': 'C0ACTHQMHS8', 'channel_name': 'general', 'channel_type':
             'public', 'is_private': False}], 'notify_end_minutes_before': 5, 'notify_start_minutes_before': 15,
-            'reroute_on_end': False, 'resolve_on_end': False, 'show_in_sidebar': True, 'start_at':
-            '2021-08-17T13:28:57.801578Z', 'updated_at': '2021-08-17T13:28:57.801578Z'}
+            'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'], 'reroute_on_end': False, 'resolve_on_end': False,
+            'show_in_sidebar': True, 'start_at': '2021-08-17T13:28:57.801578Z', 'updated_at': '2021-08-17T13:28:57.801578Z'}
 
     Attributes:
         alert_condition_groups (list[ConditionGroupV2]): Condition groups that determine which alerts this maintenance
@@ -92,6 +92,9 @@ class MaintenanceWindowV1:
             channels Example: 5.
         notify_start_minutes_before (int | Unset): Minutes before the start to send a notification to the configured
             channels Example: 15.
+        owning_team_ids (list[str] | Unset): IDs of teams that own this maintenance window. Owning teams control who can
+            manage the window, and restrict it to holding alerts belonging to those teams or their descendants in the team
+            hierarchy. Example: ['01G0J1EXE7AXZ2C93K61WBPYEH'].
     """
 
     alert_condition_groups: list[ConditionGroupV2]
@@ -112,6 +115,7 @@ class MaintenanceWindowV1:
     notify_channels: list[MaintenanceWindowNotifyChannelV1] | Unset = UNSET
     notify_end_minutes_before: int | Unset = UNSET
     notify_start_minutes_before: int | Unset = UNSET
+    owning_team_ids: list[str] | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -166,6 +170,10 @@ class MaintenanceWindowV1:
 
         notify_start_minutes_before = self.notify_start_minutes_before
 
+        owning_team_ids: list[str] | Unset = UNSET
+        if not isinstance(self.owning_team_ids, Unset):
+            owning_team_ids = self.owning_team_ids
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -197,6 +205,8 @@ class MaintenanceWindowV1:
             field_dict["notify_end_minutes_before"] = notify_end_minutes_before
         if notify_start_minutes_before is not UNSET:
             field_dict["notify_start_minutes_before"] = notify_start_minutes_before
+        if owning_team_ids is not UNSET:
+            field_dict["owning_team_ids"] = owning_team_ids
 
         return field_dict
 
@@ -278,6 +288,8 @@ class MaintenanceWindowV1:
 
         notify_start_minutes_before = d.pop("notify_start_minutes_before", UNSET)
 
+        owning_team_ids = cast(list[str], d.pop("owning_team_ids", UNSET))
+
         maintenance_window_v1 = cls(
             alert_condition_groups=alert_condition_groups,
             created_at=created_at,
@@ -297,6 +309,7 @@ class MaintenanceWindowV1:
             notify_channels=notify_channels,
             notify_end_minutes_before=notify_end_minutes_before,
             notify_start_minutes_before=notify_start_minutes_before,
+            owning_team_ids=owning_team_ids,
         )
 
         maintenance_window_v1.additional_properties = d

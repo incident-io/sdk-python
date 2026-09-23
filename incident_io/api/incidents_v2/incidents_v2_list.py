@@ -412,10 +412,10 @@ def sync_detailed(
             incidents status. The accepted operators are 'one_of', or 'not_in'. Example: {'one_of':
             ['active']}.
         created_at (IncidentsV2ListCreatedAt | Unset): Filter on incident created at timestamp.
-            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'created_at[gte]':
+            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'gte':
             ['2024-05-01']}.
         updated_at (IncidentsV2ListUpdatedAt | Unset): Filter on incident updated at timestamp.
-            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'updated_at[gte]':
+            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'gte':
             ['2024-05-01']}.
         severity (IncidentsV2ListSeverity | Unset): Filter on incident severity. The accepted
             operators are 'one_of', 'not_in', 'gte', 'lte'. Example: {'one_of':
@@ -666,10 +666,10 @@ def sync(
             incidents status. The accepted operators are 'one_of', or 'not_in'. Example: {'one_of':
             ['active']}.
         created_at (IncidentsV2ListCreatedAt | Unset): Filter on incident created at timestamp.
-            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'created_at[gte]':
+            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'gte':
             ['2024-05-01']}.
         updated_at (IncidentsV2ListUpdatedAt | Unset): Filter on incident updated at timestamp.
-            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'updated_at[gte]':
+            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'gte':
             ['2024-05-01']}.
         severity (IncidentsV2ListSeverity | Unset): Filter on incident severity. The accepted
             operators are 'one_of', 'not_in', 'gte', 'lte'. Example: {'one_of':
@@ -915,10 +915,10 @@ async def asyncio_detailed(
             incidents status. The accepted operators are 'one_of', or 'not_in'. Example: {'one_of':
             ['active']}.
         created_at (IncidentsV2ListCreatedAt | Unset): Filter on incident created at timestamp.
-            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'created_at[gte]':
+            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'gte':
             ['2024-05-01']}.
         updated_at (IncidentsV2ListUpdatedAt | Unset): Filter on incident updated at timestamp.
-            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'updated_at[gte]':
+            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'gte':
             ['2024-05-01']}.
         severity (IncidentsV2ListSeverity | Unset): Filter on incident severity. The accepted
             operators are 'one_of', 'not_in', 'gte', 'lte'. Example: {'one_of':
@@ -1167,10 +1167,10 @@ async def asyncio(
             incidents status. The accepted operators are 'one_of', or 'not_in'. Example: {'one_of':
             ['active']}.
         created_at (IncidentsV2ListCreatedAt | Unset): Filter on incident created at timestamp.
-            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'created_at[gte]':
+            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'gte':
             ['2024-05-01']}.
         updated_at (IncidentsV2ListUpdatedAt | Unset): Filter on incident updated at timestamp.
-            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'updated_at[gte]':
+            The accepted operators are 'gte', 'lte' and 'date_range'. Example: {'gte':
             ['2024-05-01']}.
         severity (IncidentsV2ListSeverity | Unset): Filter on incident severity. The accepted
             operators are 'one_of', 'not_in', 'gte', 'lte'. Example: {'one_of':

@@ -26,9 +26,8 @@ class AuditLogExtensionConnectorCalledMetadataV3V2:
         surface (str): The product surface the call ran from (chat, investigation, explore, mcp_client, verify), or
             internal for system paths with no surface Example: chat.
         write (str): Whether the call was permitted to change the connected system (true, false) Example: true.
-        access_source (str | Unset): What decided: the connector's access policy, a decision pinned on this tool, or the
-            write grant that preceded access policies on a connector that has none yet (policy, override, write_grant)
-            Example: policy.
+        access_source (str | Unset): What decided: the connector's access policy, or a decision pinned on this tool
+            (policy, override) Example: policy.
         class_ (str | Unset): What calling the tool does to the connected system, as the tool's own server describes it
             (read, write, destructive, unknown) Example: write.
         incident_id (str | Unset): The incident the call was made for, when incident-scoped Example:

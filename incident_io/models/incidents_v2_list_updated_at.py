@@ -14,7 +14,7 @@ class IncidentsV2ListUpdatedAt:
     """Filter on incident updated at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.
 
     Example:
-        {'updated_at[gte]': ['2024-05-01']}
+        {'gte': ['2024-05-01']}
 
     """
 

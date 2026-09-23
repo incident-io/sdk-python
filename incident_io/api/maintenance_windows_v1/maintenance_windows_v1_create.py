@@ -147,8 +147,9 @@ def sync_detailed(
             'name': 'Planned database migration', 'notification_message': 'Scheduled downtime for
             database migration', 'notify_channels': [{'channel_id': 'C0ACTHQMHS8', 'channel_name':
             'general', 'channel_type': 'public'}], 'notify_end_minutes_before': 5,
-            'notify_start_minutes_before': 15, 'reroute_on_end': False, 'resolve_on_end': False,
-            'show_in_sidebar': True, 'start_at': '2021-08-17T13:28:57.801578Z'}.
+            'notify_start_minutes_before': 15, 'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'],
+            'reroute_on_end': False, 'resolve_on_end': False, 'show_in_sidebar': True, 'start_at':
+            '2021-08-17T13:28:57.801578Z'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -192,8 +193,9 @@ def sync(
             'name': 'Planned database migration', 'notification_message': 'Scheduled downtime for
             database migration', 'notify_channels': [{'channel_id': 'C0ACTHQMHS8', 'channel_name':
             'general', 'channel_type': 'public'}], 'notify_end_minutes_before': 5,
-            'notify_start_minutes_before': 15, 'reroute_on_end': False, 'resolve_on_end': False,
-            'show_in_sidebar': True, 'start_at': '2021-08-17T13:28:57.801578Z'}.
+            'notify_start_minutes_before': 15, 'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'],
+            'reroute_on_end': False, 'resolve_on_end': False, 'show_in_sidebar': True, 'start_at':
+            '2021-08-17T13:28:57.801578Z'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -232,8 +234,9 @@ async def asyncio_detailed(
             'name': 'Planned database migration', 'notification_message': 'Scheduled downtime for
             database migration', 'notify_channels': [{'channel_id': 'C0ACTHQMHS8', 'channel_name':
             'general', 'channel_type': 'public'}], 'notify_end_minutes_before': 5,
-            'notify_start_minutes_before': 15, 'reroute_on_end': False, 'resolve_on_end': False,
-            'show_in_sidebar': True, 'start_at': '2021-08-17T13:28:57.801578Z'}.
+            'notify_start_minutes_before': 15, 'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'],
+            'reroute_on_end': False, 'resolve_on_end': False, 'show_in_sidebar': True, 'start_at':
+            '2021-08-17T13:28:57.801578Z'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -275,8 +278,9 @@ async def asyncio(
             'name': 'Planned database migration', 'notification_message': 'Scheduled downtime for
             database migration', 'notify_channels': [{'channel_id': 'C0ACTHQMHS8', 'channel_name':
             'general', 'channel_type': 'public'}], 'notify_end_minutes_before': 5,
-            'notify_start_minutes_before': 15, 'reroute_on_end': False, 'resolve_on_end': False,
-            'show_in_sidebar': True, 'start_at': '2021-08-17T13:28:57.801578Z'}.
+            'notify_start_minutes_before': 15, 'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'],
+            'reroute_on_end': False, 'resolve_on_end': False, 'show_in_sidebar': True, 'start_at':
+            '2021-08-17T13:28:57.801578Z'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
