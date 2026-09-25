@@ -86016,7 +86016,8 @@
             "description": "Why this user's entries don't count as cover",
             "enum": [
               "no_on_call_seat",
-              "user_deactivated"
+              "user_deactivated",
+              "notifications_paused"
             ],
             "example": "no_on_call_seat",
             "type": "string"
@@ -86060,7 +86061,8 @@
             "enum": [
               "nobody_scheduled",
               "no_on_call_seat",
-              "user_deactivated"
+              "user_deactivated",
+              "notifications_paused"
             ],
             "example": "nobody_scheduled",
             "type": "string"

@@ -2,6 +2,7 @@ from enum import StrEnum
 
 
 class PolicyFindingScheduleImpactedUserV2Cause(StrEnum):
+    NOTIFICATIONS_PAUSED = "notifications_paused"
     NO_ON_CALL_SEAT = "no_on_call_seat"
     USER_DEACTIVATED = "user_deactivated"
 
