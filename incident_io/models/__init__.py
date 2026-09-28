@@ -441,6 +441,9 @@ from .audit_log_mobile_intune_enabled_setting_updated_metadata_v2 import (
 from .audit_log_on_call_notification_method_metadata_v2 import (
     AuditLogOnCallNotificationMethodMetadataV2,
 )
+from .audit_log_on_call_notification_pause_metadata_v2 import (
+    AuditLogOnCallNotificationPauseMetadataV2,
+)
 from .audit_log_on_call_upsell_requested_metadata_v2 import (
     AuditLogOnCallUpsellRequestedMetadataV2,
 )
@@ -749,11 +752,20 @@ from .audit_logs_on_call_notification_method_destroyed_v2 import (
 from .audit_logs_on_call_notification_pause_created_v1 import (
     AuditLogsOnCallNotificationPauseCreatedV1,
 )
+from .audit_logs_on_call_notification_pause_created_v2 import (
+    AuditLogsOnCallNotificationPauseCreatedV2,
+)
 from .audit_logs_on_call_notification_pause_deleted_v1 import (
     AuditLogsOnCallNotificationPauseDeletedV1,
 )
+from .audit_logs_on_call_notification_pause_deleted_v2 import (
+    AuditLogsOnCallNotificationPauseDeletedV2,
+)
 from .audit_logs_on_call_notification_pause_updated_v1 import (
     AuditLogsOnCallNotificationPauseUpdatedV1,
+)
+from .audit_logs_on_call_notification_pause_updated_v2 import (
+    AuditLogsOnCallNotificationPauseUpdatedV2,
 )
 from .audit_logs_on_call_upsell_requested_v1 import AuditLogsOnCallUpsellRequestedV1
 from .audit_logs_organisation_settings_updated_v1 import (
@@ -2889,6 +2901,7 @@ __all__ = (
     "AuditLogMicrosoftEntraTenantLinkedMetadataV2",
     "AuditLogMobileIntuneEnabledSettingUpdatedMetadataV2",
     "AuditLogOnCallNotificationMethodMetadataV2",
+    "AuditLogOnCallNotificationPauseMetadataV2",
     "AuditLogOnCallUpsellRequestedMetadataV2",
     "AuditLogOrganisationSettingsUpdatedMetadataV2",
     "AuditLogPolicyMetadataV2",
@@ -3035,8 +3048,11 @@ __all__ = (
     "AuditLogsOnCallNotificationMethodDestroyedV1",
     "AuditLogsOnCallNotificationMethodDestroyedV2",
     "AuditLogsOnCallNotificationPauseCreatedV1",
+    "AuditLogsOnCallNotificationPauseCreatedV2",
     "AuditLogsOnCallNotificationPauseDeletedV1",
+    "AuditLogsOnCallNotificationPauseDeletedV2",
     "AuditLogsOnCallNotificationPauseUpdatedV1",
+    "AuditLogsOnCallNotificationPauseUpdatedV2",
     "AuditLogsOnCallUpsellRequestedV1",
     "AuditLogsOrganisationSettingsUpdatedV1",
     "AuditLogsPolicyCreatedV1",
