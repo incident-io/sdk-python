@@ -122,8 +122,8 @@ default, so run with `-W default::DeprecationWarning` to see them.
 
 Releases are cut automatically whenever the API schema changes. We use
 [SemVer](https://semver.org/): additive API changes bump the minor version.
-Changes that would break existing code are never released automatically - they
-require a deliberate major version.
+Changes that would break existing code bump the major version, and the release
+notes list what broke.
 
 ## Support
 

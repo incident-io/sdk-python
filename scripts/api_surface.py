@@ -23,6 +23,10 @@ entirely additive release.
     python scripts/api_surface.py check incident_io api-surface.txt
 
 Run against the installed wheel, so it describes what consumers get.
+
+`check` exits 3 when the only problem is removed entries. Anything else that
+goes wrong exits 1. The release reads 3 as "this is a major" and 1 as a broken
+build.
 """
 
 from __future__ import annotations
@@ -117,11 +121,11 @@ def check(current: list[str], recorded_path: Path) -> int:
         print(f"  ... and {len(removed) - 40} more", file=sys.stderr)
     print(
         "\nConsumers import these by name, so removing one breaks them at import "
-        "or call time even when the wire contract is unchanged. This needs a major "
-        "version, not the automatic minor bump.",
+        "or call time even when the wire contract is unchanged. The release cuts "
+        "a major for it.",
         file=sys.stderr,
     )
-    return 1
+    return 3
 
 
 def main(argv: list[str]) -> int:

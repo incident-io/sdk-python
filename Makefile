@@ -11,7 +11,7 @@ RUFF_VERSION := 0.16.8
 PACKAGE    := incident_io
 SCHEMA_URL := https://api.incident.io/v1/openapiV3.json
 
-.PHONY: fetch generate verify test surface clean
+.PHONY: fetch generate install verify test surface clean
 
 # -L because without it a redirect is a silent success writing zero bytes,
 # which parses as an empty schema. OUT lets the release workflow fetch to a
@@ -49,13 +49,18 @@ generate: openapi.json
 # halt the hourly pipeline rather than fail a pull request.
 MYPY_VERSION := 2.3.1
 
-# Python has no compile step, so we install the wheel and exercise it. See
-# scripts/verify_import.py for why importing the package alone isn't enough.
-verify:
+# Build the wheel and install it into .venv-verify, with what verify and test
+# run. Separate from verify so the release can run the surface check itself
+# and tell a removal (exit 3) from a broken build.
+install:
 	rm -rf dist
 	uv build
 	uv venv --clear .venv-verify
 	uv pip install --quiet --python .venv-verify dist/*.whl mypy==$(MYPY_VERSION) pytest pytest-asyncio
+
+# Python has no compile step, so we install the wheel and exercise it. See
+# scripts/verify_import.py for why importing the package alone isn't enough.
+verify: install
 	.venv-verify/bin/python scripts/verify_import.py api-surface.txt
 	# We ship py.typed, so consumers' type checkers read these annotations. Run
 	# against the installed package rather than the source tree: on the tree,
@@ -68,9 +73,9 @@ verify:
 test: verify
 	.venv-verify/bin/python -m pytest tests/ -q
 
-# Accept the current surface as the new baseline. Run after a deliberate
-# breaking change, alongside the major version bump.
-surface: verify
+# Accept the current surface as the new baseline, removals included. The
+# release runs this itself on every release.
+surface: install
 	.venv-verify/bin/python scripts/api_surface.py write $(PACKAGE) api-surface.txt
 
 clean:
