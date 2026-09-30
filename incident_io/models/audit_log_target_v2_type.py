@@ -70,6 +70,7 @@ class AuditLogTargetV2Type(StrEnum):
     TIMELINE_ITEM = "timeline_item"
     TWILIO_CONNECTION = "twilio_connection"
     USER = "user"
+    USER_API_KEY = "user_api_key"
     WORKFLOW = "workflow"
 
     def __str__(self) -> str:

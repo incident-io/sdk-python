@@ -968,6 +968,8 @@ from .audit_logs_timeline_item_deleted_v1 import AuditLogsTimelineItemDeletedV1
 from .audit_logs_twilio_connection_created_v1 import AuditLogsTwilioConnectionCreatedV1
 from .audit_logs_twilio_connection_deleted_v1 import AuditLogsTwilioConnectionDeletedV1
 from .audit_logs_twilio_connection_updated_v1 import AuditLogsTwilioConnectionUpdatedV1
+from .audit_logs_user_api_key_created_v1 import AuditLogsUserAPIKeyCreatedV1
+from .audit_logs_user_api_key_deleted_v1 import AuditLogsUserAPIKeyDeletedV1
 from .audit_logs_user_created_v1 import AuditLogsUserCreatedV1
 from .audit_logs_user_deactivated_v1 import AuditLogsUserDeactivatedV1
 from .audit_logs_user_logged_in_v1 import AuditLogsUserLoggedInV1
@@ -3151,6 +3153,8 @@ __all__ = (
     "AuditLogsTwilioConnectionCreatedV1",
     "AuditLogsTwilioConnectionDeletedV1",
     "AuditLogsTwilioConnectionUpdatedV1",
+    "AuditLogsUserAPIKeyCreatedV1",
+    "AuditLogsUserAPIKeyDeletedV1",
     "AuditLogsUserCreatedV1",
     "AuditLogsUserDeactivatedV1",
     "AuditLogsUserLoggedInV1",
