@@ -19,11 +19,10 @@ T = TypeVar("T", bound="ScheduleEntryV2")
 @_attrs_define(kw_only=True)
 class ScheduleEntryV2:
     """A single shift on a schedule, representing who is on-call between a start
-    and end time. When present, `rotation_id` and `layer_id` tell you which
-    rotation and which layer within that rotation the entry belongs to. A
-    schedule may have multiple rotations (for example, a primary and a secondary
-    rotation) and each rotation can be made up of several layers — entries are
-    returned for every rotation and layer on the schedule.
+    and end time. When present, `rotation_id` tells you which rotation the
+    entry belongs to. A schedule may have multiple rotations (for example, a
+    primary and a secondary rotation) and each rotation can be made up of several
+    layers — entries are returned for every rotation and layer on the schedule.
 
     Entries come from two places: they are either generated from a schedule's
     rotation configuration (the regular pattern of who is on-call) or created by
@@ -40,10 +39,9 @@ class ScheduleEntryV2:
 
         Example:
             {'end_at': '2021-08-17T13:28:57.801578Z', 'entry_id': '01G0J1EXE7AXZ2C93K61WBPYEH', 'fingerprint':
-                '01G0J1EXE7AXZ2C93K61WBPYEH', 'layer_id': '01G0J1EXE7AXZ2C93K61WBPYNH', 'rotation_id':
-                '01G0J1EXE7AXZ2C93K61WBPYEH', 'start_at': '2021-08-17T13:28:57.801578Z', 'user': {'email': 'lisa@incident.io',
-                'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Lisa Karlin Curtis', 'role': 'owner', 'slack_user_id':
-                'U02AYNF2XJM'}}
+                '01G0J1EXE7AXZ2C93K61WBPYEH', 'rotation_id': '01G0J1EXE7AXZ2C93K61WBPYEH', 'start_at':
+                '2021-08-17T13:28:57.801578Z', 'user': {'email': 'lisa@incident.io', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name':
+                'Lisa Karlin Curtis', 'role': 'owner', 'slack_user_id': 'U02AYNF2XJM'}}
 
         Attributes:
             end_at (datetime.datetime):  Example: 2021-08-17T13:28:57.801578Z.
@@ -51,8 +49,6 @@ class ScheduleEntryV2:
             entry_id (str | Unset): Unique identifier of the schedule entry Example: 01G0J1EXE7AXZ2C93K61WBPYEH.
             fingerprint (str | Unset): A unique identifier for this entry, used to determine a unique shift Example:
                 01G0J1EXE7AXZ2C93K61WBPYEH.
-            layer_id (str | Unset): If present, the layer this entry applies to on the rotation Example:
-                01G0J1EXE7AXZ2C93K61WBPYNH.
             rotation_id (str | Unset): If present, the rotation this entry applies to on the schedule Example:
                 01G0J1EXE7AXZ2C93K61WBPYEH.
             user (UserV2 | Unset):  Example: {'email': 'lisa@incident.io', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Lisa
@@ -63,7 +59,6 @@ class ScheduleEntryV2:
     start_at: datetime.datetime
     entry_id: str | Unset = UNSET
     fingerprint: str | Unset = UNSET
-    layer_id: str | Unset = UNSET
     rotation_id: str | Unset = UNSET
     user: UserV2 | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -76,8 +71,6 @@ class ScheduleEntryV2:
         entry_id = self.entry_id
 
         fingerprint = self.fingerprint
-
-        layer_id = self.layer_id
 
         rotation_id = self.rotation_id
 
@@ -97,8 +90,6 @@ class ScheduleEntryV2:
             field_dict["entry_id"] = entry_id
         if fingerprint is not UNSET:
             field_dict["fingerprint"] = fingerprint
-        if layer_id is not UNSET:
-            field_dict["layer_id"] = layer_id
         if rotation_id is not UNSET:
             field_dict["rotation_id"] = rotation_id
         if user is not UNSET:
@@ -119,8 +110,6 @@ class ScheduleEntryV2:
 
         fingerprint = d.pop("fingerprint", UNSET)
 
-        layer_id = d.pop("layer_id", UNSET)
-
         rotation_id = d.pop("rotation_id", UNSET)
 
         _user = d.pop("user", UNSET)
@@ -135,7 +124,6 @@ class ScheduleEntryV2:
             start_at=start_at,
             entry_id=entry_id,
             fingerprint=fingerprint,
-            layer_id=layer_id,
             rotation_id=rotation_id,
             user=user,
         )

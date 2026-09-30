@@ -761,6 +761,9 @@ from .audit_logs_on_call_notification_pause_deleted_v1 import (
 from .audit_logs_on_call_notification_pause_deleted_v2 import (
     AuditLogsOnCallNotificationPauseDeletedV2,
 )
+from .audit_logs_on_call_notification_pause_resumed_v1 import (
+    AuditLogsOnCallNotificationPauseResumedV1,
+)
 from .audit_logs_on_call_notification_pause_updated_v1 import (
     AuditLogsOnCallNotificationPauseUpdatedV1,
 )
@@ -3054,6 +3057,7 @@ __all__ = (
     "AuditLogsOnCallNotificationPauseCreatedV2",
     "AuditLogsOnCallNotificationPauseDeletedV1",
     "AuditLogsOnCallNotificationPauseDeletedV2",
+    "AuditLogsOnCallNotificationPauseResumedV1",
     "AuditLogsOnCallNotificationPauseUpdatedV1",
     "AuditLogsOnCallNotificationPauseUpdatedV2",
     "AuditLogsOnCallUpsellRequestedV1",
