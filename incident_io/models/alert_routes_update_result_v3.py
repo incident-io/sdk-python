@@ -45,8 +45,8 @@ class AlertRoutesUpdateResultV3:
             {'reference': '1235', 'reference_label': 'Teams'}, 'operation_type': 'navigate', 'parse': {'returns': {'array':
             True, 'type': 'IncidentStatus'}, 'source': 'metadata.annotations["github.com/repo"]'}, 'returns': {'array':
             True, 'type': 'IncidentStatus'}}], 'reference': 'abc123', 'returns': {'array': True, 'type': 'IncidentStatus'},
-            'root_reference': 'incident.status'}], 'grouping_config': {'default': {'enabled': True, 'grouping_keys':
-            [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}}, 'id':
+            'root_reference': 'incident.status'}], 'grouping_config': {'default': {'ai_enabled': False, 'enabled': True,
+            'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}}, 'id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'incident_config': {'auto_decline_enabled': False, 'condition_groups':
             [{'conditions': [{'operation': {'label': 'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'},
             'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
@@ -112,17 +112,17 @@ class AlertRoutesUpdateResultV3:
             'operation_type': 'navigate', 'parse': {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
             'metadata.annotations["github.com/repo"]'}, 'returns': {'array': True, 'type': 'IncidentStatus'}}], 'reference':
             'abc123', 'returns': {'array': True, 'type': 'IncidentStatus'}, 'root_reference': 'incident.status'}],
-            'grouping_config': {'default': {'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}],
-            'window_seconds': 1800, 'window_type': 'rolling'}}, 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'incident_config':
-            {'auto_decline_enabled': False, 'condition_groups': [{'conditions': [{'operation': {'label': 'Lawrence Jones',
-            'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject': {'label':
-            'Priority', 'reference': 'alert.priority'}}]}], 'enabled': False, 'incident_template': {'array_value':
-            [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}, 'membership_teams': {'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}, 'template':
-            {'custom_fields': [{'binding': {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}],
-            'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}, 'custom_field_id':
+            'grouping_config': {'default': {'ai_enabled': False, 'enabled': True, 'grouping_keys': [{'reference':
+            'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}}, 'id': '01FCNDV6P870EA6S7TK1DSYDG0',
+            'incident_config': {'auto_decline_enabled': False, 'condition_groups': [{'conditions': [{'operation': {'label':
+            'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'literal':
+            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}], 'subject': {'label': 'Priority', 'reference': 'alert.priority'}}]}], 'enabled': False,
+            'incident_template': {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
+            {'literal': 'SEV123', 'reference': 'incident.severity'}}, 'membership_teams': {'array_value': [{'literal':
+            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}},
+            'template': {'custom_fields': [{'binding': {'array_value': [{'literal': 'SEV123', 'reference':
+            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}, 'custom_field_id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'merge_strategy': 'first-wins'}], 'incident_mode': {'binding': {'array_value':
             [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
             'incident.severity'}}}, 'incident_type': {'binding': {'array_value': [{'literal': 'SEV123', 'reference':

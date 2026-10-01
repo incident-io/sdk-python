@@ -54,8 +54,8 @@ class AlertRouteV3:
             {'reference': '1235', 'reference_label': 'Teams'}, 'operation_type': 'navigate', 'parse': {'returns': {'array':
             True, 'type': 'IncidentStatus'}, 'source': 'metadata.annotations["github.com/repo"]'}, 'returns': {'array':
             True, 'type': 'IncidentStatus'}}], 'reference': 'abc123', 'returns': {'array': True, 'type': 'IncidentStatus'},
-            'root_reference': 'incident.status'}], 'grouping_config': {'default': {'enabled': True, 'grouping_keys':
-            [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}}, 'id':
+            'root_reference': 'incident.status'}], 'grouping_config': {'default': {'ai_enabled': False, 'enabled': True,
+            'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}}, 'id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'incident_config': {'auto_decline_enabled': False, 'condition_groups':
             [{'conditions': [{'operation': {'label': 'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'},
             'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
@@ -126,8 +126,8 @@ class AlertRouteV3:
             True, 'type': 'IncidentStatus'}, 'source': 'metadata.annotations["github.com/repo"]'}, 'returns': {'array':
             True, 'type': 'IncidentStatus'}}], 'reference': 'abc123', 'returns': {'array': True, 'type': 'IncidentStatus'},
             'root_reference': 'incident.status'}].
-        grouping_config (AlertGroupingConfigV3):  Example: {'default': {'enabled': True, 'grouping_keys': [{'reference':
-            'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}}.
+        grouping_config (AlertGroupingConfigV3):  Example: {'default': {'ai_enabled': False, 'enabled': True,
+            'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}}.
         id (str): Unique identifier for this alert route Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         incident_config (AlertRouteIncidentConfigV3):  Example: {'auto_decline_enabled': False, 'condition_groups':
             [{'conditions': [{'operation': {'label': 'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'},

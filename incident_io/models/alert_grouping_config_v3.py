@@ -17,12 +17,12 @@ T = TypeVar("T", bound="AlertGroupingConfigV3")
 class AlertGroupingConfigV3:
     """
     Example:
-        {'default': {'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800,
-            'window_type': 'rolling'}}
+        {'default': {'ai_enabled': False, 'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}],
+            'window_seconds': 1800, 'window_type': 'rolling'}}
 
     Attributes:
-        default (GroupingSettingsV3):  Example: {'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}],
-            'window_seconds': 1800, 'window_type': 'rolling'}.
+        default (GroupingSettingsV3):  Example: {'ai_enabled': False, 'enabled': True, 'grouping_keys': [{'reference':
+            'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}.
     """
 
     default: GroupingSettingsV3

@@ -20,11 +20,15 @@ T = TypeVar("T", bound="GroupingSettingsV3")
 class GroupingSettingsV3:
     """
     Example:
-        {'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type':
-            'rolling'}
+        {'ai_enabled': False, 'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800,
+            'window_type': 'rolling'}
 
     Attributes:
         enabled (bool): Whether grouping is enabled Example: True.
+        ai_enabled (bool | Unset): Use AI to group similar looking alerts. AI alert grouping can only group alerts that
+            are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are
+            grouped by key alone unless AI incident access allows private incidents and alerts. Omit it on an update to keep
+            the current value. Example: False.
         grouping_keys (list[GroupingKeyV3] | Unset): Which attributes should this alert route use to group alerts? Only
             set when grouping is enabled. Example: [{'reference': 'alert.title'}].
         window_seconds (int | Unset): How long the grouping window is, in seconds. Must be between 60 (1 minute) and
@@ -36,6 +40,7 @@ class GroupingSettingsV3:
     """
 
     enabled: bool
+    ai_enabled: bool | Unset = UNSET
     grouping_keys: list[GroupingKeyV3] | Unset = UNSET
     window_seconds: int | Unset = UNSET
     window_type: GroupingSettingsV3WindowType | Unset = UNSET
@@ -43,6 +48,8 @@ class GroupingSettingsV3:
 
     def to_dict(self) -> dict[str, Any]:
         enabled = self.enabled
+
+        ai_enabled = self.ai_enabled
 
         grouping_keys: list[dict[str, Any]] | Unset = UNSET
         if not isinstance(self.grouping_keys, Unset):
@@ -64,6 +71,8 @@ class GroupingSettingsV3:
                 "enabled": enabled,
             }
         )
+        if ai_enabled is not UNSET:
+            field_dict["ai_enabled"] = ai_enabled
         if grouping_keys is not UNSET:
             field_dict["grouping_keys"] = grouping_keys
         if window_seconds is not UNSET:
@@ -79,6 +88,8 @@ class GroupingSettingsV3:
 
         d = dict(src_dict)
         enabled = d.pop("enabled")
+
+        ai_enabled = d.pop("ai_enabled", UNSET)
 
         _grouping_keys = d.pop("grouping_keys", UNSET)
         grouping_keys: list[GroupingKeyV3] | Unset = UNSET
@@ -100,6 +111,7 @@ class GroupingSettingsV3:
 
         grouping_settings_v3 = cls(
             enabled=enabled,
+            ai_enabled=ai_enabled,
             grouping_keys=grouping_keys,
             window_seconds=window_seconds,
             window_type=window_type,

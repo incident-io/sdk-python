@@ -10491,6 +10491,7 @@ model GroupingKeyV2.reference
 model GroupingKeyV3.additional_properties
 model GroupingKeyV3.reference
 model GroupingSettingsV3.additional_properties
+model GroupingSettingsV3.ai_enabled
 model GroupingSettingsV3.enabled
 model GroupingSettingsV3.grouping_keys
 model GroupingSettingsV3.window_seconds

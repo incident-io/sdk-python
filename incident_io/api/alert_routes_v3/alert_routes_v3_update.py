@@ -167,11 +167,11 @@ def sync_detailed(
             'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'operation_type': 'navigate', 'parse':
             {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
             'metadata.annotations["github.com/repo"]'}}], 'reference': 'abc123', 'root_reference':
-            'incident.status'}], 'grouping_config': {'default': {'enabled': True, 'grouping_keys':
-            [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}},
-            'incident_config': {'auto_decline_enabled': False, 'condition_groups': [{'conditions':
-            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
-            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.status'}], 'grouping_config': {'default': {'ai_enabled': False, 'enabled': True,
+            'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type':
+            'rolling'}}, 'incident_config': {'auto_decline_enabled': False, 'condition_groups':
+            [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
+            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
             'incident.severity'}}], 'subject': 'alert.priority'}]}], 'enabled': False,
             'incident_template': {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}},
@@ -272,11 +272,11 @@ def sync(
             'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'operation_type': 'navigate', 'parse':
             {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
             'metadata.annotations["github.com/repo"]'}}], 'reference': 'abc123', 'root_reference':
-            'incident.status'}], 'grouping_config': {'default': {'enabled': True, 'grouping_keys':
-            [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}},
-            'incident_config': {'auto_decline_enabled': False, 'condition_groups': [{'conditions':
-            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
-            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.status'}], 'grouping_config': {'default': {'ai_enabled': False, 'enabled': True,
+            'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type':
+            'rolling'}}, 'incident_config': {'auto_decline_enabled': False, 'condition_groups':
+            [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
+            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
             'incident.severity'}}], 'subject': 'alert.priority'}]}], 'enabled': False,
             'incident_template': {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}},
@@ -372,11 +372,11 @@ async def asyncio_detailed(
             'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'operation_type': 'navigate', 'parse':
             {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
             'metadata.annotations["github.com/repo"]'}}], 'reference': 'abc123', 'root_reference':
-            'incident.status'}], 'grouping_config': {'default': {'enabled': True, 'grouping_keys':
-            [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}},
-            'incident_config': {'auto_decline_enabled': False, 'condition_groups': [{'conditions':
-            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
-            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.status'}], 'grouping_config': {'default': {'ai_enabled': False, 'enabled': True,
+            'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type':
+            'rolling'}}, 'incident_config': {'auto_decline_enabled': False, 'condition_groups':
+            [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
+            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
             'incident.severity'}}], 'subject': 'alert.priority'}]}], 'enabled': False,
             'incident_template': {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}},
@@ -475,11 +475,11 @@ async def asyncio(
             'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'operation_type': 'navigate', 'parse':
             {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
             'metadata.annotations["github.com/repo"]'}}], 'reference': 'abc123', 'root_reference':
-            'incident.status'}], 'grouping_config': {'default': {'enabled': True, 'grouping_keys':
-            [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}},
-            'incident_config': {'auto_decline_enabled': False, 'condition_groups': [{'conditions':
-            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
-            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.status'}], 'grouping_config': {'default': {'ai_enabled': False, 'enabled': True,
+            'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type':
+            'rolling'}}, 'incident_config': {'auto_decline_enabled': False, 'condition_groups':
+            [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
+            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
             'incident.severity'}}], 'subject': 'alert.priority'}]}], 'enabled': False,
             'incident_template': {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}},
