@@ -20,6 +20,7 @@ if TYPE_CHECKING:
     )
     from ..models.policy_finding_post_mortem_v2 import PolicyFindingPostMortemV2
     from ..models.policy_finding_schedule_v2 import PolicyFindingScheduleV2
+    from ..models.policy_finding_shift_conflict_v2 import PolicyFindingShiftConflictV2
     from ..models.policy_finding_vacation_conflict_v2 import (
         PolicyFindingVacationConflictV2,
     )
@@ -50,7 +51,11 @@ class PolicyFindingV2:
             'schedule': {'cause': 'nobody_scheduled', 'end_at': '2021-08-17T13:28:57.801578Z', 'has_unscheduled_time': True,
             'impacted_users': [{'cause': 'no_on_call_seat', 'name': 'Alice Green', 'user_id':
             '01FCNDV6P870EA6S7TK1DSYDG0'}], 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z'}, 'state': 'active', 'updated_at':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z'}, 'shift_conflict': {'end_at':
+            '2021-08-17T13:28:57.801578Z', 'shifts': [{'end_at': '2021-08-17T13:28:57.801578Z', 'layer_id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z'}], 'start_at':
+            '2021-08-17T13:28:57.801578Z', 'user_id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'state': 'active', 'updated_at':
             '2021-08-17T13:28:57.801578Z', 'vacation_conflict': {'end_at': '2021-08-17T13:28:57.801578Z', 'holiday_name':
             'Joe Bloggs - Holiday', 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z', 'user_id':
@@ -91,6 +96,12 @@ class PolicyFindingV2:
             'impacted_users': [{'cause': 'no_on_call_seat', 'name': 'Alice Green', 'user_id':
             '01FCNDV6P870EA6S7TK1DSYDG0'}], 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z'}.
+        shift_conflict (PolicyFindingShiftConflictV2 | Unset): Set when policy_type is shift_conflict. Someone is on
+            call in two or more places at once. Example: {'end_at': '2021-08-17T13:28:57.801578Z', 'shifts': [{'end_at':
+            '2021-08-17T13:28:57.801578Z', 'layer_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'rotation_id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at':
+            '2021-08-17T13:28:57.801578Z'}], 'start_at': '2021-08-17T13:28:57.801578Z', 'user_id':
+            '01FCNDV6P870EA6S7TK1DSYDG0'}.
         vacation_conflict (PolicyFindingVacationConflictV2 | Unset): Set when policy_type is vacation_conflict. Someone
             is on call while on holiday. Example: {'end_at': '2021-08-17T13:28:57.801578Z', 'holiday_name': 'Joe Bloggs -
             Holiday', 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at':
@@ -113,6 +124,7 @@ class PolicyFindingV2:
     on_call_readiness: PolicyFindingOnCallReadinessV2 | Unset = UNSET
     post_mortem: PolicyFindingPostMortemV2 | Unset = UNSET
     schedule: PolicyFindingScheduleV2 | Unset = UNSET
+    shift_conflict: PolicyFindingShiftConflictV2 | Unset = UNSET
     vacation_conflict: PolicyFindingVacationConflictV2 | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -166,6 +178,10 @@ class PolicyFindingV2:
         if not isinstance(self.schedule, Unset):
             schedule = self.schedule.to_dict()
 
+        shift_conflict: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.shift_conflict, Unset):
+            shift_conflict = self.shift_conflict.to_dict()
+
         vacation_conflict: dict[str, Any] | Unset = UNSET
         if not isinstance(self.vacation_conflict, Unset):
             vacation_conflict = self.vacation_conflict.to_dict()
@@ -200,6 +216,8 @@ class PolicyFindingV2:
             field_dict["post_mortem"] = post_mortem
         if schedule is not UNSET:
             field_dict["schedule"] = schedule
+        if shift_conflict is not UNSET:
+            field_dict["shift_conflict"] = shift_conflict
         if vacation_conflict is not UNSET:
             field_dict["vacation_conflict"] = vacation_conflict
 
@@ -224,6 +242,9 @@ class PolicyFindingV2:
         )
         from ..models.policy_finding_schedule_v2 import (
             PolicyFindingScheduleV2,
+        )
+        from ..models.policy_finding_shift_conflict_v2 import (
+            PolicyFindingShiftConflictV2,
         )
         from ..models.policy_finding_vacation_conflict_v2 import (
             PolicyFindingVacationConflictV2,
@@ -305,6 +326,13 @@ class PolicyFindingV2:
         else:
             schedule = PolicyFindingScheduleV2.from_dict(_schedule)
 
+        _shift_conflict = d.pop("shift_conflict", UNSET)
+        shift_conflict: PolicyFindingShiftConflictV2 | Unset
+        if isinstance(_shift_conflict, Unset):
+            shift_conflict = UNSET
+        else:
+            shift_conflict = PolicyFindingShiftConflictV2.from_dict(_shift_conflict)
+
         _vacation_conflict = d.pop("vacation_conflict", UNSET)
         vacation_conflict: PolicyFindingVacationConflictV2 | Unset
         if isinstance(_vacation_conflict, Unset):
@@ -331,6 +359,7 @@ class PolicyFindingV2:
             on_call_readiness=on_call_readiness,
             post_mortem=post_mortem,
             schedule=schedule,
+            shift_conflict=shift_conflict,
             vacation_conflict=vacation_conflict,
         )
 

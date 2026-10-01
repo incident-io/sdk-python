@@ -1959,6 +1959,8 @@ from .policy_finding_schedule_impacted_user_v2_cause import (
 )
 from .policy_finding_schedule_v2 import PolicyFindingScheduleV2
 from .policy_finding_schedule_v2_cause import PolicyFindingScheduleV2Cause
+from .policy_finding_shift_conflict_shift_v2 import PolicyFindingShiftConflictShiftV2
+from .policy_finding_shift_conflict_v2 import PolicyFindingShiftConflictV2
 from .policy_finding_v2 import PolicyFindingV2
 from .policy_finding_v2_policy_type import PolicyFindingV2PolicyType
 from .policy_finding_v2_state import PolicyFindingV2State
@@ -3858,6 +3860,8 @@ __all__ = (
     "PolicyFindingScheduleImpactedUserV2Cause",
     "PolicyFindingScheduleV2",
     "PolicyFindingScheduleV2Cause",
+    "PolicyFindingShiftConflictShiftV2",
+    "PolicyFindingShiftConflictV2",
     "PolicyFindingV2",
     "PolicyFindingV2PolicyType",
     "PolicyFindingV2State",

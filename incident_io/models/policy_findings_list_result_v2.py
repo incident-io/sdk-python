@@ -35,9 +35,13 @@ class PolicyFindingsListResultV2:
             'slack_user_id': 'U02AYNF2XJM'}], 'schedule': {'cause': 'nobody_scheduled', 'end_at':
             '2021-08-17T13:28:57.801578Z', 'has_unscheduled_time': True, 'impacted_users': [{'cause': 'no_on_call_seat',
             'name': 'Alice Green', 'user_id': '01FCNDV6P870EA6S7TK1DSYDG0'}], 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0',
-            'schedule_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z'}, 'state': 'active',
-            'updated_at': '2021-08-17T13:28:57.801578Z', 'vacation_conflict': {'end_at': '2021-08-17T13:28:57.801578Z',
-            'holiday_name': 'Joe Bloggs - Holiday', 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id':
+            'schedule_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z'}, 'shift_conflict':
+            {'end_at': '2021-08-17T13:28:57.801578Z', 'shifts': [{'end_at': '2021-08-17T13:28:57.801578Z', 'layer_id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z'}], 'start_at':
+            '2021-08-17T13:28:57.801578Z', 'user_id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'state': 'active', 'updated_at':
+            '2021-08-17T13:28:57.801578Z', 'vacation_conflict': {'end_at': '2021-08-17T13:28:57.801578Z', 'holiday_name':
+            'Joe Bloggs - Holiday', 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z', 'user_id':
             '01FCNDV6P870EA6S7TK1DSYDG0'}}]}
 
@@ -60,7 +64,11 @@ class PolicyFindingsListResultV2:
             'schedule': {'cause': 'nobody_scheduled', 'end_at': '2021-08-17T13:28:57.801578Z', 'has_unscheduled_time': True,
             'impacted_users': [{'cause': 'no_on_call_seat', 'name': 'Alice Green', 'user_id':
             '01FCNDV6P870EA6S7TK1DSYDG0'}], 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z'}, 'state': 'active', 'updated_at':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z'}, 'shift_conflict': {'end_at':
+            '2021-08-17T13:28:57.801578Z', 'shifts': [{'end_at': '2021-08-17T13:28:57.801578Z', 'layer_id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z'}], 'start_at':
+            '2021-08-17T13:28:57.801578Z', 'user_id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'state': 'active', 'updated_at':
             '2021-08-17T13:28:57.801578Z', 'vacation_conflict': {'end_at': '2021-08-17T13:28:57.801578Z', 'holiday_name':
             'Joe Bloggs - Holiday', 'rotation_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'schedule_id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'start_at': '2021-08-17T13:28:57.801578Z', 'user_id':

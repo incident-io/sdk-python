@@ -11438,6 +11438,17 @@ model PolicyFindingScheduleV2.impacted_users
 model PolicyFindingScheduleV2.rotation_id
 model PolicyFindingScheduleV2.schedule_id
 model PolicyFindingScheduleV2.start_at
+model PolicyFindingShiftConflictShiftV2.additional_properties
+model PolicyFindingShiftConflictShiftV2.end_at
+model PolicyFindingShiftConflictShiftV2.layer_id
+model PolicyFindingShiftConflictShiftV2.rotation_id
+model PolicyFindingShiftConflictShiftV2.schedule_id
+model PolicyFindingShiftConflictShiftV2.start_at
+model PolicyFindingShiftConflictV2.additional_properties
+model PolicyFindingShiftConflictV2.end_at
+model PolicyFindingShiftConflictV2.shifts
+model PolicyFindingShiftConflictV2.start_at
+model PolicyFindingShiftConflictV2.user_id
 model PolicyFindingV2.additional_properties
 model PolicyFindingV2.created_at
 model PolicyFindingV2.days
@@ -11453,6 +11464,7 @@ model PolicyFindingV2.policy_type
 model PolicyFindingV2.post_mortem
 model PolicyFindingV2.responsible_users
 model PolicyFindingV2.schedule
+model PolicyFindingV2.shift_conflict
 model PolicyFindingV2.state
 model PolicyFindingV2.updated_at
 model PolicyFindingV2.vacation_conflict
