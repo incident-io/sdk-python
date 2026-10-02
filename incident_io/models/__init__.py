@@ -1570,6 +1570,7 @@ from .incident_attachments_list_result_v1 import IncidentAttachmentsListResultV1
 from .incident_attachments_v1_list_resource_type import (
     IncidentAttachmentsV1ListResourceType,
 )
+from .incident_debrief_v2 import IncidentDebriefV2
 from .incident_duration_metric_v2 import IncidentDurationMetricV2
 from .incident_duration_metric_with_value_v2 import IncidentDurationMetricWithValueV2
 from .incident_duration_metric_with_value_v2_status import (
@@ -3601,6 +3602,7 @@ __all__ = (
     "IncidentAttachmentsCreateResultV1",
     "IncidentAttachmentsListResultV1",
     "IncidentAttachmentsV1ListResourceType",
+    "IncidentDebriefV2",
     "IncidentDurationMetricV2",
     "IncidentDurationMetricWithValueV2",
     "IncidentDurationMetricWithValueV2Status",

@@ -10579,6 +10579,10 @@ model IncidentAttachmentsCreateResultV1.additional_properties
 model IncidentAttachmentsCreateResultV1.incident_attachment
 model IncidentAttachmentsListResultV1.additional_properties
 model IncidentAttachmentsListResultV1.incident_attachments
+model IncidentDebriefV2.additional_properties
+model IncidentDebriefV2.end_at
+model IncidentDebriefV2.id
+model IncidentDebriefV2.start_at
 model IncidentDurationMetricV2.additional_properties
 model IncidentDurationMetricV2.id
 model IncidentDurationMetricV2.name
@@ -10954,6 +10958,7 @@ model IncidentV2.call_url
 model IncidentV2.created_at
 model IncidentV2.creator
 model IncidentV2.custom_field_entries
+model IncidentV2.debriefs
 model IncidentV2.duration_metrics
 model IncidentV2.external_issue_reference
 model IncidentV2.has_debrief
@@ -12232,6 +12237,7 @@ model WebhookIncidentV2.call_url
 model WebhookIncidentV2.created_at
 model WebhookIncidentV2.creator
 model WebhookIncidentV2.custom_field_entries
+model WebhookIncidentV2.debriefs
 model WebhookIncidentV2.duration_metrics
 model WebhookIncidentV2.external_issue_reference
 model WebhookIncidentV2.has_debrief
