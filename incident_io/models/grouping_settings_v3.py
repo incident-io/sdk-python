@@ -27,8 +27,8 @@ class GroupingSettingsV3:
         enabled (bool): Whether grouping is enabled Example: True.
         ai_enabled (bool | Unset): Use AI to group similar looking alerts. AI alert grouping can only group alerts that
             are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are
-            grouped by key alone unless AI incident access allows private incidents and alerts. Omit it on an update to keep
-            the current value. Example: False.
+            not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the
+            current value. Example: False.
         grouping_keys (list[GroupingKeyV3] | Unset): Which attributes should this alert route use to group alerts? Only
             set when grouping is enabled. Example: [{'reference': 'alert.title'}].
         window_seconds (int | Unset): How long the grouping window is, in seconds. Must be between 60 (1 minute) and
