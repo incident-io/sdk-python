@@ -675,6 +675,7 @@ from .audit_logs_incident_duration_metric_updated_v1 import (
 from .audit_logs_incident_role_created_v1 import AuditLogsIncidentRoleCreatedV1
 from .audit_logs_incident_role_deleted_v1 import AuditLogsIncidentRoleDeletedV1
 from .audit_logs_incident_role_updated_v1 import AuditLogsIncidentRoleUpdatedV1
+from .audit_logs_incident_scrubbed_v1 import AuditLogsIncidentScrubbedV1
 from .audit_logs_incident_status_created_v1 import AuditLogsIncidentStatusCreatedV1
 from .audit_logs_incident_status_deleted_v1 import AuditLogsIncidentStatusDeletedV1
 from .audit_logs_incident_status_updated_v1 import AuditLogsIncidentStatusUpdatedV1
@@ -3032,6 +3033,7 @@ __all__ = (
     "AuditLogsIncidentRoleCreatedV1",
     "AuditLogsIncidentRoleDeletedV1",
     "AuditLogsIncidentRoleUpdatedV1",
+    "AuditLogsIncidentScrubbedV1",
     "AuditLogsIncidentStatusCreatedV1",
     "AuditLogsIncidentStatusDeletedV1",
     "AuditLogsIncidentStatusUpdatedV1",
