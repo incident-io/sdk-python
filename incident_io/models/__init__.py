@@ -1578,6 +1578,39 @@ from .incident_duration_metric_with_value_v2_status import (
     IncidentDurationMetricWithValueV2Status,
 )
 from .incident_edit_payload_v2 import IncidentEditPayloadV2
+from .incident_form_lifecycle_element_config_v3 import (
+    IncidentFormLifecycleElementConfigV3,
+)
+from .incident_form_lifecycle_element_payload_v3 import (
+    IncidentFormLifecycleElementPayloadV3,
+)
+from .incident_form_lifecycle_element_payload_v3_element_type import (
+    IncidentFormLifecycleElementPayloadV3ElementType,
+)
+from .incident_form_lifecycle_element_payload_v3_required_if import (
+    IncidentFormLifecycleElementPayloadV3RequiredIf,
+)
+from .incident_form_lifecycle_element_v3 import IncidentFormLifecycleElementV3
+from .incident_form_lifecycle_element_v3_element_type import (
+    IncidentFormLifecycleElementV3ElementType,
+)
+from .incident_form_lifecycle_element_v3_required_if import (
+    IncidentFormLifecycleElementV3RequiredIf,
+)
+from .incident_form_v3 import IncidentFormV3
+from .incident_form_v3_form_type import IncidentFormV3FormType
+from .incident_forms_create_payload_v3 import IncidentFormsCreatePayloadV3
+from .incident_forms_create_payload_v3_form_type import (
+    IncidentFormsCreatePayloadV3FormType,
+)
+from .incident_forms_create_result_v3 import IncidentFormsCreateResultV3
+from .incident_forms_list_result_v3 import IncidentFormsListResultV3
+from .incident_forms_show_result_v3 import IncidentFormsShowResultV3
+from .incident_forms_update_payload_v3 import IncidentFormsUpdatePayloadV3
+from .incident_forms_update_payload_v3_form_type import (
+    IncidentFormsUpdatePayloadV3FormType,
+)
+from .incident_forms_update_result_v3 import IncidentFormsUpdateResultV3
 from .incident_membership_v1 import IncidentMembershipV1
 from .incident_memberships_create_payload_v1 import IncidentMembershipsCreatePayloadV1
 from .incident_memberships_create_result_v1 import IncidentMembershipsCreateResultV1
@@ -3623,6 +3656,23 @@ __all__ = (
     "IncidentDurationMetricWithValueV2",
     "IncidentDurationMetricWithValueV2Status",
     "IncidentEditPayloadV2",
+    "IncidentFormLifecycleElementConfigV3",
+    "IncidentFormLifecycleElementPayloadV3",
+    "IncidentFormLifecycleElementPayloadV3ElementType",
+    "IncidentFormLifecycleElementPayloadV3RequiredIf",
+    "IncidentFormLifecycleElementV3",
+    "IncidentFormLifecycleElementV3ElementType",
+    "IncidentFormLifecycleElementV3RequiredIf",
+    "IncidentFormV3",
+    "IncidentFormV3FormType",
+    "IncidentFormsCreatePayloadV3",
+    "IncidentFormsCreatePayloadV3FormType",
+    "IncidentFormsCreateResultV3",
+    "IncidentFormsListResultV3",
+    "IncidentFormsShowResultV3",
+    "IncidentFormsUpdatePayloadV3",
+    "IncidentFormsUpdatePayloadV3FormType",
+    "IncidentFormsUpdateResultV3",
     "IncidentMembershipV1",
     "IncidentMembershipsCreatePayloadV1",
     "IncidentMembershipsCreateResultV1",
