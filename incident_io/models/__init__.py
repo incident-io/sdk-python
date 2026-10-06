@@ -2293,6 +2293,9 @@ from .status_pages_show_status_page_result_v2 import StatusPagesShowStatusPageRe
 from .status_pages_show_status_page_structure_result_v2 import (
     StatusPagesShowStatusPageStructureResultV2,
 )
+from .status_pages_show_status_page_structure_result_v2_display_uptime_mode import (
+    StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode,
+)
 from .status_pages_update_status_page_incident_payload_v2 import (
     StatusPagesUpdateStatusPageIncidentPayloadV2,
 )
@@ -4058,6 +4061,7 @@ __all__ = (
     "StatusPagesShowStatusPageMaintenanceResultV2",
     "StatusPagesShowStatusPageResultV2",
     "StatusPagesShowStatusPageStructureResultV2",
+    "StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode",
     "StatusPagesUpdateStatusPageIncidentPayloadV2",
     "StatusPagesUpdateStatusPageIncidentResultV2",
     "StatusPagesUpdateStatusPageMaintenancePayloadV2",

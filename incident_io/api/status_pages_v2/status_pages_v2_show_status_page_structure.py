@@ -129,8 +129,8 @@ def sync_detailed(
      Show the structure of a status page.
 
     This endpoint requires a valid API key but no specific scopes. Returns the components and component
-    groups configured on a status page. Use this to find component IDs when specifying affected
-    components for incidents or maintenance windows.
+    groups configured on a status page, with their display settings, and how the page shows uptime. Use
+    this to find component IDs when specifying affected components for incidents or maintenance windows.
 
     Args:
         status_page_id (str): ID of the status page Example: abc123.
@@ -164,8 +164,8 @@ def sync(
      Show the structure of a status page.
 
     This endpoint requires a valid API key but no specific scopes. Returns the components and component
-    groups configured on a status page. Use this to find component IDs when specifying affected
-    components for incidents or maintenance windows.
+    groups configured on a status page, with their display settings, and how the page shows uptime. Use
+    this to find component IDs when specifying affected components for incidents or maintenance windows.
 
     Args:
         status_page_id (str): ID of the status page Example: abc123.
@@ -194,8 +194,8 @@ async def asyncio_detailed(
      Show the structure of a status page.
 
     This endpoint requires a valid API key but no specific scopes. Returns the components and component
-    groups configured on a status page. Use this to find component IDs when specifying affected
-    components for incidents or maintenance windows.
+    groups configured on a status page, with their display settings, and how the page shows uptime. Use
+    this to find component IDs when specifying affected components for incidents or maintenance windows.
 
     Args:
         status_page_id (str): ID of the status page Example: abc123.
@@ -227,8 +227,8 @@ async def asyncio(
      Show the structure of a status page.
 
     This endpoint requires a valid API key but no specific scopes. Returns the components and component
-    groups configured on a status page. Use this to find component IDs when specifying affected
-    components for incidents or maintenance windows.
+    groups configured on a status page, with their display settings, and how the page shows uptime. Use
+    this to find component IDs when specifying affected components for incidents or maintenance windows.
 
     Args:
         status_page_id (str): ID of the status page Example: abc123.

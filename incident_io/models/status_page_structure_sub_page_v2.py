@@ -20,15 +20,19 @@ class StatusPageStructureSubPageV2:
     """
     Example:
         {'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'items': [{'component': {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1',
-            'name': 'App'}, 'group': {'components': [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}], 'id':
+            'display_uptime': True, 'hidden': False, 'name': 'App'}, 'group': {'components': [{'component_id':
+            '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False, 'name': 'App'}], 'description': 'Services
+            hosted in our EU data center', 'display_aggregated_uptime': True, 'hidden': False, 'id':
             '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data center'}}], 'name': 'United Kingdom'}
 
     Attributes:
         id (str): Unique ID of this subpage Example: 01FCNDV6P870EA6S7TK1DSYDG1.
         items (list[StatusPageStructureSubPageItemV2]): Array of components and groups belonging to this subpage
-            Example: [{'component': {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}, 'group': {'components':
-            [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}], 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU
-            Data center'}}].
+            Example: [{'component': {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False,
+            'name': 'App'}, 'group': {'components': [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True,
+            'hidden': False, 'name': 'App'}], 'description': 'Services hosted in our EU data center',
+            'display_aggregated_uptime': True, 'hidden': False, 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data
+            center'}}].
         name (str): The name of this subpage Example: United Kingdom.
     """
 

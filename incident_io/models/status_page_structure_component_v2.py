@@ -13,20 +13,28 @@ T = TypeVar("T", bound="StatusPageStructureComponentV2")
 class StatusPageStructureComponentV2:
     """
     Example:
-        {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}
+        {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False, 'name': 'App'}
 
     Attributes:
         component_id (str): The ID of the affected component. This may be found by calling the ShowStatusPageStructure
             endpoint. Example: 01FCNDV6P870EA6S7TK1DSYDG1.
+        display_uptime (bool): Whether the page shows this component's uptime Example: True.
+        hidden (bool): Whether the component is hidden from the page Example: False.
         name (str): The name of this component Example: App.
     """
 
     component_id: str
+    display_uptime: bool
+    hidden: bool
     name: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         component_id = self.component_id
+
+        display_uptime = self.display_uptime
+
+        hidden = self.hidden
 
         name = self.name
 
@@ -35,6 +43,8 @@ class StatusPageStructureComponentV2:
         field_dict.update(
             {
                 "component_id": component_id,
+                "display_uptime": display_uptime,
+                "hidden": hidden,
                 "name": name,
             }
         )
@@ -46,10 +56,16 @@ class StatusPageStructureComponentV2:
         d = dict(src_dict)
         component_id = d.pop("component_id")
 
+        display_uptime = d.pop("display_uptime")
+
+        hidden = d.pop("hidden")
+
         name = d.pop("name")
 
         status_page_structure_component_v2 = cls(
             component_id=component_id,
+            display_uptime=display_uptime,
+            hidden=hidden,
             name=name,
         )
 

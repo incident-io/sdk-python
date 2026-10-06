@@ -17,21 +17,27 @@ T = TypeVar("T", bound="StatusPageStructureV2")
 class StatusPageStructureV2:
     """
     Example:
-        {'items': [{'component': {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}, 'group': {'components':
-            [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}], 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU
-            Data center'}, 'sub_page': {'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'items': [{'component': {'component_id':
-            '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}, 'group': {'components': [{'component_id':
-            '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}], 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data center'}}],
-            'name': 'United Kingdom'}}]}
+        {'items': [{'component': {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False,
+            'name': 'App'}, 'group': {'components': [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True,
+            'hidden': False, 'name': 'App'}], 'description': 'Services hosted in our EU data center',
+            'display_aggregated_uptime': True, 'hidden': False, 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data
+            center'}, 'sub_page': {'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'items': [{'component': {'component_id':
+            '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False, 'name': 'App'}, 'group': {'components':
+            [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False, 'name': 'App'}],
+            'description': 'Services hosted in our EU data center', 'display_aggregated_uptime': True, 'hidden': False,
+            'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data center'}}], 'name': 'United Kingdom'}}]}
 
     Attributes:
         items (list[StatusPageStructureItemV2]): Array of components and groups to display in the status page Example:
-            [{'component': {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}, 'group': {'components':
-            [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}], 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU
-            Data center'}, 'sub_page': {'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'items': [{'component': {'component_id':
-            '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}, 'group': {'components': [{'component_id':
-            '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}], 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data center'}}],
-            'name': 'United Kingdom'}}].
+            [{'component': {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False, 'name':
+            'App'}, 'group': {'components': [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True,
+            'hidden': False, 'name': 'App'}], 'description': 'Services hosted in our EU data center',
+            'display_aggregated_uptime': True, 'hidden': False, 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data
+            center'}, 'sub_page': {'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'items': [{'component': {'component_id':
+            '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False, 'name': 'App'}, 'group': {'components':
+            [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False, 'name': 'App'}],
+            'description': 'Services hosted in our EU data center', 'display_aggregated_uptime': True, 'hidden': False,
+            'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data center'}}], 'name': 'United Kingdom'}}].
     """
 
     items: list[StatusPageStructureItemV2]

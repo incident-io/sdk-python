@@ -22,15 +22,19 @@ T = TypeVar("T", bound="StatusPageStructureSubPageItemV2")
 class StatusPageStructureSubPageItemV2:
     """
     Example:
-        {'component': {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}, 'group': {'components':
-            [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}], 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU
-            Data center'}}
+        {'component': {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False, 'name':
+            'App'}, 'group': {'components': [{'component_id': '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True,
+            'hidden': False, 'name': 'App'}], 'description': 'Services hosted in our EU data center',
+            'display_aggregated_uptime': True, 'hidden': False, 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data
+            center'}}
 
     Attributes:
         component (StatusPageStructureComponentV2 | Unset):  Example: {'component_id': '01FCNDV6P870EA6S7TK1DSYDG1',
-            'name': 'App'}.
+            'display_uptime': True, 'hidden': False, 'name': 'App'}.
         group (StatusPageStructureGroupV2 | Unset):  Example: {'components': [{'component_id':
-            '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'App'}], 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data center'}.
+            '01FCNDV6P870EA6S7TK1DSYDG1', 'display_uptime': True, 'hidden': False, 'name': 'App'}], 'description': 'Services
+            hosted in our EU data center', 'display_aggregated_uptime': True, 'hidden': False, 'id':
+            '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data center'}.
     """
 
     component: StatusPageStructureComponentV2 | Unset = UNSET
