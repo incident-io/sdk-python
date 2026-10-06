@@ -2178,6 +2178,17 @@ from .severities_update_result_v1 import SeveritiesUpdateResultV1
 from .severity_v1 import SeverityV1
 from .severity_v2 import SeverityV2
 from .status_page_component_availability_v2 import StatusPageComponentAvailabilityV2
+from .status_page_component_v2 import StatusPageComponentV2
+from .status_page_components_create_payload_v2 import (
+    StatusPageComponentsCreatePayloadV2,
+)
+from .status_page_components_create_result_v2 import StatusPageComponentsCreateResultV2
+from .status_page_components_list_result_v2 import StatusPageComponentsListResultV2
+from .status_page_components_show_result_v2 import StatusPageComponentsShowResultV2
+from .status_page_components_update_payload_v2 import (
+    StatusPageComponentsUpdatePayloadV2,
+)
+from .status_page_components_update_result_v2 import StatusPageComponentsUpdateResultV2
 from .status_page_incident_affected_component_v2 import (
     StatusPageIncidentAffectedComponentV2,
 )
@@ -4012,6 +4023,13 @@ __all__ = (
     "SeverityV1",
     "SeverityV2",
     "StatusPageComponentAvailabilityV2",
+    "StatusPageComponentV2",
+    "StatusPageComponentsCreatePayloadV2",
+    "StatusPageComponentsCreateResultV2",
+    "StatusPageComponentsListResultV2",
+    "StatusPageComponentsShowResultV2",
+    "StatusPageComponentsUpdatePayloadV2",
+    "StatusPageComponentsUpdateResultV2",
     "StatusPageIncidentAffectedComponentV2",
     "StatusPageIncidentAffectedComponentV2ComponentStatus",
     "StatusPageIncidentComponentImpactV2",
