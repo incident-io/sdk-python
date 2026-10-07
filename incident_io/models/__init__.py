@@ -423,11 +423,20 @@ from .audit_log_extension_connector_called_metadata_v2v2 import (
 from .audit_log_extension_connector_called_metadata_v3v2 import (
     AuditLogExtensionConnectorCalledMetadataV3V2,
 )
+from .audit_log_extension_plugin_created_metadata_v2 import (
+    AuditLogExtensionPluginCreatedMetadataV2,
+)
+from .audit_log_extension_plugin_updated_metadata_v2 import (
+    AuditLogExtensionPluginUpdatedMetadataV2,
+)
 from .audit_log_hris_time_off_policy_updated_metadata_v2 import (
     AuditLogHrisTimeOffPolicyUpdatedMetadataV2,
 )
 from .audit_log_incident_type_default_teams_metadata_v2 import (
     AuditLogIncidentTypeDefaultTeamsMetadataV2,
+)
+from .audit_log_investigation_trigger_metadata_v2 import (
+    AuditLogInvestigationTriggerMetadataV2,
 )
 from .audit_log_ip_allowlist_updated_metadata_v2 import (
     AuditLogIPAllowlistUpdatedMetadataV2,
@@ -645,12 +654,18 @@ from .audit_logs_extension_connector_called_v2 import (
 from .audit_logs_extension_connector_called_v3 import (
     AuditLogsExtensionConnectorCalledV3,
 )
+from .audit_logs_extension_plugin_created_v1 import AuditLogsExtensionPluginCreatedV1
+from .audit_logs_extension_plugin_deleted_v1 import AuditLogsExtensionPluginDeletedV1
+from .audit_logs_extension_plugin_updated_v1 import AuditLogsExtensionPluginUpdatedV1
 from .audit_logs_follow_up_category_created_v1 import AuditLogsFollowUpCategoryCreatedV1
 from .audit_logs_follow_up_category_deleted_v1 import AuditLogsFollowUpCategoryDeletedV1
 from .audit_logs_follow_up_category_updated_v1 import AuditLogsFollowUpCategoryUpdatedV1
 from .audit_logs_follow_up_priority_created_v1 import AuditLogsFollowUpPriorityCreatedV1
 from .audit_logs_follow_up_priority_deleted_v1 import AuditLogsFollowUpPriorityDeletedV1
 from .audit_logs_follow_up_priority_updated_v1 import AuditLogsFollowUpPriorityUpdatedV1
+from .audit_logs_glossary_entry_created_v1 import AuditLogsGlossaryEntryCreatedV1
+from .audit_logs_glossary_entry_deleted_v1 import AuditLogsGlossaryEntryDeletedV1
+from .audit_logs_glossary_entry_updated_v1 import AuditLogsGlossaryEntryUpdatedV1
 from .audit_logs_holiday_user_feed_created_v1 import AuditLogsHolidayUserFeedCreatedV1
 from .audit_logs_holiday_user_feed_deleted_v1 import AuditLogsHolidayUserFeedDeletedV1
 from .audit_logs_holiday_user_feed_updated_v1 import AuditLogsHolidayUserFeedUpdatedV1
@@ -718,6 +733,15 @@ from .audit_logs_internal_status_page_deleted_v1 import (
 )
 from .audit_logs_internal_status_page_updated_v1 import (
     AuditLogsInternalStatusPageUpdatedV1,
+)
+from .audit_logs_investigation_trigger_created_v1 import (
+    AuditLogsInvestigationTriggerCreatedV1,
+)
+from .audit_logs_investigation_trigger_deleted_v1 import (
+    AuditLogsInvestigationTriggerDeletedV1,
+)
+from .audit_logs_investigation_trigger_updated_v1 import (
+    AuditLogsInvestigationTriggerUpdatedV1,
 )
 from .audit_logs_ip_allowlist_updated_v1 import AuditLogsIPAllowlistUpdatedV1
 from .audit_logs_maintenance_window_created_v1 import (
@@ -2971,9 +2995,12 @@ __all__ = (
     "AuditLogExtensionConnectorCalledMetadataV2",
     "AuditLogExtensionConnectorCalledMetadataV2V2",
     "AuditLogExtensionConnectorCalledMetadataV3V2",
+    "AuditLogExtensionPluginCreatedMetadataV2",
+    "AuditLogExtensionPluginUpdatedMetadataV2",
     "AuditLogHrisTimeOffPolicyUpdatedMetadataV2",
     "AuditLogIPAllowlistUpdatedMetadataV2",
     "AuditLogIncidentTypeDefaultTeamsMetadataV2",
+    "AuditLogInvestigationTriggerMetadataV2",
     "AuditLogMicrosoftEntraTenantLinkedMetadataV2",
     "AuditLogMobileIntuneEnabledSettingUpdatedMetadataV2",
     "AuditLogOnCallNotificationMethodMetadataV2",
@@ -3069,12 +3096,18 @@ __all__ = (
     "AuditLogsExtensionConnectorCalledV1",
     "AuditLogsExtensionConnectorCalledV2",
     "AuditLogsExtensionConnectorCalledV3",
+    "AuditLogsExtensionPluginCreatedV1",
+    "AuditLogsExtensionPluginDeletedV1",
+    "AuditLogsExtensionPluginUpdatedV1",
     "AuditLogsFollowUpCategoryCreatedV1",
     "AuditLogsFollowUpCategoryDeletedV1",
     "AuditLogsFollowUpCategoryUpdatedV1",
     "AuditLogsFollowUpPriorityCreatedV1",
     "AuditLogsFollowUpPriorityDeletedV1",
     "AuditLogsFollowUpPriorityUpdatedV1",
+    "AuditLogsGlossaryEntryCreatedV1",
+    "AuditLogsGlossaryEntryDeletedV1",
+    "AuditLogsGlossaryEntryUpdatedV1",
     "AuditLogsHolidayUserFeedCreatedV1",
     "AuditLogsHolidayUserFeedDeletedV1",
     "AuditLogsHolidayUserFeedUpdatedV1",
@@ -3112,6 +3145,9 @@ __all__ = (
     "AuditLogsInternalStatusPageCreatedV1",
     "AuditLogsInternalStatusPageDeletedV1",
     "AuditLogsInternalStatusPageUpdatedV1",
+    "AuditLogsInvestigationTriggerCreatedV1",
+    "AuditLogsInvestigationTriggerDeletedV1",
+    "AuditLogsInvestigationTriggerUpdatedV1",
     "AuditLogsMaintenanceWindowCreatedV1",
     "AuditLogsMaintenanceWindowDeletedV1",
     "AuditLogsMaintenanceWindowUpdatedV1",
