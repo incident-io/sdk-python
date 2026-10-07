@@ -6,6 +6,9 @@ from typing import TYPE_CHECKING, Any, Self, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.workflows_create_workflow_payload_v2_auto_run_mode import (
+    WorkflowsCreateWorkflowPayloadV2AutoRunMode,
+)
 from ..models.workflows_create_workflow_payload_v2_private_incident_scope import (
     WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope,
 )
@@ -38,33 +41,34 @@ T = TypeVar("T", bound="WorkflowsCreateWorkflowPayloadV2")
 class WorkflowsCreateWorkflowPayloadV2:
     """
     Example:
-        {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'condition_groups': [{'conditions': [{'operation':
-            'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
-            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject': 'incident.severity'}]}],
-            'continue_on_step_error': True, 'delay': {'conditions_apply_over_delay': False, 'for_seconds': 60},
-            'expressions': [{'else_branch': {'result': {'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}}, 'label': 'Team Slack
-            channel', 'operations': [{'branches': {'branches': [{'condition_groups': [{'conditions': [{'operation':
-            'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
-            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject': 'incident.severity'}]}], 'result':
-            {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123',
-            'reference': 'incident.severity'}}}], 'returns': {'array': True, 'type': 'IncidentStatus'}}, 'cast': {'returns':
-            {'array': True, 'type': 'IncidentStatus'}}, 'concatenate': {'reference':
-            'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'filter': {'condition_groups': [{'conditions':
-            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
-            'incident.severity'}]}]}, 'navigate': {'reference': 'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'},
-            'operation_type': 'navigate', 'parse': {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
-            'metadata.annotations["github.com/repo"]'}}], 'reference': 'abc123', 'root_reference': 'incident.status'}],
-            'folder': 'My folder 01', 'form_fields': [{'array': True, 'description': 'The customer affected by this
-            incident', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'key': 'affected_customer', 'required': True, 'title': 'Affected
-            customer', 'type': 'User'}], 'include_private_escalations': True, 'include_private_incidents': True, 'name': 'My
-            little workflow', 'once_for': ['incident.url'], 'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'],
-            'private_incident_scope': 'owning_teams', 'runs_on_incident_modes': ['standard', 'test', 'retrospective'],
-            'runs_on_incidents': 'newly_created', 'shortform': 'page-the-ceo', 'state': 'active', 'steps': [{'for_each':
-            'abc123', 'id': 'abc123', 'name': 'pagerduty.escalate', 'param_bindings': [{'array_value': [{'literal':
+        {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'auto_run_mode': 'confirm_before_running',
+            'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
             'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}]}], 'trigger': 'incident.updated'}
+            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'continue_on_step_error': True, 'delay':
+            {'conditions_apply_over_delay': False, 'for_seconds': 60}, 'expressions': [{'else_branch': {'result':
+            {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123',
+            'reference': 'incident.severity'}}}, 'label': 'Team Slack channel', 'operations': [{'branches': {'branches':
+            [{'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
+            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'result': {'array_value': [{'literal': 'SEV123',
+            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}}],
+            'returns': {'array': True, 'type': 'IncidentStatus'}}, 'cast': {'returns': {'array': True, 'type':
+            'IncidentStatus'}}, 'concatenate': {'reference': 'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'filter':
+            {'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
+            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}], 'subject': 'incident.severity'}]}]}, 'navigate': {'reference':
+            'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'operation_type': 'navigate', 'parse': {'returns': {'array':
+            True, 'type': 'IncidentStatus'}, 'source': 'metadata.annotations["github.com/repo"]'}}], 'reference': 'abc123',
+            'root_reference': 'incident.status'}], 'folder': 'My folder 01', 'form_fields': [{'array': True, 'description':
+            'The customer affected by this incident', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'key': 'affected_customer',
+            'required': True, 'title': 'Affected customer', 'type': 'User'}], 'include_private_escalations': True,
+            'include_private_incidents': True, 'name': 'My little workflow', 'once_for': ['incident.url'],
+            'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'], 'private_incident_scope': 'owning_teams',
+            'runs_on_incident_modes': ['standard', 'test', 'retrospective'], 'runs_on_incidents': 'newly_created',
+            'shortform': 'page-the-ceo', 'state': 'active', 'steps': [{'for_each': 'abc123', 'id': 'abc123', 'name':
+            'pagerduty.escalate', 'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference':
+            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}]}], 'trigger':
+            'incident.updated'}
 
     Attributes:
         condition_groups (list[ConditionGroupPayloadV2]): Conditions that apply to the workflow trigger Example:
@@ -101,10 +105,14 @@ class WorkflowsCreateWorkflowPayloadV2:
         trigger (str): Trigger to set on the workflow Example: incident.updated.
         annotations (WorkflowsCreateWorkflowPayloadV2Annotations | Unset): Annotations that track metadata about this
             resource Example: {'incident.io/terraform/version': '3.0.0'}.
+        auto_run_mode (WorkflowsCreateWorkflowPayloadV2AutoRunMode | Unset): Whether the workflow runs immediately, or
+            asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on
+            update, the workflow keeps its current mode. Example: confirm_before_running.
         delay (WorkflowDelayV2 | Unset):  Example: {'conditions_apply_over_delay': False, 'for_seconds': 60}.
         folder (str | Unset): Folder to display the workflow in Example: My folder 01.
         form_fields (list[WorkflowFormFieldPayloadV2] | Unset): User-configured form fields available in the workflow
-            scope (manual triggers only) Example: [{'array': True, 'description': 'The customer affected by this incident',
+            scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of
+            `confirm_before_running`. Example: [{'array': True, 'description': 'The customer affected by this incident',
             'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'key': 'affected_customer', 'required': True, 'title': 'Affected customer',
             'type': 'User'}].
         include_private_escalations (bool | Unset): Whether to include private escalations Example: True.
@@ -133,6 +141,7 @@ class WorkflowsCreateWorkflowPayloadV2:
     steps: list[StepConfigPayloadV2]
     trigger: str
     annotations: WorkflowsCreateWorkflowPayloadV2Annotations | Unset = UNSET
+    auto_run_mode: WorkflowsCreateWorkflowPayloadV2AutoRunMode | Unset = UNSET
     delay: WorkflowDelayV2 | Unset = UNSET
     folder: str | Unset = UNSET
     form_fields: list[WorkflowFormFieldPayloadV2] | Unset = UNSET
@@ -180,6 +189,10 @@ class WorkflowsCreateWorkflowPayloadV2:
         annotations: dict[str, Any] | Unset = UNSET
         if not isinstance(self.annotations, Unset):
             annotations = self.annotations.to_dict()
+
+        auto_run_mode: str | Unset = UNSET
+        if not isinstance(self.auto_run_mode, Unset):
+            auto_run_mode = self.auto_run_mode.value
 
         delay: dict[str, Any] | Unset = UNSET
         if not isinstance(self.delay, Unset):
@@ -229,6 +242,8 @@ class WorkflowsCreateWorkflowPayloadV2:
         )
         if annotations is not UNSET:
             field_dict["annotations"] = annotations
+        if auto_run_mode is not UNSET:
+            field_dict["auto_run_mode"] = auto_run_mode
         if delay is not UNSET:
             field_dict["delay"] = delay
         if folder is not UNSET:
@@ -321,6 +336,13 @@ class WorkflowsCreateWorkflowPayloadV2:
                 _annotations
             )
 
+        _auto_run_mode = d.pop("auto_run_mode", UNSET)
+        auto_run_mode: WorkflowsCreateWorkflowPayloadV2AutoRunMode | Unset
+        if isinstance(_auto_run_mode, Unset):
+            auto_run_mode = UNSET
+        else:
+            auto_run_mode = WorkflowsCreateWorkflowPayloadV2AutoRunMode(_auto_run_mode)
+
         _delay = d.pop("delay", UNSET)
         delay: WorkflowDelayV2 | Unset
         if isinstance(_delay, Unset):
@@ -380,6 +402,7 @@ class WorkflowsCreateWorkflowPayloadV2:
             steps=steps,
             trigger=trigger,
             annotations=annotations,
+            auto_run_mode=auto_run_mode,
             delay=delay,
             folder=folder,
             form_fields=form_fields,

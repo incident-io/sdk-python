@@ -6647,6 +6647,8 @@ enum WeekdayIntervalV2Weekday.SUNDAY
 enum WeekdayIntervalV2Weekday.THURSDAY
 enum WeekdayIntervalV2Weekday.TUESDAY
 enum WeekdayIntervalV2Weekday.WEDNESDAY
+enum WorkflowSlimV2AutoRunMode.CONFIRM_BEFORE_RUNNING
+enum WorkflowSlimV2AutoRunMode.RUN_AUTOMATICALLY
 enum WorkflowSlimV2PrivateIncidentScope.ALL
 enum WorkflowSlimV2PrivateIncidentScope.NONE
 enum WorkflowSlimV2PrivateIncidentScope.OWNING_TEAMS
@@ -6659,6 +6661,8 @@ enum WorkflowSlimV2State.ACTIVE
 enum WorkflowSlimV2State.DISABLED
 enum WorkflowSlimV2State.DRAFT
 enum WorkflowSlimV2State.ERROR
+enum WorkflowV2AutoRunMode.CONFIRM_BEFORE_RUNNING
+enum WorkflowV2AutoRunMode.RUN_AUTOMATICALLY
 enum WorkflowV2PrivateIncidentScope.ALL
 enum WorkflowV2PrivateIncidentScope.NONE
 enum WorkflowV2PrivateIncidentScope.OWNING_TEAMS
@@ -6671,6 +6675,8 @@ enum WorkflowV2State.ACTIVE
 enum WorkflowV2State.DISABLED
 enum WorkflowV2State.DRAFT
 enum WorkflowV2State.ERROR
+enum WorkflowsCreateWorkflowPayloadV2AutoRunMode.CONFIRM_BEFORE_RUNNING
+enum WorkflowsCreateWorkflowPayloadV2AutoRunMode.RUN_AUTOMATICALLY
 enum WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope.ALL
 enum WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope.NONE
 enum WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope.OWNING_TEAMS
@@ -6683,6 +6689,8 @@ enum WorkflowsCreateWorkflowPayloadV2State.ACTIVE
 enum WorkflowsCreateWorkflowPayloadV2State.DISABLED
 enum WorkflowsCreateWorkflowPayloadV2State.DRAFT
 enum WorkflowsCreateWorkflowPayloadV2State.ERROR
+enum WorkflowsUpdateWorkflowPayloadV2AutoRunMode.CONFIRM_BEFORE_RUNNING
+enum WorkflowsUpdateWorkflowPayloadV2AutoRunMode.RUN_AUTOMATICALLY
 enum WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope.ALL
 enum WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope.NONE
 enum WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope.OWNING_TEAMS
@@ -12684,6 +12692,7 @@ model WorkflowRunsShowResultV2.additional_properties
 model WorkflowRunsShowResultV2.workflow_run
 model WorkflowRunsV2ListCreatedAt.additional_properties
 model WorkflowSlimV2.additional_properties
+model WorkflowSlimV2.auto_run_mode
 model WorkflowSlimV2.condition_groups
 model WorkflowSlimV2.continue_on_step_error
 model WorkflowSlimV2.delay
@@ -12705,6 +12714,7 @@ model WorkflowSlimV2.steps
 model WorkflowSlimV2.trigger
 model WorkflowSlimV2.version
 model WorkflowV2.additional_properties
+model WorkflowV2.auto_run_mode
 model WorkflowV2.condition_groups
 model WorkflowV2.continue_on_step_error
 model WorkflowV2.delay
@@ -12728,6 +12738,7 @@ model WorkflowV2.trigger
 model WorkflowV2.version
 model WorkflowsCreateWorkflowPayloadV2.additional_properties
 model WorkflowsCreateWorkflowPayloadV2.annotations
+model WorkflowsCreateWorkflowPayloadV2.auto_run_mode
 model WorkflowsCreateWorkflowPayloadV2.condition_groups
 model WorkflowsCreateWorkflowPayloadV2.continue_on_step_error
 model WorkflowsCreateWorkflowPayloadV2.delay
@@ -12757,6 +12768,7 @@ model WorkflowsShowWorkflowResultV2.management_meta
 model WorkflowsShowWorkflowResultV2.workflow
 model WorkflowsUpdateWorkflowPayloadV2.additional_properties
 model WorkflowsUpdateWorkflowPayloadV2.annotations
+model WorkflowsUpdateWorkflowPayloadV2.auto_run_mode
 model WorkflowsUpdateWorkflowPayloadV2.condition_groups
 model WorkflowsUpdateWorkflowPayloadV2.continue_on_step_error
 model WorkflowsUpdateWorkflowPayloadV2.delay

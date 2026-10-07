@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING, Any, Self, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.workflow_slim_v2_auto_run_mode import WorkflowSlimV2AutoRunMode
 from ..models.workflow_slim_v2_private_incident_scope import (
     WorkflowSlimV2PrivateIncidentScope,
 )
@@ -33,10 +34,10 @@ T = TypeVar("T", bound="WorkflowSlimV2")
 class WorkflowSlimV2:
     """
     Example:
-        {'condition_groups': [{'conditions': [{'operation': {'label': 'Lawrence Jones', 'value':
-            '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'label': 'Lawrence Jones', 'literal':
-            'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones', 'literal': 'SEV123',
-            'reference': 'incident.severity'}}], 'subject': {'label': 'Incident Severity', 'reference':
+        {'auto_run_mode': 'confirm_before_running', 'condition_groups': [{'conditions': [{'operation': {'label':
+            'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'label':
+            'Lawrence Jones', 'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones',
+            'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject': {'label': 'Incident Severity', 'reference':
             'incident.severity'}}]}], 'continue_on_step_error': True, 'delay': {'conditions_apply_over_delay': False,
             'for_seconds': 60}, 'expressions': [{'else_branch': {'result': {'array_value': [{'label': 'Lawrence Jones',
             'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones', 'literal':
@@ -67,6 +68,8 @@ class WorkflowSlimV2:
             'name': 'incident.updated'}, 'version': 3}
 
     Attributes:
+        auto_run_mode (WorkflowSlimV2AutoRunMode): Whether the workflow is configured to run immediately or ask for
+            confirmation in the incident channel Example: confirm_before_running.
         condition_groups (list[ConditionGroupV2]): Conditions that apply to the workflow trigger Example:
             [{'conditions': [{'operation': {'label': 'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'},
             'param_bindings': [{'array_value': [{'label': 'Lawrence Jones', 'literal': 'SEV123', 'reference':
@@ -124,6 +127,7 @@ class WorkflowSlimV2:
             Example: page-the-ceo.
     """
 
+    auto_run_mode: WorkflowSlimV2AutoRunMode
     condition_groups: list[ConditionGroupV2]
     continue_on_step_error: bool
     expressions: list[ExpressionV2]
@@ -147,6 +151,8 @@ class WorkflowSlimV2:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        auto_run_mode = self.auto_run_mode.value
+
         condition_groups = []
         for condition_groups_item_data in self.condition_groups:
             condition_groups_item = condition_groups_item_data.to_dict()
@@ -212,6 +218,7 @@ class WorkflowSlimV2:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "auto_run_mode": auto_run_mode,
                 "condition_groups": condition_groups,
                 "continue_on_step_error": continue_on_step_error,
                 "expressions": expressions,
@@ -252,6 +259,8 @@ class WorkflowSlimV2:
         from ..models.workflow_delay_v2 import WorkflowDelayV2
 
         d = dict(src_dict)
+        auto_run_mode = WorkflowSlimV2AutoRunMode(d.pop("auto_run_mode"))
+
         condition_groups = []
         _condition_groups = d.pop("condition_groups")
         for condition_groups_item_data in _condition_groups:
@@ -334,6 +343,7 @@ class WorkflowSlimV2:
         shortform = d.pop("shortform", UNSET)
 
         workflow_slim_v2 = cls(
+            auto_run_mode=auto_run_mode,
             condition_groups=condition_groups,
             continue_on_step_error=continue_on_step_error,
             expressions=expressions,

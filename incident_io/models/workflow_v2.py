@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING, Any, Self, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.workflow_v2_auto_run_mode import WorkflowV2AutoRunMode
 from ..models.workflow_v2_private_incident_scope import WorkflowV2PrivateIncidentScope
 from ..models.workflow_v2_runs_on_incident_modes_item import (
     WorkflowV2RunsOnIncidentModesItem,
@@ -32,10 +33,10 @@ T = TypeVar("T", bound="WorkflowV2")
 class WorkflowV2:
     """
     Example:
-        {'condition_groups': [{'conditions': [{'operation': {'label': 'Lawrence Jones', 'value':
-            '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'label': 'Lawrence Jones', 'literal':
-            'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones', 'literal': 'SEV123',
-            'reference': 'incident.severity'}}], 'subject': {'label': 'Incident Severity', 'reference':
+        {'auto_run_mode': 'confirm_before_running', 'condition_groups': [{'conditions': [{'operation': {'label':
+            'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'label':
+            'Lawrence Jones', 'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones',
+            'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject': {'label': 'Incident Severity', 'reference':
             'incident.severity'}}]}], 'continue_on_step_error': True, 'delay': {'conditions_apply_over_delay': False,
             'for_seconds': 60}, 'expressions': [{'else_branch': {'result': {'array_value': [{'label': 'Lawrence Jones',
             'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones', 'literal':
@@ -70,6 +71,8 @@ class WorkflowV2:
             'incident.severity'}}]}], 'trigger': {'label': 'Incident Updated', 'name': 'incident.updated'}, 'version': 3}
 
     Attributes:
+        auto_run_mode (WorkflowV2AutoRunMode): Whether the workflow is configured to run immediately or ask for
+            confirmation in the incident channel Example: confirm_before_running.
         condition_groups (list[ConditionGroupV2]): Conditions that apply to the workflow trigger Example:
             [{'conditions': [{'operation': {'label': 'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'},
             'param_bindings': [{'array_value': [{'label': 'Lawrence Jones', 'literal': 'SEV123', 'reference':
@@ -121,8 +124,9 @@ class WorkflowV2:
         version (int): Revision of the workflow, uniquely identifying it's version Example: 3.
         delay (WorkflowDelayV2 | Unset):  Example: {'conditions_apply_over_delay': False, 'for_seconds': 60}.
         folder (str | Unset): Folder to display the workflow in Example: My folder 01.
-        form_fields (list[WorkflowFormFieldV2] | Unset): User-configured form fields available in the workflow scope
-            (manual triggers only) Example: [{'array': True, 'description': 'The customer affected by this incident', 'id':
+        form_fields (list[WorkflowFormFieldV2] | Unset): User-configured form fields available in the workflow scope.
+            Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
+            Example: [{'array': True, 'description': 'The customer affected by this incident', 'id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'key': 'affected_customer', 'required': True, 'title': 'Affected customer',
             'type': 'User'}].
         owning_team_ids (list[str] | Unset): IDs of the teams that own this workflow Example:
@@ -133,6 +137,7 @@ class WorkflowV2:
             Example: page-the-ceo.
     """
 
+    auto_run_mode: WorkflowV2AutoRunMode
     condition_groups: list[ConditionGroupV2]
     continue_on_step_error: bool
     expressions: list[ExpressionV2]
@@ -157,6 +162,8 @@ class WorkflowV2:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        auto_run_mode = self.auto_run_mode.value
+
         condition_groups = []
         for condition_groups_item_data in self.condition_groups:
             condition_groups_item = condition_groups_item_data.to_dict()
@@ -229,6 +236,7 @@ class WorkflowV2:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "auto_run_mode": auto_run_mode,
                 "condition_groups": condition_groups,
                 "continue_on_step_error": continue_on_step_error,
                 "expressions": expressions,
@@ -272,6 +280,8 @@ class WorkflowV2:
         from ..models.workflow_form_field_v2 import WorkflowFormFieldV2
 
         d = dict(src_dict)
+        auto_run_mode = WorkflowV2AutoRunMode(d.pop("auto_run_mode"))
+
         condition_groups = []
         _condition_groups = d.pop("condition_groups")
         for condition_groups_item_data in _condition_groups:
@@ -363,6 +373,7 @@ class WorkflowV2:
         shortform = d.pop("shortform", UNSET)
 
         workflow_v2 = cls(
+            auto_run_mode=auto_run_mode,
             condition_groups=condition_groups,
             continue_on_step_error=continue_on_step_error,
             expressions=expressions,

@@ -135,25 +135,26 @@ def sync_detailed(
 
     Args:
         body (WorkflowsCreateWorkflowPayloadV2):  Example: {'annotations':
-            {'incident.io/terraform/version': '3.0.0'}, 'condition_groups': [{'conditions':
-            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
-            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'continue_on_step_error':
-            True, 'delay': {'conditions_apply_over_delay': False, 'for_seconds': 60}, 'expressions':
-            [{'else_branch': {'result': {'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}},
-            'label': 'Team Slack channel', 'operations': [{'branches': {'branches':
-            [{'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            {'incident.io/terraform/version': '3.0.0'}, 'auto_run_mode': 'confirm_before_running',
+            'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
             [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
             {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
-            'incident.severity'}]}], 'result': {'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}}], 'returns': {'array': True, 'type': 'IncidentStatus'}}, 'cast':
-            {'returns': {'array': True, 'type': 'IncidentStatus'}}, 'concatenate': {'reference':
-            'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'filter': {'condition_groups':
-            [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
-            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}], 'subject': 'incident.severity'}]}]}, 'navigate': {'reference':
+            'incident.severity'}]}], 'continue_on_step_error': True, 'delay':
+            {'conditions_apply_over_delay': False, 'for_seconds': 60}, 'expressions': [{'else_branch':
+            {'result': {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}],
+            'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}}, 'label': 'Team Slack
+            channel', 'operations': [{'branches': {'branches': [{'condition_groups': [{'conditions':
+            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
+            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'result': {'array_value':
+            [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123',
+            'reference': 'incident.severity'}}}], 'returns': {'array': True, 'type':
+            'IncidentStatus'}}, 'cast': {'returns': {'array': True, 'type': 'IncidentStatus'}},
+            'concatenate': {'reference': 'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'filter':
+            {'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
+            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
+            'incident.severity'}]}]}, 'navigate': {'reference':
             'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'operation_type': 'navigate', 'parse':
             {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
             'metadata.annotations["github.com/repo"]'}}], 'reference': 'abc123', 'root_reference':
@@ -200,25 +201,26 @@ def sync(
 
     Args:
         body (WorkflowsCreateWorkflowPayloadV2):  Example: {'annotations':
-            {'incident.io/terraform/version': '3.0.0'}, 'condition_groups': [{'conditions':
-            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
-            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'continue_on_step_error':
-            True, 'delay': {'conditions_apply_over_delay': False, 'for_seconds': 60}, 'expressions':
-            [{'else_branch': {'result': {'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}},
-            'label': 'Team Slack channel', 'operations': [{'branches': {'branches':
-            [{'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            {'incident.io/terraform/version': '3.0.0'}, 'auto_run_mode': 'confirm_before_running',
+            'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
             [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
             {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
-            'incident.severity'}]}], 'result': {'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}}], 'returns': {'array': True, 'type': 'IncidentStatus'}}, 'cast':
-            {'returns': {'array': True, 'type': 'IncidentStatus'}}, 'concatenate': {'reference':
-            'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'filter': {'condition_groups':
-            [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
-            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}], 'subject': 'incident.severity'}]}]}, 'navigate': {'reference':
+            'incident.severity'}]}], 'continue_on_step_error': True, 'delay':
+            {'conditions_apply_over_delay': False, 'for_seconds': 60}, 'expressions': [{'else_branch':
+            {'result': {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}],
+            'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}}, 'label': 'Team Slack
+            channel', 'operations': [{'branches': {'branches': [{'condition_groups': [{'conditions':
+            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
+            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'result': {'array_value':
+            [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123',
+            'reference': 'incident.severity'}}}], 'returns': {'array': True, 'type':
+            'IncidentStatus'}}, 'cast': {'returns': {'array': True, 'type': 'IncidentStatus'}},
+            'concatenate': {'reference': 'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'filter':
+            {'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
+            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
+            'incident.severity'}]}]}, 'navigate': {'reference':
             'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'operation_type': 'navigate', 'parse':
             {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
             'metadata.annotations["github.com/repo"]'}}], 'reference': 'abc123', 'root_reference':
@@ -260,25 +262,26 @@ async def asyncio_detailed(
 
     Args:
         body (WorkflowsCreateWorkflowPayloadV2):  Example: {'annotations':
-            {'incident.io/terraform/version': '3.0.0'}, 'condition_groups': [{'conditions':
-            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
-            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'continue_on_step_error':
-            True, 'delay': {'conditions_apply_over_delay': False, 'for_seconds': 60}, 'expressions':
-            [{'else_branch': {'result': {'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}},
-            'label': 'Team Slack channel', 'operations': [{'branches': {'branches':
-            [{'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            {'incident.io/terraform/version': '3.0.0'}, 'auto_run_mode': 'confirm_before_running',
+            'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
             [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
             {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
-            'incident.severity'}]}], 'result': {'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}}], 'returns': {'array': True, 'type': 'IncidentStatus'}}, 'cast':
-            {'returns': {'array': True, 'type': 'IncidentStatus'}}, 'concatenate': {'reference':
-            'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'filter': {'condition_groups':
-            [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
-            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}], 'subject': 'incident.severity'}]}]}, 'navigate': {'reference':
+            'incident.severity'}]}], 'continue_on_step_error': True, 'delay':
+            {'conditions_apply_over_delay': False, 'for_seconds': 60}, 'expressions': [{'else_branch':
+            {'result': {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}],
+            'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}}, 'label': 'Team Slack
+            channel', 'operations': [{'branches': {'branches': [{'condition_groups': [{'conditions':
+            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
+            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'result': {'array_value':
+            [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123',
+            'reference': 'incident.severity'}}}], 'returns': {'array': True, 'type':
+            'IncidentStatus'}}, 'cast': {'returns': {'array': True, 'type': 'IncidentStatus'}},
+            'concatenate': {'reference': 'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'filter':
+            {'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
+            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
+            'incident.severity'}]}]}, 'navigate': {'reference':
             'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'operation_type': 'navigate', 'parse':
             {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
             'metadata.annotations["github.com/repo"]'}}], 'reference': 'abc123', 'root_reference':
@@ -323,25 +326,26 @@ async def asyncio(
 
     Args:
         body (WorkflowsCreateWorkflowPayloadV2):  Example: {'annotations':
-            {'incident.io/terraform/version': '3.0.0'}, 'condition_groups': [{'conditions':
-            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
-            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'continue_on_step_error':
-            True, 'delay': {'conditions_apply_over_delay': False, 'for_seconds': 60}, 'expressions':
-            [{'else_branch': {'result': {'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}},
-            'label': 'Team Slack channel', 'operations': [{'branches': {'branches':
-            [{'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            {'incident.io/terraform/version': '3.0.0'}, 'auto_run_mode': 'confirm_before_running',
+            'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
             [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
             {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
-            'incident.severity'}]}], 'result': {'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}}], 'returns': {'array': True, 'type': 'IncidentStatus'}}, 'cast':
-            {'returns': {'array': True, 'type': 'IncidentStatus'}}, 'concatenate': {'reference':
-            'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'filter': {'condition_groups':
-            [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal':
-            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
-            'incident.severity'}}], 'subject': 'incident.severity'}]}]}, 'navigate': {'reference':
+            'incident.severity'}]}], 'continue_on_step_error': True, 'delay':
+            {'conditions_apply_over_delay': False, 'for_seconds': 60}, 'expressions': [{'else_branch':
+            {'result': {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}],
+            'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}}, 'label': 'Team Slack
+            channel', 'operations': [{'branches': {'branches': [{'condition_groups': [{'conditions':
+            [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123',
+            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'result': {'array_value':
+            [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123',
+            'reference': 'incident.severity'}}}], 'returns': {'array': True, 'type':
+            'IncidentStatus'}}, 'cast': {'returns': {'array': True, 'type': 'IncidentStatus'}},
+            'concatenate': {'reference': 'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'filter':
+            {'condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
+            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
+            'incident.severity'}]}]}, 'navigate': {'reference':
             'catalog_attribute["01FCNDV6P870EA6S7TK1DSYD5H"]'}, 'operation_type': 'navigate', 'parse':
             {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
             'metadata.annotations["github.com/repo"]'}}], 'reference': 'abc123', 'root_reference':

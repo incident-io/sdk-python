@@ -2631,6 +2631,7 @@ from .workflow_runs_list_result_v2 import WorkflowRunsListResultV2
 from .workflow_runs_show_result_v2 import WorkflowRunsShowResultV2
 from .workflow_runs_v2_list_created_at import WorkflowRunsV2ListCreatedAt
 from .workflow_slim_v2 import WorkflowSlimV2
+from .workflow_slim_v2_auto_run_mode import WorkflowSlimV2AutoRunMode
 from .workflow_slim_v2_private_incident_scope import WorkflowSlimV2PrivateIncidentScope
 from .workflow_slim_v2_runs_on_incident_modes_item import (
     WorkflowSlimV2RunsOnIncidentModesItem,
@@ -2638,6 +2639,7 @@ from .workflow_slim_v2_runs_on_incident_modes_item import (
 from .workflow_slim_v2_runs_on_incidents import WorkflowSlimV2RunsOnIncidents
 from .workflow_slim_v2_state import WorkflowSlimV2State
 from .workflow_v2 import WorkflowV2
+from .workflow_v2_auto_run_mode import WorkflowV2AutoRunMode
 from .workflow_v2_private_incident_scope import WorkflowV2PrivateIncidentScope
 from .workflow_v2_runs_on_incident_modes_item import WorkflowV2RunsOnIncidentModesItem
 from .workflow_v2_runs_on_incidents import WorkflowV2RunsOnIncidents
@@ -2645,6 +2647,9 @@ from .workflow_v2_state import WorkflowV2State
 from .workflows_create_workflow_payload_v2 import WorkflowsCreateWorkflowPayloadV2
 from .workflows_create_workflow_payload_v2_annotations import (
     WorkflowsCreateWorkflowPayloadV2Annotations,
+)
+from .workflows_create_workflow_payload_v2_auto_run_mode import (
+    WorkflowsCreateWorkflowPayloadV2AutoRunMode,
 )
 from .workflows_create_workflow_payload_v2_private_incident_scope import (
     WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope,
@@ -2664,6 +2669,9 @@ from .workflows_show_workflow_result_v2 import WorkflowsShowWorkflowResultV2
 from .workflows_update_workflow_payload_v2 import WorkflowsUpdateWorkflowPayloadV2
 from .workflows_update_workflow_payload_v2_annotations import (
     WorkflowsUpdateWorkflowPayloadV2Annotations,
+)
+from .workflows_update_workflow_payload_v2_auto_run_mode import (
+    WorkflowsUpdateWorkflowPayloadV2AutoRunMode,
 )
 from .workflows_update_workflow_payload_v2_private_incident_scope import (
     WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope,
@@ -4269,17 +4277,20 @@ __all__ = (
     "WorkflowRunsShowResultV2",
     "WorkflowRunsV2ListCreatedAt",
     "WorkflowSlimV2",
+    "WorkflowSlimV2AutoRunMode",
     "WorkflowSlimV2PrivateIncidentScope",
     "WorkflowSlimV2RunsOnIncidentModesItem",
     "WorkflowSlimV2RunsOnIncidents",
     "WorkflowSlimV2State",
     "WorkflowV2",
+    "WorkflowV2AutoRunMode",
     "WorkflowV2PrivateIncidentScope",
     "WorkflowV2RunsOnIncidentModesItem",
     "WorkflowV2RunsOnIncidents",
     "WorkflowV2State",
     "WorkflowsCreateWorkflowPayloadV2",
     "WorkflowsCreateWorkflowPayloadV2Annotations",
+    "WorkflowsCreateWorkflowPayloadV2AutoRunMode",
     "WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope",
     "WorkflowsCreateWorkflowPayloadV2RunsOnIncidentModesItem",
     "WorkflowsCreateWorkflowPayloadV2RunsOnIncidents",
@@ -4289,6 +4300,7 @@ __all__ = (
     "WorkflowsShowWorkflowResultV2",
     "WorkflowsUpdateWorkflowPayloadV2",
     "WorkflowsUpdateWorkflowPayloadV2Annotations",
+    "WorkflowsUpdateWorkflowPayloadV2AutoRunMode",
     "WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope",
     "WorkflowsUpdateWorkflowPayloadV2RunsOnIncidentModesItem",
     "WorkflowsUpdateWorkflowPayloadV2RunsOnIncidents",
