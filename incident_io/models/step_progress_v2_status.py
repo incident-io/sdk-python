@@ -5,6 +5,7 @@ class StepProgressV2Status(StrEnum):
     COMPLETE = "complete"
     ERROR = "error"
     PENDING = "pending"
+    SUSPENDED = "suspended"
 
     def __str__(self) -> str:
         return str(self.value)
