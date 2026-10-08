@@ -13,6 +13,7 @@ class ExternalResourceV1ResourceType(StrEnum):
     OPSGENIE_ALERT = "opsgenie_alert"
     OUTLOOK_CALENDAR_EVENT = "outlook_calendar_event"
     PAGER_DUTY_INCIDENT = "pager_duty_incident"
+    PYLON_ISSUE = "pylon_issue"
     SALESFORCE_CASE = "salesforce_case"
     SCRUBBED = "scrubbed"
     SENTRY_ISSUE = "sentry_issue"
