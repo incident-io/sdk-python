@@ -27,7 +27,7 @@ class PostmortemDocumentsAttachPayloadV1:
         permalink (str): A URL pointing to the externally-hosted post-mortem document Example:
             https://www.notion.so/INC-123-database-is-sad.
         document_provider (PostmortemDocumentsAttachPayloadV1DocumentProvider | Unset): The provider hosting the
-            document. Set this when it can't be inferred from the permalink so the link renders correctly. Example: notion.
+            document. This is informational only: the document is always stored as a link to the permalink. Example: notion.
     """
 
     incident_id: str
