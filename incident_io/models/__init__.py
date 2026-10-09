@@ -1861,6 +1861,13 @@ from .on_call_notification_method_public_v2 import OnCallNotificationMethodPubli
 from .on_call_notification_method_public_v2_method_type import (
     OnCallNotificationMethodPublicV2MethodType,
 )
+from .on_call_notification_pause_v2 import OnCallNotificationPauseV2
+from .on_call_notification_pauses_list_result_v2 import (
+    OnCallNotificationPausesListResultV2,
+)
+from .on_call_notification_pauses_show_result_v2 import (
+    OnCallNotificationPausesShowResultV2,
+)
 from .on_call_notification_rule_app_details_public_v2 import (
     OnCallNotificationRuleAppDetailsPublicV2,
 )
@@ -3875,6 +3882,9 @@ __all__ = (
     "OnCallNotificationMethodPhoneDetailsPublicV2",
     "OnCallNotificationMethodPublicV2",
     "OnCallNotificationMethodPublicV2MethodType",
+    "OnCallNotificationPauseV2",
+    "OnCallNotificationPausesListResultV2",
+    "OnCallNotificationPausesShowResultV2",
     "OnCallNotificationRuleAppDetailsPublicV2",
     "OnCallNotificationRuleAppDetailsPublicV2PushNotificationCriticality",
     "OnCallNotificationRuleMethodTargetAllPublicV2",
