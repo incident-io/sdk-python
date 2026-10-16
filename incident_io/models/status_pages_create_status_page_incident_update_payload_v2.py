@@ -32,8 +32,9 @@ class StatusPagesCreateStatusPageIncidentUpdatePayloadV2:
     Attributes:
         message (str): Markdown update on what's changed about this status page incident Example: The fix has been
             deployed and we are monitoring the situation. Some users may still experience intermittent issues..
-        notify_subscribers (bool): Whether to notify subscribers about this incident update. This will not work if your
-            status page has more than 1000 subscribers. Example: True.
+        notify_subscribers (bool): Whether to notify subscribers about this incident update. If your status page has
+            more than 1000 subscribers, requests that set this to true are rejected. This limit applies only to the public
+            API: publishing from the incident.io dashboard or Slack always notifies every subscriber. Example: True.
         status_page_incident_id (str): ID of the status page incident Example: 01FCNDV6P870EA6S7TK1DSYDG1.
         component_statuses (list[StatusPageIncidentAffectedComponentV2] | Unset): An array of mappings from component ID
             to component status. This must not be set if the status page incident status is being set to "resolved", as all

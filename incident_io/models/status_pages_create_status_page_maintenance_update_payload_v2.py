@@ -33,8 +33,10 @@ class StatusPagesCreateStatusPageMaintenanceUpdatePayloadV2:
         message (str): Markdown update on what's changed about this status page maintenance window Example: Scheduled
             maintenance is underway for our database infrastructure. Some services may experience brief interruptions during
             this window..
-        notify_subscribers (bool): Whether to notify subscribers about this status page maintenance update. This will
-            not work if your status page has more than 1000 subscribers. Example: True.
+        notify_subscribers (bool): Whether to notify subscribers about this status page maintenance update. If your
+            status page has more than 1000 subscribers, requests that set this to true are rejected. This limit applies only
+            to the public API: publishing from the incident.io dashboard or Slack always notifies every subscriber. Example:
+            True.
         status_page_maintenance_id (str): ID of the status page maintenance window Example: 01FCNDV6P870EA6S7TK1DSYDG1.
         component_statuses (list[StatusPageMaintenanceAffectedComponentV2] | Unset): An array of mappings from component
             ID to component status. This must not be set if the status page maintenance window status is being set to

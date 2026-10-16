@@ -38,8 +38,9 @@ class StatusPagesCreateStatusPageMaintenancePayloadV2:
             been scheduled to upgrade our infrastructure. We expect minimal disruption, but some features may be briefly
             unavailable..
         name (str): A title for the maintenance window Example: Routine infrastructure upgrade.
-        notify_subscribers (bool): Whether to notify subscribers about this status page maintenance. This will not work
-            if your status page has more than 1000 subscribers. Example: True.
+        notify_subscribers (bool): Whether to notify subscribers about this status page maintenance. If your status page
+            has more than 1000 subscribers, requests that set this to true are rejected. This limit applies only to the
+            public API: publishing from the incident.io dashboard or Slack always notifies every subscriber. Example: True.
         start_at (datetime.datetime): The time the maintenance window starts Example: 2025-01-28T10:00:00Z.
         status_page_id (str): ID of the status page. You can find this by calling the ListStatusPages endpoint. Example:
             01FCNDV6P870EA6S7TK1DSYDG0.

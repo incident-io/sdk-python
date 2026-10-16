@@ -37,8 +37,9 @@ class StatusPagesCreateStatusPageIncidentPayloadV2:
         message (str): Markdown initial update on this status page incident Example: We are currently investigating
             reports of elevated error rates affecting our API..
         name (str): A title for the incident Example: Elevated API latency.
-        notify_subscribers (bool): Whether to notify subscribers about this status page incident. This will not work if
-            your status page has more than 1000 subscribers. Example: True.
+        notify_subscribers (bool): Whether to notify subscribers about this status page incident. If your status page
+            has more than 1000 subscribers, requests that set this to true are rejected. This limit applies only to the
+            public API: publishing from the incident.io dashboard or Slack always notifies every subscriber. Example: True.
         status_page_id (str): ID of the status page. You can find this by calling the ListStatusPages endpoint. Example:
             01FCNDV6P870EA6S7TK1DSYDG0.
         component_statuses (list[StatusPageIncidentAffectedComponentV2] | Unset): An array of mappings from component ID
