@@ -22,6 +22,7 @@ class AlertSourcesValidatePayloadV2SourceType(StrEnum):
     EMAIL = "email"
     EXPEL = "expel"
     GITHUB_ISSUE = "github_issue"
+    GIT_GUARDIAN = "git_guardian"
     GOOGLE_CLOUD = "google_cloud"
     GOOGLE_SECOPS = "google_secops"
     GRAFANA = "grafana"

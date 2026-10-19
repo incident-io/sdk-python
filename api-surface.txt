@@ -3814,6 +3814,7 @@ enum AlertSourceV2SourceType.ELASTICSEARCH
 enum AlertSourceV2SourceType.EMAIL
 enum AlertSourceV2SourceType.EXPEL
 enum AlertSourceV2SourceType.GITHUB_ISSUE
+enum AlertSourceV2SourceType.GIT_GUARDIAN
 enum AlertSourceV2SourceType.GOOGLE_CLOUD
 enum AlertSourceV2SourceType.GOOGLE_SECOPS
 enum AlertSourceV2SourceType.GRAFANA
@@ -3869,6 +3870,7 @@ enum AlertSourcesCreatePayloadV2SourceType.ELASTICSEARCH
 enum AlertSourcesCreatePayloadV2SourceType.EMAIL
 enum AlertSourcesCreatePayloadV2SourceType.EXPEL
 enum AlertSourcesCreatePayloadV2SourceType.GITHUB_ISSUE
+enum AlertSourcesCreatePayloadV2SourceType.GIT_GUARDIAN
 enum AlertSourcesCreatePayloadV2SourceType.GOOGLE_CLOUD
 enum AlertSourcesCreatePayloadV2SourceType.GOOGLE_SECOPS
 enum AlertSourcesCreatePayloadV2SourceType.GRAFANA
@@ -3924,6 +3926,7 @@ enum AlertSourcesValidatePayloadV2SourceType.ELASTICSEARCH
 enum AlertSourcesValidatePayloadV2SourceType.EMAIL
 enum AlertSourcesValidatePayloadV2SourceType.EXPEL
 enum AlertSourcesValidatePayloadV2SourceType.GITHUB_ISSUE
+enum AlertSourcesValidatePayloadV2SourceType.GIT_GUARDIAN
 enum AlertSourcesValidatePayloadV2SourceType.GOOGLE_CLOUD
 enum AlertSourcesValidatePayloadV2SourceType.GOOGLE_SECOPS
 enum AlertSourcesValidatePayloadV2SourceType.GRAFANA
