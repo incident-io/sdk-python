@@ -3530,6 +3530,7 @@ enum APIKeyRoleV1Name.CATALOG_VIEWER
 enum APIKeyRoleV1Name.DOCUMENTS_VIEWER
 enum APIKeyRoleV1Name.ESCALATION_CREATOR
 enum APIKeyRoleV1Name.GLOBAL_ACCESS
+enum APIKeyRoleV1Name.GLOSSARY_ENTRIES_MANAGE
 enum APIKeyRoleV1Name.HEARTBEATS_PING
 enum APIKeyRoleV1Name.INCIDENT_CREATOR
 enum APIKeyRoleV1Name.INCIDENT_EDITOR
@@ -3590,6 +3591,7 @@ enum APIKeysCreatePayloadV1RoleNamesItem.CATALOG_VIEWER
 enum APIKeysCreatePayloadV1RoleNamesItem.DOCUMENTS_VIEWER
 enum APIKeysCreatePayloadV1RoleNamesItem.ESCALATION_CREATOR
 enum APIKeysCreatePayloadV1RoleNamesItem.GLOBAL_ACCESS
+enum APIKeysCreatePayloadV1RoleNamesItem.GLOSSARY_ENTRIES_MANAGE
 enum APIKeysCreatePayloadV1RoleNamesItem.HEARTBEATS_PING
 enum APIKeysCreatePayloadV1RoleNamesItem.INCIDENT_CREATOR
 enum APIKeysCreatePayloadV1RoleNamesItem.INCIDENT_EDITOR
@@ -3650,6 +3652,7 @@ enum APIKeysUpdatePayloadV1RoleNamesItem.CATALOG_VIEWER
 enum APIKeysUpdatePayloadV1RoleNamesItem.DOCUMENTS_VIEWER
 enum APIKeysUpdatePayloadV1RoleNamesItem.ESCALATION_CREATOR
 enum APIKeysUpdatePayloadV1RoleNamesItem.GLOBAL_ACCESS
+enum APIKeysUpdatePayloadV1RoleNamesItem.GLOSSARY_ENTRIES_MANAGE
 enum APIKeysUpdatePayloadV1RoleNamesItem.HEARTBEATS_PING
 enum APIKeysUpdatePayloadV1RoleNamesItem.INCIDENT_CREATOR
 enum APIKeysUpdatePayloadV1RoleNamesItem.INCIDENT_EDITOR
@@ -4879,6 +4882,7 @@ enum IdentityV1RolesItem.CATALOG_VIEWER
 enum IdentityV1RolesItem.DOCUMENTS_VIEWER
 enum IdentityV1RolesItem.ESCALATION_CREATOR
 enum IdentityV1RolesItem.GLOBAL_ACCESS
+enum IdentityV1RolesItem.GLOSSARY_ENTRIES_MANAGE
 enum IdentityV1RolesItem.HEARTBEATS_PING
 enum IdentityV1RolesItem.INCIDENT_CREATOR
 enum IdentityV1RolesItem.INCIDENT_EDITOR

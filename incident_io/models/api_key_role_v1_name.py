@@ -10,6 +10,7 @@ class APIKeyRoleV1Name(StrEnum):
     DOCUMENTS_VIEWER = "documents_viewer"
     ESCALATION_CREATOR = "escalation_creator"
     GLOBAL_ACCESS = "global_access"
+    GLOSSARY_ENTRIES_MANAGE = "glossary_entries_manage"
     HEARTBEATS_PING = "heartbeats_ping"
     INCIDENT_CREATOR = "incident_creator"
     INCIDENT_EDITOR = "incident_editor"
