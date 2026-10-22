@@ -1862,6 +1862,22 @@ from .maintenance_windows_show_result_v1 import MaintenanceWindowsShowResultV1
 from .maintenance_windows_update_payload_v1 import MaintenanceWindowsUpdatePayloadV1
 from .maintenance_windows_update_result_v1 import MaintenanceWindowsUpdateResultV1
 from .maintenance_windows_v1_list_status import MaintenanceWindowsV1ListStatus
+from .managed_resource_v2 import ManagedResourceV2
+from .managed_resource_v2_annotations import ManagedResourceV2Annotations
+from .managed_resource_v2_managed_by import ManagedResourceV2ManagedBy
+from .managed_resource_v2_resource_type import ManagedResourceV2ResourceType
+from .managed_resources_create_managed_resource_payload_v2 import (
+    ManagedResourcesCreateManagedResourcePayloadV2,
+)
+from .managed_resources_create_managed_resource_payload_v2_annotations import (
+    ManagedResourcesCreateManagedResourcePayloadV2Annotations,
+)
+from .managed_resources_create_managed_resource_payload_v2_resource_type import (
+    ManagedResourcesCreateManagedResourcePayloadV2ResourceType,
+)
+from .managed_resources_create_managed_resource_result_v2 import (
+    ManagedResourcesCreateManagedResourceResultV2,
+)
 from .management_meta_v2 import ManagementMetaV2
 from .management_meta_v2_annotations import ManagementMetaV2Annotations
 from .management_meta_v2_managed_by import ManagementMetaV2ManagedBy
@@ -3891,6 +3907,14 @@ __all__ = (
     "MaintenanceWindowsUpdatePayloadV1",
     "MaintenanceWindowsUpdateResultV1",
     "MaintenanceWindowsV1ListStatus",
+    "ManagedResourceV2",
+    "ManagedResourceV2Annotations",
+    "ManagedResourceV2ManagedBy",
+    "ManagedResourceV2ResourceType",
+    "ManagedResourcesCreateManagedResourcePayloadV2",
+    "ManagedResourcesCreateManagedResourcePayloadV2Annotations",
+    "ManagedResourcesCreateManagedResourcePayloadV2ResourceType",
+    "ManagedResourcesCreateManagedResourceResultV2",
     "ManagementMetaV2",
     "ManagementMetaV2Annotations",
     "ManagementMetaV2ManagedBy",

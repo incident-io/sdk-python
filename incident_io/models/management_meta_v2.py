@@ -20,13 +20,13 @@ T = TypeVar("T", bound="ManagementMetaV2")
 class ManagementMetaV2:
     """
     Example:
-        {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'dashboard', 'source_url':
+        {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'terraform', 'source_url':
             'https://github.com/my-company/infrastructure'}
 
     Attributes:
         annotations (ManagementMetaV2Annotations): Annotations that track metadata about this resource Example:
             {'incident.io/terraform/version': '3.0.0'}.
-        managed_by (ManagementMetaV2ManagedBy): How is this resource managed Example: dashboard.
+        managed_by (ManagementMetaV2ManagedBy): How is this resource managed Example: terraform.
         source_url (str | Unset): The url of the external repository where this resource is managed (if there is one)
             Example: https://github.com/my-company/infrastructure.
     """

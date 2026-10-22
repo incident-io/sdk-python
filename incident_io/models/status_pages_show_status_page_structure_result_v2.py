@@ -32,7 +32,7 @@ class StatusPagesShowStatusPageStructureResultV2:
             'description': 'Services hosted in our EU data center', 'display_aggregated_uptime': True, 'hidden': False,
             'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'name': 'EU Data center'}}], 'name': 'United Kingdom'}}]},
             'display_uptime_mode': 'chart_and_percentage', 'management_meta': {'annotations':
-            {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'dashboard', 'source_url': 'https://github.com/my-
+            {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'terraform', 'source_url': 'https://github.com/my-
             company/infrastructure'}}
 
     Attributes:
@@ -49,7 +49,7 @@ class StatusPagesShowStatusPageStructureResultV2:
         display_uptime_mode (StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode): How the page shows uptime
             against its components Example: chart_and_percentage.
         management_meta (ManagementMetaV2):  Example: {'annotations': {'incident.io/terraform/version': '3.0.0'},
-            'managed_by': 'dashboard', 'source_url': 'https://github.com/my-company/infrastructure'}.
+            'managed_by': 'terraform', 'source_url': 'https://github.com/my-company/infrastructure'}.
     """
 
     current_structure: StatusPageStructureV2

@@ -18,7 +18,7 @@ T = TypeVar("T", bound="WorkflowsCreateWorkflowResultV2")
 class WorkflowsCreateWorkflowResultV2:
     """
     Example:
-        {'management_meta': {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'dashboard',
+        {'management_meta': {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'terraform',
             'source_url': 'https://github.com/my-company/infrastructure'}, 'workflow': {'auto_run_mode':
             'confirm_before_running', 'condition_groups': [{'conditions': [{'operation': {'label': 'Lawrence Jones',
             'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'label': 'Lawrence Jones',
@@ -59,7 +59,7 @@ class WorkflowsCreateWorkflowResultV2:
 
     Attributes:
         management_meta (ManagementMetaV2):  Example: {'annotations': {'incident.io/terraform/version': '3.0.0'},
-            'managed_by': 'dashboard', 'source_url': 'https://github.com/my-company/infrastructure'}.
+            'managed_by': 'terraform', 'source_url': 'https://github.com/my-company/infrastructure'}.
         workflow (WorkflowV2):  Example: {'auto_run_mode': 'confirm_before_running', 'condition_groups': [{'conditions':
             [{'operation': {'label': 'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings':
             [{'array_value': [{'label': 'Lawrence Jones', 'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':

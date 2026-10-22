@@ -18,13 +18,13 @@ class StatusPageComponentsListResultV2:
     """
     Example:
         {'status_page_components': [{'description': 'Our iOS app', 'id': '01FCNDV6P870EA6S7TK1DSYDG1',
-            'management_meta': {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'dashboard',
+            'management_meta': {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'terraform',
             'source_url': 'https://github.com/my-company/infrastructure'}, 'name': 'App'}]}
 
     Attributes:
         status_page_components (list[StatusPageComponentV2]):  Example: [{'description': 'Our iOS app', 'id':
             '01FCNDV6P870EA6S7TK1DSYDG1', 'management_meta': {'annotations': {'incident.io/terraform/version': '3.0.0'},
-            'managed_by': 'dashboard', 'source_url': 'https://github.com/my-company/infrastructure'}, 'name': 'App'}].
+            'managed_by': 'terraform', 'source_url': 'https://github.com/my-company/infrastructure'}, 'name': 'App'}].
     """
 
     status_page_components: list[StatusPageComponentV2]

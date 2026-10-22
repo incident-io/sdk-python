@@ -18,7 +18,7 @@ class StatusPageComponentsShowResultV2:
     """
     Example:
         {'status_page_component': {'description': 'Our iOS app', 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'management_meta':
-            {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'dashboard', 'source_url':
+            {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'terraform', 'source_url':
             'https://github.com/my-company/infrastructure'}, 'name': 'App'}}
 
     Attributes:
@@ -28,7 +28,7 @@ class StatusPageComponentsShowResultV2:
             Components are organisation-scoped. Placement on a page is controlled by that
             page's structure, not by ownership of the component. Example: {'description': 'Our iOS app', 'id':
             '01FCNDV6P870EA6S7TK1DSYDG1', 'management_meta': {'annotations': {'incident.io/terraform/version': '3.0.0'},
-            'managed_by': 'dashboard', 'source_url': 'https://github.com/my-company/infrastructure'}, 'name': 'App'}.
+            'managed_by': 'terraform', 'source_url': 'https://github.com/my-company/infrastructure'}, 'name': 'App'}.
     """
 
     status_page_component: StatusPageComponentV2

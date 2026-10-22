@@ -24,13 +24,13 @@ class StatusPageComponentV2:
 
         Example:
             {'description': 'Our iOS app', 'id': '01FCNDV6P870EA6S7TK1DSYDG1', 'management_meta': {'annotations':
-                {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'dashboard', 'source_url': 'https://github.com/my-
+                {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'terraform', 'source_url': 'https://github.com/my-
                 company/infrastructure'}, 'name': 'App'}
 
         Attributes:
             id (str): Unique identifier for this component Example: 01FCNDV6P870EA6S7TK1DSYDG1.
             management_meta (ManagementMetaV2):  Example: {'annotations': {'incident.io/terraform/version': '3.0.0'},
-                'managed_by': 'dashboard', 'source_url': 'https://github.com/my-company/infrastructure'}.
+                'managed_by': 'terraform', 'source_url': 'https://github.com/my-company/infrastructure'}.
             name (str): Human-readable name for the component Example: App.
             description (str | Unset): Optional short description of this component Example: Our iOS app.
     """
