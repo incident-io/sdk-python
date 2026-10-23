@@ -526,6 +526,9 @@ from .audit_log_telemetry_data_source_access_policy_changed_metadata_v2 import (
 from .audit_log_telemetry_data_source_access_policy_changed_metadata_v2v2 import (
     AuditLogTelemetryDataSourceAccessPolicyChangedMetadataV2V2,
 )
+from .audit_log_telemetry_data_source_passthrough_changed_metadata_v2 import (
+    AuditLogTelemetryDataSourcePassthroughChangedMetadataV2,
+)
 from .audit_log_telemetry_data_source_queried_metadata_v2 import (
     AuditLogTelemetryDataSourceQueriedMetadataV2,
 )
@@ -979,6 +982,9 @@ from .audit_logs_telemetry_data_source_access_policy_changed_v2 import (
 )
 from .audit_logs_telemetry_data_source_installed_v1 import (
     AuditLogsTelemetryDataSourceInstalledV1,
+)
+from .audit_logs_telemetry_data_source_passthrough_changed_v1 import (
+    AuditLogsTelemetryDataSourcePassthroughChangedV1,
 )
 from .audit_logs_telemetry_data_source_queried_v1 import (
     AuditLogsTelemetryDataSourceQueriedV1,
@@ -3085,6 +3091,7 @@ __all__ = (
     "AuditLogTelemetryDataSourceAccessModeChangedMetadataV2",
     "AuditLogTelemetryDataSourceAccessPolicyChangedMetadataV2",
     "AuditLogTelemetryDataSourceAccessPolicyChangedMetadataV2V2",
+    "AuditLogTelemetryDataSourcePassthroughChangedMetadataV2",
     "AuditLogTelemetryDataSourceQueriedMetadataV2",
     "AuditLogTelemetryDataSourceQueriedMetadataV2V2",
     "AuditLogTelemetryDataSourceRequestedMetadataV2",
@@ -3309,6 +3316,7 @@ __all__ = (
     "AuditLogsTelemetryDataSourceAccessPolicyChangedV1",
     "AuditLogsTelemetryDataSourceAccessPolicyChangedV2",
     "AuditLogsTelemetryDataSourceInstalledV1",
+    "AuditLogsTelemetryDataSourcePassthroughChangedV1",
     "AuditLogsTelemetryDataSourceQueriedV1",
     "AuditLogsTelemetryDataSourceQueriedV2",
     "AuditLogsTelemetryDataSourceRequestedV1",
