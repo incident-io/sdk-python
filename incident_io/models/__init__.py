@@ -1795,6 +1795,12 @@ from .incident_v2 import IncidentV2
 from .incident_v2_mode import IncidentV2Mode
 from .incident_v2_visibility import IncidentV2Visibility
 from .incident_with_status_change_v2 import IncidentWithStatusChangeV2
+from .incidents_connect_external_issue_payload_v2 import (
+    IncidentsConnectExternalIssuePayloadV2,
+)
+from .incidents_connect_external_issue_payload_v2_provider import (
+    IncidentsConnectExternalIssuePayloadV2Provider,
+)
 from .incidents_create_payload_v1 import IncidentsCreatePayloadV1
 from .incidents_create_payload_v1_mode import IncidentsCreatePayloadV1Mode
 from .incidents_create_payload_v1_status import IncidentsCreatePayloadV1Status
@@ -3864,6 +3870,8 @@ __all__ = (
     "IncidentV2Mode",
     "IncidentV2Visibility",
     "IncidentWithStatusChangeV2",
+    "IncidentsConnectExternalIssuePayloadV2",
+    "IncidentsConnectExternalIssuePayloadV2Provider",
     "IncidentsCreatePayloadV1",
     "IncidentsCreatePayloadV1Mode",
     "IncidentsCreatePayloadV1Status",
