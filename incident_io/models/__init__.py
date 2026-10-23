@@ -1578,6 +1578,18 @@ from .follow_ups_v2_list_incident_mode import FollowUpsV2ListIncidentMode
 from .follow_ups_v3_list_created_at import FollowUpsV3ListCreatedAt
 from .follow_ups_v3_list_incident_mode import FollowUpsV3ListIncidentMode
 from .follow_ups_v3_list_updated_at import FollowUpsV3ListUpdatedAt
+from .glossary_entries_create_payload_v2 import GlossaryEntriesCreatePayloadV2
+from .glossary_entries_create_result_v2 import GlossaryEntriesCreateResultV2
+from .glossary_entries_list_result_v2 import GlossaryEntriesListResultV2
+from .glossary_entries_show_result_v2 import GlossaryEntriesShowResultV2
+from .glossary_entries_update_payload_v2 import GlossaryEntriesUpdatePayloadV2
+from .glossary_entries_update_ranks_payload_v2 import (
+    GlossaryEntriesUpdateRanksPayloadV2,
+)
+from .glossary_entries_update_ranks_result_v2 import GlossaryEntriesUpdateRanksResultV2
+from .glossary_entries_update_result_v2 import GlossaryEntriesUpdateResultV2
+from .glossary_entry_rank_update_v2 import GlossaryEntryRankUpdateV2
+from .glossary_entry_v2 import GlossaryEntryV2
 from .grouping_key_v2 import GroupingKeyV2
 from .grouping_key_v3 import GroupingKeyV3
 from .grouping_settings_v3 import GroupingSettingsV3
@@ -3713,6 +3725,16 @@ __all__ = (
     "FollowUpsV3ListCreatedAt",
     "FollowUpsV3ListIncidentMode",
     "FollowUpsV3ListUpdatedAt",
+    "GlossaryEntriesCreatePayloadV2",
+    "GlossaryEntriesCreateResultV2",
+    "GlossaryEntriesListResultV2",
+    "GlossaryEntriesShowResultV2",
+    "GlossaryEntriesUpdatePayloadV2",
+    "GlossaryEntriesUpdateRanksPayloadV2",
+    "GlossaryEntriesUpdateRanksResultV2",
+    "GlossaryEntriesUpdateResultV2",
+    "GlossaryEntryRankUpdateV2",
+    "GlossaryEntryV2",
     "GroupingKeyV2",
     "GroupingKeyV3",
     "GroupingSettingsV3",
