@@ -137,6 +137,10 @@ def sync_detailed(
     The issue is synced using the given incident ticket template, as if incident.io had
     created it from that template. The next sync writes the incident's fields into the issue.
 
+    This works whether or not automatic incident ticket creation is turned on. While it is
+    off, no tickets are created for other incidents, and the incident's fields are not
+    written into this issue until it is turned on.
+
     This needs the incidents.connect_external_issue scope, either across the organisation or
     from an incident role on this incident.
 
@@ -185,6 +189,10 @@ def sync(
     The issue is synced using the given incident ticket template, as if incident.io had
     created it from that template. The next sync writes the incident's fields into the issue.
 
+    This works whether or not automatic incident ticket creation is turned on. While it is
+    off, no tickets are created for other incidents, and the incident's fields are not
+    written into this issue until it is turned on.
+
     This needs the incidents.connect_external_issue scope, either across the organisation or
     from an incident role on this incident.
 
@@ -227,6 +235,10 @@ async def asyncio_detailed(
 
     The issue is synced using the given incident ticket template, as if incident.io had
     created it from that template. The next sync writes the incident's fields into the issue.
+
+    This works whether or not automatic incident ticket creation is turned on. While it is
+    off, no tickets are created for other incidents, and the incident's fields are not
+    written into this issue until it is turned on.
 
     This needs the incidents.connect_external_issue scope, either across the organisation or
     from an incident role on this incident.
@@ -273,6 +285,10 @@ async def asyncio(
 
     The issue is synced using the given incident ticket template, as if incident.io had
     created it from that template. The next sync writes the incident's fields into the issue.
+
+    This works whether or not automatic incident ticket creation is turned on. While it is
+    off, no tickets are created for other incidents, and the incident's fields are not
+    written into this issue until it is turned on.
 
     This needs the incidents.connect_external_issue scope, either across the organisation or
     from an incident role on this incident.
