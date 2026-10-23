@@ -5597,6 +5597,7 @@ enum StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode.NOTHING
 enum StepProgressSlimV2Status.COMPLETE
 enum StepProgressSlimV2Status.ERROR
 enum StepProgressSlimV2Status.PENDING
+enum StepProgressSlimV2Status.SKIPPED
 enum StepProgressSlimV2Status.SUSPENDED
 enum StepProgressSlimV2WebhookDeliveryState.AVAILABLE
 enum StepProgressSlimV2WebhookDeliveryState.EXPIRED
@@ -5604,6 +5605,7 @@ enum StepProgressSlimV2WebhookDeliveryState.UNAVAILABLE
 enum StepProgressV2Status.COMPLETE
 enum StepProgressV2Status.ERROR
 enum StepProgressV2Status.PENDING
+enum StepProgressV2Status.SKIPPED
 enum StepProgressV2Status.SUSPENDED
 enum StepProgressV2WebhookDeliveryState.AVAILABLE
 enum StepProgressV2WebhookDeliveryState.EXPIRED

@@ -5,6 +5,7 @@ class StepProgressSlimV2Status(StrEnum):
     COMPLETE = "complete"
     ERROR = "error"
     PENDING = "pending"
+    SKIPPED = "skipped"
     SUSPENDED = "suspended"
 
     def __str__(self) -> str:
