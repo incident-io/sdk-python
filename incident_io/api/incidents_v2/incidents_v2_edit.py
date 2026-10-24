@@ -140,9 +140,9 @@ def sync_detailed(
     When using this endpoint, only fields that are provided will be edited (omitted fields
     will be ignored).
 
-    The API key must have the scope corresponding to each property it changes:
+    The API key must have `incidents.view`, and the scope corresponding to each property it changes:
 
-    - `incidents.update_name` for the name
+    - `incidents.update_name` for the name or the Slack channel name override
     - `incidents.update_summary` for the summary
     - `incidents.update_severity` for the severity
     - `incidents.update_status` for the status
@@ -205,9 +205,9 @@ def sync(
     When using this endpoint, only fields that are provided will be edited (omitted fields
     will be ignored).
 
-    The API key must have the scope corresponding to each property it changes:
+    The API key must have `incidents.view`, and the scope corresponding to each property it changes:
 
-    - `incidents.update_name` for the name
+    - `incidents.update_name` for the name or the Slack channel name override
     - `incidents.update_summary` for the summary
     - `incidents.update_severity` for the severity
     - `incidents.update_status` for the status
@@ -265,9 +265,9 @@ async def asyncio_detailed(
     When using this endpoint, only fields that are provided will be edited (omitted fields
     will be ignored).
 
-    The API key must have the scope corresponding to each property it changes:
+    The API key must have `incidents.view`, and the scope corresponding to each property it changes:
 
-    - `incidents.update_name` for the name
+    - `incidents.update_name` for the name or the Slack channel name override
     - `incidents.update_summary` for the summary
     - `incidents.update_severity` for the severity
     - `incidents.update_status` for the status
@@ -328,9 +328,9 @@ async def asyncio(
     When using this endpoint, only fields that are provided will be edited (omitted fields
     will be ignored).
 
-    The API key must have the scope corresponding to each property it changes:
+    The API key must have `incidents.view`, and the scope corresponding to each property it changes:
 
-    - `incidents.update_name` for the name
+    - `incidents.update_name` for the name or the Slack channel name override
     - `incidents.update_summary` for the summary
     - `incidents.update_severity` for the severity
     - `incidents.update_status` for the status
