@@ -41,6 +41,7 @@ class AuditLogTargetV2Type(StrEnum):
     INCIDENT_TYPE = "incident_type"
     INTEGRATION = "integration"
     INTERNAL_STATUS_PAGE = "internal_status_page"
+    INVESTIGATION_CONFIG = "investigation_config"
     INVESTIGATION_TRIGGER = "investigation_trigger"
     IP_ALLOWLIST = "ip_allowlist"
     MAINTENANCE_WINDOW = "maintenance_window"

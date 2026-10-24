@@ -438,6 +438,9 @@ from .audit_log_hris_time_off_policy_updated_metadata_v2 import (
 from .audit_log_incident_type_default_teams_metadata_v2 import (
     AuditLogIncidentTypeDefaultTeamsMetadataV2,
 )
+from .audit_log_investigation_config_updated_metadata_v2 import (
+    AuditLogInvestigationConfigUpdatedMetadataV2,
+)
 from .audit_log_investigation_trigger_metadata_v2 import (
     AuditLogInvestigationTriggerMetadataV2,
 )
@@ -745,6 +748,9 @@ from .audit_logs_internal_status_page_deleted_v1 import (
 )
 from .audit_logs_internal_status_page_updated_v1 import (
     AuditLogsInternalStatusPageUpdatedV1,
+)
+from .audit_logs_investigation_config_updated_v1 import (
+    AuditLogsInvestigationConfigUpdatedV1,
 )
 from .audit_logs_investigation_trigger_created_v1 import (
     AuditLogsInvestigationTriggerCreatedV1,
@@ -3060,6 +3066,7 @@ __all__ = (
     "AuditLogHrisTimeOffPolicyUpdatedMetadataV2",
     "AuditLogIPAllowlistUpdatedMetadataV2",
     "AuditLogIncidentTypeDefaultTeamsMetadataV2",
+    "AuditLogInvestigationConfigUpdatedMetadataV2",
     "AuditLogInvestigationTriggerMetadataV2",
     "AuditLogMicrosoftEntraTenantLinkedMetadataV2",
     "AuditLogMobileIntuneEnabledSettingUpdatedMetadataV2",
@@ -3208,6 +3215,7 @@ __all__ = (
     "AuditLogsInternalStatusPageCreatedV1",
     "AuditLogsInternalStatusPageDeletedV1",
     "AuditLogsInternalStatusPageUpdatedV1",
+    "AuditLogsInvestigationConfigUpdatedV1",
     "AuditLogsInvestigationTriggerCreatedV1",
     "AuditLogsInvestigationTriggerDeletedV1",
     "AuditLogsInvestigationTriggerUpdatedV1",
