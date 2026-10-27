@@ -17,7 +17,7 @@ class AuditLogActorMetadataV2:
     Example:
         {'alert_source_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'api_key_roles': 'abc123', 'external_resource_external_id':
             'q1234', 'external_resource_type': 'pager_duty_incident', 'user_base_role_slug': 'admin',
-            'user_custom_role_slugs': 'engineering,security'}
+            'user_custom_role_slugs': 'engineering,security', 'via': 'user_api_key'}
 
     Attributes:
         alert_source_id (str | Unset): The alert source the alert fired on (if it's an alert actor) Example:
@@ -31,6 +31,8 @@ class AuditLogActorMetadataV2:
         user_base_role_slug (str | Unset): The base role slug of the user (if it's a user actor) Example: admin.
         user_custom_role_slugs (str | Unset): The custom role slugs of the user, separated by commas (if it's a user
             actor) Example: engineering,security.
+        via (str | Unset): How the user made the change, when it wasn't directly (if it's a user actor) Example:
+            user_api_key.
     """
 
     alert_source_id: str | Unset = UNSET
@@ -39,6 +41,7 @@ class AuditLogActorMetadataV2:
     external_resource_type: str | Unset = UNSET
     user_base_role_slug: str | Unset = UNSET
     user_custom_role_slugs: str | Unset = UNSET
+    via: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -53,6 +56,8 @@ class AuditLogActorMetadataV2:
         user_base_role_slug = self.user_base_role_slug
 
         user_custom_role_slugs = self.user_custom_role_slugs
+
+        via = self.via
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -69,6 +74,8 @@ class AuditLogActorMetadataV2:
             field_dict["user_base_role_slug"] = user_base_role_slug
         if user_custom_role_slugs is not UNSET:
             field_dict["user_custom_role_slugs"] = user_custom_role_slugs
+        if via is not UNSET:
+            field_dict["via"] = via
 
         return field_dict
 
@@ -87,6 +94,8 @@ class AuditLogActorMetadataV2:
 
         user_custom_role_slugs = d.pop("user_custom_role_slugs", UNSET)
 
+        via = d.pop("via", UNSET)
+
         audit_log_actor_metadata_v2 = cls(
             alert_source_id=alert_source_id,
             api_key_roles=api_key_roles,
@@ -94,6 +103,7 @@ class AuditLogActorMetadataV2:
             external_resource_type=external_resource_type,
             user_base_role_slug=user_base_role_slug,
             user_custom_role_slugs=user_custom_role_slugs,
+            via=via,
         )
 
         audit_log_actor_metadata_v2.additional_properties = d

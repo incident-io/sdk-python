@@ -575,34 +575,64 @@ from .audit_log_user_scim_group_mapping_changed_metadata_v2 import (
     AuditLogUserSCIMGroupMappingChangedMetadataV2,
 )
 from .audit_logs_activity_log_scrubbed_v1 import AuditLogsActivityLogScrubbedV1
+from .audit_logs_activity_log_scrubbed_v2 import AuditLogsActivityLogScrubbedV2
 from .audit_logs_alert_chat_message_template_created_v1 import (
     AuditLogsAlertChatMessageTemplateCreatedV1,
+)
+from .audit_logs_alert_chat_message_template_created_v2 import (
+    AuditLogsAlertChatMessageTemplateCreatedV2,
 )
 from .audit_logs_alert_chat_message_template_deleted_v1 import (
     AuditLogsAlertChatMessageTemplateDeletedV1,
 )
+from .audit_logs_alert_chat_message_template_deleted_v2 import (
+    AuditLogsAlertChatMessageTemplateDeletedV2,
+)
 from .audit_logs_alert_chat_message_template_updated_v1 import (
     AuditLogsAlertChatMessageTemplateUpdatedV1,
 )
+from .audit_logs_alert_chat_message_template_updated_v2 import (
+    AuditLogsAlertChatMessageTemplateUpdatedV2,
+)
 from .audit_logs_alert_priority_created_v1 import AuditLogsAlertPriorityCreatedV1
+from .audit_logs_alert_priority_created_v2 import AuditLogsAlertPriorityCreatedV2
 from .audit_logs_alert_priority_deleted_v1 import AuditLogsAlertPriorityDeletedV1
+from .audit_logs_alert_priority_deleted_v2 import AuditLogsAlertPriorityDeletedV2
 from .audit_logs_alert_priority_set_as_default_v1 import (
     AuditLogsAlertPrioritySetAsDefaultV1,
 )
+from .audit_logs_alert_priority_set_as_default_v2 import (
+    AuditLogsAlertPrioritySetAsDefaultV2,
+)
 from .audit_logs_alert_priority_updated_v1 import AuditLogsAlertPriorityUpdatedV1
+from .audit_logs_alert_priority_updated_v2 import AuditLogsAlertPriorityUpdatedV2
 from .audit_logs_alert_route_created_v1 import AuditLogsAlertRouteCreatedV1
+from .audit_logs_alert_route_created_v2 import AuditLogsAlertRouteCreatedV2
 from .audit_logs_alert_route_deleted_v1 import AuditLogsAlertRouteDeletedV1
+from .audit_logs_alert_route_deleted_v2 import AuditLogsAlertRouteDeletedV2
 from .audit_logs_alert_route_updated_v1 import AuditLogsAlertRouteUpdatedV1
+from .audit_logs_alert_route_updated_v2 import AuditLogsAlertRouteUpdatedV2
 from .audit_logs_alert_schema_updated_v1 import AuditLogsAlertSchemaUpdatedV1
+from .audit_logs_alert_schema_updated_v2 import AuditLogsAlertSchemaUpdatedV2
 from .audit_logs_alert_scrubbed_v1 import AuditLogsAlertScrubbedV1
+from .audit_logs_alert_scrubbed_v2 import AuditLogsAlertScrubbedV2
 from .audit_logs_alert_source_config_created_v1 import (
     AuditLogsAlertSourceConfigCreatedV1,
+)
+from .audit_logs_alert_source_config_created_v2 import (
+    AuditLogsAlertSourceConfigCreatedV2,
 )
 from .audit_logs_alert_source_config_deleted_v1 import (
     AuditLogsAlertSourceConfigDeletedV1,
 )
+from .audit_logs_alert_source_config_deleted_v2 import (
+    AuditLogsAlertSourceConfigDeletedV2,
+)
 from .audit_logs_alert_source_config_updated_v1 import (
     AuditLogsAlertSourceConfigUpdatedV1,
+)
+from .audit_logs_alert_source_config_updated_v2 import (
+    AuditLogsAlertSourceConfigUpdatedV2,
 )
 from .audit_logs_announcement_post_template_created_v1 import (
     AuditLogsAnnouncementPostTemplateCreatedV1,
@@ -610,11 +640,20 @@ from .audit_logs_announcement_post_template_created_v1 import (
 from .audit_logs_announcement_post_template_created_v2 import (
     AuditLogsAnnouncementPostTemplateCreatedV2,
 )
+from .audit_logs_announcement_post_template_created_v3 import (
+    AuditLogsAnnouncementPostTemplateCreatedV3,
+)
 from .audit_logs_announcement_post_template_deleted_v1 import (
     AuditLogsAnnouncementPostTemplateDeletedV1,
 )
+from .audit_logs_announcement_post_template_deleted_v2 import (
+    AuditLogsAnnouncementPostTemplateDeletedV2,
+)
 from .audit_logs_announcement_post_template_set_as_default_v1 import (
     AuditLogsAnnouncementPostTemplateSetAsDefaultV1,
+)
+from .audit_logs_announcement_post_template_set_as_default_v2 import (
+    AuditLogsAnnouncementPostTemplateSetAsDefaultV2,
 )
 from .audit_logs_announcement_post_template_updated_v1 import (
     AuditLogsAnnouncementPostTemplateUpdatedV1,
@@ -622,57 +661,106 @@ from .audit_logs_announcement_post_template_updated_v1 import (
 from .audit_logs_announcement_post_template_updated_v2 import (
     AuditLogsAnnouncementPostTemplateUpdatedV2,
 )
+from .audit_logs_announcement_post_template_updated_v3 import (
+    AuditLogsAnnouncementPostTemplateUpdatedV3,
+)
 from .audit_logs_announcement_rule_created_v1 import AuditLogsAnnouncementRuleCreatedV1
 from .audit_logs_announcement_rule_created_v2 import AuditLogsAnnouncementRuleCreatedV2
+from .audit_logs_announcement_rule_created_v3 import AuditLogsAnnouncementRuleCreatedV3
 from .audit_logs_announcement_rule_deleted_v1 import AuditLogsAnnouncementRuleDeletedV1
+from .audit_logs_announcement_rule_deleted_v2 import AuditLogsAnnouncementRuleDeletedV2
 from .audit_logs_announcement_rule_updated_v1 import AuditLogsAnnouncementRuleUpdatedV1
 from .audit_logs_announcement_rule_updated_v2 import AuditLogsAnnouncementRuleUpdatedV2
+from .audit_logs_announcement_rule_updated_v3 import AuditLogsAnnouncementRuleUpdatedV3
 from .audit_logs_api_key_created_v1 import AuditLogsAPIKeyCreatedV1
+from .audit_logs_api_key_created_v2 import AuditLogsAPIKeyCreatedV2
 from .audit_logs_api_key_deleted_v1 import AuditLogsAPIKeyDeletedV1
+from .audit_logs_api_key_deleted_v2 import AuditLogsAPIKeyDeletedV2
 from .audit_logs_api_key_rotated_v1 import AuditLogsAPIKeyRotatedV1
+from .audit_logs_api_key_rotated_v2 import AuditLogsAPIKeyRotatedV2
 from .audit_logs_api_key_updated_v1 import AuditLogsAPIKeyUpdatedV1
+from .audit_logs_api_key_updated_v2 import AuditLogsAPIKeyUpdatedV2
 from .audit_logs_catalog_entry_attribute_updated_v1 import (
     AuditLogsCatalogEntryAttributeUpdatedV1,
 )
 from .audit_logs_catalog_entry_attribute_updated_v2 import (
     AuditLogsCatalogEntryAttributeUpdatedV2,
 )
+from .audit_logs_catalog_entry_attribute_updated_v3 import (
+    AuditLogsCatalogEntryAttributeUpdatedV3,
+)
 from .audit_logs_catalog_type_created_v1 import AuditLogsCatalogTypeCreatedV1
+from .audit_logs_catalog_type_created_v2 import AuditLogsCatalogTypeCreatedV2
 from .audit_logs_catalog_type_deleted_v1 import AuditLogsCatalogTypeDeletedV1
+from .audit_logs_catalog_type_deleted_v2 import AuditLogsCatalogTypeDeletedV2
 from .audit_logs_catalog_type_updated_v1 import AuditLogsCatalogTypeUpdatedV1
+from .audit_logs_catalog_type_updated_v2 import AuditLogsCatalogTypeUpdatedV2
 from .audit_logs_connector_config_created_v1 import AuditLogsConnectorConfigCreatedV1
+from .audit_logs_connector_config_created_v2 import AuditLogsConnectorConfigCreatedV2
 from .audit_logs_connector_config_token_generated_v1 import (
     AuditLogsConnectorConfigTokenGeneratedV1,
 )
+from .audit_logs_connector_config_token_generated_v2 import (
+    AuditLogsConnectorConfigTokenGeneratedV2,
+)
 from .audit_logs_connector_config_updated_v1 import AuditLogsConnectorConfigUpdatedV1
+from .audit_logs_connector_config_updated_v2 import AuditLogsConnectorConfigUpdatedV2
 from .audit_logs_custom_field_created_v1 import AuditLogsCustomFieldCreatedV1
+from .audit_logs_custom_field_created_v2 import AuditLogsCustomFieldCreatedV2
 from .audit_logs_custom_field_deleted_v1 import AuditLogsCustomFieldDeletedV1
+from .audit_logs_custom_field_deleted_v2 import AuditLogsCustomFieldDeletedV2
 from .audit_logs_custom_field_updated_v1 import AuditLogsCustomFieldUpdatedV1
+from .audit_logs_custom_field_updated_v2 import AuditLogsCustomFieldUpdatedV2
 from .audit_logs_debrief_invite_rule_created_v1 import (
     AuditLogsDebriefInviteRuleCreatedV1,
+)
+from .audit_logs_debrief_invite_rule_created_v2 import (
+    AuditLogsDebriefInviteRuleCreatedV2,
 )
 from .audit_logs_debrief_invite_rule_deleted_v1 import (
     AuditLogsDebriefInviteRuleDeletedV1,
 )
+from .audit_logs_debrief_invite_rule_deleted_v2 import (
+    AuditLogsDebriefInviteRuleDeletedV2,
+)
 from .audit_logs_debrief_invite_rule_updated_v1 import (
     AuditLogsDebriefInviteRuleUpdatedV1,
+)
+from .audit_logs_debrief_invite_rule_updated_v2 import (
+    AuditLogsDebriefInviteRuleUpdatedV2,
 )
 from .audit_logs_email_otp_login_setting_updated_v1 import (
     AuditLogsEmailOtpLoginSettingUpdatedV1,
 )
+from .audit_logs_email_otp_login_setting_updated_v2 import (
+    AuditLogsEmailOtpLoginSettingUpdatedV2,
+)
 from .audit_logs_escalation_path_created_v1 import AuditLogsEscalationPathCreatedV1
+from .audit_logs_escalation_path_created_v2 import AuditLogsEscalationPathCreatedV2
 from .audit_logs_escalation_path_deleted_v1 import AuditLogsEscalationPathDeletedV1
+from .audit_logs_escalation_path_deleted_v2 import AuditLogsEscalationPathDeletedV2
 from .audit_logs_escalation_path_template_created_v1 import (
     AuditLogsEscalationPathTemplateCreatedV1,
+)
+from .audit_logs_escalation_path_template_created_v2 import (
+    AuditLogsEscalationPathTemplateCreatedV2,
 )
 from .audit_logs_escalation_path_template_deleted_v1 import (
     AuditLogsEscalationPathTemplateDeletedV1,
 )
+from .audit_logs_escalation_path_template_deleted_v2 import (
+    AuditLogsEscalationPathTemplateDeletedV2,
+)
 from .audit_logs_escalation_path_template_updated_v1 import (
     AuditLogsEscalationPathTemplateUpdatedV1,
 )
+from .audit_logs_escalation_path_template_updated_v2 import (
+    AuditLogsEscalationPathTemplateUpdatedV2,
+)
 from .audit_logs_escalation_path_updated_v1 import AuditLogsEscalationPathUpdatedV1
+from .audit_logs_escalation_path_updated_v2 import AuditLogsEscalationPathUpdatedV2
 from .audit_logs_escalation_scrubbed_v1 import AuditLogsEscalationScrubbedV1
+from .audit_logs_escalation_scrubbed_v2 import AuditLogsEscalationScrubbedV2
 from .audit_logs_extension_connector_called_v1 import (
     AuditLogsExtensionConnectorCalledV1,
 )
@@ -685,122 +773,237 @@ from .audit_logs_extension_connector_called_v3 import (
 from .audit_logs_extension_connector_called_v4 import (
     AuditLogsExtensionConnectorCalledV4,
 )
+from .audit_logs_extension_connector_called_v5 import (
+    AuditLogsExtensionConnectorCalledV5,
+)
 from .audit_logs_extension_plugin_created_v1 import AuditLogsExtensionPluginCreatedV1
+from .audit_logs_extension_plugin_created_v2 import AuditLogsExtensionPluginCreatedV2
 from .audit_logs_extension_plugin_deleted_v1 import AuditLogsExtensionPluginDeletedV1
+from .audit_logs_extension_plugin_deleted_v2 import AuditLogsExtensionPluginDeletedV2
 from .audit_logs_extension_plugin_updated_v1 import AuditLogsExtensionPluginUpdatedV1
+from .audit_logs_extension_plugin_updated_v2 import AuditLogsExtensionPluginUpdatedV2
 from .audit_logs_follow_up_category_created_v1 import AuditLogsFollowUpCategoryCreatedV1
+from .audit_logs_follow_up_category_created_v2 import AuditLogsFollowUpCategoryCreatedV2
 from .audit_logs_follow_up_category_deleted_v1 import AuditLogsFollowUpCategoryDeletedV1
+from .audit_logs_follow_up_category_deleted_v2 import AuditLogsFollowUpCategoryDeletedV2
 from .audit_logs_follow_up_category_updated_v1 import AuditLogsFollowUpCategoryUpdatedV1
+from .audit_logs_follow_up_category_updated_v2 import AuditLogsFollowUpCategoryUpdatedV2
 from .audit_logs_follow_up_priority_created_v1 import AuditLogsFollowUpPriorityCreatedV1
+from .audit_logs_follow_up_priority_created_v2 import AuditLogsFollowUpPriorityCreatedV2
 from .audit_logs_follow_up_priority_deleted_v1 import AuditLogsFollowUpPriorityDeletedV1
+from .audit_logs_follow_up_priority_deleted_v2 import AuditLogsFollowUpPriorityDeletedV2
 from .audit_logs_follow_up_priority_updated_v1 import AuditLogsFollowUpPriorityUpdatedV1
+from .audit_logs_follow_up_priority_updated_v2 import AuditLogsFollowUpPriorityUpdatedV2
 from .audit_logs_glossary_entry_created_v1 import AuditLogsGlossaryEntryCreatedV1
+from .audit_logs_glossary_entry_created_v2 import AuditLogsGlossaryEntryCreatedV2
 from .audit_logs_glossary_entry_deleted_v1 import AuditLogsGlossaryEntryDeletedV1
+from .audit_logs_glossary_entry_deleted_v2 import AuditLogsGlossaryEntryDeletedV2
 from .audit_logs_glossary_entry_updated_v1 import AuditLogsGlossaryEntryUpdatedV1
+from .audit_logs_glossary_entry_updated_v2 import AuditLogsGlossaryEntryUpdatedV2
 from .audit_logs_holiday_user_feed_created_v1 import AuditLogsHolidayUserFeedCreatedV1
+from .audit_logs_holiday_user_feed_created_v2 import AuditLogsHolidayUserFeedCreatedV2
 from .audit_logs_holiday_user_feed_deleted_v1 import AuditLogsHolidayUserFeedDeletedV1
+from .audit_logs_holiday_user_feed_deleted_v2 import AuditLogsHolidayUserFeedDeletedV2
 from .audit_logs_holiday_user_feed_updated_v1 import AuditLogsHolidayUserFeedUpdatedV1
+from .audit_logs_holiday_user_feed_updated_v2 import AuditLogsHolidayUserFeedUpdatedV2
 from .audit_logs_hris_time_off_policy_updated_v1 import (
     AuditLogsHrisTimeOffPolicyUpdatedV1,
+)
+from .audit_logs_hris_time_off_policy_updated_v2 import (
+    AuditLogsHrisTimeOffPolicyUpdatedV2,
 )
 from .audit_logs_incident_call_setting_updated_v1 import (
     AuditLogsIncidentCallSettingUpdatedV1,
 )
+from .audit_logs_incident_call_setting_updated_v2 import (
+    AuditLogsIncidentCallSettingUpdatedV2,
+)
 from .audit_logs_incident_call_transcription_session_deleted_v1 import (
     AuditLogsIncidentCallTranscriptionSessionDeletedV1,
+)
+from .audit_logs_incident_call_transcription_session_deleted_v2 import (
+    AuditLogsIncidentCallTranscriptionSessionDeletedV2,
 )
 from .audit_logs_incident_duration_metric_created_v1 import (
     AuditLogsIncidentDurationMetricCreatedV1,
 )
+from .audit_logs_incident_duration_metric_created_v2 import (
+    AuditLogsIncidentDurationMetricCreatedV2,
+)
 from .audit_logs_incident_duration_metric_deleted_v1 import (
     AuditLogsIncidentDurationMetricDeletedV1,
+)
+from .audit_logs_incident_duration_metric_deleted_v2 import (
+    AuditLogsIncidentDurationMetricDeletedV2,
 )
 from .audit_logs_incident_duration_metric_updated_v1 import (
     AuditLogsIncidentDurationMetricUpdatedV1,
 )
+from .audit_logs_incident_duration_metric_updated_v2 import (
+    AuditLogsIncidentDurationMetricUpdatedV2,
+)
 from .audit_logs_incident_role_created_v1 import AuditLogsIncidentRoleCreatedV1
+from .audit_logs_incident_role_created_v2 import AuditLogsIncidentRoleCreatedV2
 from .audit_logs_incident_role_deleted_v1 import AuditLogsIncidentRoleDeletedV1
+from .audit_logs_incident_role_deleted_v2 import AuditLogsIncidentRoleDeletedV2
 from .audit_logs_incident_role_updated_v1 import AuditLogsIncidentRoleUpdatedV1
+from .audit_logs_incident_role_updated_v2 import AuditLogsIncidentRoleUpdatedV2
 from .audit_logs_incident_scrubbed_v1 import AuditLogsIncidentScrubbedV1
+from .audit_logs_incident_scrubbed_v2 import AuditLogsIncidentScrubbedV2
 from .audit_logs_incident_status_created_v1 import AuditLogsIncidentStatusCreatedV1
+from .audit_logs_incident_status_created_v2 import AuditLogsIncidentStatusCreatedV2
 from .audit_logs_incident_status_deleted_v1 import AuditLogsIncidentStatusDeletedV1
+from .audit_logs_incident_status_deleted_v2 import AuditLogsIncidentStatusDeletedV2
 from .audit_logs_incident_status_updated_v1 import AuditLogsIncidentStatusUpdatedV1
+from .audit_logs_incident_status_updated_v2 import AuditLogsIncidentStatusUpdatedV2
 from .audit_logs_incident_template_created_v1 import AuditLogsIncidentTemplateCreatedV1
+from .audit_logs_incident_template_created_v2 import AuditLogsIncidentTemplateCreatedV2
 from .audit_logs_incident_template_deleted_v1 import AuditLogsIncidentTemplateDeletedV1
+from .audit_logs_incident_template_deleted_v2 import AuditLogsIncidentTemplateDeletedV2
 from .audit_logs_incident_template_set_as_default_v1 import (
     AuditLogsIncidentTemplateSetAsDefaultV1,
 )
+from .audit_logs_incident_template_set_as_default_v2 import (
+    AuditLogsIncidentTemplateSetAsDefaultV2,
+)
 from .audit_logs_incident_template_updated_v1 import AuditLogsIncidentTemplateUpdatedV1
+from .audit_logs_incident_template_updated_v2 import AuditLogsIncidentTemplateUpdatedV2
 from .audit_logs_incident_timestamp_created_v1 import (
     AuditLogsIncidentTimestampCreatedV1,
+)
+from .audit_logs_incident_timestamp_created_v2 import (
+    AuditLogsIncidentTimestampCreatedV2,
 )
 from .audit_logs_incident_timestamp_deleted_v1 import (
     AuditLogsIncidentTimestampDeletedV1,
 )
+from .audit_logs_incident_timestamp_deleted_v2 import (
+    AuditLogsIncidentTimestampDeletedV2,
+)
 from .audit_logs_incident_timestamp_set_by_rule_created_v1 import (
     AuditLogsIncidentTimestampSetByRuleCreatedV1,
+)
+from .audit_logs_incident_timestamp_set_by_rule_created_v2 import (
+    AuditLogsIncidentTimestampSetByRuleCreatedV2,
 )
 from .audit_logs_incident_timestamp_set_by_rule_deleted_v1 import (
     AuditLogsIncidentTimestampSetByRuleDeletedV1,
 )
+from .audit_logs_incident_timestamp_set_by_rule_deleted_v2 import (
+    AuditLogsIncidentTimestampSetByRuleDeletedV2,
+)
 from .audit_logs_incident_timestamp_set_by_rule_updated_v1 import (
     AuditLogsIncidentTimestampSetByRuleUpdatedV1,
+)
+from .audit_logs_incident_timestamp_set_by_rule_updated_v2 import (
+    AuditLogsIncidentTimestampSetByRuleUpdatedV2,
 )
 from .audit_logs_incident_timestamp_updated_v1 import (
     AuditLogsIncidentTimestampUpdatedV1,
 )
+from .audit_logs_incident_timestamp_updated_v2 import (
+    AuditLogsIncidentTimestampUpdatedV2,
+)
 from .audit_logs_incident_type_created_v1 import AuditLogsIncidentTypeCreatedV1
 from .audit_logs_incident_type_created_v2 import AuditLogsIncidentTypeCreatedV2
+from .audit_logs_incident_type_created_v3 import AuditLogsIncidentTypeCreatedV3
 from .audit_logs_incident_type_deleted_v1 import AuditLogsIncidentTypeDeletedV1
+from .audit_logs_incident_type_deleted_v2 import AuditLogsIncidentTypeDeletedV2
 from .audit_logs_incident_type_updated_v1 import AuditLogsIncidentTypeUpdatedV1
 from .audit_logs_incident_type_updated_v2 import AuditLogsIncidentTypeUpdatedV2
+from .audit_logs_incident_type_updated_v3 import AuditLogsIncidentTypeUpdatedV3
 from .audit_logs_integration_installed_v1 import AuditLogsIntegrationInstalledV1
+from .audit_logs_integration_installed_v2 import AuditLogsIntegrationInstalledV2
 from .audit_logs_integration_uninstalled_v1 import AuditLogsIntegrationUninstalledV1
+from .audit_logs_integration_uninstalled_v2 import AuditLogsIntegrationUninstalledV2
 from .audit_logs_internal_status_page_created_v1 import (
     AuditLogsInternalStatusPageCreatedV1,
+)
+from .audit_logs_internal_status_page_created_v2 import (
+    AuditLogsInternalStatusPageCreatedV2,
 )
 from .audit_logs_internal_status_page_deleted_v1 import (
     AuditLogsInternalStatusPageDeletedV1,
 )
+from .audit_logs_internal_status_page_deleted_v2 import (
+    AuditLogsInternalStatusPageDeletedV2,
+)
 from .audit_logs_internal_status_page_updated_v1 import (
     AuditLogsInternalStatusPageUpdatedV1,
+)
+from .audit_logs_internal_status_page_updated_v2 import (
+    AuditLogsInternalStatusPageUpdatedV2,
 )
 from .audit_logs_investigation_config_updated_v1 import (
     AuditLogsInvestigationConfigUpdatedV1,
 )
+from .audit_logs_investigation_config_updated_v2 import (
+    AuditLogsInvestigationConfigUpdatedV2,
+)
 from .audit_logs_investigation_trigger_created_v1 import (
     AuditLogsInvestigationTriggerCreatedV1,
+)
+from .audit_logs_investigation_trigger_created_v2 import (
+    AuditLogsInvestigationTriggerCreatedV2,
 )
 from .audit_logs_investigation_trigger_deleted_v1 import (
     AuditLogsInvestigationTriggerDeletedV1,
 )
+from .audit_logs_investigation_trigger_deleted_v2 import (
+    AuditLogsInvestigationTriggerDeletedV2,
+)
 from .audit_logs_investigation_trigger_updated_v1 import (
     AuditLogsInvestigationTriggerUpdatedV1,
 )
+from .audit_logs_investigation_trigger_updated_v2 import (
+    AuditLogsInvestigationTriggerUpdatedV2,
+)
 from .audit_logs_ip_allowlist_updated_v1 import AuditLogsIPAllowlistUpdatedV1
+from .audit_logs_ip_allowlist_updated_v2 import AuditLogsIPAllowlistUpdatedV2
 from .audit_logs_maintenance_window_created_v1 import (
     AuditLogsMaintenanceWindowCreatedV1,
+)
+from .audit_logs_maintenance_window_created_v2 import (
+    AuditLogsMaintenanceWindowCreatedV2,
 )
 from .audit_logs_maintenance_window_deleted_v1 import (
     AuditLogsMaintenanceWindowDeletedV1,
 )
+from .audit_logs_maintenance_window_deleted_v2 import (
+    AuditLogsMaintenanceWindowDeletedV2,
+)
 from .audit_logs_maintenance_window_updated_v1 import (
     AuditLogsMaintenanceWindowUpdatedV1,
+)
+from .audit_logs_maintenance_window_updated_v2 import (
+    AuditLogsMaintenanceWindowUpdatedV2,
 )
 from .audit_logs_microsoft_entra_tenant_linked_v1 import (
     AuditLogsMicrosoftEntraTenantLinkedV1,
 )
+from .audit_logs_microsoft_entra_tenant_linked_v2 import (
+    AuditLogsMicrosoftEntraTenantLinkedV2,
+)
 from .audit_logs_mobile_intune_enabled_setting_updated_v1 import (
     AuditLogsMobileIntuneEnabledSettingUpdatedV1,
 )
+from .audit_logs_mobile_intune_enabled_setting_updated_v2 import (
+    AuditLogsMobileIntuneEnabledSettingUpdatedV2,
+)
 from .audit_logs_nudge_created_v1 import AuditLogsNudgeCreatedV1
+from .audit_logs_nudge_created_v2 import AuditLogsNudgeCreatedV2
 from .audit_logs_nudge_deleted_v1 import AuditLogsNudgeDeletedV1
+from .audit_logs_nudge_deleted_v2 import AuditLogsNudgeDeletedV2
 from .audit_logs_nudge_updated_v1 import AuditLogsNudgeUpdatedV1
+from .audit_logs_nudge_updated_v2 import AuditLogsNudgeUpdatedV2
 from .audit_logs_on_call_notification_method_created_v1 import (
     AuditLogsOnCallNotificationMethodCreatedV1,
 )
 from .audit_logs_on_call_notification_method_created_v2 import (
     AuditLogsOnCallNotificationMethodCreatedV2,
+)
+from .audit_logs_on_call_notification_method_created_v3 import (
+    AuditLogsOnCallNotificationMethodCreatedV3,
 )
 from .audit_logs_on_call_notification_method_destroyed_v1 import (
     AuditLogsOnCallNotificationMethodDestroyedV1,
@@ -808,11 +1011,17 @@ from .audit_logs_on_call_notification_method_destroyed_v1 import (
 from .audit_logs_on_call_notification_method_destroyed_v2 import (
     AuditLogsOnCallNotificationMethodDestroyedV2,
 )
+from .audit_logs_on_call_notification_method_destroyed_v3 import (
+    AuditLogsOnCallNotificationMethodDestroyedV3,
+)
 from .audit_logs_on_call_notification_pause_created_v1 import (
     AuditLogsOnCallNotificationPauseCreatedV1,
 )
 from .audit_logs_on_call_notification_pause_created_v2 import (
     AuditLogsOnCallNotificationPauseCreatedV2,
+)
+from .audit_logs_on_call_notification_pause_created_v3 import (
+    AuditLogsOnCallNotificationPauseCreatedV3,
 )
 from .audit_logs_on_call_notification_pause_deleted_v1 import (
     AuditLogsOnCallNotificationPauseDeletedV1,
@@ -820,8 +1029,14 @@ from .audit_logs_on_call_notification_pause_deleted_v1 import (
 from .audit_logs_on_call_notification_pause_deleted_v2 import (
     AuditLogsOnCallNotificationPauseDeletedV2,
 )
+from .audit_logs_on_call_notification_pause_deleted_v3 import (
+    AuditLogsOnCallNotificationPauseDeletedV3,
+)
 from .audit_logs_on_call_notification_pause_resumed_v1 import (
     AuditLogsOnCallNotificationPauseResumedV1,
+)
+from .audit_logs_on_call_notification_pause_resumed_v2 import (
+    AuditLogsOnCallNotificationPauseResumedV2,
 )
 from .audit_logs_on_call_notification_pause_updated_v1 import (
     AuditLogsOnCallNotificationPauseUpdatedV1,
@@ -829,32 +1044,57 @@ from .audit_logs_on_call_notification_pause_updated_v1 import (
 from .audit_logs_on_call_notification_pause_updated_v2 import (
     AuditLogsOnCallNotificationPauseUpdatedV2,
 )
+from .audit_logs_on_call_notification_pause_updated_v3 import (
+    AuditLogsOnCallNotificationPauseUpdatedV3,
+)
 from .audit_logs_on_call_upsell_requested_v1 import AuditLogsOnCallUpsellRequestedV1
+from .audit_logs_on_call_upsell_requested_v2 import AuditLogsOnCallUpsellRequestedV2
 from .audit_logs_organisation_settings_updated_v1 import (
     AuditLogsOrganisationSettingsUpdatedV1,
 )
+from .audit_logs_organisation_settings_updated_v2 import (
+    AuditLogsOrganisationSettingsUpdatedV2,
+)
 from .audit_logs_policy_created_v1 import AuditLogsPolicyCreatedV1
 from .audit_logs_policy_created_v2 import AuditLogsPolicyCreatedV2
+from .audit_logs_policy_created_v3 import AuditLogsPolicyCreatedV3
 from .audit_logs_policy_deleted_v1 import AuditLogsPolicyDeletedV1
+from .audit_logs_policy_deleted_v2 import AuditLogsPolicyDeletedV2
 from .audit_logs_policy_report_schedule_created_v1 import (
     AuditLogsPolicyReportScheduleCreatedV1,
+)
+from .audit_logs_policy_report_schedule_created_v2 import (
+    AuditLogsPolicyReportScheduleCreatedV2,
 )
 from .audit_logs_policy_report_schedule_deleted_v1 import (
     AuditLogsPolicyReportScheduleDeletedV1,
 )
+from .audit_logs_policy_report_schedule_deleted_v2 import (
+    AuditLogsPolicyReportScheduleDeletedV2,
+)
 from .audit_logs_policy_report_schedule_updated_v1 import (
     AuditLogsPolicyReportScheduleUpdatedV1,
 )
+from .audit_logs_policy_report_schedule_updated_v2 import (
+    AuditLogsPolicyReportScheduleUpdatedV2,
+)
 from .audit_logs_policy_updated_v1 import AuditLogsPolicyUpdatedV1
 from .audit_logs_policy_updated_v2 import AuditLogsPolicyUpdatedV2
+from .audit_logs_policy_updated_v3 import AuditLogsPolicyUpdatedV3
 from .audit_logs_post_incident_task_created_v1 import AuditLogsPostIncidentTaskCreatedV1
+from .audit_logs_post_incident_task_created_v2 import AuditLogsPostIncidentTaskCreatedV2
 from .audit_logs_post_incident_task_deleted_v1 import AuditLogsPostIncidentTaskDeletedV1
+from .audit_logs_post_incident_task_deleted_v2 import AuditLogsPostIncidentTaskDeletedV2
 from .audit_logs_post_incident_task_updated_v1 import AuditLogsPostIncidentTaskUpdatedV1
+from .audit_logs_post_incident_task_updated_v2 import AuditLogsPostIncidentTaskUpdatedV2
 from .audit_logs_postmortem_section_created_v1 import (
     AuditLogsPostmortemSectionCreatedV1,
 )
 from .audit_logs_postmortem_section_created_v2 import (
     AuditLogsPostmortemSectionCreatedV2,
+)
+from .audit_logs_postmortem_section_created_v3 import (
+    AuditLogsPostmortemSectionCreatedV3,
 )
 from .audit_logs_postmortem_section_deleted_v1 import (
     AuditLogsPostmortemSectionDeletedV1,
@@ -862,11 +1102,17 @@ from .audit_logs_postmortem_section_deleted_v1 import (
 from .audit_logs_postmortem_section_deleted_v2 import (
     AuditLogsPostmortemSectionDeletedV2,
 )
+from .audit_logs_postmortem_section_deleted_v3 import (
+    AuditLogsPostmortemSectionDeletedV3,
+)
 from .audit_logs_postmortem_section_updated_v1 import (
     AuditLogsPostmortemSectionUpdatedV1,
 )
 from .audit_logs_postmortem_section_updated_v2 import (
     AuditLogsPostmortemSectionUpdatedV2,
+)
+from .audit_logs_postmortem_section_updated_v3 import (
+    AuditLogsPostmortemSectionUpdatedV3,
 )
 from .audit_logs_postmortem_template_created_v1 import (
     AuditLogsPostmortemTemplateCreatedV1,
@@ -874,11 +1120,17 @@ from .audit_logs_postmortem_template_created_v1 import (
 from .audit_logs_postmortem_template_created_v2 import (
     AuditLogsPostmortemTemplateCreatedV2,
 )
+from .audit_logs_postmortem_template_created_v3 import (
+    AuditLogsPostmortemTemplateCreatedV3,
+)
 from .audit_logs_postmortem_template_deleted_v1 import (
     AuditLogsPostmortemTemplateDeletedV1,
 )
 from .audit_logs_postmortem_template_deleted_v2 import (
     AuditLogsPostmortemTemplateDeletedV2,
+)
+from .audit_logs_postmortem_template_deleted_v3 import (
+    AuditLogsPostmortemTemplateDeletedV3,
 )
 from .audit_logs_postmortem_template_updated_v1 import (
     AuditLogsPostmortemTemplateUpdatedV1,
@@ -886,11 +1138,20 @@ from .audit_logs_postmortem_template_updated_v1 import (
 from .audit_logs_postmortem_template_updated_v2 import (
     AuditLogsPostmortemTemplateUpdatedV2,
 )
+from .audit_logs_postmortem_template_updated_v3 import (
+    AuditLogsPostmortemTemplateUpdatedV3,
+)
 from .audit_logs_private_alert_access_attempted_v1 import (
     AuditLogsPrivateAlertAccessAttemptedV1,
 )
+from .audit_logs_private_alert_access_attempted_v2 import (
+    AuditLogsPrivateAlertAccessAttemptedV2,
+)
 from .audit_logs_private_escalation_access_attempted_v1 import (
     AuditLogsPrivateEscalationAccessAttemptedV1,
+)
+from .audit_logs_private_escalation_access_attempted_v2 import (
+    AuditLogsPrivateEscalationAccessAttemptedV2,
 )
 from .audit_logs_private_incident_access_attempted_v1 import (
     AuditLogsPrivateIncidentAccessAttemptedV1,
@@ -898,112 +1159,219 @@ from .audit_logs_private_incident_access_attempted_v1 import (
 from .audit_logs_private_incident_access_attempted_v2 import (
     AuditLogsPrivateIncidentAccessAttemptedV2,
 )
+from .audit_logs_private_incident_access_attempted_v3 import (
+    AuditLogsPrivateIncidentAccessAttemptedV3,
+)
 from .audit_logs_private_incident_access_requested_v1 import (
     AuditLogsPrivateIncidentAccessRequestedV1,
+)
+from .audit_logs_private_incident_access_requested_v2 import (
+    AuditLogsPrivateIncidentAccessRequestedV2,
 )
 from .audit_logs_private_incident_accessed_via_bot_v1 import (
     AuditLogsPrivateIncidentAccessedViaBotV1,
 )
+from .audit_logs_private_incident_accessed_via_bot_v2 import (
+    AuditLogsPrivateIncidentAccessedViaBotV2,
+)
 from .audit_logs_private_incident_membership_granted_v1 import (
     AuditLogsPrivateIncidentMembershipGrantedV1,
+)
+from .audit_logs_private_incident_membership_granted_v2 import (
+    AuditLogsPrivateIncidentMembershipGrantedV2,
 )
 from .audit_logs_private_incident_membership_revoked_v1 import (
     AuditLogsPrivateIncidentMembershipRevokedV1,
 )
+from .audit_logs_private_incident_membership_revoked_v2 import (
+    AuditLogsPrivateIncidentMembershipRevokedV2,
+)
 from .audit_logs_private_incident_membership_upgraded_to_direct_v1 import (
     AuditLogsPrivateIncidentMembershipUpgradedToDirectV1,
+)
+from .audit_logs_private_incident_membership_upgraded_to_direct_v2 import (
+    AuditLogsPrivateIncidentMembershipUpgradedToDirectV2,
 )
 from .audit_logs_private_incident_team_membership_granted_v1 import (
     AuditLogsPrivateIncidentTeamMembershipGrantedV1,
 )
+from .audit_logs_private_incident_team_membership_granted_v2 import (
+    AuditLogsPrivateIncidentTeamMembershipGrantedV2,
+)
 from .audit_logs_private_incident_team_membership_revoked_v1 import (
     AuditLogsPrivateIncidentTeamMembershipRevokedV1,
 )
+from .audit_logs_private_incident_team_membership_revoked_v2 import (
+    AuditLogsPrivateIncidentTeamMembershipRevokedV2,
+)
 from .audit_logs_private_insights_exported_v1 import AuditLogsPrivateInsightsExportedV1
+from .audit_logs_private_insights_exported_v2 import AuditLogsPrivateInsightsExportedV2
 from .audit_logs_private_insights_measure_queried_v1 import (
     AuditLogsPrivateInsightsMeasureQueriedV1,
+)
+from .audit_logs_private_insights_measure_queried_v2 import (
+    AuditLogsPrivateInsightsMeasureQueriedV2,
 )
 from .audit_logs_private_insights_underlying_data_queried_v1 import (
     AuditLogsPrivateInsightsUnderlyingDataQueriedV1,
 )
+from .audit_logs_private_insights_underlying_data_queried_v2 import (
+    AuditLogsPrivateInsightsUnderlyingDataQueriedV2,
+)
 from .audit_logs_qr_code_mobile_login_setting_updated_v1 import (
     AuditLogsQrCodeMobileLoginSettingUpdatedV1,
 )
+from .audit_logs_qr_code_mobile_login_setting_updated_v2 import (
+    AuditLogsQrCodeMobileLoginSettingUpdatedV2,
+)
 from .audit_logs_rbac_role_created_v1 import AuditLogsRbacRoleCreatedV1
+from .audit_logs_rbac_role_created_v2 import AuditLogsRbacRoleCreatedV2
 from .audit_logs_rbac_role_deleted_v1 import AuditLogsRbacRoleDeletedV1
+from .audit_logs_rbac_role_deleted_v2 import AuditLogsRbacRoleDeletedV2
 from .audit_logs_rbac_role_updated_v1 import AuditLogsRbacRoleUpdatedV1
+from .audit_logs_rbac_role_updated_v2 import AuditLogsRbacRoleUpdatedV2
 from .audit_logs_reliability_review_repository_updated_v1 import (
     AuditLogsReliabilityReviewRepositoryUpdatedV1,
+)
+from .audit_logs_reliability_review_repository_updated_v2 import (
+    AuditLogsReliabilityReviewRepositoryUpdatedV2,
 )
 from .audit_logs_reliability_review_settings_updated_v1 import (
     AuditLogsReliabilityReviewSettingsUpdatedV1,
 )
+from .audit_logs_reliability_review_settings_updated_v2 import (
+    AuditLogsReliabilityReviewSettingsUpdatedV2,
+)
 from .audit_logs_reliability_review_spend_limit_updated_v1 import (
     AuditLogsReliabilityReviewSpendLimitUpdatedV1,
 )
+from .audit_logs_reliability_review_spend_limit_updated_v2 import (
+    AuditLogsReliabilityReviewSpendLimitUpdatedV2,
+)
 from .audit_logs_schedule_created_v1 import AuditLogsScheduleCreatedV1
+from .audit_logs_schedule_created_v2 import AuditLogsScheduleCreatedV2
 from .audit_logs_schedule_deleted_v1 import AuditLogsScheduleDeletedV1
+from .audit_logs_schedule_deleted_v2 import AuditLogsScheduleDeletedV2
 from .audit_logs_schedule_override_created_v1 import AuditLogsScheduleOverrideCreatedV1
 from .audit_logs_schedule_override_created_v2 import AuditLogsScheduleOverrideCreatedV2
+from .audit_logs_schedule_override_created_v3 import AuditLogsScheduleOverrideCreatedV3
 from .audit_logs_schedule_override_deleted_v1 import AuditLogsScheduleOverrideDeletedV1
 from .audit_logs_schedule_override_deleted_v2 import AuditLogsScheduleOverrideDeletedV2
+from .audit_logs_schedule_override_deleted_v3 import AuditLogsScheduleOverrideDeletedV3
 from .audit_logs_schedule_override_updated_v1 import AuditLogsScheduleOverrideUpdatedV1
 from .audit_logs_schedule_override_updated_v2 import AuditLogsScheduleOverrideUpdatedV2
+from .audit_logs_schedule_override_updated_v3 import AuditLogsScheduleOverrideUpdatedV3
 from .audit_logs_schedule_sync_rule_created_v1 import AuditLogsScheduleSyncRuleCreatedV1
+from .audit_logs_schedule_sync_rule_created_v2 import AuditLogsScheduleSyncRuleCreatedV2
 from .audit_logs_schedule_sync_rule_deleted_v1 import AuditLogsScheduleSyncRuleDeletedV1
+from .audit_logs_schedule_sync_rule_deleted_v2 import AuditLogsScheduleSyncRuleDeletedV2
 from .audit_logs_schedule_sync_rule_updated_v1 import AuditLogsScheduleSyncRuleUpdatedV1
+from .audit_logs_schedule_sync_rule_updated_v2 import AuditLogsScheduleSyncRuleUpdatedV2
 from .audit_logs_schedule_sync_target_created_v1 import (
     AuditLogsScheduleSyncTargetCreatedV1,
+)
+from .audit_logs_schedule_sync_target_created_v2 import (
+    AuditLogsScheduleSyncTargetCreatedV2,
 )
 from .audit_logs_schedule_sync_target_deleted_v1 import (
     AuditLogsScheduleSyncTargetDeletedV1,
 )
+from .audit_logs_schedule_sync_target_deleted_v2 import (
+    AuditLogsScheduleSyncTargetDeletedV2,
+)
 from .audit_logs_schedule_sync_target_updated_v1 import (
     AuditLogsScheduleSyncTargetUpdatedV1,
 )
+from .audit_logs_schedule_sync_target_updated_v2 import (
+    AuditLogsScheduleSyncTargetUpdatedV2,
+)
 from .audit_logs_schedule_updated_v1 import AuditLogsScheduleUpdatedV1
+from .audit_logs_schedule_updated_v2 import AuditLogsScheduleUpdatedV2
 from .audit_logs_scim_group_role_mappings_updated_v1 import (
     AuditLogsScimGroupRoleMappingsUpdatedV1,
+)
+from .audit_logs_scim_group_role_mappings_updated_v2 import (
+    AuditLogsScimGroupRoleMappingsUpdatedV2,
 )
 from .audit_logs_scim_group_seat_mappings_updated_v1 import (
     AuditLogsScimGroupSeatMappingsUpdatedV1,
 )
+from .audit_logs_scim_group_seat_mappings_updated_v2 import (
+    AuditLogsScimGroupSeatMappingsUpdatedV2,
+)
 from .audit_logs_secret_created_v1 import AuditLogsSecretCreatedV1
+from .audit_logs_secret_created_v2 import AuditLogsSecretCreatedV2
 from .audit_logs_secret_deleted_v1 import AuditLogsSecretDeletedV1
+from .audit_logs_secret_deleted_v2 import AuditLogsSecretDeletedV2
 from .audit_logs_secret_reference_added_v1 import AuditLogsSecretReferenceAddedV1
+from .audit_logs_secret_reference_added_v2 import AuditLogsSecretReferenceAddedV2
 from .audit_logs_secret_reference_removed_v1 import AuditLogsSecretReferenceRemovedV1
+from .audit_logs_secret_reference_removed_v2 import AuditLogsSecretReferenceRemovedV2
 from .audit_logs_secret_rotated_v1 import AuditLogsSecretRotatedV1
+from .audit_logs_secret_rotated_v2 import AuditLogsSecretRotatedV2
 from .audit_logs_secret_updated_v1 import AuditLogsSecretUpdatedV1
+from .audit_logs_secret_updated_v2 import AuditLogsSecretUpdatedV2
 from .audit_logs_severity_created_v1 import AuditLogsSeverityCreatedV1
+from .audit_logs_severity_created_v2 import AuditLogsSeverityCreatedV2
 from .audit_logs_severity_deleted_v1 import AuditLogsSeverityDeletedV1
+from .audit_logs_severity_deleted_v2 import AuditLogsSeverityDeletedV2
 from .audit_logs_severity_updated_v1 import AuditLogsSeverityUpdatedV1
+from .audit_logs_severity_updated_v2 import AuditLogsSeverityUpdatedV2
 from .audit_logs_status_page_created_v1 import AuditLogsStatusPageCreatedV1
+from .audit_logs_status_page_created_v2 import AuditLogsStatusPageCreatedV2
 from .audit_logs_status_page_deleted_v1 import AuditLogsStatusPageDeletedV1
+from .audit_logs_status_page_deleted_v2 import AuditLogsStatusPageDeletedV2
 from .audit_logs_status_page_sub_page_created_v1 import (
     AuditLogsStatusPageSubPageCreatedV1,
+)
+from .audit_logs_status_page_sub_page_created_v2 import (
+    AuditLogsStatusPageSubPageCreatedV2,
 )
 from .audit_logs_status_page_sub_page_deleted_v1 import (
     AuditLogsStatusPageSubPageDeletedV1,
 )
+from .audit_logs_status_page_sub_page_deleted_v2 import (
+    AuditLogsStatusPageSubPageDeletedV2,
+)
 from .audit_logs_status_page_sub_page_updated_v1 import (
     AuditLogsStatusPageSubPageUpdatedV1,
+)
+from .audit_logs_status_page_sub_page_updated_v2 import (
+    AuditLogsStatusPageSubPageUpdatedV2,
 )
 from .audit_logs_status_page_template_created_v1 import (
     AuditLogsStatusPageTemplateCreatedV1,
 )
+from .audit_logs_status_page_template_created_v2 import (
+    AuditLogsStatusPageTemplateCreatedV2,
+)
 from .audit_logs_status_page_template_deleted_v1 import (
     AuditLogsStatusPageTemplateDeletedV1,
+)
+from .audit_logs_status_page_template_deleted_v2 import (
+    AuditLogsStatusPageTemplateDeletedV2,
 )
 from .audit_logs_status_page_template_updated_v1 import (
     AuditLogsStatusPageTemplateUpdatedV1,
 )
+from .audit_logs_status_page_template_updated_v2 import (
+    AuditLogsStatusPageTemplateUpdatedV2,
+)
 from .audit_logs_status_page_updated_v1 import AuditLogsStatusPageUpdatedV1
+from .audit_logs_status_page_updated_v2 import AuditLogsStatusPageUpdatedV2
 from .audit_logs_team_role_created_v1 import AuditLogsTeamRoleCreatedV1
+from .audit_logs_team_role_created_v2 import AuditLogsTeamRoleCreatedV2
 from .audit_logs_team_role_deleted_v1 import AuditLogsTeamRoleDeletedV1
+from .audit_logs_team_role_deleted_v2 import AuditLogsTeamRoleDeletedV2
 from .audit_logs_team_role_updated_v1 import AuditLogsTeamRoleUpdatedV1
+from .audit_logs_team_role_updated_v2 import AuditLogsTeamRoleUpdatedV2
 from .audit_logs_team_settings_updated_v1 import AuditLogsTeamSettingsUpdatedV1
+from .audit_logs_team_settings_updated_v2 import AuditLogsTeamSettingsUpdatedV2
 from .audit_logs_telemetry_data_source_access_mode_changed_v1 import (
     AuditLogsTelemetryDataSourceAccessModeChangedV1,
+)
+from .audit_logs_telemetry_data_source_access_mode_changed_v2 import (
+    AuditLogsTelemetryDataSourceAccessModeChangedV2,
 )
 from .audit_logs_telemetry_data_source_access_policy_changed_v1 import (
     AuditLogsTelemetryDataSourceAccessPolicyChangedV1,
@@ -1011,14 +1379,26 @@ from .audit_logs_telemetry_data_source_access_policy_changed_v1 import (
 from .audit_logs_telemetry_data_source_access_policy_changed_v2 import (
     AuditLogsTelemetryDataSourceAccessPolicyChangedV2,
 )
+from .audit_logs_telemetry_data_source_access_policy_changed_v3 import (
+    AuditLogsTelemetryDataSourceAccessPolicyChangedV3,
+)
 from .audit_logs_telemetry_data_source_caller_identity_sharing_changed_v1 import (
     AuditLogsTelemetryDataSourceCallerIdentitySharingChangedV1,
+)
+from .audit_logs_telemetry_data_source_caller_identity_sharing_changed_v2 import (
+    AuditLogsTelemetryDataSourceCallerIdentitySharingChangedV2,
 )
 from .audit_logs_telemetry_data_source_installed_v1 import (
     AuditLogsTelemetryDataSourceInstalledV1,
 )
+from .audit_logs_telemetry_data_source_installed_v2 import (
+    AuditLogsTelemetryDataSourceInstalledV2,
+)
 from .audit_logs_telemetry_data_source_passthrough_changed_v1 import (
     AuditLogsTelemetryDataSourcePassthroughChangedV1,
+)
+from .audit_logs_telemetry_data_source_passthrough_changed_v2 import (
+    AuditLogsTelemetryDataSourcePassthroughChangedV2,
 )
 from .audit_logs_telemetry_data_source_queried_v1 import (
     AuditLogsTelemetryDataSourceQueriedV1,
@@ -1026,41 +1406,79 @@ from .audit_logs_telemetry_data_source_queried_v1 import (
 from .audit_logs_telemetry_data_source_queried_v2 import (
     AuditLogsTelemetryDataSourceQueriedV2,
 )
+from .audit_logs_telemetry_data_source_queried_v3 import (
+    AuditLogsTelemetryDataSourceQueriedV3,
+)
 from .audit_logs_telemetry_data_source_requested_v1 import (
     AuditLogsTelemetryDataSourceRequestedV1,
+)
+from .audit_logs_telemetry_data_source_requested_v2 import (
+    AuditLogsTelemetryDataSourceRequestedV2,
 )
 from .audit_logs_telemetry_data_source_tool_access_changed_v1 import (
     AuditLogsTelemetryDataSourceToolAccessChangedV1,
 )
+from .audit_logs_telemetry_data_source_tool_access_changed_v2 import (
+    AuditLogsTelemetryDataSourceToolAccessChangedV2,
+)
 from .audit_logs_telemetry_data_source_tool_overrides_changed_v1 import (
     AuditLogsTelemetryDataSourceToolOverridesChangedV1,
+)
+from .audit_logs_telemetry_data_source_tool_overrides_changed_v2 import (
+    AuditLogsTelemetryDataSourceToolOverridesChangedV2,
 )
 from .audit_logs_telemetry_data_source_uninstalled_v1 import (
     AuditLogsTelemetryDataSourceUninstalledV1,
 )
+from .audit_logs_telemetry_data_source_uninstalled_v2 import (
+    AuditLogsTelemetryDataSourceUninstalledV2,
+)
 from .audit_logs_telemetry_data_source_write_access_granted_v1 import (
     AuditLogsTelemetryDataSourceWriteAccessGrantedV1,
+)
+from .audit_logs_telemetry_data_source_write_access_granted_v2 import (
+    AuditLogsTelemetryDataSourceWriteAccessGrantedV2,
 )
 from .audit_logs_telemetry_data_source_write_access_revoked_v1 import (
     AuditLogsTelemetryDataSourceWriteAccessRevokedV1,
 )
+from .audit_logs_telemetry_data_source_write_access_revoked_v2 import (
+    AuditLogsTelemetryDataSourceWriteAccessRevokedV2,
+)
 from .audit_logs_timeline_item_deleted_v1 import AuditLogsTimelineItemDeletedV1
+from .audit_logs_timeline_item_deleted_v2 import AuditLogsTimelineItemDeletedV2
 from .audit_logs_twilio_connection_created_v1 import AuditLogsTwilioConnectionCreatedV1
+from .audit_logs_twilio_connection_created_v2 import AuditLogsTwilioConnectionCreatedV2
 from .audit_logs_twilio_connection_deleted_v1 import AuditLogsTwilioConnectionDeletedV1
+from .audit_logs_twilio_connection_deleted_v2 import AuditLogsTwilioConnectionDeletedV2
 from .audit_logs_twilio_connection_updated_v1 import AuditLogsTwilioConnectionUpdatedV1
+from .audit_logs_twilio_connection_updated_v2 import AuditLogsTwilioConnectionUpdatedV2
 from .audit_logs_user_api_key_created_v1 import AuditLogsUserAPIKeyCreatedV1
+from .audit_logs_user_api_key_created_v2 import AuditLogsUserAPIKeyCreatedV2
 from .audit_logs_user_api_key_deleted_v1 import AuditLogsUserAPIKeyDeletedV1
+from .audit_logs_user_api_key_deleted_v2 import AuditLogsUserAPIKeyDeletedV2
 from .audit_logs_user_created_v1 import AuditLogsUserCreatedV1
+from .audit_logs_user_created_v2 import AuditLogsUserCreatedV2
 from .audit_logs_user_deactivated_v1 import AuditLogsUserDeactivatedV1
+from .audit_logs_user_deactivated_v2 import AuditLogsUserDeactivatedV2
 from .audit_logs_user_logged_in_v1 import AuditLogsUserLoggedInV1
+from .audit_logs_user_logged_in_v2 import AuditLogsUserLoggedInV2
 from .audit_logs_user_reinstated_v1 import AuditLogsUserReinstatedV1
+from .audit_logs_user_reinstated_v2 import AuditLogsUserReinstatedV2
 from .audit_logs_user_role_memberships_updated_v1 import (
     AuditLogsUserRoleMembershipsUpdatedV1,
 )
+from .audit_logs_user_role_memberships_updated_v2 import (
+    AuditLogsUserRoleMembershipsUpdatedV2,
+)
 from .audit_logs_user_updated_v1 import AuditLogsUserUpdatedV1
+from .audit_logs_user_updated_v2 import AuditLogsUserUpdatedV2
 from .audit_logs_workflow_created_v1 import AuditLogsWorkflowCreatedV1
+from .audit_logs_workflow_created_v2 import AuditLogsWorkflowCreatedV2
 from .audit_logs_workflow_deleted_v1 import AuditLogsWorkflowDeletedV1
+from .audit_logs_workflow_deleted_v2 import AuditLogsWorkflowDeletedV2
 from .audit_logs_workflow_updated_v1 import AuditLogsWorkflowUpdatedV1
+from .audit_logs_workflow_updated_v2 import AuditLogsWorkflowUpdatedV2
 from .call_route_allowed_caller_v2 import CallRouteAllowedCallerV2
 from .call_route_option_v2 import CallRouteOptionV2
 from .call_route_option_v2_digit import CallRouteOptionV2Digit
@@ -3146,248 +3564,462 @@ __all__ = (
     "AuditLogUserRoleMembershipChangedMetadataV2",
     "AuditLogUserSCIMGroupMappingChangedMetadataV2",
     "AuditLogsAPIKeyCreatedV1",
+    "AuditLogsAPIKeyCreatedV2",
     "AuditLogsAPIKeyDeletedV1",
+    "AuditLogsAPIKeyDeletedV2",
     "AuditLogsAPIKeyRotatedV1",
+    "AuditLogsAPIKeyRotatedV2",
     "AuditLogsAPIKeyUpdatedV1",
+    "AuditLogsAPIKeyUpdatedV2",
     "AuditLogsActivityLogScrubbedV1",
+    "AuditLogsActivityLogScrubbedV2",
     "AuditLogsAlertChatMessageTemplateCreatedV1",
+    "AuditLogsAlertChatMessageTemplateCreatedV2",
     "AuditLogsAlertChatMessageTemplateDeletedV1",
+    "AuditLogsAlertChatMessageTemplateDeletedV2",
     "AuditLogsAlertChatMessageTemplateUpdatedV1",
+    "AuditLogsAlertChatMessageTemplateUpdatedV2",
     "AuditLogsAlertPriorityCreatedV1",
+    "AuditLogsAlertPriorityCreatedV2",
     "AuditLogsAlertPriorityDeletedV1",
+    "AuditLogsAlertPriorityDeletedV2",
     "AuditLogsAlertPrioritySetAsDefaultV1",
+    "AuditLogsAlertPrioritySetAsDefaultV2",
     "AuditLogsAlertPriorityUpdatedV1",
+    "AuditLogsAlertPriorityUpdatedV2",
     "AuditLogsAlertRouteCreatedV1",
+    "AuditLogsAlertRouteCreatedV2",
     "AuditLogsAlertRouteDeletedV1",
+    "AuditLogsAlertRouteDeletedV2",
     "AuditLogsAlertRouteUpdatedV1",
+    "AuditLogsAlertRouteUpdatedV2",
     "AuditLogsAlertSchemaUpdatedV1",
+    "AuditLogsAlertSchemaUpdatedV2",
     "AuditLogsAlertScrubbedV1",
+    "AuditLogsAlertScrubbedV2",
     "AuditLogsAlertSourceConfigCreatedV1",
+    "AuditLogsAlertSourceConfigCreatedV2",
     "AuditLogsAlertSourceConfigDeletedV1",
+    "AuditLogsAlertSourceConfigDeletedV2",
     "AuditLogsAlertSourceConfigUpdatedV1",
+    "AuditLogsAlertSourceConfigUpdatedV2",
     "AuditLogsAnnouncementPostTemplateCreatedV1",
     "AuditLogsAnnouncementPostTemplateCreatedV2",
+    "AuditLogsAnnouncementPostTemplateCreatedV3",
     "AuditLogsAnnouncementPostTemplateDeletedV1",
+    "AuditLogsAnnouncementPostTemplateDeletedV2",
     "AuditLogsAnnouncementPostTemplateSetAsDefaultV1",
+    "AuditLogsAnnouncementPostTemplateSetAsDefaultV2",
     "AuditLogsAnnouncementPostTemplateUpdatedV1",
     "AuditLogsAnnouncementPostTemplateUpdatedV2",
+    "AuditLogsAnnouncementPostTemplateUpdatedV3",
     "AuditLogsAnnouncementRuleCreatedV1",
     "AuditLogsAnnouncementRuleCreatedV2",
+    "AuditLogsAnnouncementRuleCreatedV3",
     "AuditLogsAnnouncementRuleDeletedV1",
+    "AuditLogsAnnouncementRuleDeletedV2",
     "AuditLogsAnnouncementRuleUpdatedV1",
     "AuditLogsAnnouncementRuleUpdatedV2",
+    "AuditLogsAnnouncementRuleUpdatedV3",
     "AuditLogsCatalogEntryAttributeUpdatedV1",
     "AuditLogsCatalogEntryAttributeUpdatedV2",
+    "AuditLogsCatalogEntryAttributeUpdatedV3",
     "AuditLogsCatalogTypeCreatedV1",
+    "AuditLogsCatalogTypeCreatedV2",
     "AuditLogsCatalogTypeDeletedV1",
+    "AuditLogsCatalogTypeDeletedV2",
     "AuditLogsCatalogTypeUpdatedV1",
+    "AuditLogsCatalogTypeUpdatedV2",
     "AuditLogsConnectorConfigCreatedV1",
+    "AuditLogsConnectorConfigCreatedV2",
     "AuditLogsConnectorConfigTokenGeneratedV1",
+    "AuditLogsConnectorConfigTokenGeneratedV2",
     "AuditLogsConnectorConfigUpdatedV1",
+    "AuditLogsConnectorConfigUpdatedV2",
     "AuditLogsCustomFieldCreatedV1",
+    "AuditLogsCustomFieldCreatedV2",
     "AuditLogsCustomFieldDeletedV1",
+    "AuditLogsCustomFieldDeletedV2",
     "AuditLogsCustomFieldUpdatedV1",
+    "AuditLogsCustomFieldUpdatedV2",
     "AuditLogsDebriefInviteRuleCreatedV1",
+    "AuditLogsDebriefInviteRuleCreatedV2",
     "AuditLogsDebriefInviteRuleDeletedV1",
+    "AuditLogsDebriefInviteRuleDeletedV2",
     "AuditLogsDebriefInviteRuleUpdatedV1",
+    "AuditLogsDebriefInviteRuleUpdatedV2",
     "AuditLogsEmailOtpLoginSettingUpdatedV1",
+    "AuditLogsEmailOtpLoginSettingUpdatedV2",
     "AuditLogsEscalationPathCreatedV1",
+    "AuditLogsEscalationPathCreatedV2",
     "AuditLogsEscalationPathDeletedV1",
+    "AuditLogsEscalationPathDeletedV2",
     "AuditLogsEscalationPathTemplateCreatedV1",
+    "AuditLogsEscalationPathTemplateCreatedV2",
     "AuditLogsEscalationPathTemplateDeletedV1",
+    "AuditLogsEscalationPathTemplateDeletedV2",
     "AuditLogsEscalationPathTemplateUpdatedV1",
+    "AuditLogsEscalationPathTemplateUpdatedV2",
     "AuditLogsEscalationPathUpdatedV1",
+    "AuditLogsEscalationPathUpdatedV2",
     "AuditLogsEscalationScrubbedV1",
+    "AuditLogsEscalationScrubbedV2",
     "AuditLogsExtensionConnectorCalledV1",
     "AuditLogsExtensionConnectorCalledV2",
     "AuditLogsExtensionConnectorCalledV3",
     "AuditLogsExtensionConnectorCalledV4",
+    "AuditLogsExtensionConnectorCalledV5",
     "AuditLogsExtensionPluginCreatedV1",
+    "AuditLogsExtensionPluginCreatedV2",
     "AuditLogsExtensionPluginDeletedV1",
+    "AuditLogsExtensionPluginDeletedV2",
     "AuditLogsExtensionPluginUpdatedV1",
+    "AuditLogsExtensionPluginUpdatedV2",
     "AuditLogsFollowUpCategoryCreatedV1",
+    "AuditLogsFollowUpCategoryCreatedV2",
     "AuditLogsFollowUpCategoryDeletedV1",
+    "AuditLogsFollowUpCategoryDeletedV2",
     "AuditLogsFollowUpCategoryUpdatedV1",
+    "AuditLogsFollowUpCategoryUpdatedV2",
     "AuditLogsFollowUpPriorityCreatedV1",
+    "AuditLogsFollowUpPriorityCreatedV2",
     "AuditLogsFollowUpPriorityDeletedV1",
+    "AuditLogsFollowUpPriorityDeletedV2",
     "AuditLogsFollowUpPriorityUpdatedV1",
+    "AuditLogsFollowUpPriorityUpdatedV2",
     "AuditLogsGlossaryEntryCreatedV1",
+    "AuditLogsGlossaryEntryCreatedV2",
     "AuditLogsGlossaryEntryDeletedV1",
+    "AuditLogsGlossaryEntryDeletedV2",
     "AuditLogsGlossaryEntryUpdatedV1",
+    "AuditLogsGlossaryEntryUpdatedV2",
     "AuditLogsHolidayUserFeedCreatedV1",
+    "AuditLogsHolidayUserFeedCreatedV2",
     "AuditLogsHolidayUserFeedDeletedV1",
+    "AuditLogsHolidayUserFeedDeletedV2",
     "AuditLogsHolidayUserFeedUpdatedV1",
+    "AuditLogsHolidayUserFeedUpdatedV2",
     "AuditLogsHrisTimeOffPolicyUpdatedV1",
+    "AuditLogsHrisTimeOffPolicyUpdatedV2",
     "AuditLogsIPAllowlistUpdatedV1",
+    "AuditLogsIPAllowlistUpdatedV2",
     "AuditLogsIncidentCallSettingUpdatedV1",
+    "AuditLogsIncidentCallSettingUpdatedV2",
     "AuditLogsIncidentCallTranscriptionSessionDeletedV1",
+    "AuditLogsIncidentCallTranscriptionSessionDeletedV2",
     "AuditLogsIncidentDurationMetricCreatedV1",
+    "AuditLogsIncidentDurationMetricCreatedV2",
     "AuditLogsIncidentDurationMetricDeletedV1",
+    "AuditLogsIncidentDurationMetricDeletedV2",
     "AuditLogsIncidentDurationMetricUpdatedV1",
+    "AuditLogsIncidentDurationMetricUpdatedV2",
     "AuditLogsIncidentRoleCreatedV1",
+    "AuditLogsIncidentRoleCreatedV2",
     "AuditLogsIncidentRoleDeletedV1",
+    "AuditLogsIncidentRoleDeletedV2",
     "AuditLogsIncidentRoleUpdatedV1",
+    "AuditLogsIncidentRoleUpdatedV2",
     "AuditLogsIncidentScrubbedV1",
+    "AuditLogsIncidentScrubbedV2",
     "AuditLogsIncidentStatusCreatedV1",
+    "AuditLogsIncidentStatusCreatedV2",
     "AuditLogsIncidentStatusDeletedV1",
+    "AuditLogsIncidentStatusDeletedV2",
     "AuditLogsIncidentStatusUpdatedV1",
+    "AuditLogsIncidentStatusUpdatedV2",
     "AuditLogsIncidentTemplateCreatedV1",
+    "AuditLogsIncidentTemplateCreatedV2",
     "AuditLogsIncidentTemplateDeletedV1",
+    "AuditLogsIncidentTemplateDeletedV2",
     "AuditLogsIncidentTemplateSetAsDefaultV1",
+    "AuditLogsIncidentTemplateSetAsDefaultV2",
     "AuditLogsIncidentTemplateUpdatedV1",
+    "AuditLogsIncidentTemplateUpdatedV2",
     "AuditLogsIncidentTimestampCreatedV1",
+    "AuditLogsIncidentTimestampCreatedV2",
     "AuditLogsIncidentTimestampDeletedV1",
+    "AuditLogsIncidentTimestampDeletedV2",
     "AuditLogsIncidentTimestampSetByRuleCreatedV1",
+    "AuditLogsIncidentTimestampSetByRuleCreatedV2",
     "AuditLogsIncidentTimestampSetByRuleDeletedV1",
+    "AuditLogsIncidentTimestampSetByRuleDeletedV2",
     "AuditLogsIncidentTimestampSetByRuleUpdatedV1",
+    "AuditLogsIncidentTimestampSetByRuleUpdatedV2",
     "AuditLogsIncidentTimestampUpdatedV1",
+    "AuditLogsIncidentTimestampUpdatedV2",
     "AuditLogsIncidentTypeCreatedV1",
     "AuditLogsIncidentTypeCreatedV2",
+    "AuditLogsIncidentTypeCreatedV3",
     "AuditLogsIncidentTypeDeletedV1",
+    "AuditLogsIncidentTypeDeletedV2",
     "AuditLogsIncidentTypeUpdatedV1",
     "AuditLogsIncidentTypeUpdatedV2",
+    "AuditLogsIncidentTypeUpdatedV3",
     "AuditLogsIntegrationInstalledV1",
+    "AuditLogsIntegrationInstalledV2",
     "AuditLogsIntegrationUninstalledV1",
+    "AuditLogsIntegrationUninstalledV2",
     "AuditLogsInternalStatusPageCreatedV1",
+    "AuditLogsInternalStatusPageCreatedV2",
     "AuditLogsInternalStatusPageDeletedV1",
+    "AuditLogsInternalStatusPageDeletedV2",
     "AuditLogsInternalStatusPageUpdatedV1",
+    "AuditLogsInternalStatusPageUpdatedV2",
     "AuditLogsInvestigationConfigUpdatedV1",
+    "AuditLogsInvestigationConfigUpdatedV2",
     "AuditLogsInvestigationTriggerCreatedV1",
+    "AuditLogsInvestigationTriggerCreatedV2",
     "AuditLogsInvestigationTriggerDeletedV1",
+    "AuditLogsInvestigationTriggerDeletedV2",
     "AuditLogsInvestigationTriggerUpdatedV1",
+    "AuditLogsInvestigationTriggerUpdatedV2",
     "AuditLogsMaintenanceWindowCreatedV1",
+    "AuditLogsMaintenanceWindowCreatedV2",
     "AuditLogsMaintenanceWindowDeletedV1",
+    "AuditLogsMaintenanceWindowDeletedV2",
     "AuditLogsMaintenanceWindowUpdatedV1",
+    "AuditLogsMaintenanceWindowUpdatedV2",
     "AuditLogsMicrosoftEntraTenantLinkedV1",
+    "AuditLogsMicrosoftEntraTenantLinkedV2",
     "AuditLogsMobileIntuneEnabledSettingUpdatedV1",
+    "AuditLogsMobileIntuneEnabledSettingUpdatedV2",
     "AuditLogsNudgeCreatedV1",
+    "AuditLogsNudgeCreatedV2",
     "AuditLogsNudgeDeletedV1",
+    "AuditLogsNudgeDeletedV2",
     "AuditLogsNudgeUpdatedV1",
+    "AuditLogsNudgeUpdatedV2",
     "AuditLogsOnCallNotificationMethodCreatedV1",
     "AuditLogsOnCallNotificationMethodCreatedV2",
+    "AuditLogsOnCallNotificationMethodCreatedV3",
     "AuditLogsOnCallNotificationMethodDestroyedV1",
     "AuditLogsOnCallNotificationMethodDestroyedV2",
+    "AuditLogsOnCallNotificationMethodDestroyedV3",
     "AuditLogsOnCallNotificationPauseCreatedV1",
     "AuditLogsOnCallNotificationPauseCreatedV2",
+    "AuditLogsOnCallNotificationPauseCreatedV3",
     "AuditLogsOnCallNotificationPauseDeletedV1",
     "AuditLogsOnCallNotificationPauseDeletedV2",
+    "AuditLogsOnCallNotificationPauseDeletedV3",
     "AuditLogsOnCallNotificationPauseResumedV1",
+    "AuditLogsOnCallNotificationPauseResumedV2",
     "AuditLogsOnCallNotificationPauseUpdatedV1",
     "AuditLogsOnCallNotificationPauseUpdatedV2",
+    "AuditLogsOnCallNotificationPauseUpdatedV3",
     "AuditLogsOnCallUpsellRequestedV1",
+    "AuditLogsOnCallUpsellRequestedV2",
     "AuditLogsOrganisationSettingsUpdatedV1",
+    "AuditLogsOrganisationSettingsUpdatedV2",
     "AuditLogsPolicyCreatedV1",
     "AuditLogsPolicyCreatedV2",
+    "AuditLogsPolicyCreatedV3",
     "AuditLogsPolicyDeletedV1",
+    "AuditLogsPolicyDeletedV2",
     "AuditLogsPolicyReportScheduleCreatedV1",
+    "AuditLogsPolicyReportScheduleCreatedV2",
     "AuditLogsPolicyReportScheduleDeletedV1",
+    "AuditLogsPolicyReportScheduleDeletedV2",
     "AuditLogsPolicyReportScheduleUpdatedV1",
+    "AuditLogsPolicyReportScheduleUpdatedV2",
     "AuditLogsPolicyUpdatedV1",
     "AuditLogsPolicyUpdatedV2",
+    "AuditLogsPolicyUpdatedV3",
     "AuditLogsPostIncidentTaskCreatedV1",
+    "AuditLogsPostIncidentTaskCreatedV2",
     "AuditLogsPostIncidentTaskDeletedV1",
+    "AuditLogsPostIncidentTaskDeletedV2",
     "AuditLogsPostIncidentTaskUpdatedV1",
+    "AuditLogsPostIncidentTaskUpdatedV2",
     "AuditLogsPostmortemSectionCreatedV1",
     "AuditLogsPostmortemSectionCreatedV2",
+    "AuditLogsPostmortemSectionCreatedV3",
     "AuditLogsPostmortemSectionDeletedV1",
     "AuditLogsPostmortemSectionDeletedV2",
+    "AuditLogsPostmortemSectionDeletedV3",
     "AuditLogsPostmortemSectionUpdatedV1",
     "AuditLogsPostmortemSectionUpdatedV2",
+    "AuditLogsPostmortemSectionUpdatedV3",
     "AuditLogsPostmortemTemplateCreatedV1",
     "AuditLogsPostmortemTemplateCreatedV2",
+    "AuditLogsPostmortemTemplateCreatedV3",
     "AuditLogsPostmortemTemplateDeletedV1",
     "AuditLogsPostmortemTemplateDeletedV2",
+    "AuditLogsPostmortemTemplateDeletedV3",
     "AuditLogsPostmortemTemplateUpdatedV1",
     "AuditLogsPostmortemTemplateUpdatedV2",
+    "AuditLogsPostmortemTemplateUpdatedV3",
     "AuditLogsPrivateAlertAccessAttemptedV1",
+    "AuditLogsPrivateAlertAccessAttemptedV2",
     "AuditLogsPrivateEscalationAccessAttemptedV1",
+    "AuditLogsPrivateEscalationAccessAttemptedV2",
     "AuditLogsPrivateIncidentAccessAttemptedV1",
     "AuditLogsPrivateIncidentAccessAttemptedV2",
+    "AuditLogsPrivateIncidentAccessAttemptedV3",
     "AuditLogsPrivateIncidentAccessRequestedV1",
+    "AuditLogsPrivateIncidentAccessRequestedV2",
     "AuditLogsPrivateIncidentAccessedViaBotV1",
+    "AuditLogsPrivateIncidentAccessedViaBotV2",
     "AuditLogsPrivateIncidentMembershipGrantedV1",
+    "AuditLogsPrivateIncidentMembershipGrantedV2",
     "AuditLogsPrivateIncidentMembershipRevokedV1",
+    "AuditLogsPrivateIncidentMembershipRevokedV2",
     "AuditLogsPrivateIncidentMembershipUpgradedToDirectV1",
+    "AuditLogsPrivateIncidentMembershipUpgradedToDirectV2",
     "AuditLogsPrivateIncidentTeamMembershipGrantedV1",
+    "AuditLogsPrivateIncidentTeamMembershipGrantedV2",
     "AuditLogsPrivateIncidentTeamMembershipRevokedV1",
+    "AuditLogsPrivateIncidentTeamMembershipRevokedV2",
     "AuditLogsPrivateInsightsExportedV1",
+    "AuditLogsPrivateInsightsExportedV2",
     "AuditLogsPrivateInsightsMeasureQueriedV1",
+    "AuditLogsPrivateInsightsMeasureQueriedV2",
     "AuditLogsPrivateInsightsUnderlyingDataQueriedV1",
+    "AuditLogsPrivateInsightsUnderlyingDataQueriedV2",
     "AuditLogsQrCodeMobileLoginSettingUpdatedV1",
+    "AuditLogsQrCodeMobileLoginSettingUpdatedV2",
     "AuditLogsRbacRoleCreatedV1",
+    "AuditLogsRbacRoleCreatedV2",
     "AuditLogsRbacRoleDeletedV1",
+    "AuditLogsRbacRoleDeletedV2",
     "AuditLogsRbacRoleUpdatedV1",
+    "AuditLogsRbacRoleUpdatedV2",
     "AuditLogsReliabilityReviewRepositoryUpdatedV1",
+    "AuditLogsReliabilityReviewRepositoryUpdatedV2",
     "AuditLogsReliabilityReviewSettingsUpdatedV1",
+    "AuditLogsReliabilityReviewSettingsUpdatedV2",
     "AuditLogsReliabilityReviewSpendLimitUpdatedV1",
+    "AuditLogsReliabilityReviewSpendLimitUpdatedV2",
     "AuditLogsScheduleCreatedV1",
+    "AuditLogsScheduleCreatedV2",
     "AuditLogsScheduleDeletedV1",
+    "AuditLogsScheduleDeletedV2",
     "AuditLogsScheduleOverrideCreatedV1",
     "AuditLogsScheduleOverrideCreatedV2",
+    "AuditLogsScheduleOverrideCreatedV3",
     "AuditLogsScheduleOverrideDeletedV1",
     "AuditLogsScheduleOverrideDeletedV2",
+    "AuditLogsScheduleOverrideDeletedV3",
     "AuditLogsScheduleOverrideUpdatedV1",
     "AuditLogsScheduleOverrideUpdatedV2",
+    "AuditLogsScheduleOverrideUpdatedV3",
     "AuditLogsScheduleSyncRuleCreatedV1",
+    "AuditLogsScheduleSyncRuleCreatedV2",
     "AuditLogsScheduleSyncRuleDeletedV1",
+    "AuditLogsScheduleSyncRuleDeletedV2",
     "AuditLogsScheduleSyncRuleUpdatedV1",
+    "AuditLogsScheduleSyncRuleUpdatedV2",
     "AuditLogsScheduleSyncTargetCreatedV1",
+    "AuditLogsScheduleSyncTargetCreatedV2",
     "AuditLogsScheduleSyncTargetDeletedV1",
+    "AuditLogsScheduleSyncTargetDeletedV2",
     "AuditLogsScheduleSyncTargetUpdatedV1",
+    "AuditLogsScheduleSyncTargetUpdatedV2",
     "AuditLogsScheduleUpdatedV1",
+    "AuditLogsScheduleUpdatedV2",
     "AuditLogsScimGroupRoleMappingsUpdatedV1",
+    "AuditLogsScimGroupRoleMappingsUpdatedV2",
     "AuditLogsScimGroupSeatMappingsUpdatedV1",
+    "AuditLogsScimGroupSeatMappingsUpdatedV2",
     "AuditLogsSecretCreatedV1",
+    "AuditLogsSecretCreatedV2",
     "AuditLogsSecretDeletedV1",
+    "AuditLogsSecretDeletedV2",
     "AuditLogsSecretReferenceAddedV1",
+    "AuditLogsSecretReferenceAddedV2",
     "AuditLogsSecretReferenceRemovedV1",
+    "AuditLogsSecretReferenceRemovedV2",
     "AuditLogsSecretRotatedV1",
+    "AuditLogsSecretRotatedV2",
     "AuditLogsSecretUpdatedV1",
+    "AuditLogsSecretUpdatedV2",
     "AuditLogsSeverityCreatedV1",
+    "AuditLogsSeverityCreatedV2",
     "AuditLogsSeverityDeletedV1",
+    "AuditLogsSeverityDeletedV2",
     "AuditLogsSeverityUpdatedV1",
+    "AuditLogsSeverityUpdatedV2",
     "AuditLogsStatusPageCreatedV1",
+    "AuditLogsStatusPageCreatedV2",
     "AuditLogsStatusPageDeletedV1",
+    "AuditLogsStatusPageDeletedV2",
     "AuditLogsStatusPageSubPageCreatedV1",
+    "AuditLogsStatusPageSubPageCreatedV2",
     "AuditLogsStatusPageSubPageDeletedV1",
+    "AuditLogsStatusPageSubPageDeletedV2",
     "AuditLogsStatusPageSubPageUpdatedV1",
+    "AuditLogsStatusPageSubPageUpdatedV2",
     "AuditLogsStatusPageTemplateCreatedV1",
+    "AuditLogsStatusPageTemplateCreatedV2",
     "AuditLogsStatusPageTemplateDeletedV1",
+    "AuditLogsStatusPageTemplateDeletedV2",
     "AuditLogsStatusPageTemplateUpdatedV1",
+    "AuditLogsStatusPageTemplateUpdatedV2",
     "AuditLogsStatusPageUpdatedV1",
+    "AuditLogsStatusPageUpdatedV2",
     "AuditLogsTeamRoleCreatedV1",
+    "AuditLogsTeamRoleCreatedV2",
     "AuditLogsTeamRoleDeletedV1",
+    "AuditLogsTeamRoleDeletedV2",
     "AuditLogsTeamRoleUpdatedV1",
+    "AuditLogsTeamRoleUpdatedV2",
     "AuditLogsTeamSettingsUpdatedV1",
+    "AuditLogsTeamSettingsUpdatedV2",
     "AuditLogsTelemetryDataSourceAccessModeChangedV1",
+    "AuditLogsTelemetryDataSourceAccessModeChangedV2",
     "AuditLogsTelemetryDataSourceAccessPolicyChangedV1",
     "AuditLogsTelemetryDataSourceAccessPolicyChangedV2",
+    "AuditLogsTelemetryDataSourceAccessPolicyChangedV3",
     "AuditLogsTelemetryDataSourceCallerIdentitySharingChangedV1",
+    "AuditLogsTelemetryDataSourceCallerIdentitySharingChangedV2",
     "AuditLogsTelemetryDataSourceInstalledV1",
+    "AuditLogsTelemetryDataSourceInstalledV2",
     "AuditLogsTelemetryDataSourcePassthroughChangedV1",
+    "AuditLogsTelemetryDataSourcePassthroughChangedV2",
     "AuditLogsTelemetryDataSourceQueriedV1",
     "AuditLogsTelemetryDataSourceQueriedV2",
+    "AuditLogsTelemetryDataSourceQueriedV3",
     "AuditLogsTelemetryDataSourceRequestedV1",
+    "AuditLogsTelemetryDataSourceRequestedV2",
     "AuditLogsTelemetryDataSourceToolAccessChangedV1",
+    "AuditLogsTelemetryDataSourceToolAccessChangedV2",
     "AuditLogsTelemetryDataSourceToolOverridesChangedV1",
+    "AuditLogsTelemetryDataSourceToolOverridesChangedV2",
     "AuditLogsTelemetryDataSourceUninstalledV1",
+    "AuditLogsTelemetryDataSourceUninstalledV2",
     "AuditLogsTelemetryDataSourceWriteAccessGrantedV1",
+    "AuditLogsTelemetryDataSourceWriteAccessGrantedV2",
     "AuditLogsTelemetryDataSourceWriteAccessRevokedV1",
+    "AuditLogsTelemetryDataSourceWriteAccessRevokedV2",
     "AuditLogsTimelineItemDeletedV1",
+    "AuditLogsTimelineItemDeletedV2",
     "AuditLogsTwilioConnectionCreatedV1",
+    "AuditLogsTwilioConnectionCreatedV2",
     "AuditLogsTwilioConnectionDeletedV1",
+    "AuditLogsTwilioConnectionDeletedV2",
     "AuditLogsTwilioConnectionUpdatedV1",
+    "AuditLogsTwilioConnectionUpdatedV2",
     "AuditLogsUserAPIKeyCreatedV1",
+    "AuditLogsUserAPIKeyCreatedV2",
     "AuditLogsUserAPIKeyDeletedV1",
+    "AuditLogsUserAPIKeyDeletedV2",
     "AuditLogsUserCreatedV1",
+    "AuditLogsUserCreatedV2",
     "AuditLogsUserDeactivatedV1",
+    "AuditLogsUserDeactivatedV2",
     "AuditLogsUserLoggedInV1",
+    "AuditLogsUserLoggedInV2",
     "AuditLogsUserReinstatedV1",
+    "AuditLogsUserReinstatedV2",
     "AuditLogsUserRoleMembershipsUpdatedV1",
+    "AuditLogsUserRoleMembershipsUpdatedV2",
     "AuditLogsUserUpdatedV1",
+    "AuditLogsUserUpdatedV2",
     "AuditLogsWorkflowCreatedV1",
+    "AuditLogsWorkflowCreatedV2",
     "AuditLogsWorkflowDeletedV1",
+    "AuditLogsWorkflowDeletedV2",
     "AuditLogsWorkflowUpdatedV1",
+    "AuditLogsWorkflowUpdatedV2",
     "CallRouteAllowedCallerV2",
     "CallRouteOptionV2",
     "CallRouteOptionV2Digit",

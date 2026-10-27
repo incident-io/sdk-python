@@ -28,7 +28,8 @@ class AuditLogActorV2:
         type_ (AuditLogActorV2Type): The type of actor Example: user.
         metadata (AuditLogActorMetadataV2 | Unset):  Example: {'alert_source_id': '01FCNDV6P870EA6S7TK1DSYDG0',
             'api_key_roles': 'abc123', 'external_resource_external_id': 'q1234', 'external_resource_type':
-            'pager_duty_incident', 'user_base_role_slug': 'admin', 'user_custom_role_slugs': 'engineering,security'}.
+            'pager_duty_incident', 'user_base_role_slug': 'admin', 'user_custom_role_slugs': 'engineering,security', 'via':
+            'user_api_key'}.
         name (str | Unset): The name of the actor Example: John Doe.
     """
 

@@ -1,0 +1,158 @@
+from __future__ import annotations
+
+import datetime
+from collections.abc import Mapping
+from typing import TYPE_CHECKING, Any, Self, TypeVar
+
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+
+if TYPE_CHECKING:
+    from ..models.audit_log_actor_v2 import AuditLogActorV2
+    from ..models.audit_log_entry_context_v2 import AuditLogEntryContextV2
+    from ..models.audit_log_investigation_config_updated_metadata_v2 import (
+        AuditLogInvestigationConfigUpdatedMetadataV2,
+    )
+    from ..models.audit_log_target_v2 import AuditLogTargetV2
+
+
+T = TypeVar("T", bound="AuditLogsInvestigationConfigUpdatedV2")
+
+
+@_attrs_define(kw_only=True)
+class AuditLogsInvestigationConfigUpdatedV2:
+    """
+    Example:
+        {'action': 'investigation_config.updated', 'actor': {'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'metadata':
+            {'user_base_role_slug': 'admin', 'user_custom_role_slugs': 'engineering,security'}, 'name': 'John Doe', 'type':
+            'user'}, 'context': {'location': '1.2.3.4', 'user_agent': 'Chrome/91.0.4472.114'}, 'metadata':
+            {'after_auto_merge_mode': 'auto', 'after_auto_run_mode': 'on', 'after_evaluate_auto_run_on_incident_update':
+            'true', 'after_hide_progress_thread': 'true', 'after_propose_code_changes_mode': 'on', 'after_status':
+            'enabled', 'after_summary_template': 'compact', 'before_auto_merge_mode': 'suggest', 'before_auto_run_mode':
+            'off', 'before_evaluate_auto_run_on_incident_update': 'false', 'before_hide_progress_thread': 'false',
+            'before_propose_code_changes_mode': 'off', 'before_status': 'disabled', 'before_summary_template': 'default',
+            'changed': 'auto_run_mode,auto_merge_mode'}, 'occurred_at': '2021-08-17T13:28:57.801578Z', 'targets': [{'id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Investigation settings', 'type': 'investigation_config'}], 'version': 2}
+
+    Attributes:
+        action (str): The type of log entry that this is Example: investigation_config.updated.
+        actor (AuditLogActorV2):  Example: {'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'metadata': {'user_base_role_slug':
+            'admin', 'user_custom_role_slugs': 'engineering,security'}, 'name': 'John Doe', 'type': 'user'}.
+        context (AuditLogEntryContextV2):  Example: {'location': '1.2.3.4', 'user_agent': 'Chrome/91.0.4472.114'}.
+        metadata (AuditLogInvestigationConfigUpdatedMetadataV2):  Example: {'after_auto_merge_mode': 'auto',
+            'after_auto_run_mode': 'on', 'after_evaluate_auto_run_on_incident_update': 'true', 'after_hide_progress_thread':
+            'true', 'after_propose_code_changes_mode': 'on', 'after_status': 'enabled', 'after_summary_template': 'compact',
+            'before_auto_merge_mode': 'suggest', 'before_auto_run_mode': 'off',
+            'before_evaluate_auto_run_on_incident_update': 'false', 'before_hide_progress_thread': 'false',
+            'before_propose_code_changes_mode': 'off', 'before_status': 'disabled', 'before_summary_template': 'default',
+            'changed': 'auto_run_mode,auto_merge_mode'}.
+        occurred_at (datetime.datetime): When the entry occurred Example: 2021-08-17T13:28:57.801578Z.
+        targets (list[AuditLogTargetV2]): The custom field that was created Example: [{'id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Investigation settings', 'type': 'investigation_config'}].
+        version (int): Which version the event is Example: 2.
+    """
+
+    action: str
+    actor: AuditLogActorV2
+    context: AuditLogEntryContextV2
+    metadata: AuditLogInvestigationConfigUpdatedMetadataV2
+    occurred_at: datetime.datetime
+    targets: list[AuditLogTargetV2]
+    version: int
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    def to_dict(self) -> dict[str, Any]:
+        action = self.action
+
+        actor = self.actor.to_dict()
+
+        context = self.context.to_dict()
+
+        metadata = self.metadata.to_dict()
+
+        occurred_at = self.occurred_at.isoformat()
+
+        targets = []
+        for targets_item_data in self.targets:
+            targets_item = targets_item_data.to_dict()
+            targets.append(targets_item)
+
+        version = self.version
+
+        field_dict: dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update(
+            {
+                "action": action,
+                "actor": actor,
+                "context": context,
+                "metadata": metadata,
+                "occurred_at": occurred_at,
+                "targets": targets,
+                "version": version,
+            }
+        )
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        from ..models.audit_log_actor_v2 import AuditLogActorV2
+        from ..models.audit_log_entry_context_v2 import (
+            AuditLogEntryContextV2,
+        )
+        from ..models.audit_log_investigation_config_updated_metadata_v2 import (
+            AuditLogInvestigationConfigUpdatedMetadataV2,
+        )
+        from ..models.audit_log_target_v2 import AuditLogTargetV2
+
+        d = dict(src_dict)
+        action = d.pop("action")
+
+        actor = AuditLogActorV2.from_dict(d.pop("actor"))
+
+        context = AuditLogEntryContextV2.from_dict(d.pop("context"))
+
+        metadata = AuditLogInvestigationConfigUpdatedMetadataV2.from_dict(
+            d.pop("metadata")
+        )
+
+        occurred_at = datetime.datetime.fromisoformat(d.pop("occurred_at"))
+
+        targets = []
+        _targets = d.pop("targets")
+        for targets_item_data in _targets:
+            targets_item = AuditLogTargetV2.from_dict(targets_item_data)
+
+            targets.append(targets_item)
+
+        version = d.pop("version")
+
+        audit_logs_investigation_config_updated_v2 = cls(
+            action=action,
+            actor=actor,
+            context=context,
+            metadata=metadata,
+            occurred_at=occurred_at,
+            targets=targets,
+            version=version,
+        )
+
+        audit_logs_investigation_config_updated_v2.additional_properties = d
+        return audit_logs_investigation_config_updated_v2
+
+    @property
+    def additional_keys(self) -> list[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties
