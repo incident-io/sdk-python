@@ -47,6 +47,7 @@ class IncidentActivityLogEntryV2Type(StrEnum):
     INCIDENT_TYPE_CHANGED = "incident_type_changed"
     INCIDENT_UPDATE = "incident_update"
     INCIDENT_VISIBILITY_CHANGED = "incident_visibility_changed"
+    INVESTIGATION_HEADS_UP = "investigation_heads_up"
     INVESTIGATION_HYPOTHESIS_UPDATE = "investigation_hypothesis_update"
     MICROSOFT_TEAMS_ANNOUNCEMENT_REPLY = "microsoft_teams_announcement_reply"
     MICROSOFT_TEAMS_IMAGE = "microsoft_teams_image"
