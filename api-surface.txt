@@ -3930,6 +3930,7 @@ enum AlertSourceV2SourceType.STATUS_CAKE
 enum AlertSourceV2SourceType.STATUS_PAGE_VIEWS
 enum AlertSourceV2SourceType.SUMO_LOGIC
 enum AlertSourceV2SourceType.UPTIME
+enum AlertSourceV2SourceType.UPWIND
 enum AlertSourceV2SourceType.VERCEL
 enum AlertSourceV2SourceType.WIZ
 enum AlertSourceV2SourceType.ZENDESK
@@ -3986,6 +3987,7 @@ enum AlertSourcesCreatePayloadV2SourceType.STATUS_CAKE
 enum AlertSourcesCreatePayloadV2SourceType.STATUS_PAGE_VIEWS
 enum AlertSourcesCreatePayloadV2SourceType.SUMO_LOGIC
 enum AlertSourcesCreatePayloadV2SourceType.UPTIME
+enum AlertSourcesCreatePayloadV2SourceType.UPWIND
 enum AlertSourcesCreatePayloadV2SourceType.VERCEL
 enum AlertSourcesCreatePayloadV2SourceType.WIZ
 enum AlertSourcesCreatePayloadV2SourceType.ZENDESK
@@ -4042,6 +4044,7 @@ enum AlertSourcesValidatePayloadV2SourceType.STATUS_CAKE
 enum AlertSourcesValidatePayloadV2SourceType.STATUS_PAGE_VIEWS
 enum AlertSourcesValidatePayloadV2SourceType.SUMO_LOGIC
 enum AlertSourcesValidatePayloadV2SourceType.UPTIME
+enum AlertSourcesValidatePayloadV2SourceType.UPWIND
 enum AlertSourcesValidatePayloadV2SourceType.VERCEL
 enum AlertSourcesValidatePayloadV2SourceType.WIZ
 enum AlertSourcesValidatePayloadV2SourceType.ZENDESK

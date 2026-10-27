@@ -55,6 +55,7 @@ class AlertSourcesCreatePayloadV2SourceType(StrEnum):
     STATUS_PAGE_VIEWS = "status_page_views"
     SUMO_LOGIC = "sumo_logic"
     UPTIME = "uptime"
+    UPWIND = "upwind"
     VERCEL = "vercel"
     WIZ = "wiz"
     ZENDESK = "zendesk"
