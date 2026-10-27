@@ -414,6 +414,9 @@ from .audit_log_catalog_attribute_updated_metadata_v2 import (
 from .audit_log_catalog_attribute_updated_metadata_v2v2 import (
     AuditLogCatalogAttributeUpdatedMetadataV2V2,
 )
+from .audit_log_code_repository_accessed_metadata_v2 import (
+    AuditLogCodeRepositoryAccessedMetadataV2,
+)
 from .audit_log_email_otp_login_setting_updated_metadata_v2 import (
     AuditLogEmailOtpLoginSettingUpdatedMetadataV2,
 )
@@ -695,6 +698,7 @@ from .audit_logs_catalog_type_deleted_v1 import AuditLogsCatalogTypeDeletedV1
 from .audit_logs_catalog_type_deleted_v2 import AuditLogsCatalogTypeDeletedV2
 from .audit_logs_catalog_type_updated_v1 import AuditLogsCatalogTypeUpdatedV1
 from .audit_logs_catalog_type_updated_v2 import AuditLogsCatalogTypeUpdatedV2
+from .audit_logs_code_repository_accessed_v1 import AuditLogsCodeRepositoryAccessedV1
 from .audit_logs_connector_config_created_v1 import AuditLogsConnectorConfigCreatedV1
 from .audit_logs_connector_config_created_v2 import AuditLogsConnectorConfigCreatedV2
 from .audit_logs_connector_config_token_generated_v1 import (
@@ -3505,6 +3509,7 @@ __all__ = (
     "AuditLogAnnouncementRuleMetadataV2",
     "AuditLogCatalogAttributeUpdatedMetadataV2",
     "AuditLogCatalogAttributeUpdatedMetadataV2V2",
+    "AuditLogCodeRepositoryAccessedMetadataV2",
     "AuditLogEmailOtpLoginSettingUpdatedMetadataV2",
     "AuditLogEntryContextV2",
     "AuditLogExtensionConnectorCalledMetadataV2",
@@ -3630,6 +3635,7 @@ __all__ = (
     "AuditLogsCatalogTypeDeletedV2",
     "AuditLogsCatalogTypeUpdatedV1",
     "AuditLogsCatalogTypeUpdatedV2",
+    "AuditLogsCodeRepositoryAccessedV1",
     "AuditLogsConnectorConfigCreatedV1",
     "AuditLogsConnectorConfigCreatedV2",
     "AuditLogsConnectorConfigTokenGeneratedV1",
