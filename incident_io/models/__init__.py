@@ -433,6 +433,9 @@ from .audit_log_extension_connector_called_metadata_v3v2 import (
 from .audit_log_extension_connector_called_metadata_v4v2 import (
     AuditLogExtensionConnectorCalledMetadataV4V2,
 )
+from .audit_log_extension_connector_called_metadata_v5v2 import (
+    AuditLogExtensionConnectorCalledMetadataV5V2,
+)
 from .audit_log_extension_plugin_created_metadata_v2 import (
     AuditLogExtensionPluginCreatedMetadataV2,
 )
@@ -783,6 +786,9 @@ from .audit_logs_extension_connector_called_v4 import (
 )
 from .audit_logs_extension_connector_called_v5 import (
     AuditLogsExtensionConnectorCalledV5,
+)
+from .audit_logs_extension_connector_called_v6 import (
+    AuditLogsExtensionConnectorCalledV6,
 )
 from .audit_logs_extension_plugin_created_v1 import AuditLogsExtensionPluginCreatedV1
 from .audit_logs_extension_plugin_created_v2 import AuditLogsExtensionPluginCreatedV2
@@ -3523,6 +3529,7 @@ __all__ = (
     "AuditLogExtensionConnectorCalledMetadataV2V2",
     "AuditLogExtensionConnectorCalledMetadataV3V2",
     "AuditLogExtensionConnectorCalledMetadataV4V2",
+    "AuditLogExtensionConnectorCalledMetadataV5V2",
     "AuditLogExtensionPluginCreatedMetadataV2",
     "AuditLogExtensionPluginUpdatedMetadataV2",
     "AuditLogHrisTimeOffPolicyUpdatedMetadataV2",
@@ -3684,6 +3691,7 @@ __all__ = (
     "AuditLogsExtensionConnectorCalledV3",
     "AuditLogsExtensionConnectorCalledV4",
     "AuditLogsExtensionConnectorCalledV5",
+    "AuditLogsExtensionConnectorCalledV6",
     "AuditLogsExtensionPluginCreatedV1",
     "AuditLogsExtensionPluginCreatedV2",
     "AuditLogsExtensionPluginDeletedV1",
