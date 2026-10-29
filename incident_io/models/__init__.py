@@ -472,6 +472,9 @@ from .audit_log_on_call_upsell_requested_metadata_v2 import (
 from .audit_log_organisation_settings_updated_metadata_v2 import (
     AuditLogOrganisationSettingsUpdatedMetadataV2,
 )
+from .audit_log_organisation_settings_updated_metadata_v3v2 import (
+    AuditLogOrganisationSettingsUpdatedMetadataV3V2,
+)
 from .audit_log_policy_metadata_v2 import AuditLogPolicyMetadataV2
 from .audit_log_private_alert_access_attempted_metadata_v2 import (
     AuditLogPrivateAlertAccessAttemptedMetadataV2,
@@ -1059,6 +1062,9 @@ from .audit_logs_organisation_settings_updated_v1 import (
 )
 from .audit_logs_organisation_settings_updated_v2 import (
     AuditLogsOrganisationSettingsUpdatedV2,
+)
+from .audit_logs_organisation_settings_updated_v3 import (
+    AuditLogsOrganisationSettingsUpdatedV3,
 )
 from .audit_logs_policy_created_v1 import AuditLogsPolicyCreatedV1
 from .audit_logs_policy_created_v2 import AuditLogsPolicyCreatedV2
@@ -3530,6 +3536,7 @@ __all__ = (
     "AuditLogOnCallNotificationPauseMetadataV2",
     "AuditLogOnCallUpsellRequestedMetadataV2",
     "AuditLogOrganisationSettingsUpdatedMetadataV2",
+    "AuditLogOrganisationSettingsUpdatedMetadataV3V2",
     "AuditLogPolicyMetadataV2",
     "AuditLogPrivateAlertAccessAttemptedMetadataV2",
     "AuditLogPrivateAlertAccessAttemptedMetadataV2Outcome",
@@ -3818,6 +3825,7 @@ __all__ = (
     "AuditLogsOnCallUpsellRequestedV2",
     "AuditLogsOrganisationSettingsUpdatedV1",
     "AuditLogsOrganisationSettingsUpdatedV2",
+    "AuditLogsOrganisationSettingsUpdatedV3",
     "AuditLogsPolicyCreatedV1",
     "AuditLogsPolicyCreatedV2",
     "AuditLogsPolicyCreatedV3",
