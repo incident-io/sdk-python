@@ -699,6 +699,7 @@ from .audit_logs_catalog_type_deleted_v2 import AuditLogsCatalogTypeDeletedV2
 from .audit_logs_catalog_type_updated_v1 import AuditLogsCatalogTypeUpdatedV1
 from .audit_logs_catalog_type_updated_v2 import AuditLogsCatalogTypeUpdatedV2
 from .audit_logs_code_repository_accessed_v1 import AuditLogsCodeRepositoryAccessedV1
+from .audit_logs_connector_config_archived_v1 import AuditLogsConnectorConfigArchivedV1
 from .audit_logs_connector_config_created_v1 import AuditLogsConnectorConfigCreatedV1
 from .audit_logs_connector_config_created_v2 import AuditLogsConnectorConfigCreatedV2
 from .audit_logs_connector_config_token_generated_v1 import (
@@ -3636,6 +3637,7 @@ __all__ = (
     "AuditLogsCatalogTypeUpdatedV1",
     "AuditLogsCatalogTypeUpdatedV2",
     "AuditLogsCodeRepositoryAccessedV1",
+    "AuditLogsConnectorConfigArchivedV1",
     "AuditLogsConnectorConfigCreatedV1",
     "AuditLogsConnectorConfigCreatedV2",
     "AuditLogsConnectorConfigTokenGeneratedV1",

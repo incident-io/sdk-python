@@ -138,6 +138,9 @@ def sync_detailed(
 
      Update a status page component's name and description.
 
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
+
     Args:
         id (str): Unique identifier of the status page component Example:
             01FCNDV6P870EA6S7TK1DSYDG1.
@@ -174,6 +177,9 @@ def sync(
 
      Update a status page component's name and description.
 
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
+
     Args:
         id (str): Unique identifier of the status page component Example:
             01FCNDV6P870EA6S7TK1DSYDG1.
@@ -204,6 +210,9 @@ async def asyncio_detailed(
     """Update Status Page Components V2
 
      Update a status page component's name and description.
+
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
 
     Args:
         id (str): Unique identifier of the status page component Example:
@@ -238,6 +247,9 @@ async def asyncio(
     """Update Status Page Components V2
 
      Update a status page component's name and description.
+
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
 
     Args:
         id (str): Unique identifier of the status page component Example:

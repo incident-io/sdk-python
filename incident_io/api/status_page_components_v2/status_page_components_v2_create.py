@@ -134,6 +134,9 @@ def sync_detailed(
      Create a status page component. Placement on a page is controlled separately via status page
     structures.
 
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
+
     Args:
         body (StatusPageComponentsCreatePayloadV2):  Example: {'description': 'Our iOS app',
             'name': 'App'}.
@@ -167,6 +170,9 @@ def sync(
      Create a status page component. Placement on a page is controlled separately via status page
     structures.
 
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
+
     Args:
         body (StatusPageComponentsCreatePayloadV2):  Example: {'description': 'Our iOS app',
             'name': 'App'}.
@@ -194,6 +200,9 @@ async def asyncio_detailed(
 
      Create a status page component. Placement on a page is controlled separately via status page
     structures.
+
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
 
     Args:
         body (StatusPageComponentsCreatePayloadV2):  Example: {'description': 'Our iOS app',
@@ -225,6 +234,9 @@ async def asyncio(
 
      Create a status page component. Placement on a page is controlled separately via status page
     structures.
+
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
 
     Args:
         body (StatusPageComponentsCreatePayloadV2):  Example: {'description': 'Our iOS app',

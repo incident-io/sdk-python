@@ -122,6 +122,9 @@ def sync_detailed(
 
      Archive a status page component.
 
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
+
     Args:
         id (str): Unique identifier of the status page component Example:
             01FCNDV6P870EA6S7TK1DSYDG1.
@@ -154,6 +157,9 @@ def sync(
 
      Archive a status page component.
 
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
+
     Args:
         id (str): Unique identifier of the status page component Example:
             01FCNDV6P870EA6S7TK1DSYDG1.
@@ -180,6 +186,9 @@ async def asyncio_detailed(
     """Destroy Status Page Components V2
 
      Archive a status page component.
+
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
 
     Args:
         id (str): Unique identifier of the status page component Example:
@@ -210,6 +219,9 @@ async def asyncio(
     """Destroy Status Page Components V2
 
      Archive a status page component.
+
+    This endpoint requires an API key with the "Manage organization settings (e.g. custom fields)"
+    scope.
 
     Args:
         id (str): Unique identifier of the status page component Example:
