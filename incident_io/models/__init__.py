@@ -448,6 +448,9 @@ from .audit_log_hris_time_off_policy_updated_metadata_v2 import (
 from .audit_log_incident_type_default_teams_metadata_v2 import (
     AuditLogIncidentTypeDefaultTeamsMetadataV2,
 )
+from .audit_log_integration_updated_metadata_v2 import (
+    AuditLogIntegrationUpdatedMetadataV2,
+)
 from .audit_log_investigation_config_updated_metadata_v2 import (
     AuditLogInvestigationConfigUpdatedMetadataV2,
 )
@@ -930,6 +933,7 @@ from .audit_logs_integration_installed_v1 import AuditLogsIntegrationInstalledV1
 from .audit_logs_integration_installed_v2 import AuditLogsIntegrationInstalledV2
 from .audit_logs_integration_uninstalled_v1 import AuditLogsIntegrationUninstalledV1
 from .audit_logs_integration_uninstalled_v2 import AuditLogsIntegrationUninstalledV2
+from .audit_logs_integration_updated_v1 import AuditLogsIntegrationUpdatedV1
 from .audit_logs_internal_status_page_created_v1 import (
     AuditLogsInternalStatusPageCreatedV1,
 )
@@ -3535,6 +3539,7 @@ __all__ = (
     "AuditLogHrisTimeOffPolicyUpdatedMetadataV2",
     "AuditLogIPAllowlistUpdatedMetadataV2",
     "AuditLogIncidentTypeDefaultTeamsMetadataV2",
+    "AuditLogIntegrationUpdatedMetadataV2",
     "AuditLogInvestigationConfigUpdatedMetadataV2",
     "AuditLogInvestigationTriggerMetadataV2",
     "AuditLogMicrosoftEntraTenantLinkedMetadataV2",
@@ -3782,6 +3787,7 @@ __all__ = (
     "AuditLogsIntegrationInstalledV2",
     "AuditLogsIntegrationUninstalledV1",
     "AuditLogsIntegrationUninstalledV2",
+    "AuditLogsIntegrationUpdatedV1",
     "AuditLogsInternalStatusPageCreatedV1",
     "AuditLogsInternalStatusPageCreatedV2",
     "AuditLogsInternalStatusPageDeletedV1",
