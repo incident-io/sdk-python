@@ -18,7 +18,7 @@ class AuditLogTelemetryDataSourceCallerIdentitySharingChangedMetadataV2:
         {'enabled': 'true'}
 
     Attributes:
-        enabled (str): Whether tool calls to the connector carry the caller's identity after the change (true, false)
+        enabled (str): Whether calls to the data source carry the caller's identity after the change (true, false)
             Example: true.
     """
 
