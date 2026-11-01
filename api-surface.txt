@@ -11707,6 +11707,7 @@ model CatalogEntryV3.archived_at
 model CatalogEntryV3.attribute_values
 model CatalogEntryV3.catalog_type_id
 model CatalogEntryV3.created_at
+model CatalogEntryV3.custom_aliases
 model CatalogEntryV3.external_id
 model CatalogEntryV3.id
 model CatalogEntryV3.name
@@ -11843,6 +11844,7 @@ model CatalogTypeV3.registry_type
 model CatalogTypeV3.required_integrations
 model CatalogTypeV3.schema
 model CatalogTypeV3.source_repo_url
+model CatalogTypeV3.supports_custom_aliases
 model CatalogTypeV3.type_name
 model CatalogTypeV3.updated_at
 model CatalogTypeV3.use_name_as_identifier
@@ -11857,6 +11859,7 @@ model CatalogUpdateEntryPayloadV2AttributeValues.additional_properties
 model CatalogUpdateEntryPayloadV3.additional_properties
 model CatalogUpdateEntryPayloadV3.aliases
 model CatalogUpdateEntryPayloadV3.attribute_values
+model CatalogUpdateEntryPayloadV3.custom_aliases
 model CatalogUpdateEntryPayloadV3.external_id
 model CatalogUpdateEntryPayloadV3.name
 model CatalogUpdateEntryPayloadV3.rank
@@ -13566,6 +13569,7 @@ model PaginationMetaResultWithTotalV3.total_record_count
 model PartialEntryPayloadV3.additional_properties
 model PartialEntryPayloadV3.aliases
 model PartialEntryPayloadV3.attribute_values
+model PartialEntryPayloadV3.custom_aliases
 model PartialEntryPayloadV3.entry_id
 model PartialEntryPayloadV3.external_id
 model PartialEntryPayloadV3.name

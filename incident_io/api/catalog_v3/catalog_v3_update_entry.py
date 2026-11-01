@@ -138,8 +138,9 @@ def sync_detailed(
         id (str): ID of this catalog entry Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         body (CatalogUpdateEntryPayloadV3):  Example: {'aliases': ['lawrence@incident.io',
             'lawrence'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}],
-            'value': {'literal': 'SEV123'}}}, 'external_id': '761722cd-d1d7-477b-ac7e-90f9e079dc33',
-            'name': 'Primary On-call', 'rank': 3, 'update_attributes': ['abc123']}.
+            'value': {'literal': 'SEV123'}}}, 'custom_aliases': ['primary-on-call'], 'external_id':
+            '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'name': 'Primary On-call', 'rank': 3,
+            'update_attributes': ['abc123']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -175,8 +176,9 @@ def sync(
         id (str): ID of this catalog entry Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         body (CatalogUpdateEntryPayloadV3):  Example: {'aliases': ['lawrence@incident.io',
             'lawrence'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}],
-            'value': {'literal': 'SEV123'}}}, 'external_id': '761722cd-d1d7-477b-ac7e-90f9e079dc33',
-            'name': 'Primary On-call', 'rank': 3, 'update_attributes': ['abc123']}.
+            'value': {'literal': 'SEV123'}}}, 'custom_aliases': ['primary-on-call'], 'external_id':
+            '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'name': 'Primary On-call', 'rank': 3,
+            'update_attributes': ['abc123']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -207,8 +209,9 @@ async def asyncio_detailed(
         id (str): ID of this catalog entry Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         body (CatalogUpdateEntryPayloadV3):  Example: {'aliases': ['lawrence@incident.io',
             'lawrence'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}],
-            'value': {'literal': 'SEV123'}}}, 'external_id': '761722cd-d1d7-477b-ac7e-90f9e079dc33',
-            'name': 'Primary On-call', 'rank': 3, 'update_attributes': ['abc123']}.
+            'value': {'literal': 'SEV123'}}}, 'custom_aliases': ['primary-on-call'], 'external_id':
+            '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'name': 'Primary On-call', 'rank': 3,
+            'update_attributes': ['abc123']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -242,8 +245,9 @@ async def asyncio(
         id (str): ID of this catalog entry Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         body (CatalogUpdateEntryPayloadV3):  Example: {'aliases': ['lawrence@incident.io',
             'lawrence'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}],
-            'value': {'literal': 'SEV123'}}}, 'external_id': '761722cd-d1d7-477b-ac7e-90f9e079dc33',
-            'name': 'Primary On-call', 'rank': 3, 'update_attributes': ['abc123']}.
+            'value': {'literal': 'SEV123'}}}, 'custom_aliases': ['primary-on-call'], 'external_id':
+            '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'name': 'Primary On-call', 'rank': 3,
+            'update_attributes': ['abc123']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

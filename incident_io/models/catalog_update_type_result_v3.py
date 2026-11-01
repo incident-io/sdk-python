@@ -26,8 +26,9 @@ class CatalogUpdateTypeResultV3:
             'PagerDutyService', 'required_integrations': ['pager_duty'], 'schema': {'attributes': [{'array': False,
             'backlink_attribute': 'abc123', 'id': '01GW2G3V0S59R238FAHPDS1R66', 'mode': '', 'name': 'tier', 'path':
             [{'attribute_id': 'abc123', 'attribute_name': 'abc123'}], 'type': 'Custom["Service"]'}], 'version': 1},
-            'source_repo_url': 'https://github.com/my-company/incident-io-catalog', 'type_name': 'Custom["BackstageGroup"]',
-            'updated_at': '2021-08-17T13:28:57.801578Z', 'use_name_as_identifier': True}}
+            'source_repo_url': 'https://github.com/my-company/incident-io-catalog', 'supports_custom_aliases': True,
+            'type_name': 'Custom["BackstageGroup"]', 'updated_at': '2021-08-17T13:28:57.801578Z', 'use_name_as_identifier':
+            True}}
 
     Attributes:
         catalog_type (CatalogTypeV3):  Example: {'annotations': {'incident.io/catalog-importer/id': 'id-of-config'},
@@ -39,8 +40,9 @@ class CatalogUpdateTypeResultV3:
             'ranked': True, 'registry_type': 'PagerDutyService', 'required_integrations': ['pager_duty'], 'schema':
             {'attributes': [{'array': False, 'backlink_attribute': 'abc123', 'id': '01GW2G3V0S59R238FAHPDS1R66', 'mode': '',
             'name': 'tier', 'path': [{'attribute_id': 'abc123', 'attribute_name': 'abc123'}], 'type': 'Custom["Service"]'}],
-            'version': 1}, 'source_repo_url': 'https://github.com/my-company/incident-io-catalog', 'type_name':
-            'Custom["BackstageGroup"]', 'updated_at': '2021-08-17T13:28:57.801578Z', 'use_name_as_identifier': True}.
+            'version': 1}, 'source_repo_url': 'https://github.com/my-company/incident-io-catalog',
+            'supports_custom_aliases': True, 'type_name': 'Custom["BackstageGroup"]', 'updated_at':
+            '2021-08-17T13:28:57.801578Z', 'use_name_as_identifier': True}.
     """
 
     catalog_type: CatalogTypeV3

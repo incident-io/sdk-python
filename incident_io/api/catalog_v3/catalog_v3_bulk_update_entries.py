@@ -134,10 +134,11 @@ def sync_detailed(
         body (CatalogBulkUpdateEntriesPayloadV3):  Example: {'catalog_type_id':
             '01GW2G3V0S59R238FAHPDS1R66', 'entries': [{'aliases': ['abc123'], 'attribute_values':
             {'abc123': {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}},
-            'entry_id': 'abc123', 'external_id': 'abc123', 'name': 'abc123', 'rank': 1}, {'aliases':
-            ['abc123'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}],
-            'value': {'literal': 'SEV123'}}}, 'entry_id': 'abc123', 'external_id': 'abc123', 'name':
-            'abc123', 'rank': 1}], 'update_attributes': ['01GW2G3V0S59R238FAHPDS1R66',
+            'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123',
+            'name': 'abc123', 'rank': 1}, {'aliases': ['abc123'], 'attribute_values': {'abc123':
+            {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}},
+            'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123',
+            'name': 'abc123', 'rank': 1}], 'update_attributes': ['01GW2G3V0S59R238FAHPDS1R66',
             '01GW2G3V0S59R238FAHPDS1R67']}.
 
     Raises:
@@ -173,10 +174,11 @@ def sync(
         body (CatalogBulkUpdateEntriesPayloadV3):  Example: {'catalog_type_id':
             '01GW2G3V0S59R238FAHPDS1R66', 'entries': [{'aliases': ['abc123'], 'attribute_values':
             {'abc123': {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}},
-            'entry_id': 'abc123', 'external_id': 'abc123', 'name': 'abc123', 'rank': 1}, {'aliases':
-            ['abc123'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}],
-            'value': {'literal': 'SEV123'}}}, 'entry_id': 'abc123', 'external_id': 'abc123', 'name':
-            'abc123', 'rank': 1}], 'update_attributes': ['01GW2G3V0S59R238FAHPDS1R66',
+            'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123',
+            'name': 'abc123', 'rank': 1}, {'aliases': ['abc123'], 'attribute_values': {'abc123':
+            {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}},
+            'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123',
+            'name': 'abc123', 'rank': 1}], 'update_attributes': ['01GW2G3V0S59R238FAHPDS1R66',
             '01GW2G3V0S59R238FAHPDS1R67']}.
 
     Raises:
@@ -207,10 +209,11 @@ async def asyncio_detailed(
         body (CatalogBulkUpdateEntriesPayloadV3):  Example: {'catalog_type_id':
             '01GW2G3V0S59R238FAHPDS1R66', 'entries': [{'aliases': ['abc123'], 'attribute_values':
             {'abc123': {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}},
-            'entry_id': 'abc123', 'external_id': 'abc123', 'name': 'abc123', 'rank': 1}, {'aliases':
-            ['abc123'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}],
-            'value': {'literal': 'SEV123'}}}, 'entry_id': 'abc123', 'external_id': 'abc123', 'name':
-            'abc123', 'rank': 1}], 'update_attributes': ['01GW2G3V0S59R238FAHPDS1R66',
+            'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123',
+            'name': 'abc123', 'rank': 1}, {'aliases': ['abc123'], 'attribute_values': {'abc123':
+            {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}},
+            'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123',
+            'name': 'abc123', 'rank': 1}], 'update_attributes': ['01GW2G3V0S59R238FAHPDS1R66',
             '01GW2G3V0S59R238FAHPDS1R67']}.
 
     Raises:
@@ -244,10 +247,11 @@ async def asyncio(
         body (CatalogBulkUpdateEntriesPayloadV3):  Example: {'catalog_type_id':
             '01GW2G3V0S59R238FAHPDS1R66', 'entries': [{'aliases': ['abc123'], 'attribute_values':
             {'abc123': {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}},
-            'entry_id': 'abc123', 'external_id': 'abc123', 'name': 'abc123', 'rank': 1}, {'aliases':
-            ['abc123'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}],
-            'value': {'literal': 'SEV123'}}}, 'entry_id': 'abc123', 'external_id': 'abc123', 'name':
-            'abc123', 'rank': 1}], 'update_attributes': ['01GW2G3V0S59R238FAHPDS1R66',
+            'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123',
+            'name': 'abc123', 'rank': 1}, {'aliases': ['abc123'], 'attribute_values': {'abc123':
+            {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}},
+            'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123',
+            'name': 'abc123', 'rank': 1}], 'update_attributes': ['01GW2G3V0S59R238FAHPDS1R66',
             '01GW2G3V0S59R238FAHPDS1R67']}.
 
     Raises:

@@ -24,29 +24,29 @@ class CatalogListEntriesResultV3:
         {'catalog_entries': [{'aliases': ['lawrence@incident.io', 'lawrence'], 'archived_at':
             '2021-08-17T14:28:57.801578Z', 'attribute_values': {'abc123': {'array_value': [{'label': 'Lawrence Jones',
             'literal': 'SEV123'}], 'value': {'label': 'Lawrence Jones', 'literal': 'SEV123'}}}, 'catalog_type_id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'created_at': '2021-08-17T13:28:57.801578Z', 'external_id':
-            '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Primary On-call', 'rank':
-            3, 'updated_at': '2021-08-17T13:28:57.801578Z'}], 'catalog_type': {'annotations': {'incident.io/catalog-
-            importer/id': 'id-of-config'}, 'categories': ['customer'], 'color': 'yellow', 'created_at':
-            '2021-08-17T13:28:57.801578Z', 'description': 'Represents Kubernetes clusters that we run inside of GKE.',
-            'dynamic_resource_parameter': 'abc123', 'engine_resource_type': 'CatalogEntry["PagerDutyService"]',
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'created_at': '2021-08-17T13:28:57.801578Z', 'custom_aliases': ['primary-on-
+            call'], 'external_id': '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name':
+            'Primary On-call', 'rank': 3, 'updated_at': '2021-08-17T13:28:57.801578Z'}], 'catalog_type': {'annotations':
+            {'incident.io/catalog-importer/id': 'id-of-config'}, 'categories': ['customer'], 'color': 'yellow',
+            'created_at': '2021-08-17T13:28:57.801578Z', 'description': 'Represents Kubernetes clusters that we run inside
+            of GKE.', 'dynamic_resource_parameter': 'abc123', 'engine_resource_type': 'CatalogEntry["PagerDutyService"]',
             'estimated_count': 7, 'icon': 'alert', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'is_editable': False, 'is_team_type':
             False, 'last_synced_at': '2021-08-17T13:28:57.801578Z', 'name': 'Kubernetes Cluster', 'owning_team_ids':
             ['01G0J1EXE7AXZ2C93K61WBPYEH'], 'ranked': True, 'registry_type': 'PagerDutyService', 'required_integrations':
             ['pager_duty'], 'schema': {'attributes': [{'array': False, 'backlink_attribute': 'abc123', 'id':
             '01GW2G3V0S59R238FAHPDS1R66', 'mode': '', 'name': 'tier', 'path': [{'attribute_id': 'abc123', 'attribute_name':
             'abc123'}], 'type': 'Custom["Service"]'}], 'version': 1}, 'source_repo_url': 'https://github.com/my-
-            company/incident-io-catalog', 'type_name': 'Custom["BackstageGroup"]', 'updated_at':
-            '2021-08-17T13:28:57.801578Z', 'use_name_as_identifier': True}, 'pagination_meta': {'after':
+            company/incident-io-catalog', 'supports_custom_aliases': True, 'type_name': 'Custom["BackstageGroup"]',
+            'updated_at': '2021-08-17T13:28:57.801578Z', 'use_name_as_identifier': True}, 'pagination_meta': {'after':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'page_size': 25, 'total_record_count': 238}}
 
     Attributes:
         catalog_entries (list[CatalogEntryV3]):  Example: [{'aliases': ['lawrence@incident.io', 'lawrence'],
             'archived_at': '2021-08-17T14:28:57.801578Z', 'attribute_values': {'abc123': {'array_value': [{'label':
             'Lawrence Jones', 'literal': 'SEV123'}], 'value': {'label': 'Lawrence Jones', 'literal': 'SEV123'}}},
-            'catalog_type_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'created_at': '2021-08-17T13:28:57.801578Z', 'external_id':
-            '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Primary On-call', 'rank':
-            3, 'updated_at': '2021-08-17T13:28:57.801578Z'}].
+            'catalog_type_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'created_at': '2021-08-17T13:28:57.801578Z', 'custom_aliases':
+            ['primary-on-call'], 'external_id': '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'id': '01FCNDV6P870EA6S7TK1DSYDG0',
+            'name': 'Primary On-call', 'rank': 3, 'updated_at': '2021-08-17T13:28:57.801578Z'}].
         catalog_type (CatalogTypeV3):  Example: {'annotations': {'incident.io/catalog-importer/id': 'id-of-config'},
             'categories': ['customer'], 'color': 'yellow', 'created_at': '2021-08-17T13:28:57.801578Z', 'description':
             'Represents Kubernetes clusters that we run inside of GKE.', 'dynamic_resource_parameter': 'abc123',
@@ -56,8 +56,9 @@ class CatalogListEntriesResultV3:
             'ranked': True, 'registry_type': 'PagerDutyService', 'required_integrations': ['pager_duty'], 'schema':
             {'attributes': [{'array': False, 'backlink_attribute': 'abc123', 'id': '01GW2G3V0S59R238FAHPDS1R66', 'mode': '',
             'name': 'tier', 'path': [{'attribute_id': 'abc123', 'attribute_name': 'abc123'}], 'type': 'Custom["Service"]'}],
-            'version': 1}, 'source_repo_url': 'https://github.com/my-company/incident-io-catalog', 'type_name':
-            'Custom["BackstageGroup"]', 'updated_at': '2021-08-17T13:28:57.801578Z', 'use_name_as_identifier': True}.
+            'version': 1}, 'source_repo_url': 'https://github.com/my-company/incident-io-catalog',
+            'supports_custom_aliases': True, 'type_name': 'Custom["BackstageGroup"]', 'updated_at':
+            '2021-08-17T13:28:57.801578Z', 'use_name_as_identifier': True}.
         pagination_meta (PaginationMetaResultWithTotalV3):  Example: {'after': '01FCNDV6P870EA6S7TK1DSYDG0',
             'page_size': 25, 'total_record_count': 238}.
     """

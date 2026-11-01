@@ -23,8 +23,9 @@ class CatalogEntryV3:
         {'aliases': ['lawrence@incident.io', 'lawrence'], 'archived_at': '2021-08-17T14:28:57.801578Z',
             'attribute_values': {'abc123': {'array_value': [{'label': 'Lawrence Jones', 'literal': 'SEV123'}], 'value':
             {'label': 'Lawrence Jones', 'literal': 'SEV123'}}}, 'catalog_type_id': '01FCNDV6P870EA6S7TK1DSYDG0',
-            'created_at': '2021-08-17T13:28:57.801578Z', 'external_id': '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Primary On-call', 'rank': 3, 'updated_at': '2021-08-17T13:28:57.801578Z'}
+            'created_at': '2021-08-17T13:28:57.801578Z', 'custom_aliases': ['primary-on-call'], 'external_id':
+            '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Primary On-call', 'rank':
+            3, 'updated_at': '2021-08-17T13:28:57.801578Z'}
 
     Attributes:
         aliases (list[str]): Optional aliases that can be used to reference this entry Example: ['lawrence@incident.io',
@@ -33,6 +34,10 @@ class CatalogEntryV3:
             [{'label': 'Lawrence Jones', 'literal': 'SEV123'}], 'value': {'label': 'Lawrence Jones', 'literal': 'SEV123'}}}.
         catalog_type_id (str): ID of this catalog type Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         created_at (datetime.datetime): When this entry was created Example: 2021-08-17T13:28:57.801578Z.
+        custom_aliases (list[str]): Aliases your organisation has added to an entry of a catalog type that incident.io
+            syncs, such as a schedule or escalation path, which you can't change aliases on directly. Syncs keep them, and
+            they are also listed in aliases. When you update an entry, omit this or send null to keep its current custom
+            aliases, send an empty list to clear them, or send a list to replace them. Example: ['primary-on-call'].
         id (str): ID of this catalog entry Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         name (str): Name is the human readable name of this entry Example: Primary On-call.
         rank (int): When catalog type is ranked, this is used to help order things Example: 3.
@@ -46,6 +51,7 @@ class CatalogEntryV3:
     attribute_values: CatalogEntryV3AttributeValues
     catalog_type_id: str
     created_at: datetime.datetime
+    custom_aliases: list[str]
     id: str
     name: str
     rank: int
@@ -62,6 +68,8 @@ class CatalogEntryV3:
         catalog_type_id = self.catalog_type_id
 
         created_at = self.created_at.isoformat()
+
+        custom_aliases = self.custom_aliases
 
         id = self.id
 
@@ -85,6 +93,7 @@ class CatalogEntryV3:
                 "attribute_values": attribute_values,
                 "catalog_type_id": catalog_type_id,
                 "created_at": created_at,
+                "custom_aliases": custom_aliases,
                 "id": id,
                 "name": name,
                 "rank": rank,
@@ -115,6 +124,8 @@ class CatalogEntryV3:
 
         created_at = datetime.datetime.fromisoformat(d.pop("created_at"))
 
+        custom_aliases = cast(list[str], d.pop("custom_aliases"))
+
         id = d.pop("id")
 
         name = d.pop("name")
@@ -137,6 +148,7 @@ class CatalogEntryV3:
             attribute_values=attribute_values,
             catalog_type_id=catalog_type_id,
             created_at=created_at,
+            custom_aliases=custom_aliases,
             id=id,
             name=name,
             rank=rank,

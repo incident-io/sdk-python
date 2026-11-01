@@ -20,20 +20,21 @@ class CatalogBulkUpdateEntriesPayloadV3:
     """
     Example:
         {'catalog_type_id': '01GW2G3V0S59R238FAHPDS1R66', 'entries': [{'aliases': ['abc123'], 'attribute_values':
-            {'abc123': {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}}, 'entry_id': 'abc123',
-            'external_id': 'abc123', 'name': 'abc123', 'rank': 1}, {'aliases': ['abc123'], 'attribute_values': {'abc123':
-            {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}}, 'entry_id': 'abc123', 'external_id':
-            'abc123', 'name': 'abc123', 'rank': 1}], 'update_attributes': ['01GW2G3V0S59R238FAHPDS1R66',
-            '01GW2G3V0S59R238FAHPDS1R67']}
+            {'abc123': {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}}, 'custom_aliases':
+            ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123', 'name': 'abc123', 'rank': 1}, {'aliases':
+            ['abc123'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}], 'value': {'literal':
+            'SEV123'}}}, 'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123', 'name':
+            'abc123', 'rank': 1}], 'update_attributes': ['01GW2G3V0S59R238FAHPDS1R66', '01GW2G3V0S59R238FAHPDS1R67']}
 
     Attributes:
         catalog_type_id (str): The unique identifier of the catalog type containing the entries Example:
             01GW2G3V0S59R238FAHPDS1R66.
         entries (list[PartialEntryPayloadV3]): A list of entries to update with their new values. Maximum 250 entries
             per request. Example: [{'aliases': ['abc123'], 'attribute_values': {'abc123': {'array_value': [{'literal':
-            'SEV123'}], 'value': {'literal': 'SEV123'}}}, 'entry_id': 'abc123', 'external_id': 'abc123', 'name': 'abc123',
-            'rank': 1}, {'aliases': ['abc123'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}],
-            'value': {'literal': 'SEV123'}}}, 'entry_id': 'abc123', 'external_id': 'abc123', 'name': 'abc123', 'rank': 1}].
+            'SEV123'}], 'value': {'literal': 'SEV123'}}}, 'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123',
+            'external_id': 'abc123', 'name': 'abc123', 'rank': 1}, {'aliases': ['abc123'], 'attribute_values': {'abc123':
+            {'array_value': [{'literal': 'SEV123'}], 'value': {'literal': 'SEV123'}}}, 'custom_aliases': ['primary-on-
+            call'], 'entry_id': 'abc123', 'external_id': 'abc123', 'name': 'abc123', 'rank': 1}].
         update_attributes (list[str] | Unset): Optional list of specific attribute IDs to update across all entries.
             When provided, only these attributes in attribute_values will be updated and all other attributes will be
             preserved. This parameter only affects attribute_values - it does not affect core entry fields like name, rank,

@@ -22,8 +22,8 @@ class CatalogUpdateEntryPayloadV3:
     """
     Example:
         {'aliases': ['lawrence@incident.io', 'lawrence'], 'attribute_values': {'abc123': {'array_value': [{'literal':
-            'SEV123'}], 'value': {'literal': 'SEV123'}}}, 'external_id': '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'name':
-            'Primary On-call', 'rank': 3, 'update_attributes': ['abc123']}
+            'SEV123'}], 'value': {'literal': 'SEV123'}}}, 'custom_aliases': ['primary-on-call'], 'external_id':
+            '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'name': 'Primary On-call', 'rank': 3, 'update_attributes': ['abc123']}
 
     Attributes:
         attribute_values (CatalogUpdateEntryPayloadV3AttributeValues): Values of this entry Example: {'abc123':
@@ -31,6 +31,10 @@ class CatalogUpdateEntryPayloadV3:
         name (str): Name is the human readable name of this entry Example: Primary On-call.
         aliases (list[str] | Unset): Optional aliases that can be used to reference this entry Example:
             ['lawrence@incident.io', 'lawrence'].
+        custom_aliases (list[str] | Unset): Aliases your organisation has added to an entry of a catalog type that
+            incident.io syncs, such as a schedule or escalation path, which you can't change aliases on directly. Syncs keep
+            them, and they are also listed in aliases. When you update an entry, omit this or send null to keep its current
+            custom aliases, send an empty list to clear them, or send a list to replace them. Example: ['primary-on-call'].
         external_id (str | Unset): An optional alternative ID for this entry, which is ensured to be unique for the type
             Example: 761722cd-d1d7-477b-ac7e-90f9e079dc33.
         rank (int | Unset): When catalog type is ranked, this is used to help order things Example: 3.
@@ -43,6 +47,7 @@ class CatalogUpdateEntryPayloadV3:
     attribute_values: CatalogUpdateEntryPayloadV3AttributeValues
     name: str
     aliases: list[str] | Unset = UNSET
+    custom_aliases: list[str] | Unset = UNSET
     external_id: str | Unset = UNSET
     rank: int | Unset = UNSET
     update_attributes: list[str] | Unset = UNSET
@@ -56,6 +61,10 @@ class CatalogUpdateEntryPayloadV3:
         aliases: list[str] | Unset = UNSET
         if not isinstance(self.aliases, Unset):
             aliases = self.aliases
+
+        custom_aliases: list[str] | Unset = UNSET
+        if not isinstance(self.custom_aliases, Unset):
+            custom_aliases = self.custom_aliases
 
         external_id = self.external_id
 
@@ -75,6 +84,8 @@ class CatalogUpdateEntryPayloadV3:
         )
         if aliases is not UNSET:
             field_dict["aliases"] = aliases
+        if custom_aliases is not UNSET:
+            field_dict["custom_aliases"] = custom_aliases
         if external_id is not UNSET:
             field_dict["external_id"] = external_id
         if rank is not UNSET:
@@ -99,6 +110,8 @@ class CatalogUpdateEntryPayloadV3:
 
         aliases = cast(list[str], d.pop("aliases", UNSET))
 
+        custom_aliases = cast(list[str], d.pop("custom_aliases", UNSET))
+
         external_id = d.pop("external_id", UNSET)
 
         rank = d.pop("rank", UNSET)
@@ -109,6 +122,7 @@ class CatalogUpdateEntryPayloadV3:
             attribute_values=attribute_values,
             name=name,
             aliases=aliases,
+            custom_aliases=custom_aliases,
             external_id=external_id,
             rank=rank,
             update_attributes=update_attributes,

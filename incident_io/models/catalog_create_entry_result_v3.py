@@ -20,17 +20,17 @@ class CatalogCreateEntryResultV3:
         {'catalog_entry': {'aliases': ['lawrence@incident.io', 'lawrence'], 'archived_at':
             '2021-08-17T14:28:57.801578Z', 'attribute_values': {'abc123': {'array_value': [{'label': 'Lawrence Jones',
             'literal': 'SEV123'}], 'value': {'label': 'Lawrence Jones', 'literal': 'SEV123'}}}, 'catalog_type_id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'created_at': '2021-08-17T13:28:57.801578Z', 'external_id':
-            '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Primary On-call', 'rank':
-            3, 'updated_at': '2021-08-17T13:28:57.801578Z'}}
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'created_at': '2021-08-17T13:28:57.801578Z', 'custom_aliases': ['primary-on-
+            call'], 'external_id': '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name':
+            'Primary On-call', 'rank': 3, 'updated_at': '2021-08-17T13:28:57.801578Z'}}
 
     Attributes:
         catalog_entry (CatalogEntryV3):  Example: {'aliases': ['lawrence@incident.io', 'lawrence'], 'archived_at':
             '2021-08-17T14:28:57.801578Z', 'attribute_values': {'abc123': {'array_value': [{'label': 'Lawrence Jones',
             'literal': 'SEV123'}], 'value': {'label': 'Lawrence Jones', 'literal': 'SEV123'}}}, 'catalog_type_id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'created_at': '2021-08-17T13:28:57.801578Z', 'external_id':
-            '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Primary On-call', 'rank':
-            3, 'updated_at': '2021-08-17T13:28:57.801578Z'}.
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'created_at': '2021-08-17T13:28:57.801578Z', 'custom_aliases': ['primary-on-
+            call'], 'external_id': '761722cd-d1d7-477b-ac7e-90f9e079dc33', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name':
+            'Primary On-call', 'rank': 3, 'updated_at': '2021-08-17T13:28:57.801578Z'}.
     """
 
     catalog_entry: CatalogEntryV3

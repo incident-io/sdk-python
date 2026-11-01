@@ -23,7 +23,8 @@ class PartialEntryPayloadV3:
 
     Example:
         {'aliases': ['abc123'], 'attribute_values': {'abc123': {'array_value': [{'literal': 'SEV123'}], 'value':
-            {'literal': 'SEV123'}}}, 'entry_id': 'abc123', 'external_id': 'abc123', 'name': 'abc123', 'rank': 1}
+            {'literal': 'SEV123'}}}, 'custom_aliases': ['primary-on-call'], 'entry_id': 'abc123', 'external_id': 'abc123',
+            'name': 'abc123', 'rank': 1}
 
     Attributes:
         attribute_values (PartialEntryPayloadV3AttributeValues): The attribute values to apply to this entry Example:
@@ -31,17 +32,24 @@ class PartialEntryPayloadV3:
         entry_id (str): ID of the relevant catalog entry Example: abc123.
         aliases (list[str] | Unset): If specified, will update the aliases of the entry. When omitted, preserves the
             existing aliases. Example: ['abc123'].
+        custom_aliases (list[str] | Unset): Aliases your organisation adds to an entry of a catalog type that
+            incident.io syncs, such as a schedule or escalation path, which you can't change aliases on directly. Omit this
+            or send null to keep the entry's current custom aliases, send an empty list to clear them, or send a list to
+            replace them. Only available on catalog types where supports_custom_aliases is true. Example: ['primary-on-
+            call'].
         external_id (str | Unset): If specified, will update the external ID of the entry. When omitted, preserves the
             existing external ID. Example: abc123.
         name (str | Unset): If specified, will update the name of the entry. When omitted, preserves the existing name.
             Example: abc123.
         rank (int | Unset): If specified, will update the rank of the entry. When omitted, rank will be set to null
-            (allowing rank removal). Example: 1.
+            (allowing rank removal), unless incident.io syncs the catalog type, in which case the existing rank is
+            preserved. Example: 1.
     """
 
     attribute_values: PartialEntryPayloadV3AttributeValues
     entry_id: str
     aliases: list[str] | Unset = UNSET
+    custom_aliases: list[str] | Unset = UNSET
     external_id: str | Unset = UNSET
     name: str | Unset = UNSET
     rank: int | Unset = UNSET
@@ -55,6 +63,10 @@ class PartialEntryPayloadV3:
         aliases: list[str] | Unset = UNSET
         if not isinstance(self.aliases, Unset):
             aliases = self.aliases
+
+        custom_aliases: list[str] | Unset = UNSET
+        if not isinstance(self.custom_aliases, Unset):
+            custom_aliases = self.custom_aliases
 
         external_id = self.external_id
 
@@ -72,6 +84,8 @@ class PartialEntryPayloadV3:
         )
         if aliases is not UNSET:
             field_dict["aliases"] = aliases
+        if custom_aliases is not UNSET:
+            field_dict["custom_aliases"] = custom_aliases
         if external_id is not UNSET:
             field_dict["external_id"] = external_id
         if name is not UNSET:
@@ -96,6 +110,8 @@ class PartialEntryPayloadV3:
 
         aliases = cast(list[str], d.pop("aliases", UNSET))
 
+        custom_aliases = cast(list[str], d.pop("custom_aliases", UNSET))
+
         external_id = d.pop("external_id", UNSET)
 
         name = d.pop("name", UNSET)
@@ -106,6 +122,7 @@ class PartialEntryPayloadV3:
             attribute_values=attribute_values,
             entry_id=entry_id,
             aliases=aliases,
+            custom_aliases=custom_aliases,
             external_id=external_id,
             name=name,
             rank=rank,

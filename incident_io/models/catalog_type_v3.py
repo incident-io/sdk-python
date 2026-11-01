@@ -33,8 +33,9 @@ class CatalogTypeV3:
             'PagerDutyService', 'required_integrations': ['pager_duty'], 'schema': {'attributes': [{'array': False,
             'backlink_attribute': 'abc123', 'id': '01GW2G3V0S59R238FAHPDS1R66', 'mode': '', 'name': 'tier', 'path':
             [{'attribute_id': 'abc123', 'attribute_name': 'abc123'}], 'type': 'Custom["Service"]'}], 'version': 1},
-            'source_repo_url': 'https://github.com/my-company/incident-io-catalog', 'type_name': 'Custom["BackstageGroup"]',
-            'updated_at': '2021-08-17T13:28:57.801578Z', 'use_name_as_identifier': True}
+            'source_repo_url': 'https://github.com/my-company/incident-io-catalog', 'supports_custom_aliases': True,
+            'type_name': 'Custom["BackstageGroup"]', 'updated_at': '2021-08-17T13:28:57.801578Z', 'use_name_as_identifier':
+            True}
 
     Attributes:
         annotations (CatalogTypeV3Annotations): Annotations that can track metadata about this type Example:
@@ -55,6 +56,9 @@ class CatalogTypeV3:
         schema (CatalogTypeSchemaV3):  Example: {'attributes': [{'array': False, 'backlink_attribute': 'abc123', 'id':
             '01GW2G3V0S59R238FAHPDS1R66', 'mode': '', 'name': 'tier', 'path': [{'attribute_id': 'abc123', 'attribute_name':
             'abc123'}], 'type': 'Custom["Service"]'}], 'version': 1}.
+        supports_custom_aliases (bool): Whether entries of this type take custom_aliases. Only catalog types that
+            incident.io syncs do, as you can't change their aliases directly, and not those whose aliases you edit
+            elsewhere, such as alert priorities. Example: True.
         type_name (str): The type name of this catalog type, to be used when defining attributes. This is immutable once
             a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom["SomeName"]
             Example: Custom["BackstageGroup"].
@@ -89,6 +93,7 @@ class CatalogTypeV3:
     name: str
     ranked: bool
     schema: CatalogTypeSchemaV3
+    supports_custom_aliases: bool
     type_name: str
     updated_at: datetime.datetime
     use_name_as_identifier: bool
@@ -129,6 +134,8 @@ class CatalogTypeV3:
         ranked = self.ranked
 
         schema = self.schema.to_dict()
+
+        supports_custom_aliases = self.supports_custom_aliases
 
         type_name = self.type_name
 
@@ -174,6 +181,7 @@ class CatalogTypeV3:
                 "name": name,
                 "ranked": ranked,
                 "schema": schema,
+                "supports_custom_aliases": supports_custom_aliases,
                 "type_name": type_name,
                 "updated_at": updated_at,
                 "use_name_as_identifier": use_name_as_identifier,
@@ -235,6 +243,8 @@ class CatalogTypeV3:
 
         schema = CatalogTypeSchemaV3.from_dict(d.pop("schema"))
 
+        supports_custom_aliases = d.pop("supports_custom_aliases")
+
         type_name = d.pop("type_name")
 
         updated_at = datetime.datetime.fromisoformat(d.pop("updated_at"))
@@ -275,6 +285,7 @@ class CatalogTypeV3:
             name=name,
             ranked=ranked,
             schema=schema,
+            supports_custom_aliases=supports_custom_aliases,
             type_name=type_name,
             updated_at=updated_at,
             use_name_as_identifier=use_name_as_identifier,
