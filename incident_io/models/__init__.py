@@ -445,8 +445,14 @@ from .audit_log_extension_plugin_updated_metadata_v2 import (
 from .audit_log_hris_time_off_policy_updated_metadata_v2 import (
     AuditLogHrisTimeOffPolicyUpdatedMetadataV2,
 )
+from .audit_log_incident_summary_config_updated_metadata_v2 import (
+    AuditLogIncidentSummaryConfigUpdatedMetadataV2,
+)
 from .audit_log_incident_type_default_teams_metadata_v2 import (
     AuditLogIncidentTypeDefaultTeamsMetadataV2,
+)
+from .audit_log_incident_update_config_updated_metadata_v2 import (
+    AuditLogIncidentUpdateConfigUpdatedMetadataV2,
 )
 from .audit_log_integration_updated_metadata_v2 import (
     AuditLogIntegrationUpdatedMetadataV2,
@@ -873,6 +879,9 @@ from .audit_logs_incident_status_deleted_v1 import AuditLogsIncidentStatusDelete
 from .audit_logs_incident_status_deleted_v2 import AuditLogsIncidentStatusDeletedV2
 from .audit_logs_incident_status_updated_v1 import AuditLogsIncidentStatusUpdatedV1
 from .audit_logs_incident_status_updated_v2 import AuditLogsIncidentStatusUpdatedV2
+from .audit_logs_incident_summary_config_updated_v1 import (
+    AuditLogsIncidentSummaryConfigUpdatedV1,
+)
 from .audit_logs_incident_template_created_v1 import AuditLogsIncidentTemplateCreatedV1
 from .audit_logs_incident_template_created_v2 import AuditLogsIncidentTemplateCreatedV2
 from .audit_logs_incident_template_deleted_v1 import AuditLogsIncidentTemplateDeletedV1
@@ -929,6 +938,9 @@ from .audit_logs_incident_type_deleted_v2 import AuditLogsIncidentTypeDeletedV2
 from .audit_logs_incident_type_updated_v1 import AuditLogsIncidentTypeUpdatedV1
 from .audit_logs_incident_type_updated_v2 import AuditLogsIncidentTypeUpdatedV2
 from .audit_logs_incident_type_updated_v3 import AuditLogsIncidentTypeUpdatedV3
+from .audit_logs_incident_update_config_updated_v1 import (
+    AuditLogsIncidentUpdateConfigUpdatedV1,
+)
 from .audit_logs_integration_installed_v1 import AuditLogsIntegrationInstalledV1
 from .audit_logs_integration_installed_v2 import AuditLogsIntegrationInstalledV2
 from .audit_logs_integration_uninstalled_v1 import AuditLogsIntegrationUninstalledV1
@@ -3538,7 +3550,9 @@ __all__ = (
     "AuditLogExtensionPluginUpdatedMetadataV2",
     "AuditLogHrisTimeOffPolicyUpdatedMetadataV2",
     "AuditLogIPAllowlistUpdatedMetadataV2",
+    "AuditLogIncidentSummaryConfigUpdatedMetadataV2",
     "AuditLogIncidentTypeDefaultTeamsMetadataV2",
+    "AuditLogIncidentUpdateConfigUpdatedMetadataV2",
     "AuditLogIntegrationUpdatedMetadataV2",
     "AuditLogInvestigationConfigUpdatedMetadataV2",
     "AuditLogInvestigationTriggerMetadataV2",
@@ -3755,6 +3769,7 @@ __all__ = (
     "AuditLogsIncidentStatusDeletedV2",
     "AuditLogsIncidentStatusUpdatedV1",
     "AuditLogsIncidentStatusUpdatedV2",
+    "AuditLogsIncidentSummaryConfigUpdatedV1",
     "AuditLogsIncidentTemplateCreatedV1",
     "AuditLogsIncidentTemplateCreatedV2",
     "AuditLogsIncidentTemplateDeletedV1",
@@ -3783,6 +3798,7 @@ __all__ = (
     "AuditLogsIncidentTypeUpdatedV1",
     "AuditLogsIncidentTypeUpdatedV2",
     "AuditLogsIncidentTypeUpdatedV3",
+    "AuditLogsIncidentUpdateConfigUpdatedV1",
     "AuditLogsIntegrationInstalledV1",
     "AuditLogsIntegrationInstalledV2",
     "AuditLogsIntegrationUninstalledV1",
