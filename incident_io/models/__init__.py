@@ -717,6 +717,9 @@ from .audit_logs_code_repository_accessed_v1 import AuditLogsCodeRepositoryAcces
 from .audit_logs_connector_config_archived_v1 import AuditLogsConnectorConfigArchivedV1
 from .audit_logs_connector_config_created_v1 import AuditLogsConnectorConfigCreatedV1
 from .audit_logs_connector_config_created_v2 import AuditLogsConnectorConfigCreatedV2
+from .audit_logs_connector_config_previous_token_revoked_v1 import (
+    AuditLogsConnectorConfigPreviousTokenRevokedV1,
+)
 from .audit_logs_connector_config_token_generated_v1 import (
     AuditLogsConnectorConfigTokenGeneratedV1,
 )
@@ -3673,6 +3676,7 @@ __all__ = (
     "AuditLogsConnectorConfigArchivedV1",
     "AuditLogsConnectorConfigCreatedV1",
     "AuditLogsConnectorConfigCreatedV2",
+    "AuditLogsConnectorConfigPreviousTokenRevokedV1",
     "AuditLogsConnectorConfigTokenGeneratedV1",
     "AuditLogsConnectorConfigTokenGeneratedV2",
     "AuditLogsConnectorConfigUpdatedV1",
