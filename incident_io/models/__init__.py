@@ -551,6 +551,9 @@ from .audit_log_scim_group_seat_mapping_changed_metadata_v2 import (
 )
 from .audit_log_target_v2 import AuditLogTargetV2
 from .audit_log_target_v2_type import AuditLogTargetV2Type
+from .audit_log_telemetry_data_source_access_inheritance_changed_metadata_v2 import (
+    AuditLogTelemetryDataSourceAccessInheritanceChangedMetadataV2,
+)
 from .audit_log_telemetry_data_source_access_mode_changed_metadata_v2 import (
     AuditLogTelemetryDataSourceAccessModeChangedMetadataV2,
 )
@@ -1403,6 +1406,9 @@ from .audit_logs_team_role_updated_v1 import AuditLogsTeamRoleUpdatedV1
 from .audit_logs_team_role_updated_v2 import AuditLogsTeamRoleUpdatedV2
 from .audit_logs_team_settings_updated_v1 import AuditLogsTeamSettingsUpdatedV1
 from .audit_logs_team_settings_updated_v2 import AuditLogsTeamSettingsUpdatedV2
+from .audit_logs_telemetry_data_source_access_inheritance_changed_v1 import (
+    AuditLogsTelemetryDataSourceAccessInheritanceChangedV1,
+)
 from .audit_logs_telemetry_data_source_access_mode_changed_v1 import (
     AuditLogsTelemetryDataSourceAccessModeChangedV1,
 )
@@ -3590,6 +3596,7 @@ __all__ = (
     "AuditLogScheduleOverrideMetadataV2",
     "AuditLogTargetV2",
     "AuditLogTargetV2Type",
+    "AuditLogTelemetryDataSourceAccessInheritanceChangedMetadataV2",
     "AuditLogTelemetryDataSourceAccessModeChangedMetadataV2",
     "AuditLogTelemetryDataSourceAccessPolicyChangedMetadataV2",
     "AuditLogTelemetryDataSourceAccessPolicyChangedMetadataV2V2",
@@ -4014,6 +4021,7 @@ __all__ = (
     "AuditLogsTeamRoleUpdatedV2",
     "AuditLogsTeamSettingsUpdatedV1",
     "AuditLogsTeamSettingsUpdatedV2",
+    "AuditLogsTelemetryDataSourceAccessInheritanceChangedV1",
     "AuditLogsTelemetryDataSourceAccessModeChangedV1",
     "AuditLogsTelemetryDataSourceAccessModeChangedV2",
     "AuditLogsTelemetryDataSourceAccessPolicyChangedV1",
