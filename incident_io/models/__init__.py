@@ -2799,6 +2799,14 @@ from .status_page_components_update_payload_v2 import (
     StatusPageComponentsUpdatePayloadV2,
 )
 from .status_page_components_update_result_v2 import StatusPageComponentsUpdateResultV2
+from .status_page_customer_page_component_v2 import StatusPageCustomerPageComponentV2
+from .status_page_customer_page_component_v2_status import (
+    StatusPageCustomerPageComponentV2Status,
+)
+from .status_page_customer_page_group_v2 import StatusPageCustomerPageGroupV2
+from .status_page_customer_page_item_v2 import StatusPageCustomerPageItemV2
+from .status_page_customer_page_v2 import StatusPageCustomerPageV2
+from .status_page_customer_page_v2_status import StatusPageCustomerPageV2Status
 from .status_page_incident_affected_component_v2 import (
     StatusPageIncidentAffectedComponentV2,
 )
@@ -2903,6 +2911,9 @@ from .status_pages_list_status_page_maintenances_result_v2 import (
 from .status_pages_list_status_pages_result_v2 import StatusPagesListStatusPagesResultV2
 from .status_pages_show_status_page_component_availability_result_v2 import (
     StatusPagesShowStatusPageComponentAvailabilityResultV2,
+)
+from .status_pages_show_status_page_customer_page_result_v2 import (
+    StatusPagesShowStatusPageCustomerPageResultV2,
 )
 from .status_pages_show_status_page_incident_result_v2 import (
     StatusPagesShowStatusPageIncidentResultV2,
@@ -4950,6 +4961,12 @@ __all__ = (
     "StatusPageComponentsShowResultV2",
     "StatusPageComponentsUpdatePayloadV2",
     "StatusPageComponentsUpdateResultV2",
+    "StatusPageCustomerPageComponentV2",
+    "StatusPageCustomerPageComponentV2Status",
+    "StatusPageCustomerPageGroupV2",
+    "StatusPageCustomerPageItemV2",
+    "StatusPageCustomerPageV2",
+    "StatusPageCustomerPageV2Status",
     "StatusPageIncidentAffectedComponentV2",
     "StatusPageIncidentAffectedComponentV2ComponentStatus",
     "StatusPageIncidentComponentImpactV2",
@@ -4995,6 +5012,7 @@ __all__ = (
     "StatusPagesListStatusPageMaintenancesResultV2",
     "StatusPagesListStatusPagesResultV2",
     "StatusPagesShowStatusPageComponentAvailabilityResultV2",
+    "StatusPagesShowStatusPageCustomerPageResultV2",
     "StatusPagesShowStatusPageIncidentResultV2",
     "StatusPagesShowStatusPageMaintenanceResultV2",
     "StatusPagesShowStatusPageResultV2",
