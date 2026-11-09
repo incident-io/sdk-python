@@ -16,25 +16,30 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
     """
     Example:
         {'added_user_ids': '01FCNDV6P870EA6S7TK1DSYDG0', 'after_automatic_reviews': 'once_per_pull_request',
-            'after_draft_reviews': 'skip', 'after_reviewed_authors': 'selected_users', 'before_automatic_reviews':
-            'every_push', 'before_draft_reviews': 'review', 'before_reviewed_authors': 'everyone', 'changed':
-            'automatic_reviews', 'removed_user_ids': '01FCNDV6P870EA6S7TK1DSYDG1'}
+            'after_draft_reviews': 'skip', 'after_no_issue_reviews': 'skip', 'after_reviewed_authors': 'selected_users',
+            'before_automatic_reviews': 'every_push', 'before_draft_reviews': 'review', 'before_no_issue_reviews': 'post',
+            'before_reviewed_authors': 'everyone', 'changed': 'automatic_reviews', 'removed_user_ids':
+            '01FCNDV6P870EA6S7TK1DSYDG1'}
 
     Attributes:
-        changed (str): What the update changed, comma separated (automatic_reviews, draft_reviews, reviewed_authors,
-            reviewed_users) Example: automatic_reviews.
+        changed (str): What the update changed, comma separated (automatic_reviews, draft_reviews, no_issue_reviews,
+            reviewed_authors, reviewed_users) Example: automatic_reviews.
         added_user_ids (str | Unset): The users added to those whose pull requests are reviewed, comma separated
             Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         after_automatic_reviews (str | Unset): Which pushes to a pull request are reviewed after the change (every_push,
             once_per_pull_request) Example: once_per_pull_request.
         after_draft_reviews (str | Unset): Whether draft pull requests are reviewed after the change (review, skip)
             Example: skip.
+        after_no_issue_reviews (str | Unset): Whether a review that finds no issues posts a comment after the change
+            (post, skip) Example: skip.
         after_reviewed_authors (str | Unset): Whose pull requests are reviewed after the change (everyone,
             selected_users) Example: selected_users.
         before_automatic_reviews (str | Unset): Which pushes to a pull request were reviewed before the change
             (every_push, once_per_pull_request) Example: every_push.
         before_draft_reviews (str | Unset): Whether draft pull requests were reviewed before the change (review, skip)
             Example: review.
+        before_no_issue_reviews (str | Unset): Whether a review that found no issues posted a comment before the change
+            (post, skip) Example: post.
         before_reviewed_authors (str | Unset): Whose pull requests were reviewed before the change (everyone,
             selected_users) Example: everyone.
         removed_user_ids (str | Unset): The users removed from those whose pull requests are reviewed, comma separated
@@ -45,9 +50,11 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
     added_user_ids: str | Unset = UNSET
     after_automatic_reviews: str | Unset = UNSET
     after_draft_reviews: str | Unset = UNSET
+    after_no_issue_reviews: str | Unset = UNSET
     after_reviewed_authors: str | Unset = UNSET
     before_automatic_reviews: str | Unset = UNSET
     before_draft_reviews: str | Unset = UNSET
+    before_no_issue_reviews: str | Unset = UNSET
     before_reviewed_authors: str | Unset = UNSET
     removed_user_ids: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -61,11 +68,15 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
 
         after_draft_reviews = self.after_draft_reviews
 
+        after_no_issue_reviews = self.after_no_issue_reviews
+
         after_reviewed_authors = self.after_reviewed_authors
 
         before_automatic_reviews = self.before_automatic_reviews
 
         before_draft_reviews = self.before_draft_reviews
+
+        before_no_issue_reviews = self.before_no_issue_reviews
 
         before_reviewed_authors = self.before_reviewed_authors
 
@@ -84,12 +95,16 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
             field_dict["after_automatic_reviews"] = after_automatic_reviews
         if after_draft_reviews is not UNSET:
             field_dict["after_draft_reviews"] = after_draft_reviews
+        if after_no_issue_reviews is not UNSET:
+            field_dict["after_no_issue_reviews"] = after_no_issue_reviews
         if after_reviewed_authors is not UNSET:
             field_dict["after_reviewed_authors"] = after_reviewed_authors
         if before_automatic_reviews is not UNSET:
             field_dict["before_automatic_reviews"] = before_automatic_reviews
         if before_draft_reviews is not UNSET:
             field_dict["before_draft_reviews"] = before_draft_reviews
+        if before_no_issue_reviews is not UNSET:
+            field_dict["before_no_issue_reviews"] = before_no_issue_reviews
         if before_reviewed_authors is not UNSET:
             field_dict["before_reviewed_authors"] = before_reviewed_authors
         if removed_user_ids is not UNSET:
@@ -108,11 +123,15 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
 
         after_draft_reviews = d.pop("after_draft_reviews", UNSET)
 
+        after_no_issue_reviews = d.pop("after_no_issue_reviews", UNSET)
+
         after_reviewed_authors = d.pop("after_reviewed_authors", UNSET)
 
         before_automatic_reviews = d.pop("before_automatic_reviews", UNSET)
 
         before_draft_reviews = d.pop("before_draft_reviews", UNSET)
+
+        before_no_issue_reviews = d.pop("before_no_issue_reviews", UNSET)
 
         before_reviewed_authors = d.pop("before_reviewed_authors", UNSET)
 
@@ -123,9 +142,11 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
             added_user_ids=added_user_ids,
             after_automatic_reviews=after_automatic_reviews,
             after_draft_reviews=after_draft_reviews,
+            after_no_issue_reviews=after_no_issue_reviews,
             after_reviewed_authors=after_reviewed_authors,
             before_automatic_reviews=before_automatic_reviews,
             before_draft_reviews=before_draft_reviews,
+            before_no_issue_reviews=before_no_issue_reviews,
             before_reviewed_authors=before_reviewed_authors,
             removed_user_ids=removed_user_ids,
         )

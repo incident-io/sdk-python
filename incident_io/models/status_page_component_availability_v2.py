@@ -30,7 +30,8 @@ class StatusPageComponentAvailabilityV2:
         start_at (datetime.datetime): Start of the requested availability window Example: 2026-01-01T00:00:00Z.
         status_page_id (str): ID of the status page Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         availability_percent (str | Unset): Availability over the window as a percentage, floored (for example "99.94").
-            Omitted when we have no data covering the window. Example: 99.94.
+            It has at least as many decimal places as the status page's uptime decimal places setting. Above 99.99%, it can
+            have more decimal places, up to six. Omitted when we have no data covering the window. Example: 99.94.
     """
 
     component_id: str
