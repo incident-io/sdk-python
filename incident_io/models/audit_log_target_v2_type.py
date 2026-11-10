@@ -61,6 +61,7 @@ class AuditLogTargetV2Type(StrEnum):
     POST_INCIDENT_TASK = "post_incident_task"
     PRIVATE_INCIDENT_MEMBERSHIP = "private_incident_membership"
     RBAC_ROLE = "rbac_role"
+    RELIABILITY_REVIEW_RULE = "reliability_review_rule"
     RELIABILITY_REVIEW_SETTINGS = "reliability_review_settings"
     SCHEDULE = "schedule"
     SCHEDULE_OVERRIDE = "schedule_override"
