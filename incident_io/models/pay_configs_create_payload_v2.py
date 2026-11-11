@@ -30,11 +30,12 @@ class PayConfigsCreatePayloadV2:
             '09:00', 'weekdays': ['monday']}]}
 
     Attributes:
-        base_rate_cents (int): Rate paid for any time no rule covers, in the lowest denomination of the currency
-            Example: 1200.
+        base_rate_cents (int): Rate paid for one unit of rate_time_unit, for any time no rule covers, in the lowest
+            denomination of the currency Example: 1200.
         currency (str): Currency this config pays in, in ISO 4217 format Example: GBP.
         name (str): Human readable name for this pay config Example: Engineering on-call.
-        rate_time_unit (PayConfigsCreatePayloadV2RateTimeUnit): The unit of time every rate on this config is quoted per
+        rate_time_unit (PayConfigsCreatePayloadV2RateTimeUnit): The unit of time every rate on this config is quoted
+            per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second.
             Example: hour.
         timezone (str): IANA timezone this config's rules are interpreted in Example: Europe/London.
         one_off_rules (list[PayConfigOneOffRulePayloadV2] | Unset): Rules that apply over a single window of time

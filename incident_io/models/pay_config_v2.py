@@ -37,8 +37,8 @@ class PayConfigV2:
                 ['monday']}]}
 
         Attributes:
-            base_rate_cents (int): Rate paid for any time no rule covers, in the lowest denomination of the currency
-                Example: 1200.
+            base_rate_cents (int): Rate paid for one unit of rate_time_unit, for any time no rule covers, in the lowest
+                denomination of the currency Example: 1200.
             created_at (datetime.datetime):  Example: 2021-08-17T13:28:57.801578Z.
             currency (str): Currency this config pays in, in ISO 4217 format Example: GBP.
             id (str): Unique identifier for this pay config Example: 01G0J1EXE7AXZ2C93K61WBPYEH.
@@ -46,13 +46,13 @@ class PayConfigV2:
             one_off_rules (list[PayConfigOneOffRuleV2]): Rules that apply over a single window of time, such as a public
                 holiday Example: [{'end_at': '2021-08-17T13:28:57.801578Z', 'id': '01G0J1EXE7AXZ2C93K61WBPYEH', 'name':
                 'Christmas day', 'rate_cents': 4800, 'start_at': '2021-08-17T13:28:57.801578Z'}].
-            rate_time_unit (PayConfigV2RateTimeUnit): The unit of time every rate on this config is quoted per. Pay is pro-
-                rated by the second either way. Example: hour.
+            rate_time_unit (PayConfigV2RateTimeUnit): The unit of time every rate on this config is quoted per: hour, day,
+                or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Example: hour.
             timezone (str): IANA timezone this config's rules are interpreted in Example: Europe/London.
             updated_at (datetime.datetime):  Example: 2021-08-17T13:28:57.801578Z.
             weekly_rules (list[PayConfigWeeklyRuleV2]): Rules that apply every week, by day of week and time of day, in
-                evaluation order Example: [{'end_time': '17:00', 'id': '01G0J1EXE7AXZ2C93K61WBPYEH', 'rate_cents': 2400,
-                'start_time': '09:00', 'weekdays': ['monday']}].
+                evaluation order. Must be empty when rate_time_unit is week. Example: [{'end_time': '17:00', 'id':
+                '01G0J1EXE7AXZ2C93K61WBPYEH', 'rate_cents': 2400, 'start_time': '09:00', 'weekdays': ['monday']}].
             published_at (datetime.datetime | Unset): When a published report first priced against this config. Once set,
                 editing the config needs the schedule_pay_configs.update_published scope. Example: 2021-08-17T13:28:57.801578Z.
     """
