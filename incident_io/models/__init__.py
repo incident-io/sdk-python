@@ -793,6 +793,15 @@ from .audit_logs_escalation_path_updated_v1 import AuditLogsEscalationPathUpdate
 from .audit_logs_escalation_path_updated_v2 import AuditLogsEscalationPathUpdatedV2
 from .audit_logs_escalation_scrubbed_v1 import AuditLogsEscalationScrubbedV1
 from .audit_logs_escalation_scrubbed_v2 import AuditLogsEscalationScrubbedV2
+from .audit_logs_escalation_urgency_created_v1 import (
+    AuditLogsEscalationUrgencyCreatedV1,
+)
+from .audit_logs_escalation_urgency_deleted_v1 import (
+    AuditLogsEscalationUrgencyDeletedV1,
+)
+from .audit_logs_escalation_urgency_updated_v1 import (
+    AuditLogsEscalationUrgencyUpdatedV1,
+)
 from .audit_logs_extension_connector_called_v1 import (
     AuditLogsExtensionConnectorCalledV1,
 )
@@ -3744,6 +3753,9 @@ __all__ = (
     "AuditLogsEscalationPathUpdatedV2",
     "AuditLogsEscalationScrubbedV1",
     "AuditLogsEscalationScrubbedV2",
+    "AuditLogsEscalationUrgencyCreatedV1",
+    "AuditLogsEscalationUrgencyDeletedV1",
+    "AuditLogsEscalationUrgencyUpdatedV1",
     "AuditLogsExtensionConnectorCalledV1",
     "AuditLogsExtensionConnectorCalledV2",
     "AuditLogsExtensionConnectorCalledV3",

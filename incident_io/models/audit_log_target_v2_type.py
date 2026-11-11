@@ -22,6 +22,7 @@ class AuditLogTargetV2Type(StrEnum):
     ESCALATION = "escalation"
     ESCALATION_PATH = "escalation_path"
     ESCALATION_PATH_TEMPLATE = "escalation_path_template"
+    ESCALATION_URGENCY = "escalation_urgency"
     EXTENSION_CONNECTOR = "extension_connector"
     EXTENSION_CONNECTOR_TOOL = "extension_connector_tool"
     EXTENSION_PLUGIN = "extension_plugin"
