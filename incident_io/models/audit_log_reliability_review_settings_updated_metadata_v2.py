@@ -15,15 +15,18 @@ T = TypeVar("T", bound="AuditLogReliabilityReviewSettingsUpdatedMetadataV2")
 class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
     """
     Example:
-        {'added_user_ids': '01FCNDV6P870EA6S7TK1DSYDG0', 'after_automatic_reviews': 'once_per_pull_request',
-            'after_draft_reviews': 'skip', 'after_no_issue_reviews': 'skip', 'after_reviewed_authors': 'selected_users',
-            'before_automatic_reviews': 'every_push', 'before_draft_reviews': 'review', 'before_no_issue_reviews': 'post',
-            'before_reviewed_authors': 'everyone', 'changed': 'automatic_reviews', 'removed_user_ids':
+        {'added_ignored_authors': 'dependabot', 'added_user_ids': '01FCNDV6P870EA6S7TK1DSYDG0',
+            'after_automatic_reviews': 'once_per_pull_request', 'after_draft_reviews': 'skip', 'after_no_issue_reviews':
+            'skip', 'after_reviewed_authors': 'selected_users', 'before_automatic_reviews': 'every_push',
+            'before_draft_reviews': 'review', 'before_no_issue_reviews': 'post', 'before_reviewed_authors': 'everyone',
+            'changed': 'automatic_reviews', 'removed_ignored_authors': 'renovate[bot]', 'removed_user_ids':
             '01FCNDV6P870EA6S7TK1DSYDG1'}
 
     Attributes:
         changed (str): What the update changed, comma separated (automatic_reviews, draft_reviews, no_issue_reviews,
-            reviewed_authors, reviewed_users) Example: automatic_reviews.
+            reviewed_authors, reviewed_users, ignored_authors) Example: automatic_reviews.
+        added_ignored_authors (str | Unset): The GitHub usernames added to those whose pull requests aren't reviewed
+            automatically, comma separated Example: dependabot.
         added_user_ids (str | Unset): The users added to those whose pull requests are reviewed, comma separated
             Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         after_automatic_reviews (str | Unset): Which pushes to a pull request are reviewed after the change (every_push,
@@ -42,11 +45,14 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
             (post, skip) Example: post.
         before_reviewed_authors (str | Unset): Whose pull requests were reviewed before the change (everyone,
             selected_users) Example: everyone.
+        removed_ignored_authors (str | Unset): The GitHub usernames removed from those whose pull requests aren't
+            reviewed automatically, comma separated Example: renovate[bot].
         removed_user_ids (str | Unset): The users removed from those whose pull requests are reviewed, comma separated
             Example: 01FCNDV6P870EA6S7TK1DSYDG1.
     """
 
     changed: str
+    added_ignored_authors: str | Unset = UNSET
     added_user_ids: str | Unset = UNSET
     after_automatic_reviews: str | Unset = UNSET
     after_draft_reviews: str | Unset = UNSET
@@ -56,11 +62,14 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
     before_draft_reviews: str | Unset = UNSET
     before_no_issue_reviews: str | Unset = UNSET
     before_reviewed_authors: str | Unset = UNSET
+    removed_ignored_authors: str | Unset = UNSET
     removed_user_ids: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         changed = self.changed
+
+        added_ignored_authors = self.added_ignored_authors
 
         added_user_ids = self.added_user_ids
 
@@ -80,6 +89,8 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
 
         before_reviewed_authors = self.before_reviewed_authors
 
+        removed_ignored_authors = self.removed_ignored_authors
+
         removed_user_ids = self.removed_user_ids
 
         field_dict: dict[str, Any] = {}
@@ -89,6 +100,8 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
                 "changed": changed,
             }
         )
+        if added_ignored_authors is not UNSET:
+            field_dict["added_ignored_authors"] = added_ignored_authors
         if added_user_ids is not UNSET:
             field_dict["added_user_ids"] = added_user_ids
         if after_automatic_reviews is not UNSET:
@@ -107,6 +120,8 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
             field_dict["before_no_issue_reviews"] = before_no_issue_reviews
         if before_reviewed_authors is not UNSET:
             field_dict["before_reviewed_authors"] = before_reviewed_authors
+        if removed_ignored_authors is not UNSET:
+            field_dict["removed_ignored_authors"] = removed_ignored_authors
         if removed_user_ids is not UNSET:
             field_dict["removed_user_ids"] = removed_user_ids
 
@@ -116,6 +131,8 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         d = dict(src_dict)
         changed = d.pop("changed")
+
+        added_ignored_authors = d.pop("added_ignored_authors", UNSET)
 
         added_user_ids = d.pop("added_user_ids", UNSET)
 
@@ -135,10 +152,13 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
 
         before_reviewed_authors = d.pop("before_reviewed_authors", UNSET)
 
+        removed_ignored_authors = d.pop("removed_ignored_authors", UNSET)
+
         removed_user_ids = d.pop("removed_user_ids", UNSET)
 
         audit_log_reliability_review_settings_updated_metadata_v2 = cls(
             changed=changed,
+            added_ignored_authors=added_ignored_authors,
             added_user_ids=added_user_ids,
             after_automatic_reviews=after_automatic_reviews,
             after_draft_reviews=after_draft_reviews,
@@ -148,6 +168,7 @@ class AuditLogReliabilityReviewSettingsUpdatedMetadataV2:
             before_draft_reviews=before_draft_reviews,
             before_no_issue_reviews=before_no_issue_reviews,
             before_reviewed_authors=before_reviewed_authors,
+            removed_ignored_authors=removed_ignored_authors,
             removed_user_ids=removed_user_ids,
         )
 

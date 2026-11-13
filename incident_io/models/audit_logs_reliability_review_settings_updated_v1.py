@@ -26,10 +26,11 @@ class AuditLogsReliabilityReviewSettingsUpdatedV1:
         {'action': 'reliability_review_settings.updated', 'actor': {'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'metadata':
             {'user_base_role_slug': 'admin', 'user_custom_role_slugs': 'engineering,security'}, 'name': 'John Doe', 'type':
             'user'}, 'context': {'location': '1.2.3.4', 'user_agent': 'Chrome/91.0.4472.114'}, 'metadata':
-            {'added_user_ids': '01FCNDV6P870EA6S7TK1DSYDG0', 'after_automatic_reviews': 'once_per_pull_request',
-            'after_draft_reviews': 'skip', 'after_no_issue_reviews': 'skip', 'after_reviewed_authors': 'selected_users',
-            'before_automatic_reviews': 'every_push', 'before_draft_reviews': 'review', 'before_no_issue_reviews': 'post',
-            'before_reviewed_authors': 'everyone', 'changed': 'automatic_reviews', 'removed_user_ids':
+            {'added_ignored_authors': 'dependabot', 'added_user_ids': '01FCNDV6P870EA6S7TK1DSYDG0',
+            'after_automatic_reviews': 'once_per_pull_request', 'after_draft_reviews': 'skip', 'after_no_issue_reviews':
+            'skip', 'after_reviewed_authors': 'selected_users', 'before_automatic_reviews': 'every_push',
+            'before_draft_reviews': 'review', 'before_no_issue_reviews': 'post', 'before_reviewed_authors': 'everyone',
+            'changed': 'automatic_reviews', 'removed_ignored_authors': 'renovate[bot]', 'removed_user_ids':
             '01FCNDV6P870EA6S7TK1DSYDG1'}, 'occurred_at': '2021-08-17T13:28:57.801578Z', 'targets': [{'id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Reliability review settings', 'type': 'reliability_review_settings'}],
             'version': 1}
@@ -39,11 +40,12 @@ class AuditLogsReliabilityReviewSettingsUpdatedV1:
         actor (AuditLogActorV2):  Example: {'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'metadata': {'user_base_role_slug':
             'admin', 'user_custom_role_slugs': 'engineering,security'}, 'name': 'John Doe', 'type': 'user'}.
         context (AuditLogEntryContextV2):  Example: {'location': '1.2.3.4', 'user_agent': 'Chrome/91.0.4472.114'}.
-        metadata (AuditLogReliabilityReviewSettingsUpdatedMetadataV2):  Example: {'added_user_ids':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'after_automatic_reviews': 'once_per_pull_request', 'after_draft_reviews': 'skip',
-            'after_no_issue_reviews': 'skip', 'after_reviewed_authors': 'selected_users', 'before_automatic_reviews':
-            'every_push', 'before_draft_reviews': 'review', 'before_no_issue_reviews': 'post', 'before_reviewed_authors':
-            'everyone', 'changed': 'automatic_reviews', 'removed_user_ids': '01FCNDV6P870EA6S7TK1DSYDG1'}.
+        metadata (AuditLogReliabilityReviewSettingsUpdatedMetadataV2):  Example: {'added_ignored_authors': 'dependabot',
+            'added_user_ids': '01FCNDV6P870EA6S7TK1DSYDG0', 'after_automatic_reviews': 'once_per_pull_request',
+            'after_draft_reviews': 'skip', 'after_no_issue_reviews': 'skip', 'after_reviewed_authors': 'selected_users',
+            'before_automatic_reviews': 'every_push', 'before_draft_reviews': 'review', 'before_no_issue_reviews': 'post',
+            'before_reviewed_authors': 'everyone', 'changed': 'automatic_reviews', 'removed_ignored_authors':
+            'renovate[bot]', 'removed_user_ids': '01FCNDV6P870EA6S7TK1DSYDG1'}.
         occurred_at (datetime.datetime): When the entry occurred Example: 2021-08-17T13:28:57.801578Z.
         targets (list[AuditLogTargetV2]): The custom field that was created Example: [{'id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Reliability review settings', 'type': 'reliability_review_settings'}].

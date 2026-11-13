@@ -1305,6 +1305,9 @@ from .audit_logs_reliability_review_settings_updated_v1 import (
 from .audit_logs_reliability_review_settings_updated_v2 import (
     AuditLogsReliabilityReviewSettingsUpdatedV2,
 )
+from .audit_logs_reliability_review_settings_updated_v3 import (
+    AuditLogsReliabilityReviewSettingsUpdatedV3,
+)
 from .audit_logs_reliability_review_spend_limit_updated_v1 import (
     AuditLogsReliabilityReviewSpendLimitUpdatedV1,
 )
@@ -3987,6 +3990,7 @@ __all__ = (
     "AuditLogsReliabilityReviewRuleUpdatedV1",
     "AuditLogsReliabilityReviewSettingsUpdatedV1",
     "AuditLogsReliabilityReviewSettingsUpdatedV2",
+    "AuditLogsReliabilityReviewSettingsUpdatedV3",
     "AuditLogsReliabilityReviewSpendLimitUpdatedV1",
     "AuditLogsReliabilityReviewSpendLimitUpdatedV2",
     "AuditLogsScheduleCreatedV1",
