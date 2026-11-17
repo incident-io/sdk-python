@@ -3,6 +3,7 @@ from enum import StrEnum
 
 class ManagedResourcesCreateManagedResourcePayloadV2ResourceType(StrEnum):
     ALERT_ROUTE = "alert_route"
+    ALERT_RULE = "alert_rule"
     ALERT_SOURCE = "alert_source"
     API_KEY = "api_key"
     ESCALATION_PATH = "escalation_path"
