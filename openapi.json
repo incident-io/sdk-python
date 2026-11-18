@@ -135170,10 +135170,10 @@
         "x-docs-group-name": "Custom Field Options V1",
         "x-docs-resource-type": "CustomFieldOptionV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `custom_fields.update` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "custom_fields.update"
         ]
       }
     },
@@ -135338,10 +135338,10 @@
         "x-docs-group-name": "Custom Field Options V1",
         "x-docs-resource-type": "CustomFieldOptionV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `custom_fields.update` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "custom_fields.update"
         ]
       },
       "get": {
@@ -135714,10 +135714,10 @@
         "x-docs-group-name": "Custom Field Options V1",
         "x-docs-resource-type": "CustomFieldOptionV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `custom_fields.update` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "custom_fields.update"
         ]
       }
     },
@@ -136109,10 +136109,10 @@
         "x-docs-group-name": "Custom Fields V1",
         "x-docs-resource-type": "CustomFieldV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `custom_fields.create` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "custom_fields.create"
         ]
       }
     },
@@ -136278,10 +136278,10 @@
         "x-docs-group-name": "Custom Fields V1",
         "x-docs-resource-type": "CustomFieldV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `custom_fields.destroy` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "custom_fields.destroy"
         ]
       },
       "get": {
@@ -136696,10 +136696,10 @@
         "x-docs-group-name": "Custom Fields V1",
         "x-docs-resource-type": "CustomFieldV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `custom_fields.update` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "custom_fields.update"
         ]
       }
     },
@@ -138412,10 +138412,10 @@
         "x-docs-group-name": "Incident Roles V1",
         "x-docs-resource-type": "IncidentRoleV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `incident_roles.create` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "incident_roles.create"
         ]
       }
     },
@@ -138581,10 +138581,10 @@
         "x-docs-group-name": "Incident Roles V1",
         "x-docs-resource-type": "IncidentRoleV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `incident_roles.destroy` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "incident_roles.destroy"
         ]
       },
       "get": {
@@ -138972,10 +138972,10 @@
         "x-docs-group-name": "Incident Roles V1",
         "x-docs-resource-type": "IncidentRoleV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `incident_roles.update` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "incident_roles.update"
         ]
       }
     },
@@ -148071,10 +148071,10 @@
         "x-docs-group-name": "Severities V1",
         "x-docs-resource-type": "SeverityV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `severities.create` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "severities.create"
         ]
       }
     },
@@ -148239,10 +148239,10 @@
         "x-docs-group-name": "Severities V1",
         "x-docs-resource-type": "SeverityV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `severities.destroy` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "severities.destroy"
         ]
       },
       "get": {
@@ -148620,10 +148620,10 @@
         "x-docs-group-name": "Severities V1",
         "x-docs-resource-type": "SeverityV1",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `severities.update` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "severities.update"
         ]
       }
     },
@@ -168538,10 +168538,10 @@
         "x-docs-group-name": "Custom Fields V2",
         "x-docs-resource-type": "CustomFieldV2",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `custom_fields.create` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "custom_fields.create"
         ]
       }
     },
@@ -168706,10 +168706,10 @@
         "x-docs-group-name": "Custom Fields V2",
         "x-docs-resource-type": "CustomFieldV2",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `custom_fields.destroy` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "custom_fields.destroy"
         ]
       },
       "get": {
@@ -169127,10 +169127,10 @@
         "x-docs-group-name": "Custom Fields V2",
         "x-docs-resource-type": "CustomFieldV2",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `custom_fields.update` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "custom_fields.update"
         ]
       }
     },
@@ -180694,10 +180694,10 @@
         "x-docs-group-name": "Incident Roles V2",
         "x-docs-resource-type": "IncidentRoleV2",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `incident_roles.create` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "incident_roles.create"
         ]
       }
     },
@@ -180862,10 +180862,10 @@
         "x-docs-group-name": "Incident Roles V2",
         "x-docs-resource-type": "IncidentRoleV2",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `incident_roles.destroy` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "incident_roles.destroy"
         ]
       },
       "get": {
@@ -181248,10 +181248,10 @@
         "x-docs-group-name": "Incident Roles V2",
         "x-docs-resource-type": "IncidentRoleV2",
         "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
+          "content": "🔑 Requires the `incident_roles.update` scope."
         },
         "x-rbac-scopes": [
-          "organisation_settings.update"
+          "incident_roles.update"
         ]
       }
     },
