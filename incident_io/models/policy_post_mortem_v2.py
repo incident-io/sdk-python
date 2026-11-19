@@ -40,7 +40,7 @@ class PolicyPostMortemV2:
             'calculation_timezone': 'Europe/London', 'calculation_type': 'weekdays', 'days': {'array_value': [{'label':
             'Lawrence Jones', 'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones',
             'literal': 'SEV123', 'reference': 'incident.severity'}}, 'incident_timestamp_id': '01FCNDV6P870EA6S7TK1DSYDG0'}.
-        run_on_private_incidents (bool | Unset): Requires the policies.run_on_private scope Example: False.
+        run_on_private_incidents (bool | Unset): Requires the policies.run.private_incidents scope Example: False.
     """
 
     requirements: list[ConditionGroupV2]

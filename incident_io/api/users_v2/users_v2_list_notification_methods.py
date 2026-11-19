@@ -125,7 +125,7 @@ def sync_detailed(
     """ListNotificationMethods Users V2
 
      List notification methods for a user. Phone numbers are partially redacted unless the API key holds
-    the notification_methods.view_unredacted scope.
+    the unredacted_notification_methods.view scope.
 
     Args:
         user_id (str): The ID of the user whose notification methods you want to list. Example:
@@ -158,7 +158,7 @@ def sync(
     """ListNotificationMethods Users V2
 
      List notification methods for a user. Phone numbers are partially redacted unless the API key holds
-    the notification_methods.view_unredacted scope.
+    the unredacted_notification_methods.view scope.
 
     Args:
         user_id (str): The ID of the user whose notification methods you want to list. Example:
@@ -186,7 +186,7 @@ async def asyncio_detailed(
     """ListNotificationMethods Users V2
 
      List notification methods for a user. Phone numbers are partially redacted unless the API key holds
-    the notification_methods.view_unredacted scope.
+    the unredacted_notification_methods.view scope.
 
     Args:
         user_id (str): The ID of the user whose notification methods you want to list. Example:
@@ -217,7 +217,7 @@ async def asyncio(
     """ListNotificationMethods Users V2
 
      List notification methods for a user. Phone numbers are partially redacted unless the API key holds
-    the notification_methods.view_unredacted scope.
+    the unredacted_notification_methods.view scope.
 
     Args:
         user_id (str): The ID of the user whose notification methods you want to list. Example:

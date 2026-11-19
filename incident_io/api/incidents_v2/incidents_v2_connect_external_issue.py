@@ -141,7 +141,7 @@ def sync_detailed(
     off, no tickets are created for other incidents, and the incident's fields are not
     written into this issue until it is turned on.
 
-    This needs the incidents.connect_external_issue scope, either across the organisation or
+    This needs the incident_external_issues.create scope, either across the organisation or
     from an incident role on this incident.
 
     This fails if the incident already has a different external issue (unless replace is
@@ -193,7 +193,7 @@ def sync(
     off, no tickets are created for other incidents, and the incident's fields are not
     written into this issue until it is turned on.
 
-    This needs the incidents.connect_external_issue scope, either across the organisation or
+    This needs the incident_external_issues.create scope, either across the organisation or
     from an incident role on this incident.
 
     This fails if the incident already has a different external issue (unless replace is
@@ -240,7 +240,7 @@ async def asyncio_detailed(
     off, no tickets are created for other incidents, and the incident's fields are not
     written into this issue until it is turned on.
 
-    This needs the incidents.connect_external_issue scope, either across the organisation or
+    This needs the incident_external_issues.create scope, either across the organisation or
     from an incident role on this incident.
 
     This fails if the incident already has a different external issue (unless replace is
@@ -290,7 +290,7 @@ async def asyncio(
     off, no tickets are created for other incidents, and the incident's fields are not
     written into this issue until it is turned on.
 
-    This needs the incidents.connect_external_issue scope, either across the organisation or
+    This needs the incident_external_issues.create scope, either across the organisation or
     from an incident role on this incident.
 
     This fails if the incident already has a different external issue (unless replace is

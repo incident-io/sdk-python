@@ -38,7 +38,7 @@ class PolicyFollowUpPayloadV2:
             '2021-08-17T13:28:57.801578Z', 'calculation_timezone': 'Europe/London', 'calculation_type': 'weekdays', 'days':
             {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123',
             'reference': 'incident.severity'}}, 'incident_timestamp_id': '01FCNDV6P870EA6S7TK1DSYDG0'}.
-        run_on_private_incidents (bool | Unset): Requires the policies.run_on_private scope Example: False.
+        run_on_private_incidents (bool | Unset): Requires the policies.run.private_incidents scope Example: False.
     """
 
     requirements: list[ConditionGroupPayloadV2]

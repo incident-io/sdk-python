@@ -141,7 +141,7 @@ def sync_detailed(
     may still be filling. The metadata reports the time the figures are calculated up to.
 
     Workload for private incidents is only returned to API keys with the
-    `incident_workloads.view_private` scope.
+    `incident_workloads.view.private_incidents` scope.
 
     Args:
         incident_id (str): Find participant workload for this incident Example:
@@ -183,7 +183,7 @@ def sync(
     may still be filling. The metadata reports the time the figures are calculated up to.
 
     Workload for private incidents is only returned to API keys with the
-    `incident_workloads.view_private` scope.
+    `incident_workloads.view.private_incidents` scope.
 
     Args:
         incident_id (str): Find participant workload for this incident Example:
@@ -220,7 +220,7 @@ async def asyncio_detailed(
     may still be filling. The metadata reports the time the figures are calculated up to.
 
     Workload for private incidents is only returned to API keys with the
-    `incident_workloads.view_private` scope.
+    `incident_workloads.view.private_incidents` scope.
 
     Args:
         incident_id (str): Find participant workload for this incident Example:
@@ -260,7 +260,7 @@ async def asyncio(
     may still be filling. The metadata reports the time the figures are calculated up to.
 
     Workload for private incidents is only returned to API keys with the
-    `incident_workloads.view_private` scope.
+    `incident_workloads.view.private_incidents` scope.
 
     Args:
         incident_id (str): Find participant workload for this incident Example:
