@@ -120,15 +120,16 @@ def sync_detailed(
 ) -> Response[Any | ErrorResponse]:
     """RevokeSessions Users V2
 
-     End every active session for a user.
+     Sign a user out of everywhere they're logged in: dashboard, plus any mobile app, desktop app, or MCP
+    clients they've connected to via OAuth.
 
-    Dashboard sessions stop working on the next request. Mobile, desktop app, and MCP sessions end as
-    well: each registered device is signed out. The user remains active and can sign in again. Personal
-    API keys are not revoked. A user cannot end sessions for someone with a higher role. An API key with
-    this scope can.
+    This doesn't deactivate the user. They will be able to log back into those accounts, and it won't
+    revoke any personal API keys they've created.
 
-    Use this during deprovisioning when sessions need to end before a SCIM deactivation arrives.
-    Deactivating a user also ends their sessions.
+    This is useful in the case of a compromised device or as part of urgent user deactivation.
+
+    Note that when a user is deactivated, all of this happens automatically without you having to take
+    an explicit action.
 
     Args:
         id (str): Unique identifier of the user Example: 01FCNDV6P870EA6S7TK1DSYDG0.
@@ -159,15 +160,16 @@ def sync(
 ) -> Any | ErrorResponse | None:
     """RevokeSessions Users V2
 
-     End every active session for a user.
+     Sign a user out of everywhere they're logged in: dashboard, plus any mobile app, desktop app, or MCP
+    clients they've connected to via OAuth.
 
-    Dashboard sessions stop working on the next request. Mobile, desktop app, and MCP sessions end as
-    well: each registered device is signed out. The user remains active and can sign in again. Personal
-    API keys are not revoked. A user cannot end sessions for someone with a higher role. An API key with
-    this scope can.
+    This doesn't deactivate the user. They will be able to log back into those accounts, and it won't
+    revoke any personal API keys they've created.
 
-    Use this during deprovisioning when sessions need to end before a SCIM deactivation arrives.
-    Deactivating a user also ends their sessions.
+    This is useful in the case of a compromised device or as part of urgent user deactivation.
+
+    Note that when a user is deactivated, all of this happens automatically without you having to take
+    an explicit action.
 
     Args:
         id (str): Unique identifier of the user Example: 01FCNDV6P870EA6S7TK1DSYDG0.
@@ -193,15 +195,16 @@ async def asyncio_detailed(
 ) -> Response[Any | ErrorResponse]:
     """RevokeSessions Users V2
 
-     End every active session for a user.
+     Sign a user out of everywhere they're logged in: dashboard, plus any mobile app, desktop app, or MCP
+    clients they've connected to via OAuth.
 
-    Dashboard sessions stop working on the next request. Mobile, desktop app, and MCP sessions end as
-    well: each registered device is signed out. The user remains active and can sign in again. Personal
-    API keys are not revoked. A user cannot end sessions for someone with a higher role. An API key with
-    this scope can.
+    This doesn't deactivate the user. They will be able to log back into those accounts, and it won't
+    revoke any personal API keys they've created.
 
-    Use this during deprovisioning when sessions need to end before a SCIM deactivation arrives.
-    Deactivating a user also ends their sessions.
+    This is useful in the case of a compromised device or as part of urgent user deactivation.
+
+    Note that when a user is deactivated, all of this happens automatically without you having to take
+    an explicit action.
 
     Args:
         id (str): Unique identifier of the user Example: 01FCNDV6P870EA6S7TK1DSYDG0.
@@ -230,15 +233,16 @@ async def asyncio(
 ) -> Any | ErrorResponse | None:
     """RevokeSessions Users V2
 
-     End every active session for a user.
+     Sign a user out of everywhere they're logged in: dashboard, plus any mobile app, desktop app, or MCP
+    clients they've connected to via OAuth.
 
-    Dashboard sessions stop working on the next request. Mobile, desktop app, and MCP sessions end as
-    well: each registered device is signed out. The user remains active and can sign in again. Personal
-    API keys are not revoked. A user cannot end sessions for someone with a higher role. An API key with
-    this scope can.
+    This doesn't deactivate the user. They will be able to log back into those accounts, and it won't
+    revoke any personal API keys they've created.
 
-    Use this during deprovisioning when sessions need to end before a SCIM deactivation arrives.
-    Deactivating a user also ends their sessions.
+    This is useful in the case of a compromised device or as part of urgent user deactivation.
+
+    Note that when a user is deactivated, all of this happens automatically without you having to take
+    an explicit action.
 
     Args:
         id (str): Unique identifier of the user Example: 01FCNDV6P870EA6S7TK1DSYDG0.
