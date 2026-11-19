@@ -3534,6 +3534,14 @@ endpoint incident_io.api.users_v2.users_v2_list_notification_rules.sync client
 endpoint incident_io.api.users_v2.users_v2_list_notification_rules.sync user_id
 endpoint incident_io.api.users_v2.users_v2_list_notification_rules.sync_detailed client
 endpoint incident_io.api.users_v2.users_v2_list_notification_rules.sync_detailed user_id
+endpoint incident_io.api.users_v2.users_v2_revoke_sessions.asyncio client
+endpoint incident_io.api.users_v2.users_v2_revoke_sessions.asyncio id
+endpoint incident_io.api.users_v2.users_v2_revoke_sessions.asyncio_detailed client
+endpoint incident_io.api.users_v2.users_v2_revoke_sessions.asyncio_detailed id
+endpoint incident_io.api.users_v2.users_v2_revoke_sessions.sync client
+endpoint incident_io.api.users_v2.users_v2_revoke_sessions.sync id
+endpoint incident_io.api.users_v2.users_v2_revoke_sessions.sync_detailed client
+endpoint incident_io.api.users_v2.users_v2_revoke_sessions.sync_detailed id
 endpoint incident_io.api.users_v2.users_v2_show.asyncio client
 endpoint incident_io.api.users_v2.users_v2_show.asyncio id
 endpoint incident_io.api.users_v2.users_v2_show.asyncio_detailed client
@@ -3694,6 +3702,7 @@ enum APIKeyRoleV1Name.TEAM_MEMBERSHIPS_MANAGE
 enum APIKeyRoleV1Name.TELEMETRY_DATA_SOURCE_UPDATE
 enum APIKeyRoleV1Name.TELEMETRY_QUERY_RESTRICTED
 enum APIKeyRoleV1Name.TELEMETRY_VIEWER
+enum APIKeyRoleV1Name.USER_SESSIONS_REVOKE
 enum APIKeyRoleV1Name.VIEWER
 enum APIKeyRoleV1Name.WORKFLOWS_EDITOR
 enum APIKeyRoleV1Name.WORKFLOWS_VIEWER
@@ -3755,6 +3764,7 @@ enum APIKeysCreatePayloadV1RoleNamesItem.TEAM_MEMBERSHIPS_MANAGE
 enum APIKeysCreatePayloadV1RoleNamesItem.TELEMETRY_DATA_SOURCE_UPDATE
 enum APIKeysCreatePayloadV1RoleNamesItem.TELEMETRY_QUERY_RESTRICTED
 enum APIKeysCreatePayloadV1RoleNamesItem.TELEMETRY_VIEWER
+enum APIKeysCreatePayloadV1RoleNamesItem.USER_SESSIONS_REVOKE
 enum APIKeysCreatePayloadV1RoleNamesItem.VIEWER
 enum APIKeysCreatePayloadV1RoleNamesItem.WORKFLOWS_EDITOR
 enum APIKeysCreatePayloadV1RoleNamesItem.WORKFLOWS_VIEWER
@@ -3816,6 +3826,7 @@ enum APIKeysUpdatePayloadV1RoleNamesItem.TEAM_MEMBERSHIPS_MANAGE
 enum APIKeysUpdatePayloadV1RoleNamesItem.TELEMETRY_DATA_SOURCE_UPDATE
 enum APIKeysUpdatePayloadV1RoleNamesItem.TELEMETRY_QUERY_RESTRICTED
 enum APIKeysUpdatePayloadV1RoleNamesItem.TELEMETRY_VIEWER
+enum APIKeysUpdatePayloadV1RoleNamesItem.USER_SESSIONS_REVOKE
 enum APIKeysUpdatePayloadV1RoleNamesItem.VIEWER
 enum APIKeysUpdatePayloadV1RoleNamesItem.WORKFLOWS_EDITOR
 enum APIKeysUpdatePayloadV1RoleNamesItem.WORKFLOWS_VIEWER
@@ -5056,6 +5067,7 @@ enum IdentityV1RolesItem.TEAM_MEMBERSHIPS_MANAGE
 enum IdentityV1RolesItem.TELEMETRY_DATA_SOURCE_UPDATE
 enum IdentityV1RolesItem.TELEMETRY_QUERY_RESTRICTED
 enum IdentityV1RolesItem.TELEMETRY_VIEWER
+enum IdentityV1RolesItem.USER_SESSIONS_REVOKE
 enum IdentityV1RolesItem.VIEWER
 enum IdentityV1RolesItem.WORKFLOWS_EDITOR
 enum IdentityV1RolesItem.WORKFLOWS_VIEWER
@@ -11587,6 +11599,13 @@ model AuditLogsUserRoleMembershipsUpdatedV2.metadata
 model AuditLogsUserRoleMembershipsUpdatedV2.occurred_at
 model AuditLogsUserRoleMembershipsUpdatedV2.targets
 model AuditLogsUserRoleMembershipsUpdatedV2.version
+model AuditLogsUserSessionsRevokedV1.action
+model AuditLogsUserSessionsRevokedV1.actor
+model AuditLogsUserSessionsRevokedV1.additional_properties
+model AuditLogsUserSessionsRevokedV1.context
+model AuditLogsUserSessionsRevokedV1.occurred_at
+model AuditLogsUserSessionsRevokedV1.targets
+model AuditLogsUserSessionsRevokedV1.version
 model AuditLogsUserUpdatedV1.action
 model AuditLogsUserUpdatedV1.actor
 model AuditLogsUserUpdatedV1.additional_properties

@@ -1540,6 +1540,7 @@ from .audit_logs_user_role_memberships_updated_v1 import (
 from .audit_logs_user_role_memberships_updated_v2 import (
     AuditLogsUserRoleMembershipsUpdatedV2,
 )
+from .audit_logs_user_sessions_revoked_v1 import AuditLogsUserSessionsRevokedV1
 from .audit_logs_user_updated_v1 import AuditLogsUserUpdatedV1
 from .audit_logs_user_updated_v2 import AuditLogsUserUpdatedV2
 from .audit_logs_workflow_created_v1 import AuditLogsWorkflowCreatedV1
@@ -4117,6 +4118,7 @@ __all__ = (
     "AuditLogsUserReinstatedV2",
     "AuditLogsUserRoleMembershipsUpdatedV1",
     "AuditLogsUserRoleMembershipsUpdatedV2",
+    "AuditLogsUserSessionsRevokedV1",
     "AuditLogsUserUpdatedV1",
     "AuditLogsUserUpdatedV2",
     "AuditLogsWorkflowCreatedV1",
