@@ -472,6 +472,10 @@ from .audit_log_microsoft_entra_tenant_linked_metadata_v2 import (
 from .audit_log_mobile_intune_enabled_setting_updated_metadata_v2 import (
     AuditLogMobileIntuneEnabledSettingUpdatedMetadataV2,
 )
+from .audit_log_mobile_key_archived_metadata_v2 import (
+    AuditLogMobileKeyArchivedMetadataV2,
+)
+from .audit_log_mobile_key_created_metadata_v2 import AuditLogMobileKeyCreatedMetadataV2
 from .audit_log_on_call_notification_method_metadata_v2 import (
     AuditLogOnCallNotificationMethodMetadataV2,
 )
@@ -1041,6 +1045,8 @@ from .audit_logs_mobile_intune_enabled_setting_updated_v1 import (
 from .audit_logs_mobile_intune_enabled_setting_updated_v2 import (
     AuditLogsMobileIntuneEnabledSettingUpdatedV2,
 )
+from .audit_logs_mobile_key_archived_v1 import AuditLogsMobileKeyArchivedV1
+from .audit_logs_mobile_key_created_v1 import AuditLogsMobileKeyCreatedV1
 from .audit_logs_nudge_created_v1 import AuditLogsNudgeCreatedV1
 from .audit_logs_nudge_created_v2 import AuditLogsNudgeCreatedV2
 from .audit_logs_nudge_deleted_v1 import AuditLogsNudgeDeletedV1
@@ -3607,6 +3613,8 @@ __all__ = (
     "AuditLogInvestigationTriggerMetadataV2",
     "AuditLogMicrosoftEntraTenantLinkedMetadataV2",
     "AuditLogMobileIntuneEnabledSettingUpdatedMetadataV2",
+    "AuditLogMobileKeyArchivedMetadataV2",
+    "AuditLogMobileKeyCreatedMetadataV2",
     "AuditLogOnCallNotificationMethodMetadataV2",
     "AuditLogOnCallNotificationPauseMetadataV2",
     "AuditLogOnCallUpsellRequestedMetadataV2",
@@ -3884,6 +3892,8 @@ __all__ = (
     "AuditLogsMicrosoftEntraTenantLinkedV2",
     "AuditLogsMobileIntuneEnabledSettingUpdatedV1",
     "AuditLogsMobileIntuneEnabledSettingUpdatedV2",
+    "AuditLogsMobileKeyArchivedV1",
+    "AuditLogsMobileKeyCreatedV1",
     "AuditLogsNudgeCreatedV1",
     "AuditLogsNudgeCreatedV2",
     "AuditLogsNudgeDeletedV1",

@@ -49,6 +49,7 @@ class AuditLogTargetV2Type(StrEnum):
     INVESTIGATION_TRIGGER = "investigation_trigger"
     IP_ALLOWLIST = "ip_allowlist"
     MAINTENANCE_WINDOW = "maintenance_window"
+    MOBILE_KEY = "mobile_key"
     NUDGE = "nudge"
     OAUTH_SESSION = "oauth_session"
     ON_CALL_NOTIFICATION_METHOD = "on_call_notification_method"
