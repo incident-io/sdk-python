@@ -4283,6 +4283,7 @@ enum AuditLogTargetV2Type.INVESTIGATION_TRIGGER
 enum AuditLogTargetV2Type.IP_ALLOWLIST
 enum AuditLogTargetV2Type.MAINTENANCE_WINDOW
 enum AuditLogTargetV2Type.NUDGE
+enum AuditLogTargetV2Type.OAUTH_SESSION
 enum AuditLogTargetV2Type.ON_CALL_NOTIFICATION_METHOD
 enum AuditLogTargetV2Type.ON_CALL_NOTIFICATION_PAUSE
 enum AuditLogTargetV2Type.ON_CALL_UPSELL_REQUEST
@@ -9912,6 +9913,13 @@ model AuditLogsNudgeUpdatedV2.context
 model AuditLogsNudgeUpdatedV2.occurred_at
 model AuditLogsNudgeUpdatedV2.targets
 model AuditLogsNudgeUpdatedV2.version
+model AuditLogsOauthSessionRevokedV1.action
+model AuditLogsOauthSessionRevokedV1.actor
+model AuditLogsOauthSessionRevokedV1.additional_properties
+model AuditLogsOauthSessionRevokedV1.context
+model AuditLogsOauthSessionRevokedV1.occurred_at
+model AuditLogsOauthSessionRevokedV1.targets
+model AuditLogsOauthSessionRevokedV1.version
 model AuditLogsOnCallNotificationMethodCreatedV1.action
 model AuditLogsOnCallNotificationMethodCreatedV1.actor
 model AuditLogsOnCallNotificationMethodCreatedV1.additional_properties

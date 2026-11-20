@@ -50,6 +50,7 @@ class AuditLogTargetV2Type(StrEnum):
     IP_ALLOWLIST = "ip_allowlist"
     MAINTENANCE_WINDOW = "maintenance_window"
     NUDGE = "nudge"
+    OAUTH_SESSION = "oauth_session"
     ON_CALL_NOTIFICATION_METHOD = "on_call_notification_method"
     ON_CALL_NOTIFICATION_PAUSE = "on_call_notification_pause"
     ON_CALL_UPSELL_REQUEST = "on_call_upsell_request"

@@ -1047,6 +1047,7 @@ from .audit_logs_nudge_deleted_v1 import AuditLogsNudgeDeletedV1
 from .audit_logs_nudge_deleted_v2 import AuditLogsNudgeDeletedV2
 from .audit_logs_nudge_updated_v1 import AuditLogsNudgeUpdatedV1
 from .audit_logs_nudge_updated_v2 import AuditLogsNudgeUpdatedV2
+from .audit_logs_oauth_session_revoked_v1 import AuditLogsOauthSessionRevokedV1
 from .audit_logs_on_call_notification_method_created_v1 import (
     AuditLogsOnCallNotificationMethodCreatedV1,
 )
@@ -3889,6 +3890,7 @@ __all__ = (
     "AuditLogsNudgeDeletedV2",
     "AuditLogsNudgeUpdatedV1",
     "AuditLogsNudgeUpdatedV2",
+    "AuditLogsOauthSessionRevokedV1",
     "AuditLogsOnCallNotificationMethodCreatedV1",
     "AuditLogsOnCallNotificationMethodCreatedV2",
     "AuditLogsOnCallNotificationMethodCreatedV3",
