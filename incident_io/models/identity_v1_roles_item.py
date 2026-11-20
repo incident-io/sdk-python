@@ -46,6 +46,7 @@ class IdentityV1RolesItem(StrEnum):
     TELEMETRY_DATA_SOURCE_UPDATE = "telemetry_data_source_update"
     TELEMETRY_QUERY_RESTRICTED = "telemetry_query_restricted"
     TELEMETRY_VIEWER = "telemetry_viewer"
+    USERS_VIEWER = "users_viewer"
     USER_SESSIONS_REVOKE = "user_sessions_revoke"
     VIEWER = "viewer"
     WORKFLOWS_EDITOR = "workflows_editor"
