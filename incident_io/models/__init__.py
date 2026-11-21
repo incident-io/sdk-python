@@ -408,6 +408,10 @@ from .audit_log_announcement_post_template_owning_teams_metadata_v2 import (
     AuditLogAnnouncementPostTemplateOwningTeamsMetadataV2,
 )
 from .audit_log_announcement_rule_metadata_v2 import AuditLogAnnouncementRuleMetadataV2
+from .audit_log_api_key_expiry_metadata_v2 import AuditLogAPIKeyExpiryMetadataV2
+from .audit_log_api_key_expiry_policy_updated_metadata_v2 import (
+    AuditLogAPIKeyExpiryPolicyUpdatedMetadataV2,
+)
 from .audit_log_catalog_attribute_updated_metadata_v2 import (
     AuditLogCatalogAttributeUpdatedMetadataV2,
 )
@@ -705,10 +709,15 @@ from .audit_logs_announcement_rule_updated_v2 import AuditLogsAnnouncementRuleUp
 from .audit_logs_announcement_rule_updated_v3 import AuditLogsAnnouncementRuleUpdatedV3
 from .audit_logs_api_key_created_v1 import AuditLogsAPIKeyCreatedV1
 from .audit_logs_api_key_created_v2 import AuditLogsAPIKeyCreatedV2
+from .audit_logs_api_key_created_v3 import AuditLogsAPIKeyCreatedV3
 from .audit_logs_api_key_deleted_v1 import AuditLogsAPIKeyDeletedV1
 from .audit_logs_api_key_deleted_v2 import AuditLogsAPIKeyDeletedV2
+from .audit_logs_api_key_expiry_policy_updated_v1 import (
+    AuditLogsAPIKeyExpiryPolicyUpdatedV1,
+)
 from .audit_logs_api_key_rotated_v1 import AuditLogsAPIKeyRotatedV1
 from .audit_logs_api_key_rotated_v2 import AuditLogsAPIKeyRotatedV2
+from .audit_logs_api_key_rotated_v3 import AuditLogsAPIKeyRotatedV3
 from .audit_logs_api_key_updated_v1 import AuditLogsAPIKeyUpdatedV1
 from .audit_logs_api_key_updated_v2 import AuditLogsAPIKeyUpdatedV2
 from .audit_logs_catalog_entry_attribute_updated_v1 import (
@@ -1531,6 +1540,7 @@ from .audit_logs_twilio_connection_updated_v1 import AuditLogsTwilioConnectionUp
 from .audit_logs_twilio_connection_updated_v2 import AuditLogsTwilioConnectionUpdatedV2
 from .audit_logs_user_api_key_created_v1 import AuditLogsUserAPIKeyCreatedV1
 from .audit_logs_user_api_key_created_v2 import AuditLogsUserAPIKeyCreatedV2
+from .audit_logs_user_api_key_created_v3 import AuditLogsUserAPIKeyCreatedV3
 from .audit_logs_user_api_key_deleted_v1 import AuditLogsUserAPIKeyDeletedV1
 from .audit_logs_user_api_key_deleted_v2 import AuditLogsUserAPIKeyDeletedV2
 from .audit_logs_user_created_v1 import AuditLogsUserCreatedV1
@@ -3586,6 +3596,8 @@ __all__ = (
     "AnnouncementTemplatesShowResultV2",
     "AnnouncementTemplatesUpdatePayloadV2",
     "AnnouncementTemplatesUpdateResultV2",
+    "AuditLogAPIKeyExpiryMetadataV2",
+    "AuditLogAPIKeyExpiryPolicyUpdatedMetadataV2",
     "AuditLogActorMetadataV2",
     "AuditLogActorV2",
     "AuditLogActorV2Type",
@@ -3664,10 +3676,13 @@ __all__ = (
     "AuditLogUserSCIMGroupMappingChangedMetadataV2",
     "AuditLogsAPIKeyCreatedV1",
     "AuditLogsAPIKeyCreatedV2",
+    "AuditLogsAPIKeyCreatedV3",
     "AuditLogsAPIKeyDeletedV1",
     "AuditLogsAPIKeyDeletedV2",
+    "AuditLogsAPIKeyExpiryPolicyUpdatedV1",
     "AuditLogsAPIKeyRotatedV1",
     "AuditLogsAPIKeyRotatedV2",
+    "AuditLogsAPIKeyRotatedV3",
     "AuditLogsAPIKeyUpdatedV1",
     "AuditLogsAPIKeyUpdatedV2",
     "AuditLogsActivityLogScrubbedV1",
@@ -4118,6 +4133,7 @@ __all__ = (
     "AuditLogsTwilioConnectionUpdatedV2",
     "AuditLogsUserAPIKeyCreatedV1",
     "AuditLogsUserAPIKeyCreatedV2",
+    "AuditLogsUserAPIKeyCreatedV3",
     "AuditLogsUserAPIKeyDeletedV1",
     "AuditLogsUserAPIKeyDeletedV2",
     "AuditLogsUserCreatedV1",
