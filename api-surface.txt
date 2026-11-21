@@ -6984,6 +6984,7 @@ model APIKeyV1.additional_properties
 model APIKeyV1.comments
 model APIKeyV1.created_at
 model APIKeyV1.creator
+model APIKeyV1.expires_at
 model APIKeyV1.id
 model APIKeyV1.last_used_at
 model APIKeyV1.name
@@ -6993,6 +6994,7 @@ model APIKeyV1.team_roles
 model APIKeyV1.token_last_issued_at
 model APIKeysCreatePayloadV1.additional_properties
 model APIKeysCreatePayloadV1.comments
+model APIKeysCreatePayloadV1.expires_at
 model APIKeysCreatePayloadV1.name
 model APIKeysCreatePayloadV1.role_names
 model APIKeysCreatePayloadV1.team_ids
@@ -7004,6 +7006,7 @@ model APIKeysListResultV1.additional_properties
 model APIKeysListResultV1.api_keys
 model APIKeysListResultV1.pagination_meta
 model APIKeysRotatePayloadV1.additional_properties
+model APIKeysRotatePayloadV1.expires_at
 model APIKeysRotatePayloadV1.grace_period_minutes
 model APIKeysRotateResultV1.additional_properties
 model APIKeysRotateResultV1.api_key

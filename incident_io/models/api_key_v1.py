@@ -25,11 +25,11 @@ class APIKeyV1:
         {'comments': 'Requested in https://example.slack.com/archives/C123/p456', 'created_at':
             '2021-08-17T13:28:57.801578Z', 'creator': {'api_key': {'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'My test API
             key'}, 'user': {'email': 'lisa@incident.io', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Lisa Karlin Curtis',
-            'role': 'viewer', 'slack_user_id': 'U02AYNF2XJM'}}, 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'last_used_at':
-            '2021-08-17T13:28:57.801578Z', 'name': 'My test API key', 'roles': [{'description': 'can view data, like public
-            incidents and organization settings', 'name': 'viewer'}], 'team_ids': ['abc123'], 'team_roles': [{'description':
-            'can view data, like public incidents and organization settings', 'name': 'catalog_editor'}],
-            'token_last_issued_at': '2021-08-17T13:28:57.801578Z'}
+            'role': 'viewer', 'slack_user_id': 'U02AYNF2XJM'}}, 'expires_at': '2022-08-17T13:28:57.801578Z', 'id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'last_used_at': '2021-08-17T13:28:57.801578Z', 'name': 'My test API key', 'roles':
+            [{'description': 'can view data, like public incidents and organization settings', 'name': 'viewer'}],
+            'team_ids': ['abc123'], 'team_roles': [{'description': 'can view data, like public incidents and organization
+            settings', 'name': 'catalog_editor'}], 'token_last_issued_at': '2021-08-17T13:28:57.801578Z'}
 
     Attributes:
         created_at (datetime.datetime): When the API key was created Example: 2021-08-17T13:28:57.801578Z.
@@ -49,6 +49,8 @@ class APIKeyV1:
             2021-08-17T13:28:57.801578Z.
         comments (str | Unset): Freeform notes about this API key Example: Requested in
             https://example.slack.com/archives/C123/p456.
+        expires_at (datetime.datetime | Unset): When this API key stops working. If it's not set, the key never expires.
+            Example: 2022-08-17T13:28:57.801578Z.
         last_used_at (datetime.datetime | Unset): When the key was last used to authenticate a request Example:
             2021-08-17T13:28:57.801578Z.
     """
@@ -62,6 +64,7 @@ class APIKeyV1:
     team_roles: list[APIKeyTeamRoleV1]
     token_last_issued_at: datetime.datetime
     comments: str | Unset = UNSET
+    expires_at: datetime.datetime | Unset = UNSET
     last_used_at: datetime.datetime | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -90,6 +93,10 @@ class APIKeyV1:
 
         comments = self.comments
 
+        expires_at: str | Unset = UNSET
+        if not isinstance(self.expires_at, Unset):
+            expires_at = self.expires_at.isoformat()
+
         last_used_at: str | Unset = UNSET
         if not isinstance(self.last_used_at, Unset):
             last_used_at = self.last_used_at.isoformat()
@@ -110,6 +117,8 @@ class APIKeyV1:
         )
         if comments is not UNSET:
             field_dict["comments"] = comments
+        if expires_at is not UNSET:
+            field_dict["expires_at"] = expires_at
         if last_used_at is not UNSET:
             field_dict["last_used_at"] = last_used_at
 
@@ -152,6 +161,13 @@ class APIKeyV1:
 
         comments = d.pop("comments", UNSET)
 
+        _expires_at = d.pop("expires_at", UNSET)
+        expires_at: datetime.datetime | Unset
+        if isinstance(_expires_at, Unset):
+            expires_at = UNSET
+        else:
+            expires_at = datetime.datetime.fromisoformat(_expires_at)
+
         _last_used_at = d.pop("last_used_at", UNSET)
         last_used_at: datetime.datetime | Unset
         if isinstance(_last_used_at, Unset):
@@ -169,6 +185,7 @@ class APIKeyV1:
             team_roles=team_roles,
             token_last_issued_at=token_last_issued_at,
             comments=comments,
+            expires_at=expires_at,
             last_used_at=last_used_at,
         )
 

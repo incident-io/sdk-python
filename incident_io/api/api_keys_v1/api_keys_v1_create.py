@@ -136,9 +136,10 @@ def sync_detailed(
 
     Args:
         body (APIKeysCreatePayloadV1):  Example: {'comments': 'Requested in
-            https://example.slack.com/archives/C123/p456', 'name': 'My test API key', 'role_names':
-            ['viewer', 'incident_creator'], 'team_ids': ['01FCNDV6P870EA6S7TK1DSYDG0'],
-            'team_role_names': ['schedules_editor']}.
+            https://example.slack.com/archives/C123/p456', 'expires_at':
+            '2022-08-17T13:28:57.801578Z', 'name': 'My test API key', 'role_names': ['viewer',
+            'incident_creator'], 'team_ids': ['01FCNDV6P870EA6S7TK1DSYDG0'], 'team_role_names':
+            ['schedules_editor']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -175,9 +176,10 @@ def sync(
 
     Args:
         body (APIKeysCreatePayloadV1):  Example: {'comments': 'Requested in
-            https://example.slack.com/archives/C123/p456', 'name': 'My test API key', 'role_names':
-            ['viewer', 'incident_creator'], 'team_ids': ['01FCNDV6P870EA6S7TK1DSYDG0'],
-            'team_role_names': ['schedules_editor']}.
+            https://example.slack.com/archives/C123/p456', 'expires_at':
+            '2022-08-17T13:28:57.801578Z', 'name': 'My test API key', 'role_names': ['viewer',
+            'incident_creator'], 'team_ids': ['01FCNDV6P870EA6S7TK1DSYDG0'], 'team_role_names':
+            ['schedules_editor']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -209,9 +211,10 @@ async def asyncio_detailed(
 
     Args:
         body (APIKeysCreatePayloadV1):  Example: {'comments': 'Requested in
-            https://example.slack.com/archives/C123/p456', 'name': 'My test API key', 'role_names':
-            ['viewer', 'incident_creator'], 'team_ids': ['01FCNDV6P870EA6S7TK1DSYDG0'],
-            'team_role_names': ['schedules_editor']}.
+            https://example.slack.com/archives/C123/p456', 'expires_at':
+            '2022-08-17T13:28:57.801578Z', 'name': 'My test API key', 'role_names': ['viewer',
+            'incident_creator'], 'team_ids': ['01FCNDV6P870EA6S7TK1DSYDG0'], 'team_role_names':
+            ['schedules_editor']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -246,9 +249,10 @@ async def asyncio(
 
     Args:
         body (APIKeysCreatePayloadV1):  Example: {'comments': 'Requested in
-            https://example.slack.com/archives/C123/p456', 'name': 'My test API key', 'role_names':
-            ['viewer', 'incident_creator'], 'team_ids': ['01FCNDV6P870EA6S7TK1DSYDG0'],
-            'team_role_names': ['schedules_editor']}.
+            https://example.slack.com/archives/C123/p456', 'expires_at':
+            '2022-08-17T13:28:57.801578Z', 'name': 'My test API key', 'role_names': ['viewer',
+            'incident_creator'], 'team_ids': ['01FCNDV6P870EA6S7TK1DSYDG0'], 'team_role_names':
+            ['schedules_editor']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

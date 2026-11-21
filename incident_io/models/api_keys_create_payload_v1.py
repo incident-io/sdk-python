@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import datetime
 from collections.abc import Mapping
 from typing import Any, Self, TypeVar, cast
 
@@ -21,9 +22,9 @@ T = TypeVar("T", bound="APIKeysCreatePayloadV1")
 class APIKeysCreatePayloadV1:
     """
     Example:
-        {'comments': 'Requested in https://example.slack.com/archives/C123/p456', 'name': 'My test API key',
-            'role_names': ['viewer', 'incident_creator'], 'team_ids': ['01FCNDV6P870EA6S7TK1DSYDG0'], 'team_role_names':
-            ['schedules_editor']}
+        {'comments': 'Requested in https://example.slack.com/archives/C123/p456', 'expires_at':
+            '2022-08-17T13:28:57.801578Z', 'name': 'My test API key', 'role_names': ['viewer', 'incident_creator'],
+            'team_ids': ['01FCNDV6P870EA6S7TK1DSYDG0'], 'team_role_names': ['schedules_editor']}
 
     Attributes:
         name (str): Human-readable name for the new API key Example: My test API key.
@@ -38,6 +39,9 @@ class APIKeysCreatePayloadV1:
             team-level roles are needed. Example: ['schedules_editor'].
         comments (str | Unset): Freeform notes about the API key Example: Requested in
             https://example.slack.com/archives/C123/p456.
+        expires_at (datetime.datetime | Unset): When the API key stops working. Leave it out for a key that never
+            expires. It must be in the future and within your organization's maximum lifetime for API keys. Example:
+            2022-08-17T13:28:57.801578Z.
     """
 
     name: str
@@ -45,6 +49,7 @@ class APIKeysCreatePayloadV1:
     team_ids: list[str]
     team_role_names: list[APIKeysCreatePayloadV1TeamRoleNamesItem]
     comments: str | Unset = UNSET
+    expires_at: datetime.datetime | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -64,6 +69,10 @@ class APIKeysCreatePayloadV1:
 
         comments = self.comments
 
+        expires_at: str | Unset = UNSET
+        if not isinstance(self.expires_at, Unset):
+            expires_at = self.expires_at.isoformat()
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -76,6 +85,8 @@ class APIKeysCreatePayloadV1:
         )
         if comments is not UNSET:
             field_dict["comments"] = comments
+        if expires_at is not UNSET:
+            field_dict["expires_at"] = expires_at
 
         return field_dict
 
@@ -104,12 +115,20 @@ class APIKeysCreatePayloadV1:
 
         comments = d.pop("comments", UNSET)
 
+        _expires_at = d.pop("expires_at", UNSET)
+        expires_at: datetime.datetime | Unset
+        if isinstance(_expires_at, Unset):
+            expires_at = UNSET
+        else:
+            expires_at = datetime.datetime.fromisoformat(_expires_at)
+
         api_keys_create_payload_v1 = cls(
             name=name,
             role_names=role_names,
             team_ids=team_ids,
             team_role_names=team_role_names,
             comments=comments,
+            expires_at=expires_at,
         )
 
         api_keys_create_payload_v1.additional_properties = d

@@ -20,22 +20,22 @@ class APIKeysRotateResultV1:
         {'api_key': {'comments': 'Requested in https://example.slack.com/archives/C123/p456', 'created_at':
             '2021-08-17T13:28:57.801578Z', 'creator': {'api_key': {'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'My test API
             key'}, 'user': {'email': 'lisa@incident.io', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Lisa Karlin Curtis',
-            'role': 'viewer', 'slack_user_id': 'U02AYNF2XJM'}}, 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'last_used_at':
-            '2021-08-17T13:28:57.801578Z', 'name': 'My test API key', 'roles': [{'description': 'can view data, like public
-            incidents and organization settings', 'name': 'viewer'}], 'team_ids': ['abc123'], 'team_roles': [{'description':
-            'can view data, like public incidents and organization settings', 'name': 'catalog_editor'}],
-            'token_last_issued_at': '2021-08-17T13:28:57.801578Z'}, 'token':
+            'role': 'viewer', 'slack_user_id': 'U02AYNF2XJM'}}, 'expires_at': '2022-08-17T13:28:57.801578Z', 'id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'last_used_at': '2021-08-17T13:28:57.801578Z', 'name': 'My test API key', 'roles':
+            [{'description': 'can view data, like public incidents and organization settings', 'name': 'viewer'}],
+            'team_ids': ['abc123'], 'team_roles': [{'description': 'can view data, like public incidents and organization
+            settings', 'name': 'catalog_editor'}], 'token_last_issued_at': '2021-08-17T13:28:57.801578Z'}, 'token':
             'inc_0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef'}
 
     Attributes:
         api_key (APIKeyV1):  Example: {'comments': 'Requested in https://example.slack.com/archives/C123/p456',
             'created_at': '2021-08-17T13:28:57.801578Z', 'creator': {'api_key': {'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name':
             'My test API key'}, 'user': {'email': 'lisa@incident.io', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Lisa
-            Karlin Curtis', 'role': 'viewer', 'slack_user_id': 'U02AYNF2XJM'}}, 'id': '01FCNDV6P870EA6S7TK1DSYDG0',
-            'last_used_at': '2021-08-17T13:28:57.801578Z', 'name': 'My test API key', 'roles': [{'description': 'can view
-            data, like public incidents and organization settings', 'name': 'viewer'}], 'team_ids': ['abc123'],
-            'team_roles': [{'description': 'can view data, like public incidents and organization settings', 'name':
-            'catalog_editor'}], 'token_last_issued_at': '2021-08-17T13:28:57.801578Z'}.
+            Karlin Curtis', 'role': 'viewer', 'slack_user_id': 'U02AYNF2XJM'}}, 'expires_at': '2022-08-17T13:28:57.801578Z',
+            'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'last_used_at': '2021-08-17T13:28:57.801578Z', 'name': 'My test API key',
+            'roles': [{'description': 'can view data, like public incidents and organization settings', 'name': 'viewer'}],
+            'team_ids': ['abc123'], 'team_roles': [{'description': 'can view data, like public incidents and organization
+            settings', 'name': 'catalog_editor'}], 'token_last_issued_at': '2021-08-17T13:28:57.801578Z'}.
         token (str): The new bearer token to use in API requests. This is the only time the token is returned — store it
             securely. Example: inc_0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
     """

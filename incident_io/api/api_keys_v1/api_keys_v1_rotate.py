@@ -141,7 +141,8 @@ def sync_detailed(
 
     Args:
         id (str): Unique identifier of the API key to rotate Example: 01FCNDV6P870EA6S7TK1DSYDG0.
-        body (APIKeysRotatePayloadV1):  Example: {'grace_period_minutes': 30}.
+        body (APIKeysRotatePayloadV1):  Example: {'expires_at': '2022-08-17T13:28:57.801578Z',
+            'grace_period_minutes': 30}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -180,7 +181,8 @@ def sync(
 
     Args:
         id (str): Unique identifier of the API key to rotate Example: 01FCNDV6P870EA6S7TK1DSYDG0.
-        body (APIKeysRotatePayloadV1):  Example: {'grace_period_minutes': 30}.
+        body (APIKeysRotatePayloadV1):  Example: {'expires_at': '2022-08-17T13:28:57.801578Z',
+            'grace_period_minutes': 30}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -214,7 +216,8 @@ async def asyncio_detailed(
 
     Args:
         id (str): Unique identifier of the API key to rotate Example: 01FCNDV6P870EA6S7TK1DSYDG0.
-        body (APIKeysRotatePayloadV1):  Example: {'grace_period_minutes': 30}.
+        body (APIKeysRotatePayloadV1):  Example: {'expires_at': '2022-08-17T13:28:57.801578Z',
+            'grace_period_minutes': 30}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -251,7 +254,8 @@ async def asyncio(
 
     Args:
         id (str): Unique identifier of the API key to rotate Example: 01FCNDV6P870EA6S7TK1DSYDG0.
-        body (APIKeysRotatePayloadV1):  Example: {'grace_period_minutes': 30}.
+        body (APIKeysRotatePayloadV1):  Example: {'expires_at': '2022-08-17T13:28:57.801578Z',
+            'grace_period_minutes': 30}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
