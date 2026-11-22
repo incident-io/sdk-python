@@ -109,7 +109,8 @@
               "telemetry_viewer",
               "documents_viewer",
               "user_sessions_revoke",
-              "users_viewer"
+              "users_viewer",
+              "access_control_manage"
             ],
             "example": "viewer",
             "type": "string",
@@ -388,7 +389,8 @@
                 "telemetry_viewer",
                 "documents_viewer",
                 "user_sessions_revoke",
-                "users_viewer"
+                "users_viewer",
+                "access_control_manage"
               ],
               "example": "viewer",
               "type": "string"
@@ -821,7 +823,8 @@
                 "telemetry_viewer",
                 "documents_viewer",
                 "user_sessions_revoke",
-                "users_viewer"
+                "users_viewer",
+                "access_control_manage"
               ],
               "example": "viewer",
               "type": "string"
@@ -88312,7 +88315,8 @@
                 "telemetry_viewer",
                 "documents_viewer",
                 "user_sessions_revoke",
-                "users_viewer"
+                "users_viewer",
+                "access_control_manage"
               ],
               "example": "viewer",
               "type": "string",
@@ -105697,7 +105701,7 @@
           },
           "managed_by": "terraform",
           "resource_id": "abc123",
-          "resource_type": "alert_route",
+          "resource_type": "access_grant",
           "source_url": "https://github.com/my-company/infrastructure"
         },
         "properties": {
@@ -105729,6 +105733,8 @@
           },
           "resource_type": {
             "enum": [
+              "access_grant",
+              "access_group",
               "alert_route",
               "alert_rule",
               "alert_source",
@@ -105747,7 +105753,7 @@
               "team_grouping_preference",
               "workflow"
             ],
-            "example": "alert_route",
+            "example": "access_grant",
             "type": "string",
             "x-public-api-version": "v2"
           },
@@ -105771,7 +105777,7 @@
             "incident.io/terraform/version": "3.0.0"
           },
           "resource_id": "abc123",
-          "resource_type": "alert_route"
+          "resource_type": "access_grant"
         },
         "properties": {
           "annotations": {
@@ -105793,6 +105799,8 @@
           "resource_type": {
             "description": "The type of the related resource",
             "enum": [
+              "access_grant",
+              "access_group",
               "alert_route",
               "alert_rule",
               "alert_source",
@@ -105811,7 +105819,7 @@
               "team_grouping_preference",
               "workflow"
             ],
-            "example": "alert_route",
+            "example": "access_grant",
             "type": "string"
           }
         },
@@ -105830,7 +105838,7 @@
             },
             "managed_by": "terraform",
             "resource_id": "abc123",
-            "resource_type": "alert_route",
+            "resource_type": "access_grant",
             "source_url": "https://github.com/my-company/infrastructure"
           }
         },
@@ -185874,7 +185882,7 @@
                   "incident.io/terraform/version": "3.0.0"
                 },
                 "resource_id": "abc123",
-                "resource_type": "alert_route"
+                "resource_type": "access_grant"
               },
               "schema": {
                 "$ref": "#/components/schemas/ManagedResourcesCreateManagedResourcePayloadV2"
@@ -185894,7 +185902,7 @@
                     },
                     "managed_by": "terraform",
                     "resource_id": "abc123",
-                    "resource_type": "alert_route",
+                    "resource_type": "access_grant",
                     "source_url": "https://github.com/my-company/infrastructure"
                   }
                 },

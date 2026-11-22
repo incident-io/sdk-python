@@ -151,7 +151,7 @@ def sync_detailed(
     Args:
         body (ManagedResourcesCreateManagedResourcePayloadV2):  Example: {'annotations':
             {'incident.io/terraform/version': '3.0.0'}, 'resource_id': 'abc123', 'resource_type':
-            'alert_route'}.
+            'access_grant'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -197,7 +197,7 @@ def sync(
     Args:
         body (ManagedResourcesCreateManagedResourcePayloadV2):  Example: {'annotations':
             {'incident.io/terraform/version': '3.0.0'}, 'resource_id': 'abc123', 'resource_type':
-            'alert_route'}.
+            'access_grant'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -238,7 +238,7 @@ async def asyncio_detailed(
     Args:
         body (ManagedResourcesCreateManagedResourcePayloadV2):  Example: {'annotations':
             {'incident.io/terraform/version': '3.0.0'}, 'resource_id': 'abc123', 'resource_type':
-            'alert_route'}.
+            'access_grant'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -282,7 +282,7 @@ async def asyncio(
     Args:
         body (ManagedResourcesCreateManagedResourcePayloadV2):  Example: {'annotations':
             {'incident.io/terraform/version': '3.0.0'}, 'resource_id': 'abc123', 'resource_type':
-            'alert_route'}.
+            'access_grant'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

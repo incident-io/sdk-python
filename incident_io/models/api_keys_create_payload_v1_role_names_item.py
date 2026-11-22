@@ -2,6 +2,7 @@ from enum import StrEnum
 
 
 class APIKeysCreatePayloadV1RoleNamesItem(StrEnum):
+    ACCESS_CONTROL_MANAGE = "access_control_manage"
     ACT_ON_BEHALF_OF_USERS = "act_on_behalf_of_users"
     API_KEYS_MANAGE = "api_keys_manage"
     CALL_TRANSCRIPTS_VIEWER = "call_transcripts_viewer"

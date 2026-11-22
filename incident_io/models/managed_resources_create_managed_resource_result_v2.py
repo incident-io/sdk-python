@@ -18,12 +18,12 @@ class ManagedResourcesCreateManagedResourceResultV2:
     """
     Example:
         {'managed_resource': {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'terraform',
-            'resource_id': 'abc123', 'resource_type': 'alert_route', 'source_url': 'https://github.com/my-
+            'resource_id': 'abc123', 'resource_type': 'access_grant', 'source_url': 'https://github.com/my-
             company/infrastructure'}}
 
     Attributes:
         managed_resource (ManagedResourceV2):  Example: {'annotations': {'incident.io/terraform/version': '3.0.0'},
-            'managed_by': 'terraform', 'resource_id': 'abc123', 'resource_type': 'alert_route', 'source_url':
+            'managed_by': 'terraform', 'resource_id': 'abc123', 'resource_type': 'access_grant', 'source_url':
             'https://github.com/my-company/infrastructure'}.
     """
 

@@ -2,6 +2,8 @@ from enum import StrEnum
 
 
 class ManagedResourcesCreateManagedResourcePayloadV2ResourceType(StrEnum):
+    ACCESS_GRANT = "access_grant"
+    ACCESS_GROUP = "access_group"
     ALERT_ROUTE = "alert_route"
     ALERT_RULE = "alert_rule"
     ALERT_SOURCE = "alert_source"

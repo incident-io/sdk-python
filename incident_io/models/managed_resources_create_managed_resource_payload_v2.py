@@ -24,14 +24,14 @@ class ManagedResourcesCreateManagedResourcePayloadV2:
     """
     Example:
         {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'resource_id': 'abc123', 'resource_type':
-            'alert_route'}
+            'access_grant'}
 
     Attributes:
         annotations (ManagedResourcesCreateManagedResourcePayloadV2Annotations): Annotations that track metadata about
             this resource Example: {'incident.io/terraform/version': '3.0.0'}.
         resource_id (str): The ID of the resource that this relates to Example: abc123.
         resource_type (ManagedResourcesCreateManagedResourcePayloadV2ResourceType): The type of the related resource
-            Example: alert_route.
+            Example: access_grant.
     """
 
     annotations: ManagedResourcesCreateManagedResourcePayloadV2Annotations

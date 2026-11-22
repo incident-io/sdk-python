@@ -22,14 +22,14 @@ class ManagedResourceV2:
     """
     Example:
         {'annotations': {'incident.io/terraform/version': '3.0.0'}, 'managed_by': 'terraform', 'resource_id': 'abc123',
-            'resource_type': 'alert_route', 'source_url': 'https://github.com/my-company/infrastructure'}
+            'resource_type': 'access_grant', 'source_url': 'https://github.com/my-company/infrastructure'}
 
     Attributes:
         annotations (ManagedResourceV2Annotations): Annotations that track metadata about this resource Example:
             {'incident.io/terraform/version': '3.0.0'}.
         managed_by (ManagedResourceV2ManagedBy): How is this resource managed Example: terraform.
         resource_id (str): The ID of the resource that this relates to Example: abc123.
-        resource_type (ManagedResourceV2ResourceType):  Example: alert_route.
+        resource_type (ManagedResourceV2ResourceType):  Example: access_grant.
         source_url (str | Unset): The url of the external repository where this resource is managed (if there is one)
             Example: https://github.com/my-company/infrastructure.
     """
