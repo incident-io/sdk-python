@@ -20,7 +20,7 @@ class AuditLogMobileKeyArchivedMetadataV2:
     Attributes:
         platform (str): The device platform, such as ios or android Example: ios.
         reason (str): Why the sign-in ended, such as logged_out, user_deleted, user_has_been_deactivated,
-            sessions_revoked, device_unregistered or duplicate_token Example: logged_out.
+            sessions_revoked, admin_revoked, device_unregistered or duplicate_token Example: logged_out.
         device_name (str | Unset): The name of the device, absent when the app did not send one Example: Bob's iPhone.
         model_name (str | Unset): The model of the device, absent when the app did not send one Example: iPhone 15.
     """
