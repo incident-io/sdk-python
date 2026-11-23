@@ -2212,9 +2212,13 @@ from .incident_participant_v2 import IncidentParticipantV2
 from .incident_participant_v2_participant_type import (
     IncidentParticipantV2ParticipantType,
 )
+from .incident_participant_workload_hour_v2 import IncidentParticipantWorkloadHourV2
 from .incident_participant_workload_v2 import IncidentParticipantWorkloadV2
 from .incident_participant_workload_v2_participant_type import (
     IncidentParticipantWorkloadV2ParticipantType,
+)
+from .incident_participant_workloads_list_hours_result_v2 import (
+    IncidentParticipantWorkloadsListHoursResultV2,
 )
 from .incident_participant_workloads_list_result_v2 import (
     IncidentParticipantWorkloadsListResultV2,
@@ -4613,8 +4617,10 @@ __all__ = (
     "IncidentMembershipsRevokePayloadV1",
     "IncidentParticipantV2",
     "IncidentParticipantV2ParticipantType",
+    "IncidentParticipantWorkloadHourV2",
     "IncidentParticipantWorkloadV2",
     "IncidentParticipantWorkloadV2ParticipantType",
+    "IncidentParticipantWorkloadsListHoursResultV2",
     "IncidentParticipantWorkloadsListResultV2",
     "IncidentParticipantsListResultV2",
     "IncidentParticipantsV2",
