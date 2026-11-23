@@ -45,7 +45,8 @@ class AlertRoutesCreateResultV3:
             {'reference': '1235', 'reference_label': 'Teams'}, 'operation_type': 'navigate', 'parse': {'returns': {'array':
             True, 'type': 'IncidentStatus'}, 'source': 'metadata.annotations["github.com/repo"]'}, 'returns': {'array':
             True, 'type': 'IncidentStatus'}}], 'reference': 'abc123', 'returns': {'array': True, 'type': 'IncidentStatus'},
-            'root_reference': 'incident.status'}], 'grouping_config': {'default': {'ai_enabled': False, 'enabled': True,
+            'root_reference': 'incident.status'}], 'grouping_config': {'default': {'ai_enabled': False, 'ai_instructions':
+            'Alerts from the old and new clusters describe the same outage, so group them together.', 'enabled': True,
             'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}}, 'id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'incident_config': {'auto_decline_enabled': False, 'condition_groups':
             [{'conditions': [{'operation': {'label': 'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'},
@@ -112,7 +113,8 @@ class AlertRoutesCreateResultV3:
             'operation_type': 'navigate', 'parse': {'returns': {'array': True, 'type': 'IncidentStatus'}, 'source':
             'metadata.annotations["github.com/repo"]'}, 'returns': {'array': True, 'type': 'IncidentStatus'}}], 'reference':
             'abc123', 'returns': {'array': True, 'type': 'IncidentStatus'}, 'root_reference': 'incident.status'}],
-            'grouping_config': {'default': {'ai_enabled': False, 'enabled': True, 'grouping_keys': [{'reference':
+            'grouping_config': {'default': {'ai_enabled': False, 'ai_instructions': 'Alerts from the old and new clusters
+            describe the same outage, so group them together.', 'enabled': True, 'grouping_keys': [{'reference':
             'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}}, 'id': '01FCNDV6P870EA6S7TK1DSYDG0',
             'incident_config': {'auto_decline_enabled': False, 'condition_groups': [{'conditions': [{'operation': {'label':
             'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'literal':

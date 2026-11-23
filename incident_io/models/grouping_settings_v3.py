@@ -20,7 +20,8 @@ T = TypeVar("T", bound="GroupingSettingsV3")
 class GroupingSettingsV3:
     """
     Example:
-        {'ai_enabled': False, 'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800,
+        {'ai_enabled': False, 'ai_instructions': 'Alerts from the old and new clusters describe the same outage, so
+            group them together.', 'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800,
             'window_type': 'rolling'}
 
     Attributes:
@@ -29,6 +30,9 @@ class GroupingSettingsV3:
             are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are
             not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the
             current value. Example: False.
+        ai_instructions (str | Unset): Optional instructions the model follows when AI groups alerts on this route, such
+            as how the systems you run relate to each other. Up to 2000 characters. Example: Alerts from the old and new
+            clusters describe the same outage, so group them together..
         grouping_keys (list[GroupingKeyV3] | Unset): Which attributes should this alert route use to group alerts? Only
             set when grouping is enabled. Example: [{'reference': 'alert.title'}].
         window_seconds (int | Unset): How long the grouping window is, in seconds. Must be between 60 (1 minute) and
@@ -41,6 +45,7 @@ class GroupingSettingsV3:
 
     enabled: bool
     ai_enabled: bool | Unset = UNSET
+    ai_instructions: str | Unset = UNSET
     grouping_keys: list[GroupingKeyV3] | Unset = UNSET
     window_seconds: int | Unset = UNSET
     window_type: GroupingSettingsV3WindowType | Unset = UNSET
@@ -50,6 +55,8 @@ class GroupingSettingsV3:
         enabled = self.enabled
 
         ai_enabled = self.ai_enabled
+
+        ai_instructions = self.ai_instructions
 
         grouping_keys: list[dict[str, Any]] | Unset = UNSET
         if not isinstance(self.grouping_keys, Unset):
@@ -73,6 +80,8 @@ class GroupingSettingsV3:
         )
         if ai_enabled is not UNSET:
             field_dict["ai_enabled"] = ai_enabled
+        if ai_instructions is not UNSET:
+            field_dict["ai_instructions"] = ai_instructions
         if grouping_keys is not UNSET:
             field_dict["grouping_keys"] = grouping_keys
         if window_seconds is not UNSET:
@@ -90,6 +99,8 @@ class GroupingSettingsV3:
         enabled = d.pop("enabled")
 
         ai_enabled = d.pop("ai_enabled", UNSET)
+
+        ai_instructions = d.pop("ai_instructions", UNSET)
 
         _grouping_keys = d.pop("grouping_keys", UNSET)
         grouping_keys: list[GroupingKeyV3] | Unset = UNSET
@@ -112,6 +123,7 @@ class GroupingSettingsV3:
         grouping_settings_v3 = cls(
             enabled=enabled,
             ai_enabled=ai_enabled,
+            ai_instructions=ai_instructions,
             grouping_keys=grouping_keys,
             window_seconds=window_seconds,
             window_type=window_type,

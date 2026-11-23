@@ -17,11 +17,13 @@ T = TypeVar("T", bound="AlertGroupingConfigV3")
 class AlertGroupingConfigV3:
     """
     Example:
-        {'default': {'ai_enabled': False, 'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}],
+        {'default': {'ai_enabled': False, 'ai_instructions': 'Alerts from the old and new clusters describe the same
+            outage, so group them together.', 'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}],
             'window_seconds': 1800, 'window_type': 'rolling'}}
 
     Attributes:
-        default (GroupingSettingsV3):  Example: {'ai_enabled': False, 'enabled': True, 'grouping_keys': [{'reference':
+        default (GroupingSettingsV3):  Example: {'ai_enabled': False, 'ai_instructions': 'Alerts from the old and new
+            clusters describe the same outage, so group them together.', 'enabled': True, 'grouping_keys': [{'reference':
             'alert.title'}], 'window_seconds': 1800, 'window_type': 'rolling'}.
     """
 
