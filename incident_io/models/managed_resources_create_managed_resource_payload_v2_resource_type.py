@@ -19,6 +19,8 @@ class ManagedResourcesCreateManagedResourcePayloadV2ResourceType(StrEnum):
     SCHEDULE_SYNC_TARGET = "schedule_sync_target"
     SECRET = "secret"
     STATUS_PAGE_COMPONENT = "status_page_component"
+    STATUS_PAGE_COMPONENT_PROPERTY = "status_page_component_property"
+    STATUS_PAGE_COMPONENT_PROPERTY_OPTION = "status_page_component_property_option"
     STATUS_PAGE_STRUCTURE = "status_page_structure"
     TEAM_GROUPING_PREFERENCE = "team_grouping_preference"
     WORKFLOW = "workflow"

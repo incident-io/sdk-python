@@ -10,11 +10,11 @@ if TYPE_CHECKING:
     from ..models.escalation_path_v2 import EscalationPathV2
 
 
-T = TypeVar("T", bound="EscalationsShowPathResultV2")
+T = TypeVar("T", bound="EscalationPathsCreateResultV2")
 
 
 @_attrs_define(kw_only=True)
-class EscalationsShowPathResultV2:
+class EscalationPathsCreateResultV2:
     """
     Example:
         {'escalation_path': {'current_responders': [{'email': 'lisa@incident.io', 'id': '01FCNDV6P870EA6S7TK1DSYDG0',
@@ -90,12 +90,12 @@ class EscalationsShowPathResultV2:
         d = dict(src_dict)
         escalation_path = EscalationPathV2.from_dict(d.pop("escalation_path"))
 
-        escalations_show_path_result_v2 = cls(
+        escalation_paths_create_result_v2 = cls(
             escalation_path=escalation_path,
         )
 
-        escalations_show_path_result_v2.additional_properties = d
-        return escalations_show_path_result_v2
+        escalation_paths_create_result_v2.additional_properties = d
+        return escalation_paths_create_result_v2
 
     @property
     def additional_keys(self) -> list[str]:

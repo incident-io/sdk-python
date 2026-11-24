@@ -6,25 +6,25 @@ from typing import TYPE_CHECKING, Any, Self, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.escalations_create_path_payload_v2_kind import (
-    EscalationsCreatePathPayloadV2Kind,
+from ..models.escalation_paths_create_payload_v2_kind import (
+    EscalationPathsCreatePayloadV2Kind,
 )
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.escalation_path_node_payload_v2 import EscalationPathNodePayloadV2
     from ..models.escalation_path_repeat_config_v2 import EscalationPathRepeatConfigV2
-    from ..models.escalations_create_path_payload_v2_param_bindings import (
-        EscalationsCreatePathPayloadV2ParamBindings,
+    from ..models.escalation_paths_create_payload_v2_param_bindings import (
+        EscalationPathsCreatePayloadV2ParamBindings,
     )
     from ..models.weekday_interval_config_v2 import WeekdayIntervalConfigV2
 
 
-T = TypeVar("T", bound="EscalationsCreatePathPayloadV2")
+T = TypeVar("T", bound="EscalationPathsCreatePayloadV2")
 
 
 @_attrs_define(kw_only=True)
-class EscalationsCreatePathPayloadV2:
+class EscalationPathsCreatePayloadV2:
     """
     Example:
         {'kind': 'templated', 'name': 'Urgent Support', 'param_bindings': {'abc123': {'array_value': [{'literal':
@@ -64,9 +64,9 @@ class EscalationsCreatePathPayloadV2:
             'schedule', 'urgency': 'high'}], 'time_to_ack_interval_condition': 'active', 'time_to_ack_seconds': 1800,
             'time_to_ack_weekday_interval_config_id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'repeat': {'repeat_times': 3,
             'to_node': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'type': 'if_else'}].
-        kind (EscalationsCreatePathPayloadV2Kind | Unset): Whether this path carries its own nodes, or is built from an
+        kind (EscalationPathsCreatePayloadV2Kind | Unset): Whether this path carries its own nodes, or is built from an
             escalation path template. Example: templated.
-        param_bindings (EscalationsCreatePathPayloadV2ParamBindings | Unset): For a templated path, the values to bind
+        param_bindings (EscalationPathsCreatePayloadV2ParamBindings | Unset): For a templated path, the values to bind
             to the template's declared parameters, keyed by parameter name. Example: {'abc123': {'array_value': [{'literal':
             'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
             'incident.severity'}}}.
@@ -84,8 +84,8 @@ class EscalationsCreatePathPayloadV2:
 
     name: str
     path: list[EscalationPathNodePayloadV2]
-    kind: EscalationsCreatePathPayloadV2Kind | Unset = UNSET
-    param_bindings: EscalationsCreatePathPayloadV2ParamBindings | Unset = UNSET
+    kind: EscalationPathsCreatePayloadV2Kind | Unset = UNSET
+    param_bindings: EscalationPathsCreatePayloadV2ParamBindings | Unset = UNSET
     repeat_config: EscalationPathRepeatConfigV2 | Unset = UNSET
     team_ids: list[str] | Unset = UNSET
     template_id: str | Unset = UNSET
@@ -156,8 +156,8 @@ class EscalationsCreatePathPayloadV2:
         from ..models.escalation_path_repeat_config_v2 import (
             EscalationPathRepeatConfigV2,
         )
-        from ..models.escalations_create_path_payload_v2_param_bindings import (
-            EscalationsCreatePathPayloadV2ParamBindings,
+        from ..models.escalation_paths_create_payload_v2_param_bindings import (
+            EscalationPathsCreatePayloadV2ParamBindings,
         )
         from ..models.weekday_interval_config_v2 import (
             WeekdayIntervalConfigV2,
@@ -174,18 +174,18 @@ class EscalationsCreatePathPayloadV2:
             path.append(path_item)
 
         _kind = d.pop("kind", UNSET)
-        kind: EscalationsCreatePathPayloadV2Kind | Unset
+        kind: EscalationPathsCreatePayloadV2Kind | Unset
         if isinstance(_kind, Unset):
             kind = UNSET
         else:
-            kind = EscalationsCreatePathPayloadV2Kind(_kind)
+            kind = EscalationPathsCreatePayloadV2Kind(_kind)
 
         _param_bindings = d.pop("param_bindings", UNSET)
-        param_bindings: EscalationsCreatePathPayloadV2ParamBindings | Unset
+        param_bindings: EscalationPathsCreatePayloadV2ParamBindings | Unset
         if isinstance(_param_bindings, Unset):
             param_bindings = UNSET
         else:
-            param_bindings = EscalationsCreatePathPayloadV2ParamBindings.from_dict(
+            param_bindings = EscalationPathsCreatePayloadV2ParamBindings.from_dict(
                 _param_bindings
             )
 
@@ -211,7 +211,7 @@ class EscalationsCreatePathPayloadV2:
 
                 working_hours.append(working_hours_item)
 
-        escalations_create_path_payload_v2 = cls(
+        escalation_paths_create_payload_v2 = cls(
             name=name,
             path=path,
             kind=kind,
@@ -222,8 +222,8 @@ class EscalationsCreatePathPayloadV2:
             working_hours=working_hours,
         )
 
-        escalations_create_path_payload_v2.additional_properties = d
-        return escalations_create_path_payload_v2
+        escalation_paths_create_payload_v2.additional_properties = d
+        return escalation_paths_create_payload_v2
 
     @property
     def additional_keys(self) -> list[str]:

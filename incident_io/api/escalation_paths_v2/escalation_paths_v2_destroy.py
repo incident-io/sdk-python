@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from typing import Any
+from typing import Any, cast
 from urllib.parse import quote
 
 import httpx
@@ -7,7 +7,6 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.error_response import ErrorResponse
-from ...models.escalations_show_path_result_v2 import EscalationsShowPathResultV2
 from ...types import Response
 
 
@@ -16,7 +15,7 @@ def _get_kwargs(
 ) -> dict[str, Any]:
 
     _kwargs: dict[str, Any] = {
-        "method": "get",
+        "method": "delete",
         "url": "/v2/escalation_paths/{id}".format(
             id=quote(str(id), safe=""),
         ),
@@ -27,11 +26,10 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> ErrorResponse | EscalationsShowPathResultV2 | None:
-    if response.status_code == 200:
-        response_200 = EscalationsShowPathResultV2.from_dict(response.json())
-
-        return response_200
+) -> Any | ErrorResponse | None:
+    if response.status_code == 204:
+        response_204 = cast(Any, None)
+        return response_204
 
     if response.status_code == 400:
         response_400 = ErrorResponse.from_dict(response.json())
@@ -106,7 +104,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[ErrorResponse | EscalationsShowPathResultV2]:
+) -> Response[Any | ErrorResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -119,10 +117,10 @@ def sync_detailed(
     id: str,
     *,
     client: AuthenticatedClient | Client,
-) -> Response[ErrorResponse | EscalationsShowPathResultV2]:
-    """ShowPath Escalations V2
+) -> Response[Any | ErrorResponse]:
+    """Destroy Escalation Paths V2
 
-     Show an escalation path.
+     Archives an escalation path.
 
     We recommend you create escalation paths in the incident.io dashboard where our path
     builder makes it easy to use conditions and visualise the path.
@@ -135,7 +133,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ErrorResponse | EscalationsShowPathResultV2]
+        Response[Any | ErrorResponse]
     """
 
     kwargs = _get_kwargs(
@@ -153,10 +151,10 @@ def sync(
     id: str,
     *,
     client: AuthenticatedClient | Client,
-) -> ErrorResponse | EscalationsShowPathResultV2 | None:
-    """ShowPath Escalations V2
+) -> Any | ErrorResponse | None:
+    """Destroy Escalation Paths V2
 
-     Show an escalation path.
+     Archives an escalation path.
 
     We recommend you create escalation paths in the incident.io dashboard where our path
     builder makes it easy to use conditions and visualise the path.
@@ -169,7 +167,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ErrorResponse | EscalationsShowPathResultV2
+        Any | ErrorResponse
     """
 
     return sync_detailed(
@@ -182,10 +180,10 @@ async def asyncio_detailed(
     id: str,
     *,
     client: AuthenticatedClient | Client,
-) -> Response[ErrorResponse | EscalationsShowPathResultV2]:
-    """ShowPath Escalations V2
+) -> Response[Any | ErrorResponse]:
+    """Destroy Escalation Paths V2
 
-     Show an escalation path.
+     Archives an escalation path.
 
     We recommend you create escalation paths in the incident.io dashboard where our path
     builder makes it easy to use conditions and visualise the path.
@@ -198,7 +196,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ErrorResponse | EscalationsShowPathResultV2]
+        Response[Any | ErrorResponse]
     """
 
     kwargs = _get_kwargs(
@@ -214,10 +212,10 @@ async def asyncio(
     id: str,
     *,
     client: AuthenticatedClient | Client,
-) -> ErrorResponse | EscalationsShowPathResultV2 | None:
-    """ShowPath Escalations V2
+) -> Any | ErrorResponse | None:
+    """Destroy Escalation Paths V2
 
-     Show an escalation path.
+     Archives an escalation path.
 
     We recommend you create escalation paths in the incident.io dashboard where our path
     builder makes it easy to use conditions and visualise the path.
@@ -230,7 +228,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ErrorResponse | EscalationsShowPathResultV2
+        Any | ErrorResponse
     """
 
     return (

@@ -11,11 +11,11 @@ if TYPE_CHECKING:
     from ..models.pagination_meta_result_v2 import PaginationMetaResultV2
 
 
-T = TypeVar("T", bound="EscalationsListPathsResultV2")
+T = TypeVar("T", bound="EscalationPathsListResultV2")
 
 
 @_attrs_define(kw_only=True)
-class EscalationsListPathsResultV2:
+class EscalationPathsListResultV2:
     """
     Example:
         {'escalation_paths': [{'current_responders': [{'email': 'lisa@incident.io', 'id': '01FCNDV6P870EA6S7TK1DSYDG0',
@@ -113,13 +113,13 @@ class EscalationsListPathsResultV2:
 
         pagination_meta = PaginationMetaResultV2.from_dict(d.pop("pagination_meta"))
 
-        escalations_list_paths_result_v2 = cls(
+        escalation_paths_list_result_v2 = cls(
             escalation_paths=escalation_paths,
             pagination_meta=pagination_meta,
         )
 
-        escalations_list_paths_result_v2.additional_properties = d
-        return escalations_list_paths_result_v2
+        escalation_paths_list_result_v2.additional_properties = d
+        return escalation_paths_list_result_v2
 
     @property
     def additional_keys(self) -> list[str]:

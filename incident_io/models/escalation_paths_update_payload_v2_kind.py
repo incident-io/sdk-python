@@ -1,7 +1,7 @@
 from enum import StrEnum
 
 
-class EscalationsCreatePathPayloadV2Kind(StrEnum):
+class EscalationPathsUpdatePayloadV2Kind(StrEnum):
     STANDALONE = "standalone"
     TEMPLATED = "templated"
 
@@ -9,7 +9,7 @@ class EscalationsCreatePathPayloadV2Kind(StrEnum):
         return str(self.value)
 
     @classmethod
-    def _missing_(cls, value: object) -> "EscalationsCreatePathPayloadV2Kind":
+    def _missing_(cls, value: object) -> "EscalationPathsUpdatePayloadV2Kind":
         """Accept a value added to the API after this SDK was built."""
         if not isinstance(value, str):
             return super()._missing_(value)  # type: ignore[return-value]

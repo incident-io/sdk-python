@@ -25,7 +25,7 @@ class CallRouteTargetV2:
     Attributes:
         id (str): Uniquely identifies an entity of this type Example: lawrencejones.
         type_ (CallRouteTargetV2Type): Whether a call route target is a user or a schedule Example: schedule.
-        urgency (CallRouteTargetV2Urgency): The urgency of this escalation path target Example: high.
+        urgency (CallRouteTargetV2Urgency): The interruption level we notify this target at: high or low Example: high.
         schedule_mode (CallRouteTargetV2ScheduleMode | Unset): Only set for schedule targets, this specifies which users
             to fetch from the schedule. Use currently_on_call to notify whoever is on call right now across the schedule,
             all_users to notify every user attached to the schedule, or all_users_for_rota / currently_on_call_for_rota /

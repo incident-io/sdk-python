@@ -35,8 +35,8 @@ class EscalationPathTargetWithBindingPayloadV2:
     Attributes:
         type_ (EscalationPathTargetWithBindingPayloadV2Type): Controls what type of entity this target identifies, such
             as EscalationPolicy or User Example: schedule.
-        urgency (EscalationPathTargetWithBindingPayloadV2Urgency): The urgency of this escalation path target Example:
-            high.
+        urgency (EscalationPathTargetWithBindingPayloadV2Urgency): The interruption level we notify this target at: high
+            or low Example: high.
         binding (EngineParamBindingPayloadV2 | Unset):  Example: {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}.
         id (str | Unset): Uniquely identifies a concrete target. Omitted when binding is set. Example:

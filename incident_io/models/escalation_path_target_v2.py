@@ -27,7 +27,8 @@ class EscalationPathTargetV2:
         id (str): Uniquely identifies an entity of this type Example: lawrencejones.
         type_ (EscalationPathTargetV2Type): Controls what type of entity this target identifies, such as
             EscalationPolicy or User Example: schedule.
-        urgency (EscalationPathTargetV2Urgency): The urgency of this escalation path target Example: high.
+        urgency (EscalationPathTargetV2Urgency): The interruption level we notify this target at: high or low Example:
+            high.
         schedule_mode (EscalationPathTargetV2ScheduleMode | Unset): Only set for schedule targets, this specifies which
             users to fetch from the schedule. Use currently_on_call to notify whoever is on call right now across the
             schedule, all_users to notify every user attached to the schedule, or all_users_for_rota /

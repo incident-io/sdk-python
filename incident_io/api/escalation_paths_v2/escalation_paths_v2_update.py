@@ -1,25 +1,29 @@
 from http import HTTPStatus
 from typing import Any
+from urllib.parse import quote
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.error_response import ErrorResponse
-from ...models.escalations_create_path_payload_v2 import EscalationsCreatePathPayloadV2
-from ...models.escalations_create_path_result_v2 import EscalationsCreatePathResultV2
+from ...models.escalation_paths_update_payload_v2 import EscalationPathsUpdatePayloadV2
+from ...models.escalation_paths_update_result_v2 import EscalationPathsUpdateResultV2
 from ...types import Response
 
 
 def _get_kwargs(
+    id: str,
     *,
-    body: EscalationsCreatePathPayloadV2,
+    body: EscalationPathsUpdatePayloadV2,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
     _kwargs: dict[str, Any] = {
-        "method": "post",
-        "url": "/v2/escalation_paths",
+        "method": "put",
+        "url": "/v2/escalation_paths/{id}".format(
+            id=quote(str(id), safe=""),
+        ),
     }
 
     _kwargs["json"] = body.to_dict()
@@ -32,11 +36,11 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> ErrorResponse | EscalationsCreatePathResultV2 | None:
-    if response.status_code == 201:
-        response_201 = EscalationsCreatePathResultV2.from_dict(response.json())
+) -> ErrorResponse | EscalationPathsUpdateResultV2 | None:
+    if response.status_code == 200:
+        response_200 = EscalationPathsUpdateResultV2.from_dict(response.json())
 
-        return response_201
+        return response_200
 
     if response.status_code == 400:
         response_400 = ErrorResponse.from_dict(response.json())
@@ -111,7 +115,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[ErrorResponse | EscalationsCreatePathResultV2]:
+) -> Response[ErrorResponse | EscalationPathsUpdateResultV2]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -121,23 +125,21 @@ def _build_response(
 
 
 def sync_detailed(
+    id: str,
     *,
     client: AuthenticatedClient | Client,
-    body: EscalationsCreatePathPayloadV2,
-) -> Response[ErrorResponse | EscalationsCreatePathResultV2]:
-    """CreatePath Escalations V2
+    body: EscalationPathsUpdatePayloadV2,
+) -> Response[ErrorResponse | EscalationPathsUpdateResultV2]:
+    """Update Escalation Paths V2
 
-     Create an escalation path.
-
-    An escalation path is a series of steps that describe how a page should be escalated,
-    represented as graph, supporting conditional branches based on alert priority and working
-    intervals.
+     Updates an escalation path.
 
     We recommend you create escalation paths in the incident.io dashboard where our path
     builder makes it easy to use conditions and visualise the path.
 
     Args:
-        body (EscalationsCreatePathPayloadV2):  Example: {'kind': 'templated', 'name': 'Urgent
+        id (str): Unique identifier for this escalation path. Example: 01FCNDV6P870EA6S7TK1DSYDG0.
+        body (EscalationPathsUpdatePayloadV2):  Example: {'kind': 'templated', 'name': 'Urgent
             Support', 'param_bindings': {'abc123': {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}},
             'path': [{'delay': {'delay_interval_condition': 'active', 'delay_seconds': 300,
@@ -168,10 +170,11 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ErrorResponse | EscalationsCreatePathResultV2]
+        Response[ErrorResponse | EscalationPathsUpdateResultV2]
     """
 
     kwargs = _get_kwargs(
+        id=id,
         body=body,
     )
 
@@ -183,23 +186,21 @@ def sync_detailed(
 
 
 def sync(
+    id: str,
     *,
     client: AuthenticatedClient | Client,
-    body: EscalationsCreatePathPayloadV2,
-) -> ErrorResponse | EscalationsCreatePathResultV2 | None:
-    """CreatePath Escalations V2
+    body: EscalationPathsUpdatePayloadV2,
+) -> ErrorResponse | EscalationPathsUpdateResultV2 | None:
+    """Update Escalation Paths V2
 
-     Create an escalation path.
-
-    An escalation path is a series of steps that describe how a page should be escalated,
-    represented as graph, supporting conditional branches based on alert priority and working
-    intervals.
+     Updates an escalation path.
 
     We recommend you create escalation paths in the incident.io dashboard where our path
     builder makes it easy to use conditions and visualise the path.
 
     Args:
-        body (EscalationsCreatePathPayloadV2):  Example: {'kind': 'templated', 'name': 'Urgent
+        id (str): Unique identifier for this escalation path. Example: 01FCNDV6P870EA6S7TK1DSYDG0.
+        body (EscalationPathsUpdatePayloadV2):  Example: {'kind': 'templated', 'name': 'Urgent
             Support', 'param_bindings': {'abc123': {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}},
             'path': [{'delay': {'delay_interval_condition': 'active', 'delay_seconds': 300,
@@ -230,33 +231,32 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ErrorResponse | EscalationsCreatePathResultV2
+        ErrorResponse | EscalationPathsUpdateResultV2
     """
 
     return sync_detailed(
+        id=id,
         client=client,
         body=body,
     ).parsed
 
 
 async def asyncio_detailed(
+    id: str,
     *,
     client: AuthenticatedClient | Client,
-    body: EscalationsCreatePathPayloadV2,
-) -> Response[ErrorResponse | EscalationsCreatePathResultV2]:
-    """CreatePath Escalations V2
+    body: EscalationPathsUpdatePayloadV2,
+) -> Response[ErrorResponse | EscalationPathsUpdateResultV2]:
+    """Update Escalation Paths V2
 
-     Create an escalation path.
-
-    An escalation path is a series of steps that describe how a page should be escalated,
-    represented as graph, supporting conditional branches based on alert priority and working
-    intervals.
+     Updates an escalation path.
 
     We recommend you create escalation paths in the incident.io dashboard where our path
     builder makes it easy to use conditions and visualise the path.
 
     Args:
-        body (EscalationsCreatePathPayloadV2):  Example: {'kind': 'templated', 'name': 'Urgent
+        id (str): Unique identifier for this escalation path. Example: 01FCNDV6P870EA6S7TK1DSYDG0.
+        body (EscalationPathsUpdatePayloadV2):  Example: {'kind': 'templated', 'name': 'Urgent
             Support', 'param_bindings': {'abc123': {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}},
             'path': [{'delay': {'delay_interval_condition': 'active', 'delay_seconds': 300,
@@ -287,10 +287,11 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ErrorResponse | EscalationsCreatePathResultV2]
+        Response[ErrorResponse | EscalationPathsUpdateResultV2]
     """
 
     kwargs = _get_kwargs(
+        id=id,
         body=body,
     )
 
@@ -300,23 +301,21 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    id: str,
     *,
     client: AuthenticatedClient | Client,
-    body: EscalationsCreatePathPayloadV2,
-) -> ErrorResponse | EscalationsCreatePathResultV2 | None:
-    """CreatePath Escalations V2
+    body: EscalationPathsUpdatePayloadV2,
+) -> ErrorResponse | EscalationPathsUpdateResultV2 | None:
+    """Update Escalation Paths V2
 
-     Create an escalation path.
-
-    An escalation path is a series of steps that describe how a page should be escalated,
-    represented as graph, supporting conditional branches based on alert priority and working
-    intervals.
+     Updates an escalation path.
 
     We recommend you create escalation paths in the incident.io dashboard where our path
     builder makes it easy to use conditions and visualise the path.
 
     Args:
-        body (EscalationsCreatePathPayloadV2):  Example: {'kind': 'templated', 'name': 'Urgent
+        id (str): Unique identifier for this escalation path. Example: 01FCNDV6P870EA6S7TK1DSYDG0.
+        body (EscalationPathsUpdatePayloadV2):  Example: {'kind': 'templated', 'name': 'Urgent
             Support', 'param_bindings': {'abc123': {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}},
             'path': [{'delay': {'delay_interval_condition': 'active', 'delay_seconds': 300,
@@ -347,11 +346,12 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ErrorResponse | EscalationsCreatePathResultV2
+        ErrorResponse | EscalationPathsUpdateResultV2
     """
 
     return (
         await asyncio_detailed(
+            id=id,
             client=client,
             body=body,
         )

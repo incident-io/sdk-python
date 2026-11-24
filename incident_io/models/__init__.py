@@ -1965,6 +1965,20 @@ from .escalation_path_templates_update_result_v2 import (
 from .escalation_path_v2 import EscalationPathV2
 from .escalation_path_v2_kind import EscalationPathV2Kind
 from .escalation_path_v2_param_bindings import EscalationPathV2ParamBindings
+from .escalation_paths_create_payload_v2 import EscalationPathsCreatePayloadV2
+from .escalation_paths_create_payload_v2_kind import EscalationPathsCreatePayloadV2Kind
+from .escalation_paths_create_payload_v2_param_bindings import (
+    EscalationPathsCreatePayloadV2ParamBindings,
+)
+from .escalation_paths_create_result_v2 import EscalationPathsCreateResultV2
+from .escalation_paths_list_result_v2 import EscalationPathsListResultV2
+from .escalation_paths_show_result_v2 import EscalationPathsShowResultV2
+from .escalation_paths_update_payload_v2 import EscalationPathsUpdatePayloadV2
+from .escalation_paths_update_payload_v2_kind import EscalationPathsUpdatePayloadV2Kind
+from .escalation_paths_update_payload_v2_param_bindings import (
+    EscalationPathsUpdatePayloadV2ParamBindings,
+)
+from .escalation_paths_update_result_v2 import EscalationPathsUpdateResultV2
 from .escalation_priority_v2 import EscalationPriorityV2
 from .escalation_respond_snooze_details_payload_v2 import (
     EscalationRespondSnoozeDetailsPayloadV2,
@@ -1988,15 +2002,8 @@ from .escalations_check_escalation_permissions_payload_v2 import (
 from .escalations_check_escalation_permissions_result_v2 import (
     EscalationsCheckEscalationPermissionsResultV2,
 )
-from .escalations_create_path_payload_v2 import EscalationsCreatePathPayloadV2
-from .escalations_create_path_payload_v2_kind import EscalationsCreatePathPayloadV2Kind
-from .escalations_create_path_payload_v2_param_bindings import (
-    EscalationsCreatePathPayloadV2ParamBindings,
-)
-from .escalations_create_path_result_v2 import EscalationsCreatePathResultV2
 from .escalations_create_payload_v2 import EscalationsCreatePayloadV2
 from .escalations_create_result_v2 import EscalationsCreateResultV2
-from .escalations_list_paths_result_v2 import EscalationsListPathsResultV2
 from .escalations_list_result_v2 import EscalationsListResultV2
 from .escalations_reassign_escalation_payload_v2 import (
     EscalationsReassignEscalationPayloadV2,
@@ -2010,14 +2017,7 @@ from .escalations_respond_escalation_payload_v2 import (
 from .escalations_respond_escalation_payload_v2_response import (
     EscalationsRespondEscalationPayloadV2Response,
 )
-from .escalations_show_path_result_v2 import EscalationsShowPathResultV2
 from .escalations_show_result_v2 import EscalationsShowResultV2
-from .escalations_update_path_payload_v2 import EscalationsUpdatePathPayloadV2
-from .escalations_update_path_payload_v2_kind import EscalationsUpdatePathPayloadV2Kind
-from .escalations_update_path_payload_v2_param_bindings import (
-    EscalationsUpdatePathPayloadV2ParamBindings,
-)
-from .escalations_update_path_result_v2 import EscalationsUpdatePathResultV2
 from .escalations_v2_list_alert import EscalationsV2ListAlert
 from .escalations_v2_list_created_at import EscalationsV2ListCreatedAt
 from .escalations_v2_list_escalation_path import EscalationsV2ListEscalationPath
@@ -4434,6 +4434,16 @@ __all__ = (
     "EscalationPathV2",
     "EscalationPathV2Kind",
     "EscalationPathV2ParamBindings",
+    "EscalationPathsCreatePayloadV2",
+    "EscalationPathsCreatePayloadV2Kind",
+    "EscalationPathsCreatePayloadV2ParamBindings",
+    "EscalationPathsCreateResultV2",
+    "EscalationPathsListResultV2",
+    "EscalationPathsShowResultV2",
+    "EscalationPathsUpdatePayloadV2",
+    "EscalationPathsUpdatePayloadV2Kind",
+    "EscalationPathsUpdatePayloadV2ParamBindings",
+    "EscalationPathsUpdateResultV2",
     "EscalationPriorityV2",
     "EscalationRespondSnoozeDetailsPayloadV2",
     "EscalationUserResponseOptionsV2",
@@ -4445,24 +4455,14 @@ __all__ = (
     "EscalationWithStatusChangeV2PreviousStatus",
     "EscalationsCheckEscalationPermissionsPayloadV2",
     "EscalationsCheckEscalationPermissionsResultV2",
-    "EscalationsCreatePathPayloadV2",
-    "EscalationsCreatePathPayloadV2Kind",
-    "EscalationsCreatePathPayloadV2ParamBindings",
-    "EscalationsCreatePathResultV2",
     "EscalationsCreatePayloadV2",
     "EscalationsCreateResultV2",
-    "EscalationsListPathsResultV2",
     "EscalationsListResultV2",
     "EscalationsReassignEscalationPayloadV2",
     "EscalationsReassignEscalationResultV2",
     "EscalationsRespondEscalationPayloadV2",
     "EscalationsRespondEscalationPayloadV2Response",
-    "EscalationsShowPathResultV2",
     "EscalationsShowResultV2",
-    "EscalationsUpdatePathPayloadV2",
-    "EscalationsUpdatePathPayloadV2Kind",
-    "EscalationsUpdatePathPayloadV2ParamBindings",
-    "EscalationsUpdatePathResultV2",
     "EscalationsV2ListAlert",
     "EscalationsV2ListCreatedAt",
     "EscalationsV2ListEscalationPath",

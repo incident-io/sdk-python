@@ -1,33 +1,25 @@
 from http import HTTPStatus
 from typing import Any
+from urllib.parse import quote
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.error_response import ErrorResponse
-from ...models.escalations_list_paths_result_v2 import EscalationsListPathsResultV2
-from ...types import UNSET, Response, Unset
+from ...models.escalation_paths_show_result_v2 import EscalationPathsShowResultV2
+from ...types import Response
 
 
 def _get_kwargs(
-    *,
-    page_size: int | Unset = 25,
-    after: str | Unset = UNSET,
+    id: str,
 ) -> dict[str, Any]:
-
-    params: dict[str, Any] = {}
-
-    params["page_size"] = page_size
-
-    params["after"] = after
-
-    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
         "method": "get",
-        "url": "/v2/escalation_paths",
-        "params": params,
+        "url": "/v2/escalation_paths/{id}".format(
+            id=quote(str(id), safe=""),
+        ),
     }
 
     return _kwargs
@@ -35,9 +27,9 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> ErrorResponse | EscalationsListPathsResultV2 | None:
+) -> ErrorResponse | EscalationPathsShowResultV2 | None:
     if response.status_code == 200:
-        response_200 = EscalationsListPathsResultV2.from_dict(response.json())
+        response_200 = EscalationPathsShowResultV2.from_dict(response.json())
 
         return response_200
 
@@ -114,7 +106,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[ErrorResponse | EscalationsListPathsResultV2]:
+) -> Response[ErrorResponse | EscalationPathsShowResultV2]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -124,35 +116,30 @@ def _build_response(
 
 
 def sync_detailed(
+    id: str,
     *,
     client: AuthenticatedClient | Client,
-    page_size: int | Unset = 25,
-    after: str | Unset = UNSET,
-) -> Response[ErrorResponse | EscalationsListPathsResultV2]:
-    """ListPaths Escalations V2
+) -> Response[ErrorResponse | EscalationPathsShowResultV2]:
+    """Show Escalation Paths V2
 
-     List all escalation paths in your account.
+     Show an escalation path.
 
-    An escalation path is a series of steps that describe how a page should be escalated,
-    represented as a graph, supporting conditional branches based on alert priority and
-    working intervals.
+    We recommend you create escalation paths in the incident.io dashboard where our path
+    builder makes it easy to use conditions and visualise the path.
 
     Args:
-        page_size (int | Unset): Integer number of records to return Default: 25. Example: 25.
-        after (str | Unset): An record's ID. This endpoint will return a list of records after
-            this ID in relation to the API response order. Example: 01FDAG4SAP5TYPT98WGR2N7W91.
+        id (str): Unique identifier for this escalation path. Example: 01FCNDV6P870EA6S7TK1DSYDG0.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ErrorResponse | EscalationsListPathsResultV2]
+        Response[ErrorResponse | EscalationPathsShowResultV2]
     """
 
     kwargs = _get_kwargs(
-        page_size=page_size,
-        after=after,
+        id=id,
     )
 
     response = client.get_httpx_client().request(
@@ -163,69 +150,59 @@ def sync_detailed(
 
 
 def sync(
+    id: str,
     *,
     client: AuthenticatedClient | Client,
-    page_size: int | Unset = 25,
-    after: str | Unset = UNSET,
-) -> ErrorResponse | EscalationsListPathsResultV2 | None:
-    """ListPaths Escalations V2
+) -> ErrorResponse | EscalationPathsShowResultV2 | None:
+    """Show Escalation Paths V2
 
-     List all escalation paths in your account.
+     Show an escalation path.
 
-    An escalation path is a series of steps that describe how a page should be escalated,
-    represented as a graph, supporting conditional branches based on alert priority and
-    working intervals.
+    We recommend you create escalation paths in the incident.io dashboard where our path
+    builder makes it easy to use conditions and visualise the path.
 
     Args:
-        page_size (int | Unset): Integer number of records to return Default: 25. Example: 25.
-        after (str | Unset): An record's ID. This endpoint will return a list of records after
-            this ID in relation to the API response order. Example: 01FDAG4SAP5TYPT98WGR2N7W91.
+        id (str): Unique identifier for this escalation path. Example: 01FCNDV6P870EA6S7TK1DSYDG0.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ErrorResponse | EscalationsListPathsResultV2
+        ErrorResponse | EscalationPathsShowResultV2
     """
 
     return sync_detailed(
+        id=id,
         client=client,
-        page_size=page_size,
-        after=after,
     ).parsed
 
 
 async def asyncio_detailed(
+    id: str,
     *,
     client: AuthenticatedClient | Client,
-    page_size: int | Unset = 25,
-    after: str | Unset = UNSET,
-) -> Response[ErrorResponse | EscalationsListPathsResultV2]:
-    """ListPaths Escalations V2
+) -> Response[ErrorResponse | EscalationPathsShowResultV2]:
+    """Show Escalation Paths V2
 
-     List all escalation paths in your account.
+     Show an escalation path.
 
-    An escalation path is a series of steps that describe how a page should be escalated,
-    represented as a graph, supporting conditional branches based on alert priority and
-    working intervals.
+    We recommend you create escalation paths in the incident.io dashboard where our path
+    builder makes it easy to use conditions and visualise the path.
 
     Args:
-        page_size (int | Unset): Integer number of records to return Default: 25. Example: 25.
-        after (str | Unset): An record's ID. This endpoint will return a list of records after
-            this ID in relation to the API response order. Example: 01FDAG4SAP5TYPT98WGR2N7W91.
+        id (str): Unique identifier for this escalation path. Example: 01FCNDV6P870EA6S7TK1DSYDG0.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ErrorResponse | EscalationsListPathsResultV2]
+        Response[ErrorResponse | EscalationPathsShowResultV2]
     """
 
     kwargs = _get_kwargs(
-        page_size=page_size,
-        after=after,
+        id=id,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -234,36 +211,31 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    id: str,
     *,
     client: AuthenticatedClient | Client,
-    page_size: int | Unset = 25,
-    after: str | Unset = UNSET,
-) -> ErrorResponse | EscalationsListPathsResultV2 | None:
-    """ListPaths Escalations V2
+) -> ErrorResponse | EscalationPathsShowResultV2 | None:
+    """Show Escalation Paths V2
 
-     List all escalation paths in your account.
+     Show an escalation path.
 
-    An escalation path is a series of steps that describe how a page should be escalated,
-    represented as a graph, supporting conditional branches based on alert priority and
-    working intervals.
+    We recommend you create escalation paths in the incident.io dashboard where our path
+    builder makes it easy to use conditions and visualise the path.
 
     Args:
-        page_size (int | Unset): Integer number of records to return Default: 25. Example: 25.
-        after (str | Unset): An record's ID. This endpoint will return a list of records after
-            this ID in relation to the API response order. Example: 01FDAG4SAP5TYPT98WGR2N7W91.
+        id (str): Unique identifier for this escalation path. Example: 01FCNDV6P870EA6S7TK1DSYDG0.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ErrorResponse | EscalationsListPathsResultV2
+        ErrorResponse | EscalationPathsShowResultV2
     """
 
     return (
         await asyncio_detailed(
+            id=id,
             client=client,
-            page_size=page_size,
-            after=after,
         )
     ).parsed

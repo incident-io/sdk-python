@@ -10,11 +10,11 @@ if TYPE_CHECKING:
     from ..models.engine_param_binding_payload_v2 import EngineParamBindingPayloadV2
 
 
-T = TypeVar("T", bound="EscalationsUpdatePathPayloadV2ParamBindings")
+T = TypeVar("T", bound="EscalationPathsCreatePayloadV2ParamBindings")
 
 
 @_attrs_define(kw_only=True)
-class EscalationsUpdatePathPayloadV2ParamBindings:
+class EscalationPathsCreatePayloadV2ParamBindings:
     """For a templated path, the values to bind to the template's declared parameters, keyed by parameter name.
 
     Example:
@@ -42,7 +42,7 @@ class EscalationsUpdatePathPayloadV2ParamBindings:
         )
 
         d = dict(src_dict)
-        escalations_update_path_payload_v2_param_bindings = cls()
+        escalation_paths_create_payload_v2_param_bindings = cls()
 
         additional_properties = {}
         for prop_name, prop_dict in d.items():
@@ -50,10 +50,10 @@ class EscalationsUpdatePathPayloadV2ParamBindings:
 
             additional_properties[prop_name] = additional_property
 
-        escalations_update_path_payload_v2_param_bindings.additional_properties = (
+        escalation_paths_create_payload_v2_param_bindings.additional_properties = (
             additional_properties
         )
-        return escalations_update_path_payload_v2_param_bindings
+        return escalation_paths_create_payload_v2_param_bindings
 
     @property
     def additional_keys(self) -> list[str]:
