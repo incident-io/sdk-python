@@ -6,29 +6,40 @@ from typing import Any, Self, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.access_group_v2_type import AccessGroupV2Type
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="RBACRoleV2")
+T = TypeVar("T", bound="AccessGroupV2")
 
 
 @_attrs_define(kw_only=True)
-class RBACRoleV2:
-    """
-    Example:
-        {'description': 'Elevated permissions for the customer success team.', 'id': '01FCNDV6P870EA6S7TK1DSYDG0',
-            'name': 'Customer Success', 'slug': 'customer-success'}
+class AccessGroupV2:
+    """An access group is a named group of users. Access grants give a group its
+    privileges, and every member of the group gets them.
 
-    Attributes:
-        id (str): Unique identifier of the RBAC role Example: 01FCNDV6P870EA6S7TK1DSYDG0.
-        name (str): Name of the RBAC role Example: Customer Success.
-        slug (str): Unique human-readable slug for the RBAC role Example: customer-success.
-        description (str | Unset): Description of the purpose for the RBAC role Example: Elevated permissions for the
-            customer success team..
+    Every organisation has base groups (Owner, Admin and Standard), which can be listed and
+    granted privileges but not changed or deleted. Membership is managed in the dashboard or
+    through SCIM, not through this API.
+
+        Example:
+            {'description': 'Engineers who run the platform and its tooling', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name':
+                'Platform team', 'slug': 'platform-team', 'type': 'custom'}
+
+        Attributes:
+            id (str): Unique identifier for this access group Example: 01FCNDV6P870EA6S7TK1DSYDG0.
+            name (str): Human-readable name, unique within the organisation Example: Platform team.
+            slug (str): Stable identifier, unique within the organisation. Base groups use owner, admin and standard.
+                Generated from the name when omitted on create, and cannot be changed later. Example: platform-team.
+            type_ (AccessGroupV2Type): base for the groups every organisation has, which cannot be changed or deleted, or
+                custom for groups you create Example: custom.
+            description (str | Unset): Optional description of who belongs in this group Example: Engineers who run the
+                platform and its tooling.
     """
 
     id: str
     name: str
     slug: str
+    type_: AccessGroupV2Type
     description: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -39,6 +50,8 @@ class RBACRoleV2:
 
         slug = self.slug
 
+        type_ = self.type_.value
+
         description = self.description
 
         field_dict: dict[str, Any] = {}
@@ -48,6 +61,7 @@ class RBACRoleV2:
                 "id": id,
                 "name": name,
                 "slug": slug,
+                "type": type_,
             }
         )
         if description is not UNSET:
@@ -64,17 +78,20 @@ class RBACRoleV2:
 
         slug = d.pop("slug")
 
+        type_ = AccessGroupV2Type(d.pop("type"))
+
         description = d.pop("description", UNSET)
 
-        rbac_role_v2 = cls(
+        access_group_v2 = cls(
             id=id,
             name=name,
             slug=slug,
+            type_=type_,
             description=description,
         )
 
-        rbac_role_v2.additional_properties = d
-        return rbac_role_v2
+        access_group_v2.additional_properties = d
+        return access_group_v2
 
     @property
     def additional_keys(self) -> list[str]:

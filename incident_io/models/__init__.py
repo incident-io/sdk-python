@@ -1,5 +1,7 @@
 """Contains all the data models used in inputs/outputs"""
 
+from .access_group_v2 import AccessGroupV2
+from .access_group_v2_type import AccessGroupV2Type
 from .action_v1 import ActionV1
 from .action_v1_status import ActionV1Status
 from .action_v2 import ActionV2
@@ -2681,7 +2683,6 @@ from .postmortem_documents_update_status_result_v1 import (
     PostmortemDocumentsUpdateStatusResultV1,
 )
 from .postmortem_documents_v1_list_sort_by import PostmortemDocumentsV1ListSortBy
-from .rbac_role_v2 import RBACRoleV2
 from .retrospective_incident_options_v2 import RetrospectiveIncidentOptionsV2
 from .returns_meta_v2 import ReturnsMetaV2
 from .returns_meta_v3 import ReturnsMetaV3
@@ -3346,6 +3347,8 @@ __all__ = (
     "APIKeysUpdatePayloadV1RoleNamesItem",
     "APIKeysUpdatePayloadV1TeamRoleNamesItem",
     "APIKeysUpdateResultV1",
+    "AccessGroupV2",
+    "AccessGroupV2Type",
     "ActionV1",
     "ActionV1Status",
     "ActionV2",
@@ -4924,7 +4927,6 @@ __all__ = (
     "PostmortemDocumentsUpdateStatusPayloadV1Status",
     "PostmortemDocumentsUpdateStatusResultV1",
     "PostmortemDocumentsV1ListSortBy",
-    "RBACRoleV2",
     "RetrospectiveIncidentOptionsV2",
     "ReturnsMetaV2",
     "ReturnsMetaV3",

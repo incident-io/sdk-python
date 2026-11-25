@@ -17,18 +17,18 @@ T = TypeVar("T", bound="UsersShowResultV2")
 class UsersShowResultV2:
     """
     Example:
-        {'user': {'base_role': {'description': 'Elevated permissions for the customer success team.', 'id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Customer Success', 'slug': 'customer-success'}, 'custom_roles':
-            [{'description': 'Elevated permissions for the customer success team.', 'id': '01FCNDV6P870EA6S7TK1DSYDG0',
-            'name': 'Customer Success', 'slug': 'customer-success'}], 'email': 'lisa@incident.io', 'id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'is_active': True, 'name': 'Lisa Karlin Curtis', 'role': 'owner', 'seats':
-            {'on_call': 'full_access', 'response': 'viewer_only'}, 'slack_user_id': 'U02AYNF2XJM'}}
+        {'user': {'base_role': {'description': 'Engineers who run the platform and its tooling', 'id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Platform team', 'slug': 'platform-team', 'type': 'custom'},
+            'custom_roles': [{'description': 'Engineers who run the platform and its tooling', 'id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Platform team', 'slug': 'platform-team', 'type': 'custom'}], 'email':
+            'lisa@incident.io', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'is_active': True, 'name': 'Lisa Karlin Curtis', 'role':
+            'owner', 'seats': {'on_call': 'full_access', 'response': 'viewer_only'}, 'slack_user_id': 'U02AYNF2XJM'}}
 
     Attributes:
-        user (UserWithRolesV2):  Example: {'base_role': {'description': 'Elevated permissions for the customer success
-            team.', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Customer Success', 'slug': 'customer-success'},
-            'custom_roles': [{'description': 'Elevated permissions for the customer success team.', 'id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Customer Success', 'slug': 'customer-success'}], 'email':
+        user (UserWithRolesV2):  Example: {'base_role': {'description': 'Engineers who run the platform and its
+            tooling', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Platform team', 'slug': 'platform-team', 'type':
+            'custom'}, 'custom_roles': [{'description': 'Engineers who run the platform and its tooling', 'id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Platform team', 'slug': 'platform-team', 'type': 'custom'}], 'email':
             'lisa@incident.io', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'is_active': True, 'name': 'Lisa Karlin Curtis', 'role':
             'owner', 'seats': {'on_call': 'full_access', 'response': 'viewer_only'}, 'slack_user_id': 'U02AYNF2XJM'}.
     """

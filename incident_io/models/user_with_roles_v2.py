@@ -10,7 +10,7 @@ from ..models.user_with_roles_v2_role import UserWithRolesV2Role
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.rbac_role_v2 import RBACRoleV2
+    from ..models.access_group_v2 import AccessGroupV2
     from ..models.user_seats_v2 import UserSeatsV2
 
 
@@ -21,18 +21,24 @@ T = TypeVar("T", bound="UserWithRolesV2")
 class UserWithRolesV2:
     """
     Example:
-        {'base_role': {'description': 'Elevated permissions for the customer success team.', 'id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Customer Success', 'slug': 'customer-success'}, 'custom_roles':
-            [{'description': 'Elevated permissions for the customer success team.', 'id': '01FCNDV6P870EA6S7TK1DSYDG0',
-            'name': 'Customer Success', 'slug': 'customer-success'}], 'email': 'lisa@incident.io', 'id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'is_active': True, 'name': 'Lisa Karlin Curtis', 'role': 'owner', 'seats':
-            {'on_call': 'full_access', 'response': 'viewer_only'}, 'slack_user_id': 'U02AYNF2XJM'}
+        {'base_role': {'description': 'Engineers who run the platform and its tooling', 'id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Platform team', 'slug': 'platform-team', 'type': 'custom'},
+            'custom_roles': [{'description': 'Engineers who run the platform and its tooling', 'id':
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Platform team', 'slug': 'platform-team', 'type': 'custom'}], 'email':
+            'lisa@incident.io', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'is_active': True, 'name': 'Lisa Karlin Curtis', 'role':
+            'owner', 'seats': {'on_call': 'full_access', 'response': 'viewer_only'}, 'slack_user_id': 'U02AYNF2XJM'}
 
     Attributes:
-        base_role (RBACRoleV2):  Example: {'description': 'Elevated permissions for the customer success team.', 'id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Customer Success', 'slug': 'customer-success'}.
-        custom_roles (list[RBACRoleV2]):  Example: [{'description': 'Elevated permissions for the customer success
-            team.', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Customer Success', 'slug': 'customer-success'}].
+        base_role (AccessGroupV2): An access group is a named group of users. Access grants give a group its
+            privileges, and every member of the group gets them.
+
+            Every organisation has base groups (Owner, Admin and Standard), which can be listed and
+            granted privileges but not changed or deleted. Membership is managed in the dashboard or
+            through SCIM, not through this API. Example: {'description': 'Engineers who run the platform and its tooling',
+            'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Platform team', 'slug': 'platform-team', 'type': 'custom'}.
+        custom_roles (list[AccessGroupV2]): The custom access groups the user is in Example: [{'description': 'Engineers
+            who run the platform and its tooling', 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Platform team', 'slug':
+            'platform-team', 'type': 'custom'}].
         id (str): Unique identifier of the user Example: 01FCNDV6P870EA6S7TK1DSYDG0.
         is_active (bool): Whether the user is active. False if the user has been deactivated (e.g. offboarded) or is not
             yet active. Example: True.
@@ -44,8 +50,8 @@ class UserWithRolesV2:
         slack_user_id (str | Unset): Slack ID of the user Example: U02AYNF2XJM.
     """
 
-    base_role: RBACRoleV2
-    custom_roles: list[RBACRoleV2]
+    base_role: AccessGroupV2
+    custom_roles: list[AccessGroupV2]
     id: str
     is_active: bool
     name: str
@@ -99,16 +105,16 @@ class UserWithRolesV2:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.rbac_role_v2 import RBACRoleV2
+        from ..models.access_group_v2 import AccessGroupV2
         from ..models.user_seats_v2 import UserSeatsV2
 
         d = dict(src_dict)
-        base_role = RBACRoleV2.from_dict(d.pop("base_role"))
+        base_role = AccessGroupV2.from_dict(d.pop("base_role"))
 
         custom_roles = []
         _custom_roles = d.pop("custom_roles")
         for custom_roles_item_data in _custom_roles:
-            custom_roles_item = RBACRoleV2.from_dict(custom_roles_item_data)
+            custom_roles_item = AccessGroupV2.from_dict(custom_roles_item_data)
 
             custom_roles.append(custom_roles_item)
 

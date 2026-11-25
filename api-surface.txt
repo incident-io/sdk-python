@@ -3874,6 +3874,8 @@ enum APIKeysUpdatePayloadV1TeamRoleNamesItem.SECRETS_USE
 enum APIKeysUpdatePayloadV1TeamRoleNamesItem.TELEMETRY_DATA_SOURCE_UPDATE
 enum APIKeysUpdatePayloadV1TeamRoleNamesItem.TELEMETRY_QUERY_RESTRICTED
 enum APIKeysUpdatePayloadV1TeamRoleNamesItem.WORKFLOWS_EDITOR
+enum AccessGroupV2Type.BASE
+enum AccessGroupV2Type.CUSTOM
 enum ActionV1Status.COMPLETED
 enum ActionV1Status.DELETED
 enum ActionV1Status.NOT_DOING
@@ -7059,6 +7061,12 @@ model APIKeysUpdatePayloadV1.team_ids
 model APIKeysUpdatePayloadV1.team_role_names
 model APIKeysUpdateResultV1.additional_properties
 model APIKeysUpdateResultV1.api_key
+model AccessGroupV2.additional_properties
+model AccessGroupV2.description
+model AccessGroupV2.id
+model AccessGroupV2.name
+model AccessGroupV2.slug
+model AccessGroupV2.type_
 model ActionV1.additional_properties
 model ActionV1.assignee
 model ActionV1.completed_at
@@ -14229,11 +14237,6 @@ model PostmortemDocumentsUpdateStatusPayloadV1.additional_properties
 model PostmortemDocumentsUpdateStatusPayloadV1.status
 model PostmortemDocumentsUpdateStatusResultV1.additional_properties
 model PostmortemDocumentsUpdateStatusResultV1.postmortem_document
-model RBACRoleV2.additional_properties
-model RBACRoleV2.description
-model RBACRoleV2.id
-model RBACRoleV2.name
-model RBACRoleV2.slug
 model RetrospectiveIncidentOptionsV2.additional_properties
 model RetrospectiveIncidentOptionsV2.external_id
 model RetrospectiveIncidentOptionsV2.postmortem_document_url
