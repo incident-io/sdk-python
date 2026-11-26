@@ -88,7 +88,35 @@ from .alert_events_create_http_payload_v2_status import (
 )
 from .alert_events_create_http_result_v2 import AlertEventsCreateHTTPResultV2
 from .alert_events_v2_create_http_query import AlertEventsV2CreateHttpQuery
+from .alert_grouping_conditional_branch_v3 import AlertGroupingConditionalBranchV3
 from .alert_grouping_config_v3 import AlertGroupingConfigV3
+from .alert_grouping_default_branch_v3 import AlertGroupingDefaultBranchV3
+from .alert_grouping_preference_v3 import AlertGroupingPreferenceV3
+from .alert_grouping_preference_v3_kind import AlertGroupingPreferenceV3Kind
+from .alert_grouping_preferences_create_payload_v3 import (
+    AlertGroupingPreferencesCreatePayloadV3,
+)
+from .alert_grouping_preferences_create_payload_v3_kind import (
+    AlertGroupingPreferencesCreatePayloadV3Kind,
+)
+from .alert_grouping_preferences_create_result_v3 import (
+    AlertGroupingPreferencesCreateResultV3,
+)
+from .alert_grouping_preferences_list_result_v3 import (
+    AlertGroupingPreferencesListResultV3,
+)
+from .alert_grouping_preferences_show_result_v3 import (
+    AlertGroupingPreferencesShowResultV3,
+)
+from .alert_grouping_preferences_update_payload_v3 import (
+    AlertGroupingPreferencesUpdatePayloadV3,
+)
+from .alert_grouping_preferences_update_result_v3 import (
+    AlertGroupingPreferencesUpdateResultV3,
+)
+from .alert_grouping_preferences_v3_list_kind import AlertGroupingPreferencesV3ListKind
+from .alert_grouping_settings_v3 import AlertGroupingSettingsV3
+from .alert_grouping_settings_v3_window_type import AlertGroupingSettingsV3WindowType
 from .alert_message_config_payload_v3 import AlertMessageConfigPayloadV3
 from .alert_message_config_v3 import AlertMessageConfigV3
 from .alert_message_destination_payload_v3 import AlertMessageDestinationPayloadV3
@@ -219,6 +247,29 @@ from .alert_routes_update_payload_v2 import AlertRoutesUpdatePayloadV2
 from .alert_routes_update_payload_v3 import AlertRoutesUpdatePayloadV3
 from .alert_routes_update_result_v2 import AlertRoutesUpdateResultV2
 from .alert_routes_update_result_v3 import AlertRoutesUpdateResultV3
+from .alert_rule_action_v3 import AlertRuleActionV3
+from .alert_rule_action_v3_type import AlertRuleActionV3Type
+from .alert_rule_block_v3 import AlertRuleBlockV3
+from .alert_rule_branch_v3 import AlertRuleBranchV3
+from .alert_rule_create_incident_action_v3 import AlertRuleCreateIncidentActionV3
+from .alert_rule_escalate_action_v3 import AlertRuleEscalateActionV3
+from .alert_rule_escalate_action_v3_mode import AlertRuleEscalateActionV3Mode
+from .alert_rule_nested_branch_v3 import AlertRuleNestedBranchV3
+from .alert_rule_post_action_v3 import AlertRulePostActionV3
+from .alert_rule_post_action_v3_channel_visibility import (
+    AlertRulePostActionV3ChannelVisibility,
+)
+from .alert_rule_post_action_v3_mode import AlertRulePostActionV3Mode
+from .alert_rule_set_v3 import AlertRuleSetV3
+from .alert_rule_set_v3_kind import AlertRuleSetV3Kind
+from .alert_rules_create_payload_v3 import AlertRulesCreatePayloadV3
+from .alert_rules_create_payload_v3_kind import AlertRulesCreatePayloadV3Kind
+from .alert_rules_create_result_v3 import AlertRulesCreateResultV3
+from .alert_rules_list_result_v3 import AlertRulesListResultV3
+from .alert_rules_show_result_v3 import AlertRulesShowResultV3
+from .alert_rules_update_payload_v3 import AlertRulesUpdatePayloadV3
+from .alert_rules_update_result_v3 import AlertRulesUpdateResultV3
+from .alert_rules_v3_list_kind import AlertRulesV3ListKind
 from .alert_slim_v2 import AlertSlimV2
 from .alert_slim_v2_status import AlertSlimV2Status
 from .alert_source_azure_devops_options_v2 import AlertSourceAzureDevopsOptionsV2
@@ -3001,6 +3052,25 @@ from .step_progress_slim_v2_webhook_delivery_state import (
 from .step_progress_v2 import StepProgressV2
 from .step_progress_v2_status import StepProgressV2Status
 from .step_progress_v2_webhook_delivery_state import StepProgressV2WebhookDeliveryState
+from .team_grouping_preference_v3 import TeamGroupingPreferenceV3
+from .team_grouping_preferences_create_payload_v3 import (
+    TeamGroupingPreferencesCreatePayloadV3,
+)
+from .team_grouping_preferences_create_result_v3 import (
+    TeamGroupingPreferencesCreateResultV3,
+)
+from .team_grouping_preferences_list_result_v3 import (
+    TeamGroupingPreferencesListResultV3,
+)
+from .team_grouping_preferences_show_result_v3 import (
+    TeamGroupingPreferencesShowResultV3,
+)
+from .team_grouping_preferences_update_payload_v3 import (
+    TeamGroupingPreferencesUpdatePayloadV3,
+)
+from .team_grouping_preferences_update_result_v3 import (
+    TeamGroupingPreferencesUpdateResultV3,
+)
 from .team_slim_v2 import TeamSlimV2
 from .team_v3 import TeamV3
 from .teams_list_result_v3 import TeamsListResultV3
@@ -3423,7 +3493,21 @@ __all__ = (
     "AlertEventsCreateHTTPPayloadV2Status",
     "AlertEventsCreateHTTPResultV2",
     "AlertEventsV2CreateHttpQuery",
+    "AlertGroupingConditionalBranchV3",
     "AlertGroupingConfigV3",
+    "AlertGroupingDefaultBranchV3",
+    "AlertGroupingPreferenceV3",
+    "AlertGroupingPreferenceV3Kind",
+    "AlertGroupingPreferencesCreatePayloadV3",
+    "AlertGroupingPreferencesCreatePayloadV3Kind",
+    "AlertGroupingPreferencesCreateResultV3",
+    "AlertGroupingPreferencesListResultV3",
+    "AlertGroupingPreferencesShowResultV3",
+    "AlertGroupingPreferencesUpdatePayloadV3",
+    "AlertGroupingPreferencesUpdateResultV3",
+    "AlertGroupingPreferencesV3ListKind",
+    "AlertGroupingSettingsV3",
+    "AlertGroupingSettingsV3WindowType",
     "AlertMessageConfigPayloadV3",
     "AlertMessageConfigV3",
     "AlertMessageDestinationPayloadV3",
@@ -3506,6 +3590,27 @@ __all__ = (
     "AlertRoutesUpdatePayloadV3",
     "AlertRoutesUpdateResultV2",
     "AlertRoutesUpdateResultV3",
+    "AlertRuleActionV3",
+    "AlertRuleActionV3Type",
+    "AlertRuleBlockV3",
+    "AlertRuleBranchV3",
+    "AlertRuleCreateIncidentActionV3",
+    "AlertRuleEscalateActionV3",
+    "AlertRuleEscalateActionV3Mode",
+    "AlertRuleNestedBranchV3",
+    "AlertRulePostActionV3",
+    "AlertRulePostActionV3ChannelVisibility",
+    "AlertRulePostActionV3Mode",
+    "AlertRuleSetV3",
+    "AlertRuleSetV3Kind",
+    "AlertRulesCreatePayloadV3",
+    "AlertRulesCreatePayloadV3Kind",
+    "AlertRulesCreateResultV3",
+    "AlertRulesListResultV3",
+    "AlertRulesShowResultV3",
+    "AlertRulesUpdatePayloadV3",
+    "AlertRulesUpdateResultV3",
+    "AlertRulesV3ListKind",
     "AlertSlimV2",
     "AlertSlimV2Status",
     "AlertSourceAzureDevopsOptionsV2",
@@ -5105,6 +5210,13 @@ __all__ = (
     "StepProgressV2",
     "StepProgressV2Status",
     "StepProgressV2WebhookDeliveryState",
+    "TeamGroupingPreferenceV3",
+    "TeamGroupingPreferencesCreatePayloadV3",
+    "TeamGroupingPreferencesCreateResultV3",
+    "TeamGroupingPreferencesListResultV3",
+    "TeamGroupingPreferencesShowResultV3",
+    "TeamGroupingPreferencesUpdatePayloadV3",
+    "TeamGroupingPreferencesUpdateResultV3",
     "TeamSlimV2",
     "TeamV3",
     "TeamsListResultV3",

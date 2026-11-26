@@ -1,0 +1,152 @@
+from __future__ import annotations
+
+from collections.abc import Mapping
+from typing import TYPE_CHECKING, Any, Self, TypeVar
+
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+
+from ..models.alert_grouping_settings_v3_window_type import (
+    AlertGroupingSettingsV3WindowType,
+)
+from ..types import UNSET, Unset
+
+if TYPE_CHECKING:
+    from ..models.grouping_key_v3 import GroupingKeyV3
+
+
+T = TypeVar("T", bound="AlertGroupingSettingsV3")
+
+
+@_attrs_define(kw_only=True)
+class AlertGroupingSettingsV3:
+    """How alerts are grouped together
+
+    Example:
+        {'ai_enabled': False, 'ai_instructions': 'Alerts from the old and new clusters describe the same outage, so
+            group them together.', 'enabled': True, 'grouping_keys': [{'reference': 'alert.title'}], 'window_seconds': 1800,
+            'window_type': 'rolling'}
+
+    Attributes:
+        enabled (bool): Whether these alerts are grouped. When false, none of them are grouped. Example: True.
+        ai_enabled (bool | Unset): Use AI to group similar looking alerts. AI alert grouping can only group alerts that
+            are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute.
+            Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an
+            update to keep the current value. Example: False.
+        ai_instructions (str | Unset): Optional instructions the model follows when AI groups these alerts, such as how
+            the systems you run relate to each other. Up to 2000 characters. Example: Alerts from the old and new clusters
+            describe the same outage, so group them together..
+        grouping_keys (list[GroupingKeyV3] | Unset): Which alert attributes these alerts are grouped by. Only set when
+            grouping is enabled. Example: [{'reference': 'alert.title'}].
+        window_seconds (int | Unset): How long the grouping window is, in seconds. Must be between 60 (1 minute) and
+            172800 (48 hours). Only set when grouping is enabled. Example: 1800.
+        window_type (AlertGroupingSettingsV3WindowType | Unset): How the grouping window behaves. 'rolling' keeps the
+            window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep
+            arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later. Only set
+            when grouping is enabled. Example: rolling.
+    """
+
+    enabled: bool
+    ai_enabled: bool | Unset = UNSET
+    ai_instructions: str | Unset = UNSET
+    grouping_keys: list[GroupingKeyV3] | Unset = UNSET
+    window_seconds: int | Unset = UNSET
+    window_type: AlertGroupingSettingsV3WindowType | Unset = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    def to_dict(self) -> dict[str, Any]:
+        enabled = self.enabled
+
+        ai_enabled = self.ai_enabled
+
+        ai_instructions = self.ai_instructions
+
+        grouping_keys: list[dict[str, Any]] | Unset = UNSET
+        if not isinstance(self.grouping_keys, Unset):
+            grouping_keys = []
+            for grouping_keys_item_data in self.grouping_keys:
+                grouping_keys_item = grouping_keys_item_data.to_dict()
+                grouping_keys.append(grouping_keys_item)
+
+        window_seconds = self.window_seconds
+
+        window_type: str | Unset = UNSET
+        if not isinstance(self.window_type, Unset):
+            window_type = self.window_type.value
+
+        field_dict: dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update(
+            {
+                "enabled": enabled,
+            }
+        )
+        if ai_enabled is not UNSET:
+            field_dict["ai_enabled"] = ai_enabled
+        if ai_instructions is not UNSET:
+            field_dict["ai_instructions"] = ai_instructions
+        if grouping_keys is not UNSET:
+            field_dict["grouping_keys"] = grouping_keys
+        if window_seconds is not UNSET:
+            field_dict["window_seconds"] = window_seconds
+        if window_type is not UNSET:
+            field_dict["window_type"] = window_type
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        from ..models.grouping_key_v3 import GroupingKeyV3
+
+        d = dict(src_dict)
+        enabled = d.pop("enabled")
+
+        ai_enabled = d.pop("ai_enabled", UNSET)
+
+        ai_instructions = d.pop("ai_instructions", UNSET)
+
+        _grouping_keys = d.pop("grouping_keys", UNSET)
+        grouping_keys: list[GroupingKeyV3] | Unset = UNSET
+        if _grouping_keys is not UNSET:
+            grouping_keys = []
+            for grouping_keys_item_data in _grouping_keys:
+                grouping_keys_item = GroupingKeyV3.from_dict(grouping_keys_item_data)
+
+                grouping_keys.append(grouping_keys_item)
+
+        window_seconds = d.pop("window_seconds", UNSET)
+
+        _window_type = d.pop("window_type", UNSET)
+        window_type: AlertGroupingSettingsV3WindowType | Unset
+        if isinstance(_window_type, Unset):
+            window_type = UNSET
+        else:
+            window_type = AlertGroupingSettingsV3WindowType(_window_type)
+
+        alert_grouping_settings_v3 = cls(
+            enabled=enabled,
+            ai_enabled=ai_enabled,
+            ai_instructions=ai_instructions,
+            grouping_keys=grouping_keys,
+            window_seconds=window_seconds,
+            window_type=window_type,
+        )
+
+        alert_grouping_settings_v3.additional_properties = d
+        return alert_grouping_settings_v3
+
+    @property
+    def additional_keys(self) -> list[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties
