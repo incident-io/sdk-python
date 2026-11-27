@@ -18,27 +18,47 @@ class PolicyFindingOnCallReadinessV2:
     """Set when policy_type is on_call_readiness. The user is always the one the finding is about.
 
     Example:
-        {'high_urgency': [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'low_urgency':
-            [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'user_id': '01FCNDV6P870EA6S7TK1DSYDG0'}
+        {'high_interruption_level': [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}],
+            'high_urgency': [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'low_interruption_level':
+            [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'low_urgency': [{'max_delay_seconds':
+            300, 'met': False, 'method_types': ['slack']}], 'user_id': '01FCNDV6P870EA6S7TK1DSYDG0'}
 
     Attributes:
-        high_urgency (list[PolicyFindingReadinessRuleV2]): The high urgency rules the policy requires, and whether each
-            was met Example: [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}].
-        low_urgency (list[PolicyFindingReadinessRuleV2]): The low urgency rules the policy requires, and whether each
-            was met Example: [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}].
+        high_interruption_level (list[PolicyFindingReadinessRuleV2]): The high interruption level rules the policy
+            requires, and whether each was met. Example: [{'max_delay_seconds': 300, 'met': False, 'method_types':
+            ['slack']}].
+        high_urgency (list[PolicyFindingReadinessRuleV2]): Deprecated: use high_interruption_level, which always has the
+            same value. Example: [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}].
+        low_interruption_level (list[PolicyFindingReadinessRuleV2]): The low interruption level rules the policy
+            requires, and whether each was met. Example: [{'max_delay_seconds': 300, 'met': False, 'method_types':
+            ['slack']}].
+        low_urgency (list[PolicyFindingReadinessRuleV2]): Deprecated: use low_interruption_level, which always has the
+            same value. Example: [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}].
         user_id (str): The user whose notification rules fell short Example: 01FCNDV6P870EA6S7TK1DSYDG0.
     """
 
+    high_interruption_level: list[PolicyFindingReadinessRuleV2]
     high_urgency: list[PolicyFindingReadinessRuleV2]
+    low_interruption_level: list[PolicyFindingReadinessRuleV2]
     low_urgency: list[PolicyFindingReadinessRuleV2]
     user_id: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        high_interruption_level = []
+        for high_interruption_level_item_data in self.high_interruption_level:
+            high_interruption_level_item = high_interruption_level_item_data.to_dict()
+            high_interruption_level.append(high_interruption_level_item)
+
         high_urgency = []
         for high_urgency_item_data in self.high_urgency:
             high_urgency_item = high_urgency_item_data.to_dict()
             high_urgency.append(high_urgency_item)
+
+        low_interruption_level = []
+        for low_interruption_level_item_data in self.low_interruption_level:
+            low_interruption_level_item = low_interruption_level_item_data.to_dict()
+            low_interruption_level.append(low_interruption_level_item)
 
         low_urgency = []
         for low_urgency_item_data in self.low_urgency:
@@ -51,7 +71,9 @@ class PolicyFindingOnCallReadinessV2:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "high_interruption_level": high_interruption_level,
                 "high_urgency": high_urgency,
+                "low_interruption_level": low_interruption_level,
                 "low_urgency": low_urgency,
                 "user_id": user_id,
             }
@@ -66,6 +88,15 @@ class PolicyFindingOnCallReadinessV2:
         )
 
         d = dict(src_dict)
+        high_interruption_level = []
+        _high_interruption_level = d.pop("high_interruption_level")
+        for high_interruption_level_item_data in _high_interruption_level:
+            high_interruption_level_item = PolicyFindingReadinessRuleV2.from_dict(
+                high_interruption_level_item_data
+            )
+
+            high_interruption_level.append(high_interruption_level_item)
+
         high_urgency = []
         _high_urgency = d.pop("high_urgency")
         for high_urgency_item_data in _high_urgency:
@@ -74,6 +105,15 @@ class PolicyFindingOnCallReadinessV2:
             )
 
             high_urgency.append(high_urgency_item)
+
+        low_interruption_level = []
+        _low_interruption_level = d.pop("low_interruption_level")
+        for low_interruption_level_item_data in _low_interruption_level:
+            low_interruption_level_item = PolicyFindingReadinessRuleV2.from_dict(
+                low_interruption_level_item_data
+            )
+
+            low_interruption_level.append(low_interruption_level_item)
 
         low_urgency = []
         _low_urgency = d.pop("low_urgency")
@@ -87,7 +127,9 @@ class PolicyFindingOnCallReadinessV2:
         user_id = d.pop("user_id")
 
         policy_finding_on_call_readiness_v2 = cls(
+            high_interruption_level=high_interruption_level,
             high_urgency=high_urgency,
+            low_interruption_level=low_interruption_level,
             low_urgency=low_urgency,
             user_id=user_id,
         )

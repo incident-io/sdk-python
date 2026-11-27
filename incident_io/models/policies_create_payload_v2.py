@@ -20,7 +20,9 @@ if TYPE_CHECKING:
     )
     from ..models.policy_debrief_payload_v2 import PolicyDebriefPayloadV2
     from ..models.policy_follow_up_payload_v2 import PolicyFollowUpPayloadV2
-    from ..models.policy_on_call_readiness_v2 import PolicyOnCallReadinessV2
+    from ..models.policy_on_call_readiness_payload_v2 import (
+        PolicyOnCallReadinessPayloadV2,
+    )
     from ..models.policy_post_mortem_payload_v2 import PolicyPostMortemPayloadV2
     from ..models.policy_schedule_v2 import PolicyScheduleV2
 
@@ -66,11 +68,13 @@ class PoliciesCreatePayloadV2:
             [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
             'incident.severity'}]}], 'run_on_private_incidents': False}, 'name': 'Critical incidents must export follow-
-            ups', 'on_call_readiness': {'enforcement': 'advisory', 'high_urgency': [{'max_delay_seconds': 300,
-            'method_types': ['slack']}], 'low_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}]},
-            'policy_type': 'follow_up', 'post_mortem': {'due_date_config': {'applies_from': '2021-08-17T13:28:57.801578Z',
-            'calculation_timezone': 'Europe/London', 'calculation_type': 'weekdays', 'days': {'array_value': [{'literal':
-            'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}},
+            ups', 'on_call_readiness': {'enforcement': 'advisory', 'high_interruption_level': [{'max_delay_seconds': 300,
+            'method_types': ['slack']}], 'high_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'low_interruption_level': [{'max_delay_seconds': 300, 'method_types': ['slack']}], 'low_urgency':
+            [{'max_delay_seconds': 300, 'method_types': ['slack']}]}, 'policy_type': 'follow_up', 'post_mortem':
+            {'due_date_config': {'applies_from': '2021-08-17T13:28:57.801578Z', 'calculation_timezone': 'Europe/London',
+            'calculation_type': 'weekdays', 'days': {'array_value': [{'literal': 'SEV123', 'reference':
+            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}},
             'incident_timestamp_id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'requirements': [{'conditions': [{'operation': 'one_of',
             'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
             {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject': 'incident.severity'}]}],
@@ -120,10 +124,11 @@ class PoliciesCreatePayloadV2:
             '01FCNDV6P870EA6S7TK1DSYDG0'}, 'requirements': [{'conditions': [{'operation': 'one_of', 'param_bindings':
             [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123',
             'reference': 'incident.severity'}}], 'subject': 'incident.severity'}]}], 'run_on_private_incidents': False}.
-        on_call_readiness (PolicyOnCallReadinessV2 | Unset): Set when policy_type is on_call_readiness. The assignee is
-            always the user the finding is about and cannot be configured. Example: {'enforcement': 'advisory',
-            'high_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}], 'low_urgency': [{'max_delay_seconds':
-            300, 'method_types': ['slack']}]}.
+        on_call_readiness (PolicyOnCallReadinessPayloadV2 | Unset): Set when policy_type is on_call_readiness. The
+            assignee is always the user the finding is about and cannot be configured. Example: {'enforcement': 'advisory',
+            'high_interruption_level': [{'max_delay_seconds': 300, 'method_types': ['slack']}], 'high_urgency':
+            [{'max_delay_seconds': 300, 'method_types': ['slack']}], 'low_interruption_level': [{'max_delay_seconds': 300,
+            'method_types': ['slack']}], 'low_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}]}.
         post_mortem (PolicyPostMortemPayloadV2 | Unset): Set when policy_type is post_mortem. Example:
             {'due_date_config': {'applies_from': '2021-08-17T13:28:57.801578Z', 'calculation_timezone': 'Europe/London',
             'calculation_type': 'weekdays', 'days': {'array_value': [{'literal': 'SEV123', 'reference':
@@ -146,7 +151,7 @@ class PoliciesCreatePayloadV2:
     debrief: PolicyDebriefPayloadV2 | Unset = UNSET
     expressions: list[ExpressionPayloadV2] | Unset = UNSET
     follow_up: PolicyFollowUpPayloadV2 | Unset = UNSET
-    on_call_readiness: PolicyOnCallReadinessV2 | Unset = UNSET
+    on_call_readiness: PolicyOnCallReadinessPayloadV2 | Unset = UNSET
     post_mortem: PolicyPostMortemPayloadV2 | Unset = UNSET
     schedule: PolicyScheduleV2 | Unset = UNSET
     status: PoliciesCreatePayloadV2Status | Unset = UNSET
@@ -243,8 +248,8 @@ class PoliciesCreatePayloadV2:
         from ..models.policy_follow_up_payload_v2 import (
             PolicyFollowUpPayloadV2,
         )
-        from ..models.policy_on_call_readiness_v2 import (
-            PolicyOnCallReadinessV2,
+        from ..models.policy_on_call_readiness_payload_v2 import (
+            PolicyOnCallReadinessPayloadV2,
         )
         from ..models.policy_post_mortem_payload_v2 import (
             PolicyPostMortemPayloadV2,
@@ -298,11 +303,13 @@ class PoliciesCreatePayloadV2:
             follow_up = PolicyFollowUpPayloadV2.from_dict(_follow_up)
 
         _on_call_readiness = d.pop("on_call_readiness", UNSET)
-        on_call_readiness: PolicyOnCallReadinessV2 | Unset
+        on_call_readiness: PolicyOnCallReadinessPayloadV2 | Unset
         if isinstance(_on_call_readiness, Unset):
             on_call_readiness = UNSET
         else:
-            on_call_readiness = PolicyOnCallReadinessV2.from_dict(_on_call_readiness)
+            on_call_readiness = PolicyOnCallReadinessPayloadV2.from_dict(
+                _on_call_readiness
+            )
 
         _post_mortem = d.pop("post_mortem", UNSET)
         post_mortem: PolicyPostMortemPayloadV2 | Unset

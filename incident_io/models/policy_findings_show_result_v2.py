@@ -26,9 +26,11 @@ class PolicyFindingsShowResultV2:
             workflow'}}, 'reason': 'This incident is special.'}, 'due_at': '2025-10-14T00:00:00.000000Z', 'follow_up':
             {'follow_up_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'incident_id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'id':
             '01G0J1EXE7AXZ2C93K61WBPYEH', 'last_checked_at': '2021-08-17T13:28:57.801578Z', 'on_call_readiness':
-            {'high_urgency': [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'low_urgency':
-            [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'user_id': '01FCNDV6P870EA6S7TK1DSYDG0'},
-            'policy_id': '01G0J1EXE7AXZ2C93K61WBPYEH', 'policy_type': 'follow_up', 'post_mortem': {'incident_id':
+            {'high_interruption_level': [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}],
+            'high_urgency': [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'low_interruption_level':
+            [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'low_urgency': [{'max_delay_seconds':
+            300, 'met': False, 'method_types': ['slack']}], 'user_id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'policy_id':
+            '01G0J1EXE7AXZ2C93K61WBPYEH', 'policy_type': 'follow_up', 'post_mortem': {'incident_id':
             '01FCNDV6P870EA6S7TK1DSYDG0'}, 'responsible_users': [{'email': 'lisa@incident.io', 'id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Lisa Karlin Curtis', 'role': 'owner', 'slack_user_id': 'U02AYNF2XJM'}],
             'schedule': {'cause': 'nobody_scheduled', 'end_at': '2021-08-17T13:28:57.801578Z', 'has_unscheduled_time': True,
@@ -54,9 +56,11 @@ class PolicyFindingsShowResultV2:
             workflow'}}, 'reason': 'This incident is special.'}, 'due_at': '2025-10-14T00:00:00.000000Z', 'follow_up':
             {'follow_up_id': '01FCNDV6P870EA6S7TK1DSYDG0', 'incident_id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'id':
             '01G0J1EXE7AXZ2C93K61WBPYEH', 'last_checked_at': '2021-08-17T13:28:57.801578Z', 'on_call_readiness':
-            {'high_urgency': [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'low_urgency':
-            [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'user_id': '01FCNDV6P870EA6S7TK1DSYDG0'},
-            'policy_id': '01G0J1EXE7AXZ2C93K61WBPYEH', 'policy_type': 'follow_up', 'post_mortem': {'incident_id':
+            {'high_interruption_level': [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}],
+            'high_urgency': [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'low_interruption_level':
+            [{'max_delay_seconds': 300, 'met': False, 'method_types': ['slack']}], 'low_urgency': [{'max_delay_seconds':
+            300, 'met': False, 'method_types': ['slack']}], 'user_id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'policy_id':
+            '01G0J1EXE7AXZ2C93K61WBPYEH', 'policy_type': 'follow_up', 'post_mortem': {'incident_id':
             '01FCNDV6P870EA6S7TK1DSYDG0'}, 'responsible_users': [{'email': 'lisa@incident.io', 'id':
             '01FCNDV6P870EA6S7TK1DSYDG0', 'name': 'Lisa Karlin Curtis', 'role': 'owner', 'slack_user_id': 'U02AYNF2XJM'}],
             'schedule': {'cause': 'nobody_scheduled', 'end_at': '2021-08-17T13:28:57.801578Z', 'has_unscheduled_time': True,

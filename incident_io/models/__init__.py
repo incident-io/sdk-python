@@ -2691,6 +2691,10 @@ from .policy_findings_restore_result_v2 import PolicyFindingsRestoreResultV2
 from .policy_findings_show_result_v2 import PolicyFindingsShowResultV2
 from .policy_follow_up_payload_v2 import PolicyFollowUpPayloadV2
 from .policy_follow_up_v2 import PolicyFollowUpV2
+from .policy_on_call_readiness_payload_v2 import PolicyOnCallReadinessPayloadV2
+from .policy_on_call_readiness_payload_v2_enforcement import (
+    PolicyOnCallReadinessPayloadV2Enforcement,
+)
 from .policy_on_call_readiness_v2 import PolicyOnCallReadinessV2
 from .policy_on_call_readiness_v2_enforcement import PolicyOnCallReadinessV2Enforcement
 from .policy_post_mortem_payload_v2 import PolicyPostMortemPayloadV2
@@ -5010,6 +5014,8 @@ __all__ = (
     "PolicyFindingsShowResultV2",
     "PolicyFollowUpPayloadV2",
     "PolicyFollowUpV2",
+    "PolicyOnCallReadinessPayloadV2",
+    "PolicyOnCallReadinessPayloadV2Enforcement",
     "PolicyOnCallReadinessV2",
     "PolicyOnCallReadinessV2Enforcement",
     "PolicyPostMortemPayloadV2",

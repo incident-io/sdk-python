@@ -174,17 +174,20 @@ def sync_detailed(
             [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
             {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
             'incident.severity'}]}], 'run_on_private_incidents': False}, 'name': 'Critical incidents
-            must export follow-ups', 'on_call_readiness': {'enforcement': 'advisory', 'high_urgency':
-            [{'max_delay_seconds': 300, 'method_types': ['slack']}], 'low_urgency':
-            [{'max_delay_seconds': 300, 'method_types': ['slack']}]}, 'policy_type': 'follow_up',
-            'post_mortem': {'due_date_config': {'applies_from': '2021-08-17T13:28:57.801578Z',
-            'calculation_timezone': 'Europe/London', 'calculation_type': 'weekdays', 'days':
-            {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
-            {'literal': 'SEV123', 'reference': 'incident.severity'}}, 'incident_timestamp_id':
-            '01FCNDV6P870EA6S7TK1DSYDG0'}, 'requirements': [{'conditions': [{'operation': 'one_of',
-            'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}],
-            'subject': 'incident.severity'}]}], 'run_on_private_incidents': False}, 'schedule':
+            must export follow-ups', 'on_call_readiness': {'enforcement': 'advisory',
+            'high_interruption_level': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'high_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'low_interruption_level': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'low_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}]}, 'policy_type':
+            'follow_up', 'post_mortem': {'due_date_config': {'applies_from':
+            '2021-08-17T13:28:57.801578Z', 'calculation_timezone': 'Europe/London',
+            'calculation_type': 'weekdays', 'days': {'array_value': [{'literal': 'SEV123',
+            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}, 'incident_timestamp_id': '01FCNDV6P870EA6S7TK1DSYDG0'},
+            'requirements': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
+            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
+            'incident.severity'}]}], 'run_on_private_incidents': False}, 'schedule':
             {'evaluation_level': 'schedule', 'requirement_type': 'contiguous'}, 'status': 'enabled'}.
 
     Raises:
@@ -260,17 +263,20 @@ def sync(
             [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
             {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
             'incident.severity'}]}], 'run_on_private_incidents': False}, 'name': 'Critical incidents
-            must export follow-ups', 'on_call_readiness': {'enforcement': 'advisory', 'high_urgency':
-            [{'max_delay_seconds': 300, 'method_types': ['slack']}], 'low_urgency':
-            [{'max_delay_seconds': 300, 'method_types': ['slack']}]}, 'policy_type': 'follow_up',
-            'post_mortem': {'due_date_config': {'applies_from': '2021-08-17T13:28:57.801578Z',
-            'calculation_timezone': 'Europe/London', 'calculation_type': 'weekdays', 'days':
-            {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
-            {'literal': 'SEV123', 'reference': 'incident.severity'}}, 'incident_timestamp_id':
-            '01FCNDV6P870EA6S7TK1DSYDG0'}, 'requirements': [{'conditions': [{'operation': 'one_of',
-            'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}],
-            'subject': 'incident.severity'}]}], 'run_on_private_incidents': False}, 'schedule':
+            must export follow-ups', 'on_call_readiness': {'enforcement': 'advisory',
+            'high_interruption_level': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'high_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'low_interruption_level': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'low_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}]}, 'policy_type':
+            'follow_up', 'post_mortem': {'due_date_config': {'applies_from':
+            '2021-08-17T13:28:57.801578Z', 'calculation_timezone': 'Europe/London',
+            'calculation_type': 'weekdays', 'days': {'array_value': [{'literal': 'SEV123',
+            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}, 'incident_timestamp_id': '01FCNDV6P870EA6S7TK1DSYDG0'},
+            'requirements': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
+            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
+            'incident.severity'}]}], 'run_on_private_incidents': False}, 'schedule':
             {'evaluation_level': 'schedule', 'requirement_type': 'contiguous'}, 'status': 'enabled'}.
 
     Raises:
@@ -341,17 +347,20 @@ async def asyncio_detailed(
             [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
             {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
             'incident.severity'}]}], 'run_on_private_incidents': False}, 'name': 'Critical incidents
-            must export follow-ups', 'on_call_readiness': {'enforcement': 'advisory', 'high_urgency':
-            [{'max_delay_seconds': 300, 'method_types': ['slack']}], 'low_urgency':
-            [{'max_delay_seconds': 300, 'method_types': ['slack']}]}, 'policy_type': 'follow_up',
-            'post_mortem': {'due_date_config': {'applies_from': '2021-08-17T13:28:57.801578Z',
-            'calculation_timezone': 'Europe/London', 'calculation_type': 'weekdays', 'days':
-            {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
-            {'literal': 'SEV123', 'reference': 'incident.severity'}}, 'incident_timestamp_id':
-            '01FCNDV6P870EA6S7TK1DSYDG0'}, 'requirements': [{'conditions': [{'operation': 'one_of',
-            'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}],
-            'subject': 'incident.severity'}]}], 'run_on_private_incidents': False}, 'schedule':
+            must export follow-ups', 'on_call_readiness': {'enforcement': 'advisory',
+            'high_interruption_level': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'high_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'low_interruption_level': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'low_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}]}, 'policy_type':
+            'follow_up', 'post_mortem': {'due_date_config': {'applies_from':
+            '2021-08-17T13:28:57.801578Z', 'calculation_timezone': 'Europe/London',
+            'calculation_type': 'weekdays', 'days': {'array_value': [{'literal': 'SEV123',
+            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}, 'incident_timestamp_id': '01FCNDV6P870EA6S7TK1DSYDG0'},
+            'requirements': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
+            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
+            'incident.severity'}]}], 'run_on_private_incidents': False}, 'schedule':
             {'evaluation_level': 'schedule', 'requirement_type': 'contiguous'}, 'status': 'enabled'}.
 
     Raises:
@@ -425,17 +434,20 @@ async def asyncio(
             [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
             {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
             'incident.severity'}]}], 'run_on_private_incidents': False}, 'name': 'Critical incidents
-            must export follow-ups', 'on_call_readiness': {'enforcement': 'advisory', 'high_urgency':
-            [{'max_delay_seconds': 300, 'method_types': ['slack']}], 'low_urgency':
-            [{'max_delay_seconds': 300, 'method_types': ['slack']}]}, 'policy_type': 'follow_up',
-            'post_mortem': {'due_date_config': {'applies_from': '2021-08-17T13:28:57.801578Z',
-            'calculation_timezone': 'Europe/London', 'calculation_type': 'weekdays', 'days':
-            {'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
-            {'literal': 'SEV123', 'reference': 'incident.severity'}}, 'incident_timestamp_id':
-            '01FCNDV6P870EA6S7TK1DSYDG0'}, 'requirements': [{'conditions': [{'operation': 'one_of',
-            'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference':
-            'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}],
-            'subject': 'incident.severity'}]}], 'run_on_private_incidents': False}, 'schedule':
+            must export follow-ups', 'on_call_readiness': {'enforcement': 'advisory',
+            'high_interruption_level': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'high_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'low_interruption_level': [{'max_delay_seconds': 300, 'method_types': ['slack']}],
+            'low_urgency': [{'max_delay_seconds': 300, 'method_types': ['slack']}]}, 'policy_type':
+            'follow_up', 'post_mortem': {'due_date_config': {'applies_from':
+            '2021-08-17T13:28:57.801578Z', 'calculation_timezone': 'Europe/London',
+            'calculation_type': 'weekdays', 'days': {'array_value': [{'literal': 'SEV123',
+            'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}, 'incident_timestamp_id': '01FCNDV6P870EA6S7TK1DSYDG0'},
+            'requirements': [{'conditions': [{'operation': 'one_of', 'param_bindings':
+            [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
+            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject':
+            'incident.severity'}]}], 'run_on_private_incidents': False}, 'schedule':
             {'evaluation_level': 'schedule', 'requirement_type': 'contiguous'}, 'status': 'enabled'}.
 
     Raises:
