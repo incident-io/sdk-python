@@ -20,14 +20,15 @@ class UsersListNotificationRulesResultV2:
     """
     Example:
         {'notification_rules': [{'app': {'push_notification_criticality': 'critical'}, 'delay_seconds': 0, 'id':
-            '01FCNDV6P870EA6S7TK1DSYDG0', 'method_target': {'all': {}, 'specific': {'id': '01FCNDV6P870EA6S7TK1DSYDG0'},
-            'type': 'specific'}, 'method_type': 'app', 'phone': {'channel': 'voice'}, 'rule_type': 'low_urgency'}]}
+            '01FCNDV6P870EA6S7TK1DSYDG0', 'interruption_level': 'high', 'method_target': {'all': {}, 'specific': {'id':
+            '01FCNDV6P870EA6S7TK1DSYDG0'}, 'type': 'specific'}, 'method_type': 'app', 'phone': {'channel': 'voice'},
+            'rule_type': 'low_urgency'}]}
 
     Attributes:
         notification_rules (list[OnCallNotificationRulePublicV2]):  Example: [{'app': {'push_notification_criticality':
-            'critical'}, 'delay_seconds': 0, 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'method_target': {'all': {}, 'specific':
-            {'id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'type': 'specific'}, 'method_type': 'app', 'phone': {'channel': 'voice'},
-            'rule_type': 'low_urgency'}].
+            'critical'}, 'delay_seconds': 0, 'id': '01FCNDV6P870EA6S7TK1DSYDG0', 'interruption_level': 'high',
+            'method_target': {'all': {}, 'specific': {'id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'type': 'specific'},
+            'method_type': 'app', 'phone': {'channel': 'voice'}, 'rule_type': 'low_urgency'}].
     """
 
     notification_rules: list[OnCallNotificationRulePublicV2]

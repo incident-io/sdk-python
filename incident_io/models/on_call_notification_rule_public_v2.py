@@ -6,6 +6,9 @@ from typing import TYPE_CHECKING, Any, Self, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.on_call_notification_rule_public_v2_interruption_level import (
+    OnCallNotificationRulePublicV2InterruptionLevel,
+)
 from ..models.on_call_notification_rule_public_v2_method_type import (
     OnCallNotificationRulePublicV2MethodType,
 )
@@ -34,22 +37,26 @@ class OnCallNotificationRulePublicV2:
     """
     Example:
         {'app': {'push_notification_criticality': 'critical'}, 'delay_seconds': 0, 'id': '01FCNDV6P870EA6S7TK1DSYDG0',
-            'method_target': {'all': {}, 'specific': {'id': '01FCNDV6P870EA6S7TK1DSYDG0'}, 'type': 'specific'},
-            'method_type': 'app', 'phone': {'channel': 'voice'}, 'rule_type': 'low_urgency'}
+            'interruption_level': 'high', 'method_target': {'all': {}, 'specific': {'id': '01FCNDV6P870EA6S7TK1DSYDG0'},
+            'type': 'specific'}, 'method_type': 'app', 'phone': {'channel': 'voice'}, 'rule_type': 'low_urgency'}
 
     Attributes:
         id (str): Unique identifier for this notification rule Example: 01FCNDV6P870EA6S7TK1DSYDG0.
+        interruption_level (OnCallNotificationRulePublicV2InterruptionLevel): The interruption level of the pages this
+            rule applies to: high or low. Example: high.
         method_target (OnCallNotificationRuleMethodTargetPublicV2):  Example: {'all': {}, 'specific': {'id':
             '01FCNDV6P870EA6S7TK1DSYDG0'}, 'type': 'specific'}.
         method_type (OnCallNotificationRulePublicV2MethodType): The high-level type of notification method. Phone rules
             include phone details that distinguish SMS from voice calls. Example: app.
-        rule_type (OnCallNotificationRulePublicV2RuleType): The urgency level this rule applies to Example: low_urgency.
+        rule_type (OnCallNotificationRulePublicV2RuleType): Deprecated: use interruption_level, which always has the
+            same value. Example: low_urgency.
         app (OnCallNotificationRuleAppDetailsPublicV2 | Unset):  Example: {'push_notification_criticality': 'critical'}.
         delay_seconds (int | Unset): Delay in seconds before this rule activates. 0 means immediate. Example: 0.
         phone (OnCallNotificationRulePhoneDetailsPublicV2 | Unset):  Example: {'channel': 'voice'}.
     """
 
     id: str
+    interruption_level: OnCallNotificationRulePublicV2InterruptionLevel
     method_target: OnCallNotificationRuleMethodTargetPublicV2
     method_type: OnCallNotificationRulePublicV2MethodType
     rule_type: OnCallNotificationRulePublicV2RuleType
@@ -60,6 +67,8 @@ class OnCallNotificationRulePublicV2:
 
     def to_dict(self) -> dict[str, Any]:
         id = self.id
+
+        interruption_level = self.interruption_level.value
 
         method_target = self.method_target.to_dict()
 
@@ -82,6 +91,7 @@ class OnCallNotificationRulePublicV2:
         field_dict.update(
             {
                 "id": id,
+                "interruption_level": interruption_level,
                 "method_target": method_target,
                 "method_type": method_type,
                 "rule_type": rule_type,
@@ -111,6 +121,10 @@ class OnCallNotificationRulePublicV2:
         d = dict(src_dict)
         id = d.pop("id")
 
+        interruption_level = OnCallNotificationRulePublicV2InterruptionLevel(
+            d.pop("interruption_level")
+        )
+
         method_target = OnCallNotificationRuleMethodTargetPublicV2.from_dict(
             d.pop("method_target")
         )
@@ -137,6 +151,7 @@ class OnCallNotificationRulePublicV2:
 
         on_call_notification_rule_public_v2 = cls(
             id=id,
+            interruption_level=interruption_level,
             method_target=method_target,
             method_type=method_type,
             rule_type=rule_type,

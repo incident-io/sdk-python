@@ -125,7 +125,8 @@ def sync_detailed(
     """ListNotificationRules Users V2
 
      List notification rules for a user. Rules define how and when a user is notified for on-call pages.
-    Only includes high_urgency and low_urgency rules; shift_changes rules are not returned.
+    Each rule applies to pages at one interruption level, high or low. Only includes rules for pages;
+    shift_changes rules are not returned.
 
     Args:
         user_id (str): The ID of the user whose notification rules you want to list. Example:
@@ -158,7 +159,8 @@ def sync(
     """ListNotificationRules Users V2
 
      List notification rules for a user. Rules define how and when a user is notified for on-call pages.
-    Only includes high_urgency and low_urgency rules; shift_changes rules are not returned.
+    Each rule applies to pages at one interruption level, high or low. Only includes rules for pages;
+    shift_changes rules are not returned.
 
     Args:
         user_id (str): The ID of the user whose notification rules you want to list. Example:
@@ -186,7 +188,8 @@ async def asyncio_detailed(
     """ListNotificationRules Users V2
 
      List notification rules for a user. Rules define how and when a user is notified for on-call pages.
-    Only includes high_urgency and low_urgency rules; shift_changes rules are not returned.
+    Each rule applies to pages at one interruption level, high or low. Only includes rules for pages;
+    shift_changes rules are not returned.
 
     Args:
         user_id (str): The ID of the user whose notification rules you want to list. Example:
@@ -217,7 +220,8 @@ async def asyncio(
     """ListNotificationRules Users V2
 
      List notification rules for a user. Rules define how and when a user is notified for on-call pages.
-    Only includes high_urgency and low_urgency rules; shift_changes rules are not returned.
+    Each rule applies to pages at one interruption level, high or low. Only includes rules for pages;
+    shift_changes rules are not returned.
 
     Args:
         user_id (str): The ID of the user whose notification rules you want to list. Example:

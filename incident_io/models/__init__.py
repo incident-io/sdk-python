@@ -2543,6 +2543,9 @@ from .on_call_notification_rule_phone_details_public_v2_channel import (
     OnCallNotificationRulePhoneDetailsPublicV2Channel,
 )
 from .on_call_notification_rule_public_v2 import OnCallNotificationRulePublicV2
+from .on_call_notification_rule_public_v2_interruption_level import (
+    OnCallNotificationRulePublicV2InterruptionLevel,
+)
 from .on_call_notification_rule_public_v2_method_type import (
     OnCallNotificationRulePublicV2MethodType,
 )
@@ -4905,6 +4908,7 @@ __all__ = (
     "OnCallNotificationRulePhoneDetailsPublicV2",
     "OnCallNotificationRulePhoneDetailsPublicV2Channel",
     "OnCallNotificationRulePublicV2",
+    "OnCallNotificationRulePublicV2InterruptionLevel",
     "OnCallNotificationRulePublicV2MethodType",
     "OnCallNotificationRulePublicV2RuleType",
     "PaginationMetaResultV1",
