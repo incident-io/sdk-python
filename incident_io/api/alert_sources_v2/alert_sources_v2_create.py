@@ -130,7 +130,8 @@ def sync_detailed(
      Create a new alert source in your account.
 
     Args:
-        body (AlertSourcesCreatePayloadV2):  Example: {'auto_resolve_incident_alerts': False,
+        body (AlertSourcesCreatePayloadV2):  Example: {'alertmanager_options':
+            {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
             'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids':
             ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options':
             {'redactions': ['credit_card_numbers'], 'transform_expression': "return {\\n  title:
@@ -204,7 +205,8 @@ def sync(
      Create a new alert source in your account.
 
     Args:
-        body (AlertSourcesCreatePayloadV2):  Example: {'auto_resolve_incident_alerts': False,
+        body (AlertSourcesCreatePayloadV2):  Example: {'alertmanager_options':
+            {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
             'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids':
             ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options':
             {'redactions': ['credit_card_numbers'], 'transform_expression': "return {\\n  title:
@@ -273,7 +275,8 @@ async def asyncio_detailed(
      Create a new alert source in your account.
 
     Args:
-        body (AlertSourcesCreatePayloadV2):  Example: {'auto_resolve_incident_alerts': False,
+        body (AlertSourcesCreatePayloadV2):  Example: {'alertmanager_options':
+            {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
             'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids':
             ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options':
             {'redactions': ['credit_card_numbers'], 'transform_expression': "return {\\n  title:
@@ -345,7 +348,8 @@ async def asyncio(
      Create a new alert source in your account.
 
     Args:
-        body (AlertSourcesCreatePayloadV2):  Example: {'auto_resolve_incident_alerts': False,
+        body (AlertSourcesCreatePayloadV2):  Example: {'alertmanager_options':
+            {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
             'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids':
             ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options':
             {'redactions': ['credit_card_numbers'], 'transform_expression': "return {\\n  title:

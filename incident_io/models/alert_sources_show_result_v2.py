@@ -18,16 +18,17 @@ class AlertSourcesShowResultV2:
     """
     Example:
         {'alert_source': {'alert_events_url': 'https://api.incident.io/v2/alert_events/http/01GW2G3V0S59R238FAHPDS1R66',
-            'auto_resolve_incident_alerts': False, 'auto_resolve_timeout_minutes': 1, 'azure_devops_options':
-            {'project_ids': ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options':
-            {'email_address': 'lawrence@example.com', 'redactions': ['credit_card_numbers'], 'transform_expression': "return
-            {\\n  title: $.subject,\\n  description: $.text,\\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' :
-            'firing',\\n  deduplication_key: $.header_message_id,\\n}"}, 'filter_condition_groups': [{'conditions':
-            [{'operation': {'label': 'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings':
-            [{'array_value': [{'label': 'Lawrence Jones', 'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
-            {'label': 'Lawrence Jones', 'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject': {'label':
-            'Incident Severity', 'reference': 'incident.severity'}}]}], 'fixed_team_id': '01G0J1EXE7AXZ2C93K61WBPYEH',
-            'heartbeat_options': {'failure_threshold': 1, 'grace_period_seconds': 0, 'interval_seconds': 60, 'ping_url':
+            'alertmanager_options': {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
+            'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids': ['01GBSQF3FHF7FWZQNWGHAVQ804',
+            'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options': {'email_address': 'lawrence@example.com',
+            'redactions': ['credit_card_numbers'], 'transform_expression': "return {\\n  title: $.subject,\\n  description:
+            $.text,\\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\\n  deduplication_key:
+            $.header_message_id,\\n}"}, 'filter_condition_groups': [{'conditions': [{'operation': {'label': 'Lawrence
+            Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'label': 'Lawrence Jones',
+            'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones', 'literal':
+            'SEV123', 'reference': 'incident.severity'}}], 'subject': {'label': 'Incident Severity', 'reference':
+            'incident.severity'}}]}], 'fixed_team_id': '01G0J1EXE7AXZ2C93K61WBPYEH', 'heartbeat_options':
+            {'failure_threshold': 1, 'grace_period_seconds': 0, 'interval_seconds': 60, 'ping_url':
             'https://api.incident.io/v2/heartbeat/01GW2G3V0S59R238FAHPDS1R66/ping'}, 'http_custom_options':
             {'deduplication_key_path': '$.alert_id', 'transform_expression': "return {\\n  title: $.title || $.name ||
             'Unknown Alert',\\n  status: $.status === 'resolved' ? 'resolved' : 'firing',\\n  description: $.description ||
@@ -65,15 +66,16 @@ class AlertSourcesShowResultV2:
 
     Attributes:
         alert_source (AlertSourceV2):  Example: {'alert_events_url':
-            'https://api.incident.io/v2/alert_events/http/01GW2G3V0S59R238FAHPDS1R66', 'auto_resolve_incident_alerts':
-            False, 'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids': ['01GBSQF3FHF7FWZQNWGHAVQ804',
-            'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options': {'email_address': 'lawrence@example.com',
-            'redactions': ['credit_card_numbers'], 'transform_expression': "return {\\n  title: $.subject,\\n  description:
-            $.text,\\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\\n  deduplication_key:
-            $.header_message_id,\\n}"}, 'filter_condition_groups': [{'conditions': [{'operation': {'label': 'Lawrence
-            Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'label': 'Lawrence Jones',
-            'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones', 'literal':
-            'SEV123', 'reference': 'incident.severity'}}], 'subject': {'label': 'Incident Severity', 'reference':
+            'https://api.incident.io/v2/alert_events/http/01GW2G3V0S59R238FAHPDS1R66', 'alertmanager_options':
+            {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False, 'auto_resolve_timeout_minutes': 1,
+            'azure_devops_options': {'project_ids': ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']},
+            'email_options': {'email_address': 'lawrence@example.com', 'redactions': ['credit_card_numbers'],
+            'transform_expression': "return {\\n  title: $.subject,\\n  description: $.text,\\n  status:
+            $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\\n  deduplication_key: $.header_message_id,\\n}"},
+            'filter_condition_groups': [{'conditions': [{'operation': {'label': 'Lawrence Jones', 'value':
+            '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'label': 'Lawrence Jones', 'literal':
+            'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones', 'literal': 'SEV123',
+            'reference': 'incident.severity'}}], 'subject': {'label': 'Incident Severity', 'reference':
             'incident.severity'}}]}], 'fixed_team_id': '01G0J1EXE7AXZ2C93K61WBPYEH', 'heartbeat_options':
             {'failure_threshold': 1, 'grace_period_seconds': 0, 'interval_seconds': 60, 'ping_url':
             'https://api.incident.io/v2/heartbeat/01GW2G3V0S59R238FAHPDS1R66/ping'}, 'http_custom_options':

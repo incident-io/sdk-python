@@ -272,6 +272,7 @@ from .alert_rules_update_result_v3 import AlertRulesUpdateResultV3
 from .alert_rules_v3_list_kind import AlertRulesV3ListKind
 from .alert_slim_v2 import AlertSlimV2
 from .alert_slim_v2_status import AlertSlimV2Status
+from .alert_source_alertmanager_options_v2 import AlertSourceAlertmanagerOptionsV2
 from .alert_source_azure_devops_options_v2 import AlertSourceAzureDevopsOptionsV2
 from .alert_source_email_options_payload_v2 import AlertSourceEmailOptionsPayloadV2
 from .alert_source_email_options_payload_v2_redactions_item import (
@@ -3614,6 +3615,7 @@ __all__ = (
     "AlertRulesV3ListKind",
     "AlertSlimV2",
     "AlertSlimV2Status",
+    "AlertSourceAlertmanagerOptionsV2",
     "AlertSourceAzureDevopsOptionsV2",
     "AlertSourceEmailOptionsPayloadV2",
     "AlertSourceEmailOptionsPayloadV2RedactionsItem",

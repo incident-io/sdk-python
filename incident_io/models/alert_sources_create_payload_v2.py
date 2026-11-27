@@ -12,6 +12,9 @@ from ..models.alert_sources_create_payload_v2_source_type import (
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.alert_source_alertmanager_options_v2 import (
+        AlertSourceAlertmanagerOptionsV2,
+    )
     from ..models.alert_source_azure_devops_options_v2 import (
         AlertSourceAzureDevopsOptionsV2,
     )
@@ -39,19 +42,20 @@ T = TypeVar("T", bound="AlertSourcesCreatePayloadV2")
 class AlertSourcesCreatePayloadV2:
     """
     Example:
-        {'auto_resolve_incident_alerts': False, 'auto_resolve_timeout_minutes': 1, 'azure_devops_options':
-            {'project_ids': ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options':
-            {'redactions': ['credit_card_numbers'], 'transform_expression': "return {\\n  title: $.subject,\\n  description:
-            $.text,\\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\\n  deduplication_key:
-            $.header_message_id,\\n}"}, 'filter_condition_groups': [{'conditions': [{'operation': 'one_of',
-            'param_bindings': [{'array_value': [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
-            {'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject': 'incident.severity'}]}], 'fixed_team_id':
-            '01G0J1EXE7AXZ2C93K61WBPYEH', 'heartbeat_options': {'failure_threshold': 1, 'grace_period_seconds': 0,
-            'interval_seconds': 60}, 'http_custom_options': {'deduplication_key_path': '$.alert_id', 'transform_expression':
-            "return {\\n  title: $.title || $.name || 'Unknown Alert',\\n  status: $.status === 'resolved' ? 'resolved' :
-            'firing',\\n  description: $.description || $.message || '',\\n  sourceURL: $.url || $.link || '',\\n  metadata:
-            { team: $.team, severity: $.severity }\\n}"}, 'jira_options': {'project_ids': ['01GBSQF3FHF7FWZQNWGHAVQ804',
-            '10043']}, 'name': 'Production Web Dashboard Alerts', 'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'],
+        {'alertmanager_options': {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
+            'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids': ['01GBSQF3FHF7FWZQNWGHAVQ804',
+            'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options': {'redactions': ['credit_card_numbers'],
+            'transform_expression': "return {\\n  title: $.subject,\\n  description: $.text,\\n  status:
+            $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\\n  deduplication_key: $.header_message_id,\\n}"},
+            'filter_condition_groups': [{'conditions': [{'operation': 'one_of', 'param_bindings': [{'array_value':
+            [{'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'literal': 'SEV123', 'reference':
+            'incident.severity'}}], 'subject': 'incident.severity'}]}], 'fixed_team_id': '01G0J1EXE7AXZ2C93K61WBPYEH',
+            'heartbeat_options': {'failure_threshold': 1, 'grace_period_seconds': 0, 'interval_seconds': 60},
+            'http_custom_options': {'deduplication_key_path': '$.alert_id', 'transform_expression': "return {\\n  title:
+            $.title || $.name || 'Unknown Alert',\\n  status: $.status === 'resolved' ? 'resolved' : 'firing',\\n
+            description: $.description || $.message || '',\\n  sourceURL: $.url || $.link || '',\\n  metadata: { team:
+            $.team, severity: $.severity }\\n}"}, 'jira_options': {'project_ids': ['01GBSQF3FHF7FWZQNWGHAVQ804', '10043']},
+            'name': 'Production Web Dashboard Alerts', 'owning_team_ids': ['01G0J1EXE7AXZ2C93K61WBPYEH'],
             'rate_limit_sharding': {'rate_limit_shard_key_path': '$.priority'}, 'source_type': 'alertmanager', 'template':
             {'attributes': [{'alert_attribute_id': 'abc123', 'binding': {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'merge_strategy': 'first_wins', 'value': {'literal': 'SEV123', 'reference':
@@ -97,6 +101,7 @@ class AlertSourcesCreatePayloadV2:
             'root_reference': 'incident.status'}], 'is_private': False, 'title': {'literal': 'SEV123', 'reference':
             'incident.severity'}, 'visible_to_teams': {'array_value': [{'literal': 'SEV123', 'reference':
             'incident.severity'}], 'value': {'literal': 'SEV123', 'reference': 'incident.severity'}}}.
+        alertmanager_options (AlertSourceAlertmanagerOptionsV2 | Unset):  Example: {'one_alert_per_group': True}.
         auto_resolve_incident_alerts (bool | Unset): Whether alerts from this source keep counting down to auto-resolve
             while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes. Example:
             False.
@@ -133,6 +138,7 @@ class AlertSourcesCreatePayloadV2:
     name: str
     source_type: AlertSourcesCreatePayloadV2SourceType
     template: AlertTemplatePayloadV2
+    alertmanager_options: AlertSourceAlertmanagerOptionsV2 | Unset = UNSET
     auto_resolve_incident_alerts: bool | Unset = UNSET
     auto_resolve_timeout_minutes: int | Unset = UNSET
     azure_devops_options: AlertSourceAzureDevopsOptionsV2 | Unset = UNSET
@@ -152,6 +158,10 @@ class AlertSourcesCreatePayloadV2:
         source_type = self.source_type.value
 
         template = self.template.to_dict()
+
+        alertmanager_options: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.alertmanager_options, Unset):
+            alertmanager_options = self.alertmanager_options.to_dict()
 
         auto_resolve_incident_alerts = self.auto_resolve_incident_alerts
 
@@ -205,6 +215,8 @@ class AlertSourcesCreatePayloadV2:
                 "template": template,
             }
         )
+        if alertmanager_options is not UNSET:
+            field_dict["alertmanager_options"] = alertmanager_options
         if auto_resolve_incident_alerts is not UNSET:
             field_dict["auto_resolve_incident_alerts"] = auto_resolve_incident_alerts
         if auto_resolve_timeout_minutes is not UNSET:
@@ -232,6 +244,9 @@ class AlertSourcesCreatePayloadV2:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        from ..models.alert_source_alertmanager_options_v2 import (
+            AlertSourceAlertmanagerOptionsV2,
+        )
         from ..models.alert_source_azure_devops_options_v2 import (
             AlertSourceAzureDevopsOptionsV2,
         )
@@ -263,6 +278,15 @@ class AlertSourcesCreatePayloadV2:
         source_type = AlertSourcesCreatePayloadV2SourceType(d.pop("source_type"))
 
         template = AlertTemplatePayloadV2.from_dict(d.pop("template"))
+
+        _alertmanager_options = d.pop("alertmanager_options", UNSET)
+        alertmanager_options: AlertSourceAlertmanagerOptionsV2 | Unset
+        if isinstance(_alertmanager_options, Unset):
+            alertmanager_options = UNSET
+        else:
+            alertmanager_options = AlertSourceAlertmanagerOptionsV2.from_dict(
+                _alertmanager_options
+            )
 
         auto_resolve_incident_alerts = d.pop("auto_resolve_incident_alerts", UNSET)
 
@@ -337,6 +361,7 @@ class AlertSourcesCreatePayloadV2:
             name=name,
             source_type=source_type,
             template=template,
+            alertmanager_options=alertmanager_options,
             auto_resolve_incident_alerts=auto_resolve_incident_alerts,
             auto_resolve_timeout_minutes=auto_resolve_timeout_minutes,
             azure_devops_options=azure_devops_options,

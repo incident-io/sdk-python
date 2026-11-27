@@ -8102,6 +8102,8 @@ model AlertSlimV2.source_url
 model AlertSlimV2.status
 model AlertSlimV2.title
 model AlertSlimV2.updated_at
+model AlertSourceAlertmanagerOptionsV2.additional_properties
+model AlertSourceAlertmanagerOptionsV2.one_alert_per_group
 model AlertSourceAzureDevopsOptionsV2.additional_properties
 model AlertSourceAzureDevopsOptionsV2.project_ids
 model AlertSourceEmailOptionsPayloadV2.additional_properties
@@ -8129,6 +8131,7 @@ model AlertSourceRateLimitShardingV2.additional_properties
 model AlertSourceRateLimitShardingV2.rate_limit_shard_key_path
 model AlertSourceV2.additional_properties
 model AlertSourceV2.alert_events_url
+model AlertSourceV2.alertmanager_options
 model AlertSourceV2.auto_resolve_incident_alerts
 model AlertSourceV2.auto_resolve_timeout_minutes
 model AlertSourceV2.azure_devops_options
@@ -8146,6 +8149,7 @@ model AlertSourceV2.secret_token
 model AlertSourceV2.source_type
 model AlertSourceV2.template
 model AlertSourcesCreatePayloadV2.additional_properties
+model AlertSourcesCreatePayloadV2.alertmanager_options
 model AlertSourcesCreatePayloadV2.auto_resolve_incident_alerts
 model AlertSourcesCreatePayloadV2.auto_resolve_timeout_minutes
 model AlertSourcesCreatePayloadV2.azure_devops_options
@@ -8167,6 +8171,7 @@ model AlertSourcesListResultV2.alert_sources
 model AlertSourcesShowResultV2.additional_properties
 model AlertSourcesShowResultV2.alert_source
 model AlertSourcesUpdatePayloadV2.additional_properties
+model AlertSourcesUpdatePayloadV2.alertmanager_options
 model AlertSourcesUpdatePayloadV2.auto_resolve_incident_alerts
 model AlertSourcesUpdatePayloadV2.auto_resolve_timeout_minutes
 model AlertSourcesUpdatePayloadV2.azure_devops_options

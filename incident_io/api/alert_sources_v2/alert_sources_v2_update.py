@@ -136,7 +136,8 @@ def sync_detailed(
 
     Args:
         id (str): The ID of this alert source Example: 01GW2G3V0S59R238FAHPDS1R66.
-        body (AlertSourcesUpdatePayloadV2):  Example: {'auto_resolve_incident_alerts': False,
+        body (AlertSourcesUpdatePayloadV2):  Example: {'alertmanager_options':
+            {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
             'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids':
             ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'disabled':
             False, 'email_options': {'redactions': ['credit_card_numbers'], 'transform_expression':
@@ -213,7 +214,8 @@ def sync(
 
     Args:
         id (str): The ID of this alert source Example: 01GW2G3V0S59R238FAHPDS1R66.
-        body (AlertSourcesUpdatePayloadV2):  Example: {'auto_resolve_incident_alerts': False,
+        body (AlertSourcesUpdatePayloadV2):  Example: {'alertmanager_options':
+            {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
             'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids':
             ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'disabled':
             False, 'email_options': {'redactions': ['credit_card_numbers'], 'transform_expression':
@@ -285,7 +287,8 @@ async def asyncio_detailed(
 
     Args:
         id (str): The ID of this alert source Example: 01GW2G3V0S59R238FAHPDS1R66.
-        body (AlertSourcesUpdatePayloadV2):  Example: {'auto_resolve_incident_alerts': False,
+        body (AlertSourcesUpdatePayloadV2):  Example: {'alertmanager_options':
+            {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
             'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids':
             ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'disabled':
             False, 'email_options': {'redactions': ['credit_card_numbers'], 'transform_expression':
@@ -360,7 +363,8 @@ async def asyncio(
 
     Args:
         id (str): The ID of this alert source Example: 01GW2G3V0S59R238FAHPDS1R66.
-        body (AlertSourcesUpdatePayloadV2):  Example: {'auto_resolve_incident_alerts': False,
+        body (AlertSourcesUpdatePayloadV2):  Example: {'alertmanager_options':
+            {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
             'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids':
             ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'disabled':
             False, 'email_options': {'redactions': ['credit_card_numbers'], 'transform_expression':

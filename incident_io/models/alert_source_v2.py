@@ -10,6 +10,9 @@ from ..models.alert_source_v2_source_type import AlertSourceV2SourceType
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.alert_source_alertmanager_options_v2 import (
+        AlertSourceAlertmanagerOptionsV2,
+    )
     from ..models.alert_source_azure_devops_options_v2 import (
         AlertSourceAzureDevopsOptionsV2,
     )
@@ -34,16 +37,17 @@ class AlertSourceV2:
     """
     Example:
         {'alert_events_url': 'https://api.incident.io/v2/alert_events/http/01GW2G3V0S59R238FAHPDS1R66',
-            'auto_resolve_incident_alerts': False, 'auto_resolve_timeout_minutes': 1, 'azure_devops_options':
-            {'project_ids': ['01GBSQF3FHF7FWZQNWGHAVQ804', 'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options':
-            {'email_address': 'lawrence@example.com', 'redactions': ['credit_card_numbers'], 'transform_expression': "return
-            {\\n  title: $.subject,\\n  description: $.text,\\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' :
-            'firing',\\n  deduplication_key: $.header_message_id,\\n}"}, 'filter_condition_groups': [{'conditions':
-            [{'operation': {'label': 'Lawrence Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings':
-            [{'array_value': [{'label': 'Lawrence Jones', 'literal': 'SEV123', 'reference': 'incident.severity'}], 'value':
-            {'label': 'Lawrence Jones', 'literal': 'SEV123', 'reference': 'incident.severity'}}], 'subject': {'label':
-            'Incident Severity', 'reference': 'incident.severity'}}]}], 'fixed_team_id': '01G0J1EXE7AXZ2C93K61WBPYEH',
-            'heartbeat_options': {'failure_threshold': 1, 'grace_period_seconds': 0, 'interval_seconds': 60, 'ping_url':
+            'alertmanager_options': {'one_alert_per_group': True}, 'auto_resolve_incident_alerts': False,
+            'auto_resolve_timeout_minutes': 1, 'azure_devops_options': {'project_ids': ['01GBSQF3FHF7FWZQNWGHAVQ804',
+            'ba038695-f5f7-4490-a9ea-bf4ab3cbf483']}, 'email_options': {'email_address': 'lawrence@example.com',
+            'redactions': ['credit_card_numbers'], 'transform_expression': "return {\\n  title: $.subject,\\n  description:
+            $.text,\\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\\n  deduplication_key:
+            $.header_message_id,\\n}"}, 'filter_condition_groups': [{'conditions': [{'operation': {'label': 'Lawrence
+            Jones', 'value': '01FCQSP07Z74QMMYPDDGQB9FTG'}, 'param_bindings': [{'array_value': [{'label': 'Lawrence Jones',
+            'literal': 'SEV123', 'reference': 'incident.severity'}], 'value': {'label': 'Lawrence Jones', 'literal':
+            'SEV123', 'reference': 'incident.severity'}}], 'subject': {'label': 'Incident Severity', 'reference':
+            'incident.severity'}}]}], 'fixed_team_id': '01G0J1EXE7AXZ2C93K61WBPYEH', 'heartbeat_options':
+            {'failure_threshold': 1, 'grace_period_seconds': 0, 'interval_seconds': 60, 'ping_url':
             'https://api.incident.io/v2/heartbeat/01GW2G3V0S59R238FAHPDS1R66/ping'}, 'http_custom_options':
             {'deduplication_key_path': '$.alert_id', 'transform_expression': "return {\\n  title: $.title || $.name ||
             'Unknown Alert',\\n  status: $.status === 'resolved' ? 'resolved' : 'firing',\\n  description: $.description ||
@@ -114,6 +118,7 @@ class AlertSourceV2:
             sources that accept webhook/HTTP events; email sources use the email_address field, and integration-based
             sources (like Jira) receive events through their native integrations. Example:
             https://api.incident.io/v2/alert_events/http/01GW2G3V0S59R238FAHPDS1R66.
+        alertmanager_options (AlertSourceAlertmanagerOptionsV2 | Unset):  Example: {'one_alert_per_group': True}.
         auto_resolve_incident_alerts (bool | Unset): Whether alerts from this source keep counting down to auto-resolve
             while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes. Example:
             False.
@@ -157,6 +162,7 @@ class AlertSourceV2:
     source_type: AlertSourceV2SourceType
     template: AlertTemplateV2
     alert_events_url: str | Unset = UNSET
+    alertmanager_options: AlertSourceAlertmanagerOptionsV2 | Unset = UNSET
     auto_resolve_incident_alerts: bool | Unset = UNSET
     auto_resolve_timeout_minutes: int | Unset = UNSET
     azure_devops_options: AlertSourceAzureDevopsOptionsV2 | Unset = UNSET
@@ -181,6 +187,10 @@ class AlertSourceV2:
         template = self.template.to_dict()
 
         alert_events_url = self.alert_events_url
+
+        alertmanager_options: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.alertmanager_options, Unset):
+            alertmanager_options = self.alertmanager_options.to_dict()
 
         auto_resolve_incident_alerts = self.auto_resolve_incident_alerts
 
@@ -239,6 +249,8 @@ class AlertSourceV2:
         )
         if alert_events_url is not UNSET:
             field_dict["alert_events_url"] = alert_events_url
+        if alertmanager_options is not UNSET:
+            field_dict["alertmanager_options"] = alertmanager_options
         if auto_resolve_incident_alerts is not UNSET:
             field_dict["auto_resolve_incident_alerts"] = auto_resolve_incident_alerts
         if auto_resolve_timeout_minutes is not UNSET:
@@ -268,6 +280,9 @@ class AlertSourceV2:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        from ..models.alert_source_alertmanager_options_v2 import (
+            AlertSourceAlertmanagerOptionsV2,
+        )
         from ..models.alert_source_azure_devops_options_v2 import (
             AlertSourceAzureDevopsOptionsV2,
         )
@@ -299,6 +314,15 @@ class AlertSourceV2:
         template = AlertTemplateV2.from_dict(d.pop("template"))
 
         alert_events_url = d.pop("alert_events_url", UNSET)
+
+        _alertmanager_options = d.pop("alertmanager_options", UNSET)
+        alertmanager_options: AlertSourceAlertmanagerOptionsV2 | Unset
+        if isinstance(_alertmanager_options, Unset):
+            alertmanager_options = UNSET
+        else:
+            alertmanager_options = AlertSourceAlertmanagerOptionsV2.from_dict(
+                _alertmanager_options
+            )
 
         auto_resolve_incident_alerts = d.pop("auto_resolve_incident_alerts", UNSET)
 
@@ -377,6 +401,7 @@ class AlertSourceV2:
             source_type=source_type,
             template=template,
             alert_events_url=alert_events_url,
+            alertmanager_options=alertmanager_options,
             auto_resolve_incident_alerts=auto_resolve_incident_alerts,
             auto_resolve_timeout_minutes=auto_resolve_timeout_minutes,
             azure_devops_options=azure_devops_options,
