@@ -1682,6 +1682,7 @@ from .call_sessions_list_result_v2 import CallSessionsListResultV2
 from .call_transcript_entries_list_result_v2 import CallTranscriptEntriesListResultV2
 from .call_transcript_entry_v2 import CallTranscriptEntryV2
 from .call_transcript_entry_v2_medium import CallTranscriptEntryV2Medium
+from .catalog_bulk_archive_entries_payload_v3 import CatalogBulkArchiveEntriesPayloadV3
 from .catalog_bulk_update_entries_payload_v3 import CatalogBulkUpdateEntriesPayloadV3
 from .catalog_create_entry_payload_v2 import CatalogCreateEntryPayloadV2
 from .catalog_create_entry_payload_v2_attribute_values import (
@@ -4310,6 +4311,7 @@ __all__ = (
     "CallTranscriptEntriesListResultV2",
     "CallTranscriptEntryV2",
     "CallTranscriptEntryV2Medium",
+    "CatalogBulkArchiveEntriesPayloadV3",
     "CatalogBulkUpdateEntriesPayloadV3",
     "CatalogCreateEntryPayloadV2",
     "CatalogCreateEntryPayloadV2AttributeValues",

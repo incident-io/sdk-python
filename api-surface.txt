@@ -1146,6 +1146,14 @@ endpoint incident_io.api.catalog_v2.catalog_v2_update_type_schema.sync id
 endpoint incident_io.api.catalog_v2.catalog_v2_update_type_schema.sync_detailed body
 endpoint incident_io.api.catalog_v2.catalog_v2_update_type_schema.sync_detailed client
 endpoint incident_io.api.catalog_v2.catalog_v2_update_type_schema.sync_detailed id
+endpoint incident_io.api.catalog_v3.catalog_v3_bulk_archive_entries.asyncio body
+endpoint incident_io.api.catalog_v3.catalog_v3_bulk_archive_entries.asyncio client
+endpoint incident_io.api.catalog_v3.catalog_v3_bulk_archive_entries.asyncio_detailed body
+endpoint incident_io.api.catalog_v3.catalog_v3_bulk_archive_entries.asyncio_detailed client
+endpoint incident_io.api.catalog_v3.catalog_v3_bulk_archive_entries.sync body
+endpoint incident_io.api.catalog_v3.catalog_v3_bulk_archive_entries.sync client
+endpoint incident_io.api.catalog_v3.catalog_v3_bulk_archive_entries.sync_detailed body
+endpoint incident_io.api.catalog_v3.catalog_v3_bulk_archive_entries.sync_detailed client
 endpoint incident_io.api.catalog_v3.catalog_v3_bulk_update_entries.asyncio body
 endpoint incident_io.api.catalog_v3.catalog_v3_bulk_update_entries.asyncio client
 endpoint incident_io.api.catalog_v3.catalog_v3_bulk_update_entries.asyncio_detailed body
@@ -12328,6 +12336,9 @@ model CallTranscriptEntryV2.id
 model CallTranscriptEntryV2.medium
 model CallTranscriptEntryV2.participant_name
 model CallTranscriptEntryV2.timestamp
+model CatalogBulkArchiveEntriesPayloadV3.additional_properties
+model CatalogBulkArchiveEntriesPayloadV3.catalog_type_id
+model CatalogBulkArchiveEntriesPayloadV3.entry_ids
 model CatalogBulkUpdateEntriesPayloadV3.additional_properties
 model CatalogBulkUpdateEntriesPayloadV3.catalog_type_id
 model CatalogBulkUpdateEntriesPayloadV3.entries
